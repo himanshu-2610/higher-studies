@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>My Website</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="top-header">
+        <div class="header-container">
+            <!-- CENTERED LOGO + TEXT GROUP -->
+            <div class="header-center">
+                <!-- Left Logos -->
+                <div class="logo-group">
+                    <img src="images/pccoe.jpg" alt="PCCOE" style="height: 100px;">
+                </div>
+                <!-- Text -->
+                <div class="header-text" style="margin-left: -150px;">
+                    <h4 style="color: #27c3e6; margin-bottom: 5px">PIMPRI CHINCHWAD EDUCATIONAL TRUST's</h4>
+                    <h1 style="letter-spacing: 0.4px; font-weight: 5000;">PIMPRI CHINCHWAD COLLEGE OF ENGINEERING</h1>
+                    <p class="subtitle">
+                        NBA Accredited | NAAC Accredited with 'A' Grade | An Autonomous Institute | AICTE Approved | ISO 21001:2018 Certified | Permanently Affiliated to SPPU, Pune
+                    </p>
+                    <h2>Higher Education and Competitive Exam Cell (विजिगीषा)</h2>
+                </div>
+                <!-- Right Logos -->
+                <div class="logo-group" style="margin-left: -150px; height: 70px;">
+                    <img src="images/ai.png" alt="AICTE">
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Updates Bar -->
+    <div class="updates-bar">
+        <span class="updates-label">UPDATES</span>
+        <marquee>
+            📌 Higher Education and Competitive Exam Cell (विजिगीषा)
+        </marquee>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar" style="margin-top: 180px;">
+        <div class="navbar-container">
+            <!-- Menu Toggle for Mobile -->
+            <button class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <!-- Navbar Links -->
+            <ul class="navbar-links" id="navbarLinks">
+                <li class="nav-item">
+                    <a href="#" class="nav-link active" data-page="home">
+                        <i class="fas fa-home"></i>
+                        <span>Home</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link" data-page="about">
+                        <i class="fas fa-info-circle"></i>
+                        <span>Our Team</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link" data-page="academics">
+                        <i class="fas fa-graduation-cap"></i>
+                        <span>Forums </span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link" data-page="placements">
+                        <i class="fas fa-briefcase"></i>
+                        <span>Student Support</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link" data-page="contact">
+                        <i class="fas fa-envelope"></i>
+                        <span>Alumni</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- DEMO CONTENT -->
+    <div class="demo-container">
+        <!-- Home Page Content -->
+        <div class="page-content active" id="homeContent">
+            <div class="content-section">
+                <h1>Vision</h1>
+                <p>Pimpri Chinchwad College of Engineering (PCCOE) is one of the premier engineering institutes in Pune, Maharashtra. We provide quality education and state-of-the-art facilities to our students.</p>
+                <p>Navigate through different sections using the navbar above to see the active state effect.</p>
+            </div>
+            
+            <!-- Objectives Section Added Here -->
+            <div class="content-section">
+                <section class="objectives-section" id="objectives">
+                    <div class="section-header">
+                        <h2>Our Objectives</h2>
+                        <p>The Higher Education and Competitive Exam Cell (विजिगीषा) is committed to guiding students towards academic excellence and professional success through comprehensive support and resources.</p>
+                    </div>
+
+                    <div class="objectives-grid">
+                        <!-- Objective 1 -->
+                        <div class="objective-card">
+                            <div class="objective-number">01</div>
+                            <div class="card-icon">
+                                <i class="fas fa-user-graduate"></i>
+                            </div>
+                            <div class="card-content">
+                                <h3>Guidance & Mentorship</h3>
+                                <p>To guide and mentor students aspiring for higher education in India and abroad with personalized counseling sessions and roadmap planning.</p>
+                            </div>
+                        </div>
+
+                        <!-- Objective 2 -->
+                        <div class="objective-card">
+                            <div class="objective-number">02</div>
+                            <div class="card-icon">
+                                <i class="fas fa-book-open"></i>
+                            </div>
+                            <div class="card-content">
+                                <h3>Exam Preparation Support</h3>
+                                <p>To provide structured preparation support for competitive examinations such as GATE, GRE, TOEFL, IELTS, CAT, UPSC, MPSC, and other relevant exams.</p>
+                            </div>
+                        </div>
+
+                        <!-- Objective 3 -->
+                        <div class="objective-card">
+                            <div class="objective-number">03</div>
+                            <div class="card-icon">
+                                <i class="fas fa-chalkboard-teacher"></i>
+                            </div>
+                            <div class="card-content">
+                                <h3>Workshops & Seminars</h3>
+                                <p>To organize seminars, expert sessions, workshops, and counselling programs related to postgraduate studies, scholarships, fellowships, and academic pathways.</p>
+                            </div>
+                        </div>
+
+                        <!-- Objective 4 -->
+                        <div class="objective-card">
+                            <div class="objective-number">04</div>
+                            <div class="card-icon">
+                                <i class="fas fa-handshake"></i>
+                            </div>
+                            <div class="card-content">
+                                <h3>University Collaborations</h3>
+                                <p>To facilitate collaboration with universities, training organizations, and industry to enhance student opportunities for advanced studies and competitive readiness.</p>
+                            </div>
+                        </div>
+
+                        <!-- Objective 5 -->
+                        <div class="objective-card">
+                            <div class="objective-number">05</div>
+                            <div class="card-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div class="card-content">
+                                <h3>Student Team Building</h3>
+                                <p>To build and nurture a strong team of motivated students aspiring for higher studies through peer mentoring and collaborative learning groups.</p>
+                            </div>
+                        </div>
+
+                        <!-- Objective 6 -->
+                        <div class="objective-card">
+                            <div class="objective-number">06</div>
+                            <div class="card-icon">
+                                <i class="fas fa-database"></i>
+                            </div>
+                            <div class="card-content">
+                                <h3>Data Management</h3>
+                                <p>To maintain comprehensive data and documentation related to students' higher studies, exam performance, and progression for continuous improvement.</p>
+                            </div>
+                        </div>
+
+                        <!-- Objective 7 -->
+                        <div class="objective-card">
+                            <div class="objective-number">07</div>
+                            <div class="card-icon">
+                                <i class="fas fa-bullhorn"></i>
+                            </div>
+                            <div class="card-content">
+                                <h3>Student Motivation</h3>
+                                <p>To motivate and encourage students to pursue higher education through success stories, alumni interactions, and motivational sessions.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+
+        <!-- About Page Content -->
+        <div class="page-content" id="aboutContent">
+            <div class="content-section">
+                <h1>About PCCOE</h1>
+                <p>Established in 1999, PCCOE has grown to become a center of excellence in engineering education.</p>
+                <p>We offer various undergraduate and postgraduate programs in engineering and technology.</p>
+            </div>
+        </div>
+
+        <!-- Academics Page Content -->
+        <div class="page-content" id="academicsContent">
+            <div class="content-section">
+                <h1>Academics</h1>
+                <p>We offer B.Tech, M.Tech, and Ph.D. programs in various engineering disciplines.</p>
+                <p>Our curriculum is designed to meet industry standards and foster innovation.</p>
+            </div>
+        </div>
+
+        <!-- Research Page Content -->
+        <div class="page-content" id="researchContent">
+            <div class="content-section">
+                <h1>Research & Development</h1>
+                <p>PCCOE encourages research activities with well-equipped labs and funding opportunities.</p>
+                <p>Our faculty and students regularly publish papers in national and international journals.</p>
+            </div>
+        </div>
+
+        <!-- Admissions Page Content -->
+        <div class="page-content" id="admissionsContent">
+            <div class="content-section">
+                <h1>Admissions</h1>
+                <p>Admissions are based on merit through various entrance exams and direct admission processes.</p>
+                <p>Check our admission portal for current openings and eligibility criteria.</p>
+            </div>
+        </div>
+
+        <!-- Placements Page Content -->
+        <div class="page-content" id="placementsContent">
+            <div class="content-section">
+                <h1>Placements</h1>
+                <p>We have an excellent placement record with top companies visiting our campus every year.</p>
+                <p>Our training and placement cell provides comprehensive support to students.</p>
+            </div>
+        </div>
+
+        <!-- Contact Page Content -->
+        <div class="page-content" id="contactContent">
+            <div class="content-section">
+                <h1>Contact Us</h1>
+                <p><strong>Address:</strong> Sector No. 26, Pradhikaran, Nigdi, Pune, Maharashtra 411044</p>
+                <p><strong>Email:</strong> info@pccoepune.org</p>
+                <p><strong>Phone:</strong> +91-20-2765 3786</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-bottom">
+            © 2025 Higher Education and Competitive Exam Cell (विजिगीषा), PCCOE.  
+            All rights reserved. | Designed by Web Team PCCOE
+        </div>
+    </footer>
+
+    <script>
+        // DOM Elements
+        const navLinks = document.querySelectorAll('.nav-link');
+        const navbarLinks = document.getElementById('navbarLinks');
+        const menuToggle = document.getElementById('menuToggle');
+        const pageContents = document.querySelectorAll('.page-content');
+
+        // Function to set active nav item
+        function setActiveNavItem(clickedItem) {
+            // Remove active class from all nav items and links
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                link.parentElement.classList.remove('active');
+            });
+            
+            // Add active class to clicked item
+            clickedItem.classList.add('active');
+            clickedItem.parentElement.classList.add('active');
+            
+            // Update page content visibility
+            const pageId = clickedItem.getAttribute('data-page');
+            updatePageContent(pageId);
+        }
+
+        // Function to update page content
+        function updatePageContent(pageId) {
+            // Hide all page contents
+            pageContents.forEach(content => {
+                content.classList.remove('active');
+            });
+            
+            // Show the selected page content
+            const activeContent = document.getElementById(`${pageId}Content`);
+            if (activeContent) {
+                activeContent.classList.add('active');
+            }
+        }
+
+        // Add click event listeners to nav links
+        navLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                setActiveNavItem(this);
+                
+                // Close mobile menu if open
+                if (window.innerWidth <= 768) {
+                    navbarLinks.classList.remove('active');
+                    menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+                }
+            });
+        });
+
+        // Mobile menu toggle
+        menuToggle.addEventListener('click', function() {
+            navbarLinks.classList.toggle('active');
+            
+            // Change icon based on menu state
+            if (navbarLinks.classList.contains('active')) {
+                this.innerHTML = '<i class="fas fa-times"></i>';
+            } else {
+                this.innerHTML = '<i class="fas fa-bars"></i>';
+            }
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(e) {
+            if (window.innerWidth <= 768) {
+                if (!navbarLinks.contains(e.target) && !menuToggle.contains(e.target)) {
+                    navbarLinks.classList.remove('active');
+                    menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+                }
+            }
+        });
+
+        // Handle window resize
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 768) {
+                navbarLinks.classList.remove('active');
+                menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+            }
+        });
+
+        // Initialize with home page active
+        document.addEventListener('DOMContentLoaded', function() {
+            const homeLink = document.querySelector('.nav-link[data-page="home"]');
+            if (homeLink) {
+                setActiveNavItem(homeLink);
+            }
+
+            // Add scroll animation for objectives
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+
+            // Observe all objective cards
+            document.querySelectorAll('.objective-card').forEach(card => {
+                observer.observe(card);
+            });
+        });
+    </script>
+</body>
+</html>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    width: 100%;
+}
+
+/* ================= HEADER ================= */
+
+.top-header {
+    background-color: #ffffff;
+    border-top: 6px solid #27c3e6;
+    border-left: 6px solid transparent;;
+    border-right: 6px solid transparent;
+    border-image: linear-gradient(to bottom, #27c3e6, #0b3b82) 1;
+}
+
+.header-container {
+    max-width: 1400px;
+    margin: auto;
+    padding: 14px 20px;
+    display: flex;
+    justify-content: center; /* CENTER EVERYTHING */
+}
+
+/* CENTER GROUP */
+.header-center {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* Logos */
+.logo-group {
+    display: flex;
+    gap: 12px;
+}
+
+.logo-group img {
+    height: 80px;
+    object-fit: contain;
+}
+
+
+/* Text */
+.header-text {
+    text-align: center;
+    max-width: 900px;
+    font-weight: bolder;
+}
+
+.header-text h1 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #0b3b82;
+}
+
+.subtitle {
+    font-size: 12px;
+    color: #7b7b7b;
+    margin: 4px 0;
+    font-weight: bolder;
+    padding-left: 22%;
+    padding-right: 22%;
+}
+
+.header-text h2 {
+    font-size: 16px;
+    font-weight: 600;
+    color: #0b3b82;
+}
+
+
+
+/* ================= FOOTER ================= */
+
+.footer {
+    background: #0b2d5b;
+    color: #ffffff;
+    padding: 60px 20px 20px;
+    position: relative;
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.15);
+    padding-top: 15px;
+    text-align: center;
+    font-size: 13px;
+    color: #d0d0d0;
+}
+
+
+
+/* ================= UPDATES BAR ================= */
+
+.updates-bar {
+    background-color: #0b3b82;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    height: 40px;
+    font-size: 14px;
+}
+
+.updates-label {
+    background-color: #f2c300;
+    color: #000;
+    padding: 8px 16px;
+    font-weight: 700;
+    margin-right: 10px;
+    margin-left: 6px;
+}
+
+marquee {
+    flex: 1;
+}
+
+
+
+/* ================= NAVBAR ================= */
+.navbar {
+    background-color: #0b3b82;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 2px 10px #00e0ff;
+}
+
+.navbar-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 20px;
+}
+
+/* Navbar Links */
+.navbar-links {
+    display: flex;
+    list-style: none;
+    gap: 2px;
+}
+
+.nav-item {
+    position: relative;
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: white;
+    text-decoration: none;
+    padding: 18px 24px;
+    font-weight: 600;
+    font-size: 15px;
+    position: relative;
+}
+
+.nav-link i {
+    font-size: 16px;
+}
+
+/* Default state - blue background, white text */
+.nav-link:not(.active):hover {
+    background-color: rgba(39, 195, 230, 0.2);
+}
+
+/* Active state - white background, blue text */
+.nav-link.active {
+    background-color: white;
+    color: #0b3b82;
+    border-left: 5px solid #27c3e6;
+    border-right: 5px solid #27c3e6;   
+    border-top: 4px solid #27c3e6;         
+    position: relative;
+    z-index: 2;
+}
+
+/* Active state border effect */
+.nav-link.active::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: -2px;
+    right: -2px;
+    height: 4px;
+    z-index: 1;
+}
+
+/* Active indicator line */
+.nav-item.active::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: #27c3e6;
+    z-index: 1;
+}
+
+/* Mobile Menu Toggle */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 10px;
+}
+
+/* Content section */
+.content-section {
+    margin-left: -123px;
+    width: 1950px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+}
+
+.content-section h1 {
+    color: #0b3b82;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #27c3e6;
+}
+
+.content-section p {
+    color: #333;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+/* ================= OBJECTIVES SECTION ================= */
+
+.objectives-section {
+    max-width: 1400px;
+    margin: 60px auto;
+    padding: 20px;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.section-header h2 {
+    font-size: 2.5rem;
+    color: #0b3b82;
+    margin-bottom: 15px;
+    position: relative;
+    display: inline-block;
+}
+
+.section-header h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(to right, #27c3e6, #0b3b82);
+    border-radius: 2px;
+}
+
+.section-header p {
+    font-size: 1.1rem;
+    color: #666;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* Objectives Grid */
+.objectives-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+}
+
+/* Objective Card */
+.objective-card {
+    background: white;
+    border-radius: 16px;
+    padding: 32px;
+    box-shadow: 0 8px 30px rgba(11, 59, 130, 0.08);
+    transition: all 0.3s ease;
+    border-left: 5px solid transparent;
+    position: relative;
+    overflow: hidden;
+    animation: fadeInUp 0.6s ease forwards;
+    opacity: 0;
+}
+
+.objective-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 40px rgba(11, 59, 130, 0.12);
+    border-left: 5px solid #27c3e6;
+}
+
+.objective-card:nth-child(1):hover { border-left-color: #27c3e6; }
+.objective-card:nth-child(2):hover { border-left-color: #0b3b82; }
+.objective-card:nth-child(3):hover { border-left-color: #27c3e6; }
+.objective-card:nth-child(4):hover { border-left-color: #0b3b82; }
+.objective-card:nth-child(5):hover { border-left-color: #27c3e6; }
+.objective-card:nth-child(6):hover { border-left-color: #0b3b82; }
+.objective-card:nth-child(7):hover { border-left-color: #27c3e6; }
+
+/* Animation delays */
+.objective-card:nth-child(1) { animation-delay: 0.1s; }
+.objective-card:nth-child(2) { animation-delay: 0.2s; }
+.objective-card:nth-child(3) { animation-delay: 0.3s; }
+.objective-card:nth-child(4) { animation-delay: 0.4s; }
+.objective-card:nth-child(5) { animation-delay: 0.5s; }
+.objective-card:nth-child(6) { animation-delay: 0.6s; }
+.objective-card:nth-child(7) { animation-delay: 0.7s; }
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Card Icon */
+.card-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: white;
+}
+
+.objective-card:nth-child(odd) .card-icon {
+    background: linear-gradient(135deg, #27c3e6, #0b3b82);
+}
+
+.objective-card:nth-child(even) .card-icon {
+    background: linear-gradient(135deg, #0b3b82, #27c3e6);
+}
+
+/* Card Content */
+.card-content h3 {
+    font-size: 1.4rem;
+    color: #0b3b82;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.card-content p {
+    color: #555;
+    line-height: 1.7;
+    font-size: 1rem;
+}
+
+/* Number Badge */
+.objective-number {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 36px;
+    height: 36px;
+    background: rgba(11, 59, 130, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    color: #0b3b82;
+    font-size: 0.9rem;
+}
+
+
+/* Responsive Design for Objectives */
+@media (max-width: 1200px) {
+    .objectives-grid {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .section-header h2 {
+        font-size: 2rem;
+    }
+
+    .objective-card {
+        padding: 25px;
+    }
+
+}
+
+@media (max-width: 480px) {
+    .objectives-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .section-header h2 {
+        font-size: 1.8rem;
+    }
+
+    .objective-card {
+        padding: 20px;
+    }
+}
+
+/* Responsive Design for Overall Layout */
+@media (max-width: 992px) {
+    .navbar-links {
+        gap: 1px;
+    }
+    
+    .nav-link {
+        padding: 16px 18px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        padding-top: 70px;
+    }
+    
+    .menu-toggle {
+        display: block;
+    }
+    
+    .navbar-links {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        flex-direction: column;
+        background-color: #0b3b82;
+        display: none;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    
+    .navbar-links.active {
+        display: flex;
+    }
+    
+    .nav-item {
+        width: 100%;
+    }
+    
+    .nav-link {
+        padding: 16px 20px;
+        border-radius: 0;
+        border-left: 3px solid transparent;
+    }
+    
+    .nav-link.active {
+        border-left: 3px solid #27c3e6;
+        border-top: none;
+        border-right: none;
+        border-bottom: none;
+    }
+    
+    .nav-link.active::after {
+        display: none;
+    }
+    
+    .nav-item.active::before {
+        display: none;
+    }
+    
+    .content-section {
+        margin: 20px;
+        padding: 20px;
+    }
+}
+
+/* Demo content */
+.page-content {
+    display: none;
+}
+
+.page-content.active {
+    display: block;
+}
+
+.demo-container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 20px;
+}
+</style>
