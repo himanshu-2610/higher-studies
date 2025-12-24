@@ -215,10 +215,10 @@
 
         <!-- Faculty Coordinators Page -->
         <div class="page-content" id="facultyContent">
+            <button class="back-button" onclick="backToTeam()">
+                <i class="fas fa-arrow-left"></i> Back to Our Team
+            </button>
             <div class="page-header">
-                <button class="back-button" onclick="backToTeam()">
-                    <i class="fas fa-arrow-left"></i> Back to Our Team
-                </button>
                 <h1>Faculty Coordinators</h1>
                 <p>Dedicated faculty members leading the Higher Education and Competitive Exam Cell</p>
             </div>
@@ -613,8 +613,8 @@
 
         <div class="page-content" id="alumniContent">
             <div class="page-header">
-                <h1>Alumni Network</h1>
-                <p>Connect with our successful graduates worldwide</p>
+                <h1>Contact Information</h1>
+                <p>Connect with us</p>
             </div>
             <!-- Alumni content here -->
         </div>
@@ -1106,17 +1106,19 @@
         /* Page Headers */
         .page-header {
             text-align: center;
-            padding: 60px 20px;
+            padding: 20px 13px;
             background: white;
             border-radius: 20px;
             margin-bottom: 40px;
             position: relative;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+
         }
 
         .page-header h1 {
             color: #0b3b82;
             font-size: 2.8rem;
-            margin-bottom: 15px;
+            margin-bottom: 5px;
         }
 
         .page-header p {
