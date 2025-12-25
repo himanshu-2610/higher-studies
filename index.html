@@ -99,11 +99,18 @@
                 </div>
             </section>
 
+            <section class="vision-section">
+                <i class="fas fa-eye"></i>
+                <div class="section-header">
+                    <h2>Vision</h2>
+                </div>
+            </section>
+
             <!-- Objectives Section -->
             <section class="objectives-section" id="objectives">
+                <i class="fas fa-bullseye"></i>
                 <div class="section-header">
                     <h2>Our Objectives</h2>
-                    <p>Committed to guiding students towards academic excellence and professional success</p>
                 </div>
 
                 <div class="objectives-grid">
@@ -932,7 +939,7 @@
             margin-bottom: 60px;
             color: white;
             display: grid;
-            grid-template-columns: 1fr 3fr;
+            grid-template-columns: 1fr 4fr;
             gap: 40px;
             align-items: center;
         }
@@ -972,15 +979,13 @@
         .hero-image {
             background: linear-gradient(45deg, rgba(255,255,255,0.1), rgba(255,255,255,0.2));
             border-radius: 15px;
-            padding: 40px;
+            padding: 10px;
             position: relative;
-            min-height: 300px;
         }
 
         .stats-overlay {
             display: flex;
             justify-content: space-around;
-            margin-top: 40px;
         }
 
         .stat-item {
@@ -989,7 +994,6 @@
 
         .stat-item h3 {
             font-size: 2.5rem;
-            margin-bottom: 5px;
         }
 
         .stat-item p {
@@ -997,22 +1001,78 @@
             opacity: 0.8;
         }
 
+        /* vision Section */
+        .vision-section {
+            text-align: center;
+            padding: 80px 50px 50px;
+            border-radius: 20px;
+            position: relative;
+            margin: 80px 0;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .vision-section:hover .fa-eye {
+            opacity: 0;
+            transform: scale(0);
+        }
+
+        .vision-section:hover .section-header h2 {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .fa-eye {
+            font-size: 60px;
+            color: #3498db;
+            transition: 0.4s ease;
+        }
+        
+
         /* Objectives Section */
         .objectives-section {
+            text-align: center;
+            padding: 80px 50px 50px;
+            border-radius: 20px;
+            position: relative;
             margin: 80px 0;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .objectives-section:hover .fa-bullseye{
+            opacity: 0;
+            transform: scale(0);
+        }
+        
+        .objectives-section:hover .section-header h2 {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .fa-bullseye {
+            font-size: 60px;
+            color: #3498db;
+            transition: 0.4s ease;
         }
 
         .section-header {
             text-align: center;
             margin-bottom: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
         }
 
         .section-header h2 {
             font-size: 2.5rem;
             color: #0b3b82;
             margin-bottom: 15px;
-            position: relative;
             display: inline-block;
+            position: absolute;
+            opacity: 0;
+            transform: scale(0.5);
+            transition: 0.4s ease;
+            margin-bottom: 50px;
         }
 
         .section-header h2::after {
