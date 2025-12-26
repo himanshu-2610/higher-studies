@@ -8,6 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
     <!-- Header -->
     <header class="top-header">
         <div class="header-container">
@@ -39,7 +40,7 @@
     </div>
 
     <!-- Navigation -->
-    <nav class="navbar">
+    <nav class="navbar" role="navigation">
         <div class="navbar-container">
             <button class="menu-toggle" id="menuToggle">
                 <i class="fas fa-bars"></i>
@@ -80,22 +81,40 @@
     </nav>
 
     <!-- Main Content -->
-    <main class="main-container">
+    <main class="main-container" id="main-content" role="main">
         <!-- Home Page -->
         <div class="page-content active" id="homeContent">
+
             <!-- Hero Section -->
             <section class="hero-section">
-                <div class="hero-image">
-                    <div class="stats-overlay">
-                        <div class="stat-item">
-                            <p>LOGO......</p>
+                <div class="hero-container">
+                    <div class="hero-brand">
+                        <div class="logo-container">
+                            <span class="title-line">LOGO</span>
                         </div>
                     </div>
-                </div>
-                <div class="hero-content">
-                    <h1>Higher Education and Competitive Exam Cell</h1>
-                    <p>Guiding students towards higher education and competitive exam success through comprehensive support, mentorship, and resources.</p>
-                    <a href="#objectives" class="cta-button">Explore Our Objectives</a>
+                    
+                    <div class="hero-content">
+                        <h1 class="hero-title">
+                            <span class="title-line">Higher Education And Competitive Exams</span>
+                            <span class="title-line title-highlight">
+                                <span class="highlight-text">(विजिगीषा)</span>
+                            </span>
+                        </h1>
+                        
+                        <p class="hero-description">
+                            Dedicated to fostering academic excellence through expert mentorship and strategic coaching, empowering our students to excel in higher studies and secure top ranks in competitive examinations.
+                        </p>
+                        
+                        <div class="hero-actions">
+                            <a href="#objectives" class="cta-button-primary">
+                                <span>Explore Our Objectives</span>
+                                <svg class="arrow-icon" viewBox="0 0 24 24" width="20" height="20">
+                                    <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z" fill="currentColor"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </section>
 
@@ -222,332 +241,544 @@
 
         <!-- Faculty Coordinators Page -->
         <div class="page-content" id="facultyContent">
+            <!-- Page Header -->
             <button class="back-button" onclick="backToTeam()">
-                <i class="fas fa-arrow-left"></i> Back to Our Team
+                <svg class="back-icon" viewBox="0 0 24 24" width="20" height="20">
+                    <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z" fill="currentColor"/>
+                </svg>
+                Back to Team
             </button>
-            <div class="page-header">
-                <h1>Faculty Coordinators</h1>
-                <p>Dedicated faculty members leading the Higher Education and Competitive Exam Cell</p>
-            </div>
 
-            <div class="faculty-section">
-                <div class="faculty-category">
-                    
+            <!-- Faculty List Section -->
+            <div class="faculty-list-container">
+                <div class="page-header">
+                    <h1>Our Faculty Team</h1>
+                    <p>Experienced educators providing mentorship and guidance for competitive exams</p>
+                </div>
+
+                <!-- Faculty List -->
+                <div class="faculty-list">
                     <!-- Faculty Member 1 -->
-                    <div class="faculty-card faculty-profile">
-                        <div class="faculty-left">
-                            <img src="images/faculty/suryawanshi.jpg"
-                                 alt="Dr. A. R. Suryawanshi"
-                                 onerror="this.onerror=null; this.src='images/faculty/default.jpg'">
-                            <div class="faculty-left-text">
-                                <h3>Dr. A. R. Suryawanshi</h3>
-                                <p>Faculty Coordinator<br>E&TC Department</p>
+                    <div class="faculty-row-card">
+                        <div class="faculty-main-info">
+                            <div class="faculty-avatar">
+                                <div class="avatar-wrapper">
+                                    <img src="images/Dr. A. R. Suryawanshi.png" 
+                                        alt="Dr. A. R. Suryawanshi"
+                                        onerror="this.src='https://ui-avatars.com/api/?name=AR+Suryawanshi&background=0b3b82&color=fff&size=200'">
+                                </div>
+                            </div>
+                            
+                            <div class="faculty-details">
+                                <div class="name-title">
+                                    <h3 class="faculty-name">Dr. A. R. Suryawanshi</h3>
+                                </div>
+                                
+                                <div class="faculty-meta">
+                                    <div class="meta-item">
+                                        <svg class="meta-icon" viewBox="0 0 24 24" width="16" height="16">
+                                            <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" fill="#27c3e6"/>
+                                        </svg>
+                                        <span>Associate Dean, विजिगीषा</span>
+                                    </div>
+                                    <div class="meta-item">
+                                        <svg class="meta-icon" viewBox="0 0 24 24" width="16" height="16">
+                                            <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" fill="#27c3e6"/>
+                                        </svg>
+                                        <span>arsuryawanshi@pccoepune.org</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="department-section">
+                                    <span class="dept-label">Department:</span>
+                                    <span class="dept-name">Electronics and Telecommunication</span>
+                                </div>
                             </div>
                         </div>
-                        <div class="faculty-right">
-                            <div class="faculty-row">
-                                <strong>Qualification :</strong>
-                                <span>ME, PhD</span>
-                            </div>
-                            <hr>
-                            <div class="faculty-row">
-                                <strong>Area of Interest :</strong>
-                                <span>Signal Processing, Communication Systems, AI Applications</span>
-                            </div>
-                            <hr>
-                            <div class="faculty-row">
-                                <strong>Experience :</strong>
-                                <span>20+ Years</span>
-                            </div>
-                            <div class="faculty-buttons">
-                                <a href="#" class="faculty-btn">Personal Website</a>
-                                <a href="mailto:suryawanshi.etrx@pccoepune.org" class="faculty-btn">E-Mail</a>
-                                <a href="#" class="faculty-btn">Scopus Profile</a>
-                                <a href="#" class="faculty-btn">Google Scholar</a>
+                        
+                        <div class="faculty-actions">                            
+                            <div class="action-buttons">
+                                <a href="#" class="btn btn-profile">
+                                    <svg viewBox="0 0 24 24" width="16" height="16">
+                                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z" fill="currentColor"/>
+                                    </svg>
+                                    View Profile
+                                </a>
+                                <a href="mailto:suryawanshi.etrx@pccoepune.org" class="btn btn-contact">
+                                    <svg viewBox="0 0 24 24" width="16" height="16">
+                                        <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" fill="currentColor"/>
+                                    </svg>
+                                    Send Email
+                                </a>
                             </div>
                         </div>
+                        
+                        <div class="card-hover-effect"></div>
                     </div>
 
                     <!-- Faculty Member 2 -->
-                    <div class="faculty-card faculty-profile">
-                        <div class="faculty-left">
-                            <img src="images/faculty/mote.jpg"
-                                 alt="Dr. Shilpa Motegoankar"
-                                 onerror="this.onerror=null; this.src='images/faculty/default.jpg'">
-                            <div class="faculty-left-text">
-                                <h3>Dr. Shilpa Motegoankar</h3>
-                                <p>Faculty Coordinator<br>Civil Department</p>
+                    <div class="faculty-row-card">
+                        <div class="faculty-main-info">
+                            <div class="faculty-avatar">
+                                <div class="avatar-wrapper">
+                                    <img src="images/Dr. Shilpa Motegoankar.png" 
+                                        alt="Dr. Shilpa Motegoankar"
+                                        onerror="this.src='https://ui-avatars.com/api/?name=Shilpa+Motegoankar&background=27c3e6&color=fff&size=200'">
+                                </div>
+                            </div>
+                            
+                            <div class="faculty-details">
+                                <div class="name-title">
+                                    <h3 class="faculty-name">Dr. Shilpa Motegoankar</h3>
+                                </div>
+                                
+                                <div class="faculty-meta">
+                                    <div class="meta-item">
+                                        <svg class="meta-icon" viewBox="0 0 24 24" width="16" height="16">
+                                            <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" fill="#27c3e6"/>
+                                        </svg>
+                                        <span>Co-convener, विजिगीषा</span>
+                                    </div>
+                                    <div class="meta-item">
+                                        <svg class="meta-icon" viewBox="0 0 24 24" width="16" height="16">
+                                            <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" fill="#27c3e6"/>
+                                        </svg>
+                                        <span>sehilpa.motegoankar@pccoepune.org</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="department-section">
+                                    <span class="dept-label">Department:</span>
+                                    <span class="dept-name">Civil Engineering</span>
+                                </div>
                             </div>
                         </div>
-                        <div class="faculty-right">
-                            <div class="faculty-row">
-                                <strong>Qualification :</strong>
-                                <span>ME, PhD</span>
-                            </div>
-                            <hr>
-                            <div class="faculty-row">
-                                <strong>Area of Interest :</strong>
-                                <span>Structural Engineering, Construction Management, Sustainable Development</span>
-                            </div>
-                            <hr>
-                            <div class="faculty-row">
-                                <strong>Experience :</strong>
-                                <span>18+ Years</span>
-                            </div>
-                            <div class="faculty-buttons">
-                                <a href="#" class="faculty-btn">Personal Website</a>
-                                <a href="mailto:shilpa.civil@pccoepune.org" class="faculty-btn">E-Mail</a>
-                                <a href="#" class="faculty-btn">Scopus Profile</a>
-                                <a href="#" class="faculty-btn">Google Scholar</a>
+                        
+                        <div class="faculty-actions">                            
+                            <div class="action-buttons">
+                                <a href="#" class="btn btn-profile">
+                                    <svg viewBox="0 0 24 24" width="16" height="16">
+                                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z" fill="currentColor"/>
+                                    </svg>
+                                    View Profile
+                                </a>
+                                <a href="mailto:sehilpa.motegoankar@pccoepune.org" class="btn btn-contact">
+                                    <svg viewBox="0 0 24 24" width="16" height="16">
+                                        <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" fill="currentColor"/>
+                                    </svg>
+                                    Send Email
+                                </a>
                             </div>
                         </div>
+                        
+                        <div class="card-hover-effect"></div>
                     </div>
 
                     <!-- Faculty Member 3 -->
-                    <div class="faculty-card faculty-profile">
-                        <div class="faculty-left">
-                            <img src="images/faculty/maurya.jpg"
-                                 alt="Dr. Upendra Maurya"
-                                 onerror="this.onerror=null; this.src='images/faculty/default.jpg'">
-                            <div class="faculty-left-text">
-                                <h3>Dr. Upendra Maurya</h3>
-                                <p>Faculty Coordinator<br>Mechanical Department</p>
+                    <div class="faculty-row-card">
+                        <div class="faculty-main-info">
+                            <div class="faculty-avatar">
+                                <div class="avatar-wrapper">
+                                    <img src="images/Dr. Upendra Maurya.png" 
+                                        alt="Dr. Upendra Maurya"
+                                        onerror="this.src='https://ui-avatars.com/api/?name=Upendra+Maurya&background=0b3b82&color=fff&size=200'">
+                                </div>
+                            </div>
+                            
+                            <div class="faculty-details">
+                                <div class="name-title">
+                                    <h3 class="faculty-name">Dr. Upendra Maurya</h3>
+                                </div>
+                                
+                                <div class="faculty-meta">
+                                    <div class="meta-item">
+                                        <svg class="meta-icon" viewBox="0 0 24 24" width="16" height="16">
+                                            <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" fill="#27c3e6"/>
+                                        </svg>
+                                        <span>Faculty Coordinator</span>
+                                    </div>
+                                    <div class="meta-item">
+                                        <svg class="meta-icon" viewBox="0 0 24 24" width="16" height="16">
+                                            <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" fill="#27c3e6"/>
+                                        </svg>
+                                        <span>upendra.maurya@pccoepune.org</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="department-section">
+                                    <span class="dept-label">Department:</span>
+                                    <span class="dept-name">Mechanical Engineering</span>
+                                </div>
                             </div>
                         </div>
-                        <div class="faculty-right">
-                            <div class="faculty-row">
-                                <strong>Qualification :</strong>
-                                <span>ME, PhD</span>
-                            </div>
-                            <hr>
-                            <div class="faculty-row">
-                                <strong>Area of Interest :</strong>
-                                <span>Thermal Engineering, Manufacturing, Design & Optimization</span>
-                            </div>
-                            <hr>
-                            <div class="faculty-row">
-                                <strong>Experience :</strong>
-                                <span>16+ Years</span>
-                            </div>
-                            <div class="faculty-buttons">
-                                <a href="#" class="faculty-btn">Personal Website</a>
-                                <a href="mailto:maurya.mech@pccoepune.org" class="faculty-btn">E-Mail</a>
-                                <a href="#" class="faculty-btn">Scopus Profile</a>
-                                <a href="#" class="faculty-btn">Google Scholar</a>
+                        
+                        <div class="faculty-actions">                            
+                            <div class="action-buttons">
+                                <a href="#" class="btn btn-profile">
+                                    <svg viewBox="0 0 24 24" width="16" height="16">
+                                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z" fill="currentColor"/>
+                                    </svg>
+                                    View Profile
+                                </a>
+                                <a href="mailto:upendra.maurya@pccoepune.org" class="btn btn-contact">
+                                    <svg viewBox="0 0 24 24" width="16" height="16">
+                                        <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" fill="currentColor"/>
+                                    </svg>
+                                    Send Email
+                                </a>
                             </div>
                         </div>
+                        
+                        <div class="card-hover-effect"></div>
                     </div>
 
                     <!-- Faculty Member 4 -->
-                    <div class="faculty-card faculty-profile">
-                        <div class="faculty-left">
-                            <img src="images/faculty/sawant.jpg"
-                                 alt="Mrs. Sonali Sawant"
-                                 onerror="this.onerror=null; this.src='images/faculty/default.jpg'">
-                            <div class="faculty-left-text">
-                                <h3>Mrs. Sonali Sawant</h3>
-                                <p>Faculty Coordinator<br>E&TC Department</p>
+                    <div class="faculty-row-card">
+                        <div class="faculty-main-info">
+                            <div class="faculty-avatar">
+                                <div class="avatar-wrapper">
+                                    <img src="images/Mrs. Sonali Sawant.png" 
+                                        alt="Mrs. Sonali Sawant"
+                                        onerror="this.src='https://ui-avatars.com/api/?name=Sonali+Sawant&background=27c3e6&color=fff&size=200'">
+                                </div>
+                            </div>
+                            
+                            <div class="faculty-details">
+                                <div class="name-title">
+                                    <h3 class="faculty-name">Mrs. Sonali Sawant</h3>
+                                </div>
+                                
+                                <div class="faculty-meta">
+                                    <div class="meta-item">
+                                        <svg class="meta-icon" viewBox="0 0 24 24" width="16" height="16">
+                                            <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" fill="#27c3e6"/>
+                                        </svg>
+                                        <span>Faculty Coordinator</span>
+                                    </div>
+                                    <div class="meta-item">
+                                        <svg class="meta-icon" viewBox="0 0 24 24" width="16" height="16">
+                                            <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" fill="#27c3e6"/>
+                                        </svg>
+                                        <span>sonali.sawant@pccoepune.org</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="department-section">
+                                    <span class="dept-label">Department:</span>
+                                    <span class="dept-name">Electronics and Telecommunication</span>
+                                </div>
                             </div>
                         </div>
-                        <div class="faculty-right">
-                            <div class="faculty-row">
-                                <strong>Qualification :</strong>
-                                <span>ME (Electronics)</span>
-                            </div>
-                            <hr>
-                            <div class="faculty-row">
-                                <strong>Area of Interest :</strong>
-                                <span>VLSI Design, Embedded Systems, Digital Signal Processing</span>
-                            </div>
-                            <hr>
-                            <div class="faculty-row">
-                                <strong>Experience :</strong>
-                                <span>15+ Years</span>
-                            </div>
-                            <div class="faculty-buttons">
-                                <a href="#" class="faculty-btn">Personal Website</a>
-                                <a href="mailto:sonali.etrx@pccoepune.org" class="faculty-btn">E-Mail</a>
-                                <a href="#" class="faculty-btn">Scopus Profile</a>
-                                <a href="#" class="faculty-btn">Google Scholar</a>
+                        
+                        <div class="faculty-actions">                            
+                            <div class="action-buttons">
+                                <a href="#" class="btn btn-profile">
+                                    <svg viewBox="0 0 24 24" width="16" height="16">
+                                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z" fill="currentColor"/>
+                                    </svg>
+                                    View Profile
+                                </a>
+                                <a href="mailto:sonali.sawant@pccoepune.org" class="btn btn-contact">
+                                    <svg viewBox="0 0 24 24" width="16" height="16">
+                                        <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" fill="currentColor"/>
+                                    </svg>
+                                    Send Email
+                                </a>
                             </div>
                         </div>
+
+                        <div class="card-hover-effect"></div>
                     </div>
 
                     <!-- Faculty Member 5 -->
-                    <div class="faculty-card faculty-profile">
-                        <div class="faculty-left">
-                            <img src="images/faculty/devkule.jpg"
-                                 alt="Ms. Manjusha Devkule"
-                                 onerror="this.onerror=null; this.src='images/faculty/default.jpg'">
-                            <div class="faculty-left-text">
-                                <h3>Ms. Manjusha Devkule</h3>
-                                <p>Faculty Coordinator<br>ASH Department</p>
+                    <div class="faculty-row-card">
+                        <div class="faculty-main-info">
+                            <div class="faculty-avatar">
+                                <div class="avatar-wrapper">
+                                    <img src="images/Ms. Manjusha Devkule.png" 
+                                        alt="Ms. Manjusha Devkule"
+                                        onerror="this.src='https://ui-avatars.com/api/?name=Manjusha+Devkule&background=0b3b82&color=fff&size=200'">
+                                </div>
+                            </div>
+                            
+                            <div class="faculty-details">
+                                <div class="name-title">
+                                    <h3 class="faculty-name">Ms. Manjusha Devkule</h3>
+                                </div>
+                                
+                                <div class="faculty-meta">
+                                    <div class="meta-item">
+                                        <svg class="meta-icon" viewBox="0 0 24 24" width="16" height="16">
+                                            <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" fill="#27c3e6"/>
+                                        </svg>
+                                        <span>Faculty Coordinator</span>
+                                    </div>
+                                    <div class="meta-item">
+                                        <svg class="meta-icon" viewBox="0 0 24 24" width="16" height="16">
+                                            <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" fill="#27c3e6"/>
+                                        </svg>
+                                        <span>manjusha.devkule@pccoepune.org</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="department-section">
+                                    <span class="dept-label">Department:</span>
+                                    <span class="dept-name">Applied Science and Humanities</span>
+                                </div>
                             </div>
                         </div>
-                        <div class="faculty-right">
-                            <div class="faculty-row">
-                                <strong>Qualification :</strong>
-                                <span>MA, B.Ed</span>
-                            </div>
-                            <hr>
-                            <div class="faculty-row">
-                                <strong>Area of Interest :</strong>
-                                <span>English Literature, Communication Skills, Technical Writing</span>
-                            </div>
-                            <hr>
-                            <div class="faculty-row">
-                                <strong>Experience :</strong>
-                                <span>12+ Years</span>
-                            </div>
-                            <div class="faculty-buttons">
-                                <a href="#" class="faculty-btn">Personal Website</a>
-                                <a href="mailto:manjusha.ash@pccoepune.org" class="faculty-btn">E-Mail</a>
-                                <a href="#" class="faculty-btn">Scopus Profile</a>
-                                <a href="#" class="faculty-btn">Google Scholar</a>
+                        
+                        <div class="faculty-actions">                            
+                            <div class="action-buttons">
+                                <a href="#" class="btn btn-profile">
+                                    <svg viewBox="0 0 24 24" width="16" height="16">
+                                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z" fill="currentColor"/>
+                                    </svg>
+                                    View Profile
+                                </a>
+                                <a href="mailto:manjusha.devkule@pccoepune.org" class="btn btn-contact">
+                                    <svg viewBox="0 0 24 24" width="16" height="16">
+                                        <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" fill="currentColor"/>
+                                    </svg>
+                                    Send Email
+                                </a>
                             </div>
                         </div>
+                        
+                        <div class="card-hover-effect"></div>
                     </div>
 
                     <!-- Faculty Member 6 -->
-                    <div class="faculty-card faculty-profile">
-                        <div class="faculty-left">
-                            <img src="images/faculty/deoghare.jpg"
-                                 alt="Mrs. Radha Deoghare"
-                                 onerror="this.onerror=null; this.src='images/faculty/default.jpg'">
-                            <div class="faculty-left-text">
-                                <h3>Mrs. Radha Deoghare</h3>
-                                <p>Faculty Coordinator<br>IT Department</p>
+                    <div class="faculty-row-card">
+                        <div class="faculty-main-info">
+                            <div class="faculty-avatar">
+                                <div class="avatar-wrapper">
+                                    <img src="images/Mrs. Radha Deoghare.png" 
+                                        alt="Mrs. Radha Deoghare"
+                                        onerror="this.src='https://ui-avatars.com/api/?name=Radha+Deoghare&background=27c3e6&color=fff&size=200'">
+                                </div>
+                            </div>
+                            
+                            <div class="faculty-details">
+                                <div class="name-title">
+                                    <h3 class="faculty-name">Mrs. Radha Deoghare</h3>
+                                </div>
+                                
+                                <div class="faculty-meta">
+                                    <div class="meta-item">
+                                        <svg class="meta-icon" viewBox="0 0 24 24" width="16" height="16">
+                                            <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" fill="#27c3e6"/>
+                                        </svg>
+                                        <span>Faculty Coordinator</span>
+                                    </div>
+                                    <div class="meta-item">
+                                        <svg class="meta-icon" viewBox="0 0 24 24" width="16" height="16">
+                                            <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" fill="#27c3e6"/>
+                                        </svg>
+                                        <span>radha.deoghare@pccoepune.org</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="department-section">
+                                    <span class="dept-label">Department:</span>
+                                    <span class="dept-name">Information Technology</span>
+                                </div>
                             </div>
                         </div>
-                        <div class="faculty-right">
-                            <div class="faculty-row">
-                                <strong>Qualification :</strong>
-                                <span>ME (Information Technology)</span>
-                            </div>
-                            <hr>
-                            <div class="faculty-row">
-                                <strong>Area of Interest :</strong>
-                                <span>Database Management, Data Analytics, Web Technologies</span>
-                            </div>
-                            <hr>
-                            <div class="faculty-row">
-                                <strong>Experience :</strong>
-                                <span>14+ Years</span>
-                            </div>
-                            <div class="faculty-buttons">
-                                <a href="#" class="faculty-btn">Personal Website</a>
-                                <a href="mailto:radha.it@pccoepune.org" class="faculty-btn">E-Mail</a>
-                                <a href="#" class="faculty-btn">Scopus Profile</a>
-                                <a href="#" class="faculty-btn">Google Scholar</a>
+                        
+                        <div class="faculty-actions">                            
+                            <div class="action-buttons">
+                                <a href="#" class="btn btn-profile">
+                                    <svg viewBox="0 0 24 24" width="16" height="16">
+                                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z" fill="currentColor"/>
+                                    </svg>
+                                    View Profile
+                                </a>
+                                <a href="mailto:radha.deoghare@pccoepune.org" class="btn btn-contact">
+                                    <svg viewBox="0 0 24 24" width="16" height="16">
+                                        <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" fill="currentColor"/>
+                                    </svg>
+                                    Send Email
+                                </a>
                             </div>
                         </div>
+                        
+                        <div class="card-hover-effect"></div>
                     </div>
 
                     <!-- Faculty Member 7 -->
-                    <div class="faculty-card faculty-profile">
-                        <div class="faculty-left">
-                            <img src="images/faculty/vaishnav.jpg"
-                                 alt="Mrs. Supriya Vaishnav"
-                                 onerror="this.onerror=null; this.src='images/faculty/default.jpg'">
-                            <div class="faculty-left-text">
-                                <h3>Mrs. Supriya Vaishnav</h3>
-                                <p>Faculty Coordinator<br>CE (R) Department</p>
+                    <div class="faculty-row-card">
+                        <div class="faculty-main-info">
+                            <div class="faculty-avatar">
+                                <div class="avatar-wrapper">
+                                    <img src="images/Mrs. Supriya Vaishnav.png" 
+                                        alt="Mrs. Supriya Vaishnav"
+                                        onerror="this.src='https://ui-avatars.com/api/?name=Supriya+Vaishnav&background=0b3b82&color=fff&size=200'">
+                                </div>
+                            </div>
+                            
+                            <div class="faculty-details">
+                                <div class="name-title">
+                                    <h3 class="faculty-name">Mrs. Supriya Vaishnav</h3>
+                                </div>
+                                
+                                <div class="faculty-meta">
+                                    <div class="meta-item">
+                                        <svg class="meta-icon" viewBox="0 0 24 24" width="16" height="16">
+                                            <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" fill="#27c3e6"/>
+                                        </svg>
+                                        <span>Faculty Coordinator</span>
+                                    </div>
+                                    <div class="meta-item">
+                                        <svg class="meta-icon" viewBox="0 0 24 24" width="16" height="16">
+                                            <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" fill="#27c3e6"/>
+                                        </svg>
+                                        <span>supriya.vaishnav@pccoepune.org</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="department-section">
+                                    <span class="dept-label">Department:</span>
+                                    <span class="dept-name">Computer Engineering (Regional)</span>
+                                </div>
                             </div>
                         </div>
-                        <div class="faculty-right">
-                            <div class="faculty-row">
-                                <strong>Qualification :</strong>
-                                <span>ME (Computer Engineering)</span>
-                            </div>
-                            <hr>
-                            <div class="faculty-row">
-                                <strong>Area of Interest :</strong>
-                                <span>Computer Networks, IoT, Cloud Computing, Cybersecurity</span>
-                            </div>
-                            <hr>
-                            <div class="faculty-row">
-                                <strong>Experience :</strong>
-                                <span>13+ Years</span>
-                            </div>
-                            <div class="faculty-buttons">
-                                <a href="#" class="faculty-btn">Personal Website</a>
-                                <a href="mailto:supriya.cer@pccoepune.org" class="faculty-btn">E-Mail</a>
-                                <a href="#" class="faculty-btn">Scopus Profile</a>
-                                <a href="#" class="faculty-btn">Google Scholar</a>
+                        
+                        <div class="faculty-actions">                            
+                            <div class="action-buttons">
+                                <a href="#" class="btn btn-profile">
+                                    <svg viewBox="0 0 24 24" width="16" height="16">
+                                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z" fill="currentColor"/>
+                                    </svg>
+                                    View Profile
+                                </a>
+                                <a href="mailto:supriya.vaishnav@pccoepune.org" class="btn btn-contact">
+                                    <svg viewBox="0 0 24 24" width="16" height="16">
+                                        <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" fill="currentColor"/>
+                                    </svg>
+                                    Send Email
+                                </a>
                             </div>
                         </div>
+                        
+                        <div class="card-hover-effect"></div>
                     </div>
 
                     <!-- Faculty Member 8 -->
-                    <div class="faculty-card faculty-profile">
-                        <div class="faculty-left">
-                            <img src="images/faculty/bartakke.jpg"
-                                 alt="Mrs. Sarika Bartakke"
-                                 onerror="this.onerror=null; this.src='images/faculty/default.jpg'">
-                            <div class="faculty-left-text">
-                                <h3>Mrs. Sarika Bartakke</h3>
-                                <p>Faculty Coordinator<br>CSE (AIML) Department</p>
+                    <div class="faculty-row-card">
+                        <div class="faculty-main-info">
+                            <div class="faculty-avatar">
+                                <div class="avatar-wrapper">
+                                    <img src="images/Mrs. Sarika Bartakke.png" 
+                                        alt="Mrs. Sarika Bartakke"
+                                        onerror="this.src='https://ui-avatars.com/api/?name=Sarika+Bartakke&background=27c3e6&color=fff&size=200'">
+                                </div>
+                            </div>
+                            
+                            <div class="faculty-details">
+                                <div class="name-title">
+                                    <h3 class="faculty-name">Mrs. Sarika Bartakke</h3>
+                                </div>
+                                
+                                <div class="faculty-meta">
+                                    <div class="meta-item">
+                                        <svg class="meta-icon" viewBox="0 0 24 24" width="16" height="16">
+                                            <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" fill="#27c3e6"/>
+                                        </svg>
+                                        <span>Faculty Coordinator</span>
+                                    </div>
+                                    <div class="meta-item">
+                                        <svg class="meta-icon" viewBox="0 0 24 24" width="16" height="16">
+                                            <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" fill="#27c3e6"/>
+                                        </svg>
+                                        <span>sarika.bartakke@pccoepune.org</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="department-section">
+                                    <span class="dept-label">Department:</span>
+                                    <span class="dept-name">Computer Science & Engineering (AIML)</span>
+                                </div>
                             </div>
                         </div>
-                        <div class="faculty-right">
-                            <div class="faculty-row">
-                                <strong>Qualification :</strong>
-                                <span>ME (Computer Science & Engineering)</span>
-                            </div>
-                            <hr>
-                            <div class="faculty-row">
-                                <strong>Area of Interest :</strong>
-                                <span>Artificial Intelligence, Machine Learning, Deep Learning, Natural Language Processing</span>
-                            </div>
-                            <hr>
-                            <div class="faculty-row">
-                                <strong>Experience :</strong>
-                                <span>11+ Years</span>
-                            </div>
-                            <div class="faculty-buttons">
-                                <a href="#" class="faculty-btn">Personal Website</a>
-                                <a href="mailto:sarika.cse@pccoepune.org" class="faculty-btn">E-Mail</a>
-                                <a href="#" class="faculty-btn">Scopus Profile</a>
-                                <a href="#" class="faculty-btn">Google Scholar</a>
+                        
+                        <div class="faculty-actions">                            
+                            <div class="action-buttons">
+                                <a href="#" class="btn btn-profile">
+                                    <svg viewBox="0 0 24 24" width="16" height="16">
+                                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z" fill="currentColor"/>
+                                    </svg>
+                                    View Profile
+                                </a>
+                                <a href="mailto:sarika.bartakke@pccoepune.org" class="btn btn-contact">
+                                    <svg viewBox="0 0 24 24" width="16" height="16">
+                                        <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" fill="currentColor"/>
+                                    </svg>
+                                    Send Email
+                                </a>
                             </div>
                         </div>
+                        
+                        <div class="card-hover-effect"></div>
                     </div>
 
                     <!-- Faculty Member 9 -->
-                    <div class="faculty-card faculty-profile">
-                        <div class="faculty-left">
-                            <img src="images/faculty/pawar.jpg"
-                                 alt="Mr. Atul Pawar"
-                                 onerror="this.onerror=null; this.src='images/faculty/default.jpg'">
-                            <div class="faculty-left-text">
-                                <h3>Mr. Atul Pawar</h3>
-                                <p>Faculty Coordinator<br>Computer Department</p>
+                    <div class="faculty-row-card">
+                        <div class="faculty-main-info">
+                            <div class="faculty-avatar">
+                                <div class="avatar-wrapper">
+                                    <img src="images/Mr. Atul Pawar.png" 
+                                        alt="Mr. Atul Pawar"
+                                        onerror="this.src='https://ui-avatars.com/api/?name=Atul+Pawar&background=0b3b82&color=fff&size=200'">
+                                </div>
+                            </div>
+                            
+                            <div class="faculty-details">
+                                <div class="name-title">
+                                    <h3 class="faculty-name">Mr. Atul Pawar</h3>
+                                </div>
+                                
+                                <div class="faculty-meta">
+                                    <div class="meta-item">
+                                        <svg class="meta-icon" viewBox="0 0 24 24" width="16" height="16">
+                                            <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" fill="#27c3e6"/>
+                                        </svg>
+                                        <span>Faculty Coordinator</span>
+                                    </div>
+                                    <div class="meta-item">
+                                        <svg class="meta-icon" viewBox="0 0 24 24" width="16" height="16">
+                                            <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" fill="#27c3e6"/>
+                                        </svg>
+                                        <span>atul.pawar@pccoepune.org</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="department-section">
+                                    <span class="dept-label">Department:</span>
+                                    <span class="dept-name">Computer Engineering</span>
+                                </div>
                             </div>
                         </div>
-                        <div class="faculty-right">
-                            <div class="faculty-row">
-                                <strong>Qualification :</strong>
-                                <span>ME (Computer Engineering)</span>
-                            </div>
-                            <hr>
-                            <div class="faculty-row">
-                                <strong>Area of Interest :</strong>
-                                <span>Software Engineering, Data Structures, Algorithms, Programming Languages</span>
-                            </div>
-                            <hr>
-                            <div class="faculty-row">
-                                <strong>Experience :</strong>
-                                <span>10+ Years</span>
-                            </div>
-                            <div class="faculty-buttons">
-                                <a href="#" class="faculty-btn">Personal Website</a>
-                                <a href="mailto:atul.computer@pccoepune.org" class="faculty-btn">E-Mail</a>
-                                <a href="#" class="faculty-btn">Scopus Profile</a>
-                                <a href="#" class="faculty-btn">Google Scholar</a>
+                        
+                        <div class="faculty-actions">                            
+                            <div class="action-buttons">
+                                <a href="#" class="btn btn-profile">
+                                    <svg viewBox="0 0 24 24" width="16" height="16">
+                                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z" fill="currentColor"/>
+                                    </svg>
+                                    View Profile
+                                </a>
+                                <a href="mailto:atul.pawar@pccoepune.org" class="btn btn-contact">
+                                    <svg viewBox="0 0 24 24" width="16" height="16">
+                                        <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" fill="currentColor"/>
+                                    </svg>
+                                    Send Email
+                                </a>
                             </div>
                         </div>
+                        
+                        <div class="card-hover-effect"></div>
                     </div>
-
                 </div>
             </div>
         </div>
@@ -561,7 +792,7 @@
 
             <div class="forums-grid">
                 <!-- GATE Forum -->
-                <div class="forum-card" style="animation-delay: 0.1s;">
+                <div class="forum-card">
                     <div class="forum-icon">
                         <i class="fas fa-graduation-cap"></i>
                     </div>
@@ -679,6 +910,14 @@
                     // Scroll to top for page change
                     window.scrollTo({ top: 0, behavior: 'smooth' });
                 });
+
+                // Keyboard support
+                link.addEventListener('keydown', function(e) {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        this.click();
+                    }
+                });
             });
             
             // Mobile menu toggle
@@ -717,7 +956,7 @@
             }, observerOptions);
             
             // Observe elements for animation
-            document.querySelectorAll('.objective-card, .team-card, .faculty-card').forEach(card => {
+            document.querySelectorAll('.objective-card, .team-card, .faculty-card, .forum-card').forEach(card => {
                 observer.observe(card);
             });
         });
@@ -747,7 +986,34 @@
     </script>
 
     <style>
-        /* Base Styles */
+        :root {
+            --primary-color: #0b3b82;
+            --secondary-color: #27c3e6;
+            --accent-color: #f2c300;
+            --text-color: #333;
+            --bg-gradient-start: #f5f7fa;
+            --bg-gradient-end: #e4e8f0;
+            --white: #ffffff;
+            --shadow-color: rgba(11, 59, 130, 0.08);
+            --border-color: rgba(39, 195, 230, 0.1);
+        }
+
+        /* Skip Link */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 6px;
+            background: var(--primary-color);
+            color: var(--white);
+            padding: 8px;
+            text-decoration: none;
+            z-index: 1000;
+            border-radius: 4px;
+        }
+
+        .skip-link:focus {
+            top: 6px;
+        }
         * {
             margin: 0;
             padding: 0;
@@ -757,18 +1023,18 @@
         body {
             font-family: 'Roboto', sans-serif;
             line-height: 1.6;
-            color: #333;
-            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
+            color: var(--text-color);
+            background: linear-gradient(135deg, var(--bg-gradient-start) 0%, var(--bg-gradient-end) 100%);
             min-height: 100vh;
         }
 
         /* Header */
         .top-header {
-            background-color: #ffffff;
-            border-top: 6px solid #27c3e6;
+            background-color: var(--white);
+            border-top: 6px solid var(--secondary-color);
             border-left: 6px solid transparent;
             border-right: 6px solid transparent;
-            border-image: linear-gradient(to bottom, #27c3e6, #0b3b82) 1;
+            border-image: linear-gradient(to bottom, var(--secondary-color), var(--primary-color)) 1;
         }
 
         .header-container {
@@ -823,8 +1089,8 @@
 
         /* Updates Bar */
         .updates-bar {
-            background-color: #0b3b82;
-            color: #ffffff;
+            background-color: var(--primary-color);
+            color: var(--white);
             display: flex;
             align-items: center;
             height: 40px;
@@ -832,7 +1098,7 @@
         }
 
         .updates-label {
-            background-color: #f2c300;
+            background-color: var(--accent-color);
             color: #000;
             padding: 4px 8px;
             font-weight: 700;
@@ -848,7 +1114,7 @@
 
         /* Navbar */
         .navbar {
-            background-color: #0b3b82;
+            background-color: var(--primary-color);
             position: sticky;
             top: 0;
             z-index: 1000;
@@ -896,11 +1162,11 @@
         }
 
         .nav-link.active {
-            background-color: white;
-            color: #0b3b82;
-            border-left: 5px solid #27c3e6;
-            border-right: 5px solid #27c3e6;
-            border-top: 4px solid #27c3e6;
+            background-color: var(--white);
+            color: var(--primary-color);
+            border-left: 5px solid var(--secondary-color);
+            border-right: 5px solid var(--secondary-color);
+            border-top: 4px solid var(--secondary-color);
         }
 
         .nav-item.active::before {
@@ -910,7 +1176,7 @@
             left: 0;
             width: 100%;
             height: 3px;
-            background-color: #27c3e6;
+            background-color: var(--secondary-color);
             z-index: 1;
         }
 
@@ -933,72 +1199,183 @@
 
         /* Hero Section */
         .hero-section {
-            background: linear-gradient(135deg, #0b3b82 , #27c3e6 );
-            border-radius: 20px;
-            padding: 60px;
+            position: relative;
+            background: linear-gradient(135deg, 
+                var(--primary-color) 0%, 
+                #1a4d9c 25%, 
+                var(--secondary-color) 100%);
+            border-radius: 24px;
             margin-bottom: 60px;
-            color: white;
+            overflow: hidden;
+        }
+
+        .hero-container {
+            position: relative;
+            z-index: 2;
+            margin:60px 30px;
             display: grid;
             grid-template-columns: 1fr 4fr;
+            gap: 60px;
+        }
+
+        /* Brand Section */
+        .hero-brand {
+            display: flex;
+            flex-direction: column;
             gap: 40px;
-            align-items: center;
         }
 
-        .hero-content h1 {
-            font-size: 2.8rem;
-            margin-bottom: 20px;
-            line-height: 1.2;
+        .logo-container {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
         }
 
-        .hero-content p {
-            font-size: 1.2rem;
-            margin-bottom: 30px;
-            opacity: 0.9;
+        /* Hero Content */
+        .hero-content {
+            color: white;
         }
 
-        .cta-button {
+        .hero-title {
+            font-size: 2.2rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 25px;
+            font-family: 'Poppins', sans-serif;
             display: inline-block;
+        }
+
+        .title-line {
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+
+        .title-highlight {
+            position: relative;
+            display: inline-block;
+            margin: 10px 0;
+        }
+
+        .highlight-text {
+            background: linear-gradient(45deg, #ffd700, #ffed4e);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 800;
+        }
+
+        .highlight-underline {
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            color: #ffed4e;
+            opacity: 0.8;
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            opacity: 0.9;
+            margin-bottom: 35px;
+        }
+
+        /* Buttons */
+        .hero-actions {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 10px;
+            flex-wrap: wrap;
+        }
+
+        .cta-button-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
             background: white;
             color: #0b3b82;
-            padding: 15px 35px;
+            padding: 16px 32px;
             border-radius: 50px;
             text-decoration: none;
             font-weight: 600;
             font-size: 1.1rem;
             transition: all 0.3s ease;
             border: 2px solid white;
+            box-shadow: 0 8px 25px rgba(11, 59, 130, 0.2);
         }
 
-        .cta-button:hover {
+        .cta-button-primary:hover {
             background: transparent;
             color: white;
             transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+            gap: 20px;
         }
 
-        .hero-image {
-            background: linear-gradient(45deg, rgba(255,255,255,0.1), rgba(255,255,255,0.2));
-            border-radius: 15px;
-            padding: 10px;
-            position: relative;
+        .arrow-icon {
+            transition: transform 0.3s ease;
         }
 
-        .stats-overlay {
-            display: flex;
-            justify-content: space-around;
+        .cta-button-primary:hover .arrow-icon {
+            transform: translateX(5px);
         }
 
-        .stat-item {
-            text-align: center;
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero-container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .hero-brand {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+            }
+            
+            .logo-container {
+                padding: 20px;
+            }
+            
         }
 
-        .stat-item h3 {
-            font-size: 2.5rem;
+        @media (max-width: 768px) {
+            .hero-section {
+                padding: 40px 20px;
+                min-height: auto;
+            }
+            
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .hero-brand {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .hero-actions {
+                flex-direction: column;
+            }
+            
         }
 
-        .stat-item p {
-            font-size: 0.9rem;
-            opacity: 0.8;
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .hero-description {
+                font-size: 1rem;
+            }
+            
+            .cta-button-primary,{
+                width: 100%;
+                text-align: center;
+                justify-content: center;
+            }
         }
 
         /* vision Section */
@@ -1065,7 +1442,7 @@
 
         .section-header h2 {
             font-size: 2.5rem;
-            color: #0b3b82;
+            color: var(--primary-color);
             margin-bottom: 15px;
             display: inline-block;
             position: absolute;
@@ -1083,7 +1460,7 @@
             transform: translateX(-50%);
             width: 80px;
             height: 4px;
-            background: linear-gradient(to right, #27c3e6, #0b3b82);
+            background: linear-gradient(to right, var(--secondary-color), var(--primary-color));
             border-radius: 2px;
         }
 
@@ -1102,10 +1479,10 @@
         }
 
         .objective-card {
-            background: white;
+            background: var(--white);
             border-radius: 16px;
             padding: 32px;
-            box-shadow: 0 8px 30px rgba(11, 59, 130, 0.08);
+            box-shadow: 0 8px 30px var(--shadow-color);
             transition: all 0.3s ease;
             position: relative;
             border-left: 5px solid transparent;
@@ -1113,12 +1490,12 @@
 
         .objective-card:hover {
             transform: translateY(-8px);
-            box-shadow: 0 15px 40px rgba(11, 59, 130, 0.12);
-            border-left: 5px solid #27c3e6;
+            box-shadow: 0 15px 40px var(--shadow-color);
+            border-left: 5px solid var(--secondary-color);
         }
 
         .objective-card:nth-child(even):hover {
-            border-left-color: #0b3b82;
+            border-left-color: var(--primary-color);
         }
 
         .objective-number {
@@ -1126,7 +1503,7 @@
             top: 20px;
             right: 20px;
             font-size: 14px;
-            color: #0b3b82;
+            color: var(--primary-color);
             opacity: 0.3;
             font-weight: 700;
         }
@@ -1140,12 +1517,12 @@
             justify-content: center;
             margin-bottom: 20px;
             font-size: 24px;
-            color: white;
-            background: linear-gradient(135deg, #27c3e6, #0b3b82);
+            color: var(--white);
+            background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
         }
 
         .objective-card:nth-child(even) .card-icon {
-            background: linear-gradient(135deg, #0b3b82, #27c3e6);
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
         }
 
         .card-content h3 {
@@ -1163,16 +1540,16 @@
         .page-header {
             text-align: center;
             padding: 20px 13px;
-            background: white;
+            background: var(--white);
             border-radius: 20px;
             margin-bottom: 40px;
             position: relative;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 5px 20px var(--shadow-color);
 
         }
 
         .page-header h1 {
-            color: #0b3b82;
+            color: var(--primary-color);
             font-size: 2.8rem;
             margin-bottom: 5px;
         }
@@ -1193,11 +1570,11 @@
         }
 
         .team-card {
-            background: white;
+            background: var(--white);
             padding: 30px;
             border-radius: 15px;
             text-align: center;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            box-shadow: 0 5px 20px var(--shadow-color);
             transition: transform 0.3s ease;
         }
 
@@ -1209,12 +1586,12 @@
             width: 120px;
             height: 120px;
             border-radius: 50%;
-            background: linear-gradient(135deg, #27c3e6, #0b3b82);
+            background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
             margin: 0 auto 20px;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
+            color: var(--white);
             font-size: 2.5rem;
         }
 
@@ -1262,208 +1639,321 @@
         }
 
         /* ================= FACULTY PAGE IMPROVED DESIGN ================= */
+
+
+        /* Enhanced Back Button */
         .back-button {
-            background: linear-gradient(135deg, #27c3e6, #0b3b82);
+            background: linear-gradient(135deg, #0b3b82 0%, #1a4d9c 40%, #27c3e6 100%);
+            position: relative;
+            z-index: 2;
             color: white;
-            border: none;
-            padding: 12px 28px;
+            backdrop-filter: blur(10px);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            padding: 12px 24px;
             border-radius: 30px;
             font-size: 0.95rem;
             font-weight: 600;
             cursor: pointer;
             display: inline-flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
             margin-bottom: 30px;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(39, 195, 230, 0.3);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
         }
 
         .back-button:hover {
+            background: linear-gradient(135deg, #0b3b82 0%, #1a4d9c 40%, #27c3e6 100%);
             transform: translateX(-5px);
-            box-shadow: 0 6px 20px rgba(39, 195, 230, 0.4);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
         }
 
-        .faculty-section {
-            background: white;
-            border-radius: 20px;
-            padding: 40px;
-            margin-top: 20px;
-            box-shadow: 0 5px 25px rgba(0,0,0,0.05);
+        .back-icon {
+            transition: transform 0.3s ease;
         }
 
-        .faculty-category {
-            margin-bottom: 40px;
+        .back-button:hover .back-icon {
+            transform: translateX(-3px);
         }
 
-        .category-title {
-            font-size: 2.2rem;
-            color: #0b3b82;
-            margin-bottom: 10px;
-            font-weight: 700;
-            position: relative;
-            display: inline-block;
+
+        /* Faculty List Container */
+        .faculty-list-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
 
-        .category-title::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 0;
-            width: 60px;
-            height: 4px;
-            background: linear-gradient(to right, #27c3e6, #0b3b82);
-            border-radius: 2px;
-        }
 
-        .category-subtitle {
-            color: #666;
-            font-size: 1.1rem;
-            margin-bottom: 40px;
-            line-height: 1.6;
-        }
-
-        /* Faculty Grid - Responsive Design */
-        .faculty-grid {
+        /* Faculty Row Card */
+        .faculty-list {
             display: flex;
-            flex-wrap: wrap;
-            gap: 30px;
-            justify-content: center;
+            flex-direction: column;
+            gap: 25px;
+            margin-bottom: 60px;
         }
 
-        .faculty-card {
-            width: 280px;
-            background: white;
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: 0 8px 30px rgba(11, 59, 130, 0.08);
+        .faculty-row-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 30px;
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            box-shadow: 0 8px 30px var(--shadow-color);
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             position: relative;
-            animation: fadeInUp 0.6s ease forwards;
-            opacity: 0;
-            border: 1px solid rgba(39, 195, 230, 0.1);
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Staggered animation delays */
-        .faculty-card:nth-child(1) { animation-delay: 0.1s; }
-        .faculty-card:nth-child(2) { animation-delay: 0.2s; }
-        .faculty-card:nth-child(3) { animation-delay: 0.3s; }
-        .faculty-card:nth-child(4) { animation-delay: 0.4s; }
-        .faculty-card:nth-child(5) { animation-delay: 0.5s; }
-        .faculty-card:nth-child(6) { animation-delay: 0.6s; }
-        .faculty-card:nth-child(7) { animation-delay: 0.7s; }
-        .faculty-card:nth-child(8) { animation-delay: 0.8s; }
-        .faculty-card:nth-child(9) { animation-delay: 0.9s; }
-
-        .faculty-card:hover {
-            transform: translateY(-12px) scale(1.02);
-            box-shadow: 0 20px 50px rgba(11, 59, 130, 0.15);
-            border-color: rgba(39, 195, 230, 0.3);
-        }
-
-        .faculty-photo {
-            position: relative;
-            height: 280px;
             overflow: hidden;
-            background: linear-gradient(135deg, #f0f7ff 0%, #e0eeff 100%);
+            border: 1px solid var(--border-color);
         }
 
-        .photo-container {
+        .faculty-row-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px var(--shadow-color);
+            border-color: var(--border-color);
+        }
+
+        .card-hover-effect {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(11, 59, 130, 0.02), rgba(39, 195, 230, 0.02));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+        }
+
+        .faculty-row-card:hover .card-hover-effect {
+            opacity: 1;
+        }
+
+        /* Faculty Main Info */
+        .faculty-main-info {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            flex: 1;
+        }
+
+        /* Avatar */
+        .faculty-avatar {
+            position: relative;
+            width: 120px;
+            height: 120px;
+            flex-shrink: 0;
+        }
+
+        .avatar-wrapper {
             width: 100%;
             height: 100%;
+            border-radius: 50%;
             overflow: hidden;
+            border: 4px solid white;
+            box-shadow: 0 8px 25px rgba(11, 59, 130, 0.15);
         }
 
-        .faculty-photo img {
+        .avatar-wrapper img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: all 0.5s ease;
-            filter: grayscale(0%);
+            transition: transform 0.5s ease;
         }
 
-        .faculty-card:hover .faculty-photo img {
-            transform: scale(1.05);
-            filter: grayscale(0%) brightness(1.05);
+        .faculty-row-card:hover .avatar-wrapper img {
+            transform: scale(1.08);
         }
 
-        .department-badge {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background: linear-gradient(135deg, #27c3e6, #0b3b82);
-            color: white;
-            padding: 6px 15px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            box-shadow: 0 4px 15px rgba(39, 195, 230, 0.3);
-            z-index: 2;
+
+        /* Faculty Details */
+        .faculty-details {
+            flex: 1;
         }
 
-        .faculty-info {
-            padding: 25px;
-            text-align: center;
+        .name-title {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
         }
 
         .faculty-name {
-            font-size: 1.2rem;
-            color: #0b3b82;
-            margin-bottom: 8px;
+            font-size: 1.4rem;
+            color: var(--primary-color);
             font-weight: 700;
-            line-height: 1.3;
+            margin: 0;
             transition: color 0.3s ease;
         }
 
-        .faculty-card:hover .faculty-name {
-            color: #27c3e6;
-        }
-
-        .faculty-role {
-            color: #27c3e6;
-            font-size: 0.9rem;
-            margin-bottom: 15px;
-            font-weight: 600;
-        }
-
-        .faculty-contact {
+        /* Faculty Meta */
+        .faculty-meta {
             display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #555;
+            font-size: 0.95rem;
+        }
+
+        .meta-icon {
+            flex-shrink: 0;
+            color: var(--secondary-color);
+        }
+
+        /* Department Section */
+        .department-section {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: #f8fafc;
+            padding: 10px 15px;
+            border-radius: 12px;
+            border: 1px solid #eef2f7;
+        }
+
+        .dept-label {
+            font-weight: 600;
+            color: var(--primary-color);
+            font-size: 0.9rem;
+        }
+
+        .dept-name {
+            color: #555;
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        /* Faculty Actions */
+        .faculty-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            width: 250px;
+            flex-shrink: 0;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
             align-items: center;
             justify-content: center;
             gap: 8px;
-            color: #666;
-            font-size: 0.85rem;
-            padding: 10px;
-            background: #f8fafc;
-            border-radius: 8px;
-            margin-top: 10px;
             transition: all 0.3s ease;
+            min-width: 110px;
+            text-align: center;
         }
 
-        .faculty-card:hover .faculty-contact {
-            background: linear-gradient(135deg, #f0f7ff, #e3f2fd);
+        .btn-profile {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: var(--white);
+            box-shadow: 0 4px 15px rgba(11, 59, 130, 0.2);
         }
 
-        .faculty-contact i {
-            color: #27c3e6;
-            font-size: 0.9rem;
+        .btn-profile:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(11, 59, 130, 0.3);
+        }
+
+        .btn-contact {
+            background: white;
+            color: #0b3b82;
+            border: 2px solid #e0eeff;
+        }
+
+        .btn-contact:hover {
+            background: #f0f7ff;
+            border-color: #0b3b82;
+            transform: translateY(-2px);
+        }
+
+
+        /* Responsive Design for Faculty Page */
+        @media (max-width: 1024px) {
+            .faculty-row-card {
+                flex-direction: column;
+                align-items: stretch;
+                text-align: center;
+                gap: 25px;
+            }
+            
+            .faculty-main-info {
+                flex-direction: column;
+                text-align: center;
+                gap: 20px;
+            }
+            
+            .faculty-actions {
+                width: 100%;
+                align-items: center;
+            }
+            
+            .action-buttons {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 768px) {
+            
+            .faculty-row-card {
+                padding: 25px;
+            }
+            
+            .name-title {
+                justify-content: center;
+                text-align: center;
+            }
+            
+            .faculty-meta {
+                align-items: center;
+            }
+            
+            .department-section {
+                justify-content: center;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            
+            .faculty-name {
+                font-size: 1.2rem;
+            }
+            
+            .action-buttons {
+                flex-direction: column;
+                width: 100%;
+            }
+            
+            .btn {
+                width: 100%;
+            }
+
         }
 
         /* Footer */
         .footer {
             background: #0b2d5b;
-            color: #ffffff;
+            color: var(--white);
             padding: 60px 20px 20px;
             margin-top: 80px;
         }
@@ -1494,10 +1984,7 @@
 
         /* Responsive Design */
         @media (max-width: 1200px) {
-            .faculty-card {
-                width: calc(33.333% - 30px);
-                min-width: 280px;
-            }
+          
         }
 
         @media (max-width: 1024px) {
@@ -1510,9 +1997,6 @@
                 grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             }
             
-            .faculty-card {
-                width: calc(50% - 30px);
-            }
         }
 
         @media (max-width: 768px) {
@@ -1561,15 +2045,7 @@
             .team-section {
                 grid-template-columns: 1fr;
             }
-            
-            .faculty-card {
-                width: 100%;
-                max-width: 350px;
-            }
-            
-            .faculty-section {
-                padding: 20px;
-            }
+        
         }
 
         @media (max-width: 480px) {
@@ -1594,266 +2070,127 @@
                 font-size: 1.8rem;
             }
             
-            .faculty-card {
-                width: 100%;
-            }
-            
-            .category-title {
-                font-size: 1.8rem;
-            }
         }
 
         /* ==================================================
-   FACULTY PROFILE CARD – HOVER ANIMATION VERSION
-   ================================================== */
+        FORUMS PAGE STYLING
+        ================================================== */
 
-.faculty-card.faculty-profile {
-    position: relative;
-    display: flex;
-    flex-direction: row;
-    gap: 24px;
-    background: #eef6fb;
-    border-radius: 22px;
-    padding: 20px;
-    width: 100%;
-    max-width: 1200px;
-    margin: 35px auto;
-    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.1);
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
-    overflow: hidden;
-}
+        .forums-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 35px;
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
 
-/* Card lift on hover */
-.faculty-card.faculty-profile:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 20px 45px rgba(43, 108, 176, 0.25);
-}
+        .forum-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: 0 8px 30px var(--shadow-color);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+            opacity: 1;
+        }
 
-/* Bottom sliding accent line */
-.faculty-card.faculty-profile::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    height: 4px;
-    width: 0%;
-    background: linear-gradient(90deg, #2b6cb0, #4a90e2);
-    transition: width 0.5s ease;
-}
+        .forum-card.animated {
+            animation: fadeInUp 0.6s ease forwards;
+        }
 
-.faculty-card.faculty-profile:hover::after {
-    width: 100%;
-}
+        .forum-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(39, 195, 230, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
 
-/* ---------- LEFT PANEL ---------- */
-.faculty-left {
-    width: 260px;
-    background: linear-gradient(180deg, #4a90e2, #2b6cb0);
-    border-radius: 18px;
-    overflow: hidden;
-    text-align: center;
-    color: #fff;
-}
+        .forum-card:hover::before {
+            left: 100%;
+        }
 
-/* Image zoom on hover */
-.faculty-left img {
-    width: 100%;
-    height: 260px;
-    object-fit: cover;
-    transition: transform 0.5s ease;
-}
+        .forum-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 20px 50px rgba(39, 195, 230, 0.25);
+            border-color: var(--secondary-color);
+        }
 
-.faculty-card.faculty-profile:hover .faculty-left img {
-    transform: scale(1.06);
-}
+        .forum-icon {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 25px;
+            background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 45px;
+            color: var(--white);
+            transition: all 0.4s ease;
+            box-shadow: 0 8px 20px rgba(39, 195, 230, 0.3);
+        }
 
-.faculty-left-text {
-    padding: 14px 12px;
-}
+        .forum-card:hover .forum-icon {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 12px 30px rgba(39, 195, 230, 0.5);
+        }
 
-/* ---------- RIGHT PANEL ---------- */
-.faculty-right {
-    flex: 1;
-    padding: 8px 6px;
-}
+        .forum-title {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-weight: 700;
+            line-height: 1.3;
+        }
 
-/* Fade-in effect */
-.faculty-row {
-    font-size: 16px;
-    line-height: 1.6;
-    color: #1f2937;
-    opacity: 0.9;
-    transition: opacity 0.3s ease;
-}
+        .forum-description {
+            color: #555;
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin-bottom: 25px;
+            min-height: 80px;
+        }
 
-.faculty-card.faculty-profile:hover .faculty-row {
-    opacity: 1;
-}
+        /* Responsive Forums Grid */
+        @media (max-width: 1024px) {
+            .forums-grid {
+                gap: 25px;
+            }
+        }
 
-.faculty-right hr {
-    border: none;
-    border-top: 1px solid #cfd8e3;
-    margin: 14px 0;
-}
+        @media (max-width: 768px) {
+            .forums-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+                padding: 0 15px;
+            }
 
-/* ---------- BUTTONS ---------- */
-.faculty-buttons {
-    margin-top: 18px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-}
+            .forum-card {
+                padding: 35px 25px;
+            }
 
-.faculty-btn {
-    background: #ffffff;
-    padding: 8px 16px;
-    border-radius: 8px;
-    font-size: 14px;
-    text-decoration: none;
-    color: #111827;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
-    transition: all 0.3s ease;
-}
+            .forum-icon {
+                width: 85px;
+                height: 85px;
+                font-size: 38px;
+            }
 
-/* Button hover */
-.faculty-btn:hover {
-    background: #2b6cb0;
-    color: #ffffff;
-    transform: translateY(-3px);
-}
+            .forum-title {
+                font-size: 1.3rem;
+            }
 
-/* ---------- RESPONSIVE ---------- */
-@media (max-width: 768px) {
-    .faculty-card.faculty-profile {
-        flex-direction: column;
-        padding: 16px;
-    }
-
-    .faculty-left {
-        width: 100%;
-    }
-
-    .faculty-left img {
-        height: 220px;
-    }
-}
-
-/* ==================================================
-   FORUMS PAGE STYLING
-   ================================================== */
-
-.forums-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 35px;
-    max-width: 1200px;
-    margin: 40px auto;
-    padding: 0 20px;
-}
-
-.forum-card {
-    background: white;
-    border-radius: 20px;
-    padding: 40px 30px;
-    text-align: center;
-    box-shadow: 0 8px 30px rgba(11, 59, 130, 0.08);
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    border: 2px solid transparent;
-    position: relative;
-    overflow: hidden;
-    opacity: 0;
-    animation: fadeInUp 0.6s ease forwards;
-}
-
-.forum-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(39, 195, 230, 0.1), transparent);
-    transition: left 0.5s ease;
-}
-
-.forum-card:hover::before {
-    left: 100%;
-}
-
-.forum-card:hover {
-    transform: translateY(-12px);
-    box-shadow: 0 20px 50px rgba(39, 195, 230, 0.25);
-    border-color: #27c3e6;
-}
-
-.forum-icon {
-    width: 100px;
-    height: 100px;
-    margin: 0 auto 25px;
-    background: linear-gradient(135deg, #27c3e6, #0b3b82);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 45px;
-    color: white;
-    transition: all 0.4s ease;
-    box-shadow: 0 8px 20px rgba(39, 195, 230, 0.3);
-}
-
-.forum-card:hover .forum-icon {
-    transform: scale(1.1) rotate(5deg);
-    box-shadow: 0 12px 30px rgba(39, 195, 230, 0.5);
-}
-
-.forum-title {
-    font-size: 1.5rem;
-    color: #0b3b82;
-    margin-bottom: 15px;
-    font-weight: 700;
-    line-height: 1.3;
-}
-
-.forum-description {
-    color: #555;
-    font-size: 0.95rem;
-    line-height: 1.7;
-    margin-bottom: 25px;
-    min-height: 80px;
-}
-
-/* Responsive Forums Grid */
-@media (max-width: 1024px) {
-    .forums-grid {
-        gap: 25px;
-    }
-}
-
-@media (max-width: 768px) {
-    .forums-grid {
-        grid-template-columns: 1fr;
-        gap: 30px;
-        padding: 0 15px;
-    }
-
-    .forum-card {
-        padding: 35px 25px;
-    }
-
-    .forum-icon {
-        width: 85px;
-        height: 85px;
-        font-size: 38px;
-    }
-
-    .forum-title {
-        font-size: 1.3rem;
-    }
-
-    .forum-description {
-        min-height: auto;
-    }
-}
+            .forum-description {
+                min-height: auto;
+            }
+        }
 
     </style>
 </body>
