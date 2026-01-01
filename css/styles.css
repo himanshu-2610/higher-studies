@@ -379,6 +379,8 @@ marquee {
 .cta-buttons {
     display: flex;
     gap: 18px;
+    margin-left: 20%;
+    justify-content: center;
 }
 
 .btn-primary {
