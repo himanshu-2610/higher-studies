@@ -1093,6 +1093,22 @@ marquee {
     transform: scale(1.1);
 }
 
+/* Location Clickable Styles */
+.location-clickable {
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.location-clickable:hover {
+    transform: scale(1.2) rotate(10deg);
+    box-shadow: 0 15px 40px rgba(39, 195, 230, 0.5) !important;
+}
+
+.location-clickable:active {
+    transform: scale(1.1) rotate(5deg);
+}
+
 .info-content {
     position: relative;
     z-index: 1;
