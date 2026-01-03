@@ -108,6 +108,26 @@ marquee {
     padding: 10px 0;
 }
 
+.simple-counter {
+    margin-left: 15px;
+    padding: 0 10px;
+    color: var(--accent-color);
+    font-weight: 600;
+    font-size: 13px;
+    border-left: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.simple-counter i {
+    margin-left: 20px;
+    font-size: 10px;
+    color: var(--accent-color);
+}
+
+#sfc1469600t9a89b2yydl5fubx2rskxmkyc9z {
+    color: var(--accent-color) !important;
+    font-weight: 700;
+}
+
 /* Navbar */
 .navbar {
     background-color: var(--primary-color);
@@ -1504,7 +1524,7 @@ marquee {
 .footer {
     background: #0b2d5b;
     color: var(--white);
-    padding: 60px 20px 20px;
+    padding: 10px 20px 20px;
     margin-top: 80px;
 }
 
