@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Membership Information - Higher Education and Competitive Exam Cell - PCCOE</title>
+    <title>Our Team - Higher Education and Competitive Exam Cell - PCCOE</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
@@ -52,7 +52,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="about.html" class="nav-link">
+                    <a href="about.html" class="nav-link active">
                         <i class="fas fa-users"></i>
                         <span>Our Team</span>
                     </a>
@@ -94,17 +94,28 @@
     <!-- Main Content -->
     <main class="main-container" id="main-content" role="main">
         <div class="page-header">
-            <h1>Membership Information</h1>
-            <p>Coming soon</p>
+            <h1>Activities Conducted</h1>
+            <p>Activities conducted by the Higher Education and Competitive Exam Cell (2025–26)</p>
         </div>
         
-        <!-- Content Coming Soon -->
-        <div class="coming-soon">
-            <div class="coming-soon-icon">
-                <i class="fas fa-address-card"></i>
-            </div>
-            <h2>Membership Portal Coming Soon</h2>
-            <p>We're currently developing our membership system. Check back soon for registration and membership details!</p>
+        <div class="team-section">
+            <a href="sem1.html" class="team-card clickable">
+                <div class="team-img">
+                    <i class="fas fa-calendar-check"></i>
+                </div>
+                <h3>Semester I</h3>
+                <p>Explore details, schedules, and important academic updates for this semester.</p>
+                <span class="click-hint">Click to view details →</span>
+            </a>
+
+            <a href="sem2.html" class="team-card clickable">
+                <div class="team-img">
+                    <i class="fas fa-calendar-alt"></i>
+                </div>
+                <h3>Semester II</h3>
+                <p>Stay updated with upcoming events, student activities, and semester-wide planning.</p>
+                <span class="click-hint">Click to view details →</span>
+            </a>
         </div>
     </main>
 
@@ -117,33 +128,5 @@
     </footer>
 
     <script src="js/main.js"></script>
-    
-    <style>
-        .coming-soon {
-            text-align: center;
-            padding: 80px 20px;
-            background: linear-gradient(135deg, #f0f7ff 0%, #e6f0fa 100%);
-            border-radius: 24px;
-            margin: 40px 0;
-        }
-        
-        .coming-soon-icon {
-            font-size: 80px;
-            color: var(--primary-color);
-            margin-bottom: 30px;
-        }
-        
-        .coming-soon h2 {
-            color: var(--primary-color);
-            margin-bottom: 20px;
-        }
-        
-        .coming-soon p {
-            font-size: 1.2rem;
-            color: #666;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-    </style>
 </body>
 </html>
