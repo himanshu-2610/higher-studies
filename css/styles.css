@@ -233,17 +233,15 @@ marquee {
     min-height: 70vh;
 }
 
+
 /* Hero Section */
-.hero-section {
-    min-height: 450px;
+.hero-section { 
     background: linear-gradient(135deg, #0b3b82 0%, #1a5bb8 50%, #27c3e6 100%);
-    background-size: 200% 200%;
     animation: gradientMove 10s ease infinite;
     position: relative;
     overflow: hidden;
     padding: 0;
-    border-radius: 25px;
-    margin: 0 20px 60px 20px;
+    padding-left: 10px;
 }
 
 @keyframes gradientMove {
@@ -252,10 +250,7 @@ marquee {
 }
 
 .hero-container {
-    max-width: 1400px;
     margin: 0 auto;
-    height: 100%;
-    min-height: 450px;
     display: grid;
     grid-template-columns: 1fr 4fr;
     position: relative;
@@ -312,61 +307,25 @@ marquee {
 /* Left Part - Logo Only */
 .hero-left-part {
     display: flex;
-    align-items: center;
     justify-content: center;
-    padding: 40px;
-    background: rgba(255, 255, 255, 0.05);
+    padding: 10px;
     backdrop-filter: blur(10px);
-}
-
-.logo-wrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-}
-
-.logo-circle {
-    width: 220px;
-    height: 220px;
-    background: linear-gradient(135deg, #ffd700, #ffed4e, #ffd700);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 20px 60px rgba(255, 215, 0, 0.5);
-    animation: logoPulse 3s ease-in-out infinite;
-    border: 5px solid rgba(255, 255, 255, 0.3);
-}
-
-.logo-circle i {
-    font-size: 8rem;
-    color: #0b3b82;
-}
-
-@keyframes logoPulse {
-    0%, 100% { 
-        box-shadow: 0 20px 60px rgba(255, 215, 0, 0.5);
-    }
-    50% {  
-        box-shadow: 0 25px 80px rgba(255, 215, 0, 0.7);
-    }
+    overflow: hidden;
 }
 
 /* Right Part - All Information */
 .hero-right-part {
     display: flex;
     align-items: center;
-    padding: 40px 60px;
+    padding: 10px 20px;
 }
 
 .content-wrapper {
     width: 100%;
-    max-width: 900px;
 }
 
 .main-heading {
-    font-size: 3.2rem;
+    font-size: 2.5rem;
     font-weight: 800;
     color: #ffffff;
     margin: 0 0 20px 0;
@@ -387,74 +346,12 @@ marquee {
 }
 
 .main-description {
-    font-size: 1.2rem;
+    font-size: 1rem;
     color: rgba(255, 255, 255, 0.92);
     line-height: 1.8;
     margin: 0 0 30px 0;
     font-weight: 400;
     letter-spacing: 0.3px;
-}
-
-/* CTA Buttons */
-.cta-buttons {
-    display: flex;
-    gap: 18px;
-    margin-left: 20%;
-    justify-content: center;
-}
-
-.btn-primary {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    padding: 16px 36px;
-    background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
-    color: #0b3b82;
-    text-decoration: none;
-    font-size: 1.1rem;
-    font-weight: 700;
-    border-radius: 50px;
-    transition: all 0.3s ease;
-    box-shadow: 0 8px 25px rgba(255, 215, 0, 0.4);
-    letter-spacing: 0.3px;
-}
-
-.btn-primary:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 12px 35px rgba(255, 215, 0, 0.6);
-    background: linear-gradient(135deg, #ffed4e 0%, #ffd700 100%);
-}
-
-.btn-primary i {
-    font-size: 1rem;
-}
-
-.btn-secondary {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    padding: 16px 36px;
-    background: transparent;
-    color: white;
-    text-decoration: none;
-    font-size: 1.1rem;
-    font-weight: 700;
-    border: 2.5px solid rgba(255, 255, 255, 0.9);
-    border-radius: 50px;
-    transition: all 0.3s ease;
-    letter-spacing: 0.3px;
-}
-
-.btn-secondary:hover {
-    background: rgba(255, 255, 255, 0.95);
-    color: #0b3b82;
-    transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(255, 255, 255, 0.3);
-    border-color: white;
-}
-
-.btn-secondary i {
-    font-size: 1rem;
 }
 
 /* vision Section */
@@ -474,10 +371,10 @@ marquee {
 /* Objectives Section - Modern Theme */
 .objectives-section {
     text-align: center;
-    padding: 100px 50px 70px;
+    padding: 50px 50px 50px;
     border-radius: 24px;
     position: relative;
-    margin: 80px 0;
+    margin: 40px 0;
     background: linear-gradient(135deg, #f0f7ff 0%, #e6f0fa 100%);
     border: 1px solid rgba(52, 152, 219, 0.1);
     box-shadow: 0 20px 60px rgba(231, 76, 60, 0.05);
@@ -511,13 +408,9 @@ marquee {
     filter: drop-shadow(0 4px 12px rgba(52, 152, 219, 0.3));
 }
 
-.section-intro {
-    position: relative;
-}
-
 .objectives-section:hover .section-title {
     opacity: 1;
-    transform: translateY(-90px);
+    transform: translateY(-60px);
 }
 
 .objectives-container {
@@ -613,7 +506,7 @@ marquee {
     color: #34495e;
     line-height: 1.7;
     margin-bottom: 18px;
-    font-size: 0.98rem;
+    font-size: 0.95rem;
 }
 
 /* Color variations for each objective card */
@@ -676,10 +569,10 @@ marquee {
 /* Facilities Section */
 .services-section {
     text-align: center;
-    padding: 100px 50px 70px;
+    padding: 50px 50px 50px;
     border-radius: 24px;
     position: relative;
-    margin: 80px 0;
+    margin: 40px 0;
     background: linear-gradient(135deg, #f0f7ff 0%, #e6f0fa 100%);
     border: 1px solid rgba(52, 152, 219, 0.1);
     box-shadow: 0 20px 60px rgba(11, 59, 130, 0.08);
@@ -717,7 +610,6 @@ marquee {
     font-size: 2.8rem;
     font-weight: 800;
     color: #0a2a5c;
-    margin-bottom: 15px;
     letter-spacing: -0.5px;
     background: linear-gradient(135deg, #0a2a5c 0%, var(--primary-color) 100%);
     -webkit-background-clip: text;
@@ -730,7 +622,7 @@ marquee {
 
 .services-section:hover .section-title {
     opacity: 1;
-    transform: translateY(-90px);
+    transform: translateY(-60px);
 }
 
 .services-container {
@@ -831,7 +723,6 @@ marquee {
 .service-detail {
     color: #4a6572;
     line-height: 1.7;
-    margin-bottom: 20px;
     font-size: 1rem;
 }
 
@@ -866,7 +757,7 @@ marquee {
     padding: 20px 13px;
     background: var(--white);
     border-radius: 20px;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
     position: relative;
     box-shadow: 0 5px 20px var(--shadow-color);
 }
@@ -1202,7 +1093,6 @@ marquee {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 30px;
-    margin-top: 40px;
 }
 
 .team-card {
@@ -1542,6 +1432,7 @@ STUDENT SUPPORT PAGE STYLING
 ================================================== */
 
 .support-section {
+    position: relative;
     margin: 50px 0;
     padding: 50px;
     background: linear-gradient(135deg, #f0f7ff 0%, #e6f0fa 100%);
@@ -1549,16 +1440,28 @@ STUDENT SUPPORT PAGE STYLING
     box-shadow: 0 10px 40px var(--shadow-color);
 }
 
+.support-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, 
+        #2980b9 0%, 
+        #3498db 50%, 
+        #2980b9 100%);
+    z-index: 1;
+}
+
 .support-section-header {
     text-align: center;
-    margin-bottom: 50px;
 }
 
 .support-section-header h2 {
     font-size: 2.8rem;
     font-weight: 800;
     color: #0a2a5c;
-    margin-bottom: 15px;
     letter-spacing: -0.5px;
     background: linear-gradient(135deg, #0a2a5c 0%, var(--primary-color) 100%);
     -webkit-background-clip: text;
@@ -1574,7 +1477,6 @@ STUDENT SUPPORT PAGE STYLING
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 40px;
-    margin-top: 40px;
 }
 
 .support-section-header .fa-graduation-cap {
@@ -1711,7 +1613,6 @@ STUDENT SUPPORT PAGE STYLING
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 30px;
-    margin-top: 40px;
 }
 
 .competitive-card {
@@ -1828,10 +1729,9 @@ STUDENT SUPPORT PAGE STYLING
 /* Forums Section - Modern Theme with 2x2 Grid */
 .forums-section {
     text-align: center;
-    padding: 100px 50px 70px;
+    padding: 50px 50px 50px;
     border-radius: 24px;
     position: relative;
-    margin: 80px 0;
     background: linear-gradient(135deg, #f0f8ff 0%, #e6f2ff 100%);
     border: 1px solid rgba(41, 128, 185, 0.1);
     box-shadow: 0 20px 60px rgba(41, 128, 185, 0.08);
@@ -1867,7 +1767,7 @@ STUDENT SUPPORT PAGE STYLING
 
 .forums-section:hover .section-title {
     opacity: 1;
-    transform: translateY(-90px);
+    transform: translateY(-60px);
 }
 
 /* 2-up, 2-down grid layout */
@@ -2081,7 +1981,6 @@ STUDENT SUPPORT PAGE STYLING
 /* Contact Section - Modern Theme */
 .section-intro {
     text-align: center;
-    margin-bottom: 70px;
     position: relative;
 }
 
@@ -2616,49 +2515,6 @@ STUDENT SUPPORT PAGE STYLING
     margin-right: auto;
 }
 
-.cta-buttons {
-    display: flex;
-    gap: 20px;
-    justify-content: left;
-    flex-wrap: wrap;
-}
-
-.cta-btn-primary,
-.cta-btn-secondary {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    padding: 16px 35px;
-    border-radius: 50px;
-    font-size: 1.1rem;
-    font-weight: 700;
-    text-decoration: none;
-    transition: all 0.3s ease;
-}
-
-.cta-btn-primary {
-    background: white;
-    color: var(--primary-color);
-    box-shadow: 0 8px 25px rgba(255, 255, 255, 0.3);
-}
-
-.cta-btn-primary:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 12px 35px rgba(255, 255, 255, 0.4);
-}
-
-.cta-btn-secondary {
-    background: transparent;
-    color: white;
-    border: 2.5px solid white;
-}
-
-.cta-btn-secondary:hover {
-    background: white;
-    color: var(--primary-color);
-    transform: translateY(-3px);
-}
-
 /* Responsive Design */
 @media (max-width: 1200px) {
     .main-container {
@@ -2770,16 +2626,6 @@ STUDENT SUPPORT PAGE STYLING
     
     .main-description {
         font-size: 1.1rem;
-    }
-    
-    .cta-buttons {
-        flex-direction: column;
-    }
-    
-    .btn-primary,
-    .btn-secondary {
-        justify-content: center;
-        font-size: 1.15rem;
     }
 
     .menu-toggle {
@@ -3007,17 +2853,6 @@ STUDENT SUPPORT PAGE STYLING
         font-size: 1rem;
     }
     
-    .cta-buttons {
-        flex-direction: column;
-        width: 100%;
-    }
-    
-    .cta-btn-primary,
-    .cta-btn-secondary {
-        width: 100%;
-        justify-content: center;
-    }
-    
     .faculty-row-card {
         flex-direction: column;
         align-items: stretch;
@@ -3065,12 +2900,6 @@ STUDENT SUPPORT PAGE STYLING
     
     .main-description {
         font-size: 1rem;
-    }
-    
-    .btn-primary,
-    .btn-secondary {
-        padding: 16px 32px;
-        font-size: 1.05rem;
     }
 
     .header-center {
@@ -3244,14 +3073,6 @@ STUDENT SUPPORT PAGE STYLING
     
     .hero-section {
         margin-bottom: 80px;
-    }
-    
-    .objectives-section {
-        padding: 120px 60px;
-    }
-    
-    .services-section {
-        padding: 120px 60px;
     }
 }
 
