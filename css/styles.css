@@ -1906,6 +1906,9 @@ STUDENT SUPPORT PAGE STYLING
     margin: 0;
     border-top: 1px solid rgba(52, 152, 219, 0.1);
     padding-top: 15px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 .forum-features li {
