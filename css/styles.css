@@ -129,6 +129,8 @@ marquee {
 }
 
 /* Navbar */
+/* ================= NAVBAR ================= */
+
 .navbar {
     background-color: var(--primary-color);
     position: sticky;
@@ -194,6 +196,80 @@ marquee {
     height: 3px;
     background-color: var(--secondary-color);
     z-index: 1;
+}
+
+/* ================= SECTION NAVBAR ================= */
+
+/* ================= SECTION NAVBAR ================= */
+
+.section-nav {
+    position: sticky;
+    top: 70px;                 /* below main navbar */
+    z-index: 900;
+    background-color: #ffffff; /* WHITE BACKGROUND */
+    padding: 15px 0;
+    border-radius: 0 0 20px 20px; /* ROUNDED CORNERS */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+.section-nav-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between; /* SPREAD BUTTONS */
+    align-items: center;
+    gap: 20px;
+    padding: 0 20px;
+}
+
+/* Buttons fill horizontal space equally */
+.section-nav-btn {
+    flex: 1;                    /* EACH BUTTON SAME WIDTH */
+    justify-content: center;
+    text-align: center;
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    color: var(--white);
+    text-decoration: none;
+    padding: 16px 0;
+    font-weight: 600;
+    font-size: 16px;
+
+    transition: all 0.3s ease;
+    position: relative;
+    background: var(--primary-color);
+    border: none;
+    border-radius: 18px;        /* MORE ROUNDNESS */
+    box-shadow: 0 4px 10px rgba(11, 59, 130, 0.2);
+}
+
+.section-nav-btn i {
+    font-size: 18px;
+    transition: transform 0.3s ease;
+}
+
+.section-nav-btn:hover {
+    background-color: #0a5aa8;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(11, 59, 130, 0.3);
+}
+
+.section-nav-btn:hover i {
+    transform: scale(1.2);
+}
+
+.section-nav-btn.active {
+    background: linear-gradient(135deg, var(--accent-color) 0%, #d4a800 100%);
+    color: var(--primary-color);
+    box-shadow: 0 6px 20px rgba(242, 195, 0, 0.4);
+    transform: translateY(-3px);
+}
+
+.section-nav-btn.active::after {
+    display: none;
 }
 
 .menu-toggle {
@@ -2677,6 +2753,29 @@ STUDENT SUPPORT PAGE STYLING
         padding: 16px 20px;
         justify-content: flex-start;
         border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    /* Section Navigation Responsive */
+    .section-nav {
+        top: 60px; /* Below mobile navbar */
+        padding: 10px 0;
+    }
+    
+    .section-nav-container {
+        flex-direction: column;
+        gap: 12px;
+        padding: 0 20px;
+    }
+    
+    .section-nav-btn {
+        width: 100%;
+        padding: 15px 20px;
+        justify-content: center;
+        font-size: 14px;
+    }
+    
+    .section-nav-btn i {
+        font-size: 16px;
     }
     
     .nav-link.active {

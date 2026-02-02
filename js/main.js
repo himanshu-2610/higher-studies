@@ -47,6 +47,60 @@ document.addEventListener('DOMContentLoaded', function() {
     
     setActiveNavLink();
     
+    // Section Navigation Active State on Scroll (works for both index.html and support.html)
+    const sectionNavButtons = document.querySelectorAll('.section-nav-btn');
+    
+    // Dynamically detect sections based on current page
+    let sections = document.querySelectorAll('#vision, #objectives, #services'); // For index.html
+    if (sections.length === 0) {
+        // For support.html or other pages
+        sections = document.querySelectorAll('#forums, #higher-education, #competitive-exams');
+    }
+    
+    function updateSectionNavigation() {
+        let currentSection = '';
+        
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.clientHeight;
+            const scrollPosition = window.pageYOffset + 200; // Offset for better triggering
+            
+            if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                currentSection = section.getAttribute('id');
+            }
+        });
+        
+        sectionNavButtons.forEach(btn => {
+            btn.classList.remove('active');
+            const btnHref = btn.getAttribute('href').substring(1);
+            if (btnHref === currentSection) {
+                btn.classList.add('active');
+            }
+        });
+    }
+    
+    // Update on scroll
+    if (sections.length > 0) {
+        window.addEventListener('scroll', updateSectionNavigation);
+    }
+    
+    // Smooth scroll for section navigation
+    sectionNavButtons.forEach(btn => {
+        btn.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            const targetSection = document.querySelector(targetId);
+            
+            if (targetSection) {
+                const offsetTop = targetSection.offsetTop - 120; // Account for sticky headers
+                window.scrollTo({
+                    top: offsetTop,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+    
     // Scroll animations
     const observerOptions = {
         threshold: 0.1,
