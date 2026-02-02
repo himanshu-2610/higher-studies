@@ -200,15 +200,13 @@ marquee {
 
 /* ================= SECTION NAVBAR ================= */
 
-/* ================= SECTION NAVBAR ================= */
-
 .section-nav {
     position: sticky;
-    top: 70px;                 /* below main navbar */
+    top: 65px;                 /* below main navbar */
     z-index: 900;
-    background-color: #ffffff; /* WHITE BACKGROUND */
-    padding: 15px 0;
-    border-radius: 0 0 20px 20px; /* ROUNDED CORNERS */
+    background:linear-gradient(135deg, #0b3b82 0%, #1a5bb8 50%, #27c3e6 100%); 
+    padding: 10px 0;
+    border-radius: 0 0 30px 30px; /* ROUNDED CORNERS */
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
 }
 
@@ -230,35 +228,19 @@ marquee {
 
     display: flex;
     align-items: center;
-    gap: 10px;
 
-    color: var(--white);
+    color: var(--secondary-color);
     text-decoration: none;
-    padding: 16px 0;
+    padding: 8px 0;
     font-weight: 600;
-    font-size: 16px;
+    font-size: 14px;
 
     transition: all 0.3s ease;
     position: relative;
-    background: var(--primary-color);
+    background: var(--bg-gradient-start);
     border: none;
-    border-radius: 18px;        /* MORE ROUNDNESS */
+    border-radius: 100px;        /* MORE ROUNDNESS */
     box-shadow: 0 4px 10px rgba(11, 59, 130, 0.2);
-}
-
-.section-nav-btn i {
-    font-size: 18px;
-    transition: transform 0.3s ease;
-}
-
-.section-nav-btn:hover {
-    background-color: #0a5aa8;
-    transform: translateY(-3px);
-    box-shadow: 0 6px 15px rgba(11, 59, 130, 0.3);
-}
-
-.section-nav-btn:hover i {
-    transform: scale(1.2);
 }
 
 .section-nav-btn.active {
@@ -1514,6 +1496,7 @@ STUDENT SUPPORT PAGE STYLING
     background: linear-gradient(135deg, #f0f7ff 0%, #e6f0fa 100%);
     border-radius: 24px;
     box-shadow: 0 10px 40px var(--shadow-color);
+    overflow: hidden;
 }
 
 .support-section::before {
@@ -1812,6 +1795,7 @@ STUDENT SUPPORT PAGE STYLING
     border: 1px solid rgba(41, 128, 185, 0.1);
     box-shadow: 0 20px 60px rgba(41, 128, 185, 0.08);
     overflow: hidden;
+    margin-top: 40px;
 }
 
 .forums-section::before {
