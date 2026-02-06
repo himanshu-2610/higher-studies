@@ -308,7 +308,6 @@ marquee {
 }
 
 .hero-container {
-    margin: 0 auto;
     display: grid;
     grid-template-columns: 1fr 4fr;
     position: relative;
@@ -390,17 +389,6 @@ marquee {
     text-shadow: none;
     font-family: 'Roboto', sans-serif;
     letter-spacing: -0.5px;
-}
-
-.gold-text {
-    color: #ffd700;
-    background: linear-gradient(135deg, #ffed4e 0%, #ffd700 50%, #ffb300 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    display: inline-block;
-    font-weight: 900;
-    filter: none;
 }
 
 .main-description {
@@ -3155,10 +3143,6 @@ STUDENT SUPPORT PAGE STYLING
 @media (min-width: 1400px) {
     .main-container {
         padding: 0 40px;
-    }
-    
-    .hero-section {
-        margin-bottom: 80px;
     }
 }
 
