@@ -7,347 +7,23 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="css/styles.css">
     <style>
-        /* Additional styles specific to alumni page */
-        .alumni-section {
-            padding: 80px 50px;
-            border-radius: 24px;
-            position: relative;
-            margin: 60px 0;
-            background: linear-gradient(135deg, #f0f7ff 0%, #e6f0fa 100%);
-            border: 1px solid rgba(52, 152, 219, 0.1);
-            box-shadow: 0 20px 60px rgba(11, 59, 130, 0.08);
-            overflow: hidden;
-        }
-
-        .alumni-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, 
-                var(--secondary-color) 0%, 
-                var(--primary-color) 50%, 
-                var(--secondary-color) 100%);
-            z-index: 1;
-        }
-
-        .alumni-section:hover .fa-users {
-            opacity: 0;
-            transform: translateY(-20px);
-        }
-
-        .alumni-section .fa-users {
-            font-size: 70px;
-            color: var(--primary-color);
-            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-            opacity: 0.9;
-            filter: drop-shadow(0 4px 12px rgba(52, 152, 219, 0.3));
-        }
-
-        .alumni-section:hover .section-title {
-            opacity: 1;
-            transform: translateY(-90px);
-        }
-
-        .alumni-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 30px;
-            perspective: 1000px;
-        }
-
-        .alumni-card {
-            background: linear-gradient(145deg, #ffffff, #fefefe);
-            border-radius: 18px;
-            padding: 30px;
-            position: relative;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            border: 1px solid rgba(41, 128, 185, 0.1);
-            box-shadow: 0 10px 30px rgba(26, 82, 118, 0.08);
-            overflow: hidden;
-            min-height: 400px;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .alumni-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 5px;
-            background: linear-gradient(90deg, #2980b9, #3498db);
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .alumni-card:hover {
-            transform: translateY(-10px) scale(1.02);
-            box-shadow: 0 20px 40px rgba(26, 82, 118, 0.12);
-            border-color: rgba(41, 128, 185, 0.2);
-        }
-
-        .alumni-card:hover::before {
-            opacity: 1;
-        }
-
-        .alumni-header {
-            display: flex;
-            align-items: center;
-            margin-bottom: 25px;
-            gap: 20px;
-        }
-
-        .alumni-avatar {
-            flex-shrink: 0;
-            position: relative;
-            width: 120px;
-            height: 120px;
-        }
-
-        .avatar-wrapper {
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            overflow: hidden;
-            border: 4px solid white;
-            box-shadow: 0 8px 25px rgba(11, 59, 130, 0.15);
-            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
-        }
-
-        .avatar-wrapper img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-
-        .alumni-card:hover .avatar-wrapper img {
-            transform: scale(1.08);
-        }
-
-        .alumni-info {
-            flex: 1;
-            text-align: left;
-        }
-
-        .alumni-name {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--primary-color);
-            margin: 0 0 8px 0;
-            line-height: 1.3;
-        }
-
-        .alumni-profession {
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: var(--secondary-color);
-            margin: 0 0 8px 0;
-            background: rgba(39, 195, 230, 0.08);
-            padding: 6px 15px;
-            border-radius: 12px;
-            display: inline-block;
-            border: 1px solid rgba(39, 195, 230, 0.15);
-        }
-
-        .alumni-batch {
-            font-size: 0.9rem;
-            color: #666;
-            font-weight: 500;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            margin-bottom: 5px;
-        }
-
-        .alumni-batch i {
-            color: var(--secondary-color);
-            font-size: 14px;
-        }
-
-        .alumni-description {
-            flex: 1;
-            text-align: left;
-            padding-top: 20px;
-            border-top: 1px solid rgba(41, 128, 185, 0.1);
-        }
-
-        .alumni-description p {
-            color: #34495e;
-            line-height: 1.7;
-            margin-bottom: 18px;
-            font-size: 0.98rem;
-        }
-
-        .alumni-actions {
-            display: flex;
-            gap: 12px;
-            margin-top: 20px;
-            padding-top: 20px;
-            border-top: 1px solid rgba(41, 128, 185, 0.1);
-        }
-
-        .btn-alumni {
-            flex: 1;
-            padding: 12px 20px;
-            border-radius: 25px;
-            font-size: 0.95rem;
-            font-weight: 600;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            transition: all 0.3s ease;
-            text-align: center;
-            min-width: 120px;
-        }
-
-        .btn-linkedin {
-            background: linear-gradient(135deg, #0a66c2, #09549d);
-            color: white;
-            box-shadow: 0 4px 15px rgba(10, 102, 194, 0.2);
-        }
-
-        .btn-linkedin:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(10, 102, 194, 0.3);
-        }
-
-        .btn-contact {
+        .filter-controls {
             background: white;
-            color: var(--primary-color);
-            border: 2px solid #e0eeff;
-            box-shadow: 0 4px 10px rgba(11, 59, 130, 0.1);
-        }
-
-        .btn-contact:hover {
-            background: #f0f7ff;
-            border-color: var(--secondary-color);
-            transform: translateY(-2px);
-            box-shadow: 0 6px 15px rgba(39, 195, 230, 0.2);
-        }
-
-        /* Color variations for alumni cards */
-        .alumni-card:nth-child(1) .alumni-profession {
-            background: rgba(52, 152, 219, 0.08);
-            border-color: rgba(52, 152, 219, 0.15);
-            color: #2980b9;
-        }
-
-        .alumni-card:nth-child(1)::before {
-            background: linear-gradient(90deg, #3498db, #2980b9);
-        }
-
-        .alumni-card:nth-child(2) .alumni-profession {
-            background: rgba(46, 204, 113, 0.08);
-            border-color: rgba(46, 204, 113, 0.15);
-            color: #27ae60;
-        }
-
-        .alumni-card:nth-child(2)::before {
-            background: linear-gradient(90deg, #2ecc71, #27ae60);
-        }
-
-        .alumni-card:nth-child(3) .alumni-profession {
-            background: rgba(155, 89, 182, 0.08);
-            border-color: rgba(155, 89, 182, 0.15);
-            color: #8e44ad;
-        }
-
-        .alumni-card:nth-child(3)::before {
-            background: linear-gradient(90deg, #9b59b6, #8e44ad);
-        }
-
-        .alumni-card:nth-child(4) .alumni-profession {
-            background: rgba(231, 76, 60, 0.08);
-            border-color: rgba(231, 76, 60, 0.15);
-            color: #c0392b;
-        }
-
-        .alumni-card:nth-child(4)::before {
-            background: linear-gradient(90deg, #e74c3c, #c0392b);
-        }
-
-        .alumni-card:nth-child(5) .alumni-profession {
-            background: rgba(243, 156, 18, 0.08);
-            border-color: rgba(243, 156, 18, 0.15);
-            color: #d35400;
-        }
-
-        .alumni-card:nth-child(5)::before {
-            background: linear-gradient(90deg, #f39c12, #d35400);
-        }
-
-        .alumni-card:nth-child(6) .alumni-profession {
-            background: rgba(26, 188, 156, 0.08);
-            border-color: rgba(26, 188, 156, 0.15);
-            color: #16a085;
-        }
-
-        .alumni-card:nth-child(6)::before {
-            background: linear-gradient(90deg, #1abc9c, #16a085);
-        }
-
-        /* Search and Filter Section */
-        .alumni-controls {
-            background: white;
-            border-radius: 15px;
             padding: 25px;
-            margin-bottom: 40px;
+            margin-bottom: 30px;
+            border-radius: 15px;
             box-shadow: 0 5px 20px rgba(11, 59, 130, 0.08);
             display: flex;
-            flex-wrap: wrap;
             gap: 20px;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .search-box {
-            flex: 1;
-            min-width: 300px;
-            position: relative;
-        }
-
-        .search-box input {
-            width: 100%;
-            padding: 14px 50px 14px 20px;
-            border: 2px solid rgba(11, 59, 130, 0.2);
-            border-radius: 50px;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-            background: #f8f9fa;
-            color: var(--text-color);
-            font-family: 'Roboto', sans-serif;
-        }
-
-        .search-box input:focus {
-            outline: none;
-            border-color: var(--secondary-color);
-            box-shadow: 0 0 0 3px rgba(39, 195, 230, 0.1);
-            background: white;
-        }
-
-        .search-box i {
-            position: absolute;
-            right: 20px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: var(--secondary-color);
-            font-size: 1.2rem;
-        }
-
-        .filter-controls {
-            display: flex;
-            gap: 15px;
             flex-wrap: wrap;
+            align-items: center;
         }
-
-        .filter-select {
+        .filter-controls label {
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-right: 10px;
+        }
+        .filter-controls select {
             padding: 12px 20px;
             border: 2px solid rgba(11, 59, 130, 0.2);
             border-radius: 10px;
@@ -355,226 +31,105 @@
             background: #f8f9fa;
             color: var(--text-color);
             cursor: pointer;
-            transition: all 0.3s ease;
-            min-width: 150px;
+            min-width: 200px;
         }
-
-        .filter-select:focus {
-            outline: none;
-            border-color: var(--secondary-color);
-            box-shadow: 0 0 0 3px rgba(39, 195, 230, 0.1);
-            background: white;
-        }
-
-        /* No results message */
-        .no-results {
-            text-align: center;
-            padding: 60px 20px;
-            background: white;
+        .alumni-section {
+            padding: 60px 30px;
+            margin: 40px 0;
+            background: linear-gradient(135deg, #f0f7ff 0%, #e6f0fa 100%);
             border-radius: 20px;
-            box-shadow: 0 5px 20px rgba(11, 59, 130, 0.08);
-            grid-column: 1 / -1;
+            box-shadow: 0 10px 30px rgba(11, 59, 130, 0.1);
         }
-
-        .no-results i {
-            font-size: 4rem;
-            color: var(--secondary-color);
-            margin-bottom: 20px;
-            opacity: 0.5;
-        }
-
-        .no-results h3 {
-            color: var(--primary-color);
-            font-size: 1.8rem;
-            margin-bottom: 10px;
-        }
-
-        .no-results p {
-            color: #666;
-            font-size: 1.1rem;
-        }
-
-        /* Stats counter */
-        .alumni-stats {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin-bottom: 40px;
-            flex-wrap: wrap;
-        }
-
-        .stat-card {
-            background: white;
-            border-radius: 15px;
-            padding: 25px;
-            min-width: 180px;
+        .section-header {
             text-align: center;
-            box-shadow: 0 5px 15px rgba(11, 59, 130, 0.1);
-            transition: all 0.3s ease;
-            border-top: 4px solid var(--secondary-color);
+            margin-bottom: 40px;
         }
-
-        .stat-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(11, 59, 130, 0.15);
-        }
-
-        .stat-number {
+        .section-header h2 {
             font-size: 2.5rem;
-            font-weight: 800;
             color: var(--primary-color);
             margin-bottom: 10px;
-            line-height: 1;
         }
-
-        .stat-label {
-            font-size: 1rem;
+        .department-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+        .dept-card {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid rgba(41, 128, 185, 0.1);
+            box-shadow: 0 5px 15px rgba(11, 59, 130, 0.08);
+        }
+        .dept-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(11, 59, 130, 0.15);
+            border-color: var(--secondary-color);
+        }
+        .dept-card i {
+            font-size: 3rem;
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+        }
+        .dept-card h3 {
+            font-size: 1.2rem;
+            color: var(--primary-color);
+            margin: 0;
+        }
+        .alumni-list {
+            display: none;
+            margin-top: 40px;
+        }
+        .alumni-list.active {
+            display: block;
+        }
+        .alumni-item {
+            background: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+        }
+        .alumni-item img {
+            flex-shrink: 0;
+        }
+        .alumni-item .info {
+            flex: 1;
+        }
+        .alumni-item h4 {
+            margin: 0 0 8px 0;
+            color: var(--primary-color);
+            font-size: 1.3rem;
+        }
+        .alumni-item p {
+            margin: 5px 0;
             color: #666;
-            font-weight: 600;
         }
-
-        /* Responsive adjustments */
-        @media (max-width: 1024px) {
-            .alumni-grid {
-                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            }
-        }
-
         @media (max-width: 768px) {
-            .alumni-section {
-                padding: 60px 25px 40px;
-            }
-            
-            .alumni-card {
-                padding: 25px;
-                min-height: 380px;
-            }
-            
-            .alumni-header {
-                flex-direction: column;
-                text-align: center;
-                gap: 15px;
-            }
-            
-            .alumni-info {
-                text-align: center;
-            }
-            
-            .alumni-avatar {
-                width: 100px;
-                height: 100px;
-            }
-            
-            .alumni-actions {
+            .filter-controls {
                 flex-direction: column;
             }
-            
-            .btn-alumni {
+            .filter-controls select {
                 width: 100%;
             }
-            
-            .alumni-controls {
-                flex-direction: column;
-                align-items: stretch;
-            }
-            
-            .search-box {
-                min-width: 100%;
-            }
-            
-            .filter-controls {
-                justify-content: center;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .alumni-grid {
+            .department-cards {
                 grid-template-columns: 1fr;
             }
-            
-            .alumni-card {
-                min-height: auto;
-            }
-            
-            .alumni-name {
-                font-size: 1.3rem;
-            }
-            
-            .alumni-profession {
-                font-size: 1rem;
-            }
-            
-            .stat-card {
-                min-width: 140px;
-                padding: 20px;
-            }
-            
-            .stat-number {
-                font-size: 2rem;
+            .alumni-item {
+                flex-direction: column;
+                text-align: center;
+                align-items: center;
             }
         }
-        .alumni-basic-list {
-    display: flex;
-    flex-direction: column;
-    gap: 25px;
-    margin-top: 40px;
-}
-
-.alumni-basic-card {
-    display: flex;
-    gap: 25px;
-    padding: 20px;
-    background: #ffffff;
-    border-radius: 12px;
-    border: 1px solid #e6e6e6;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-}
-
-.alumni-basic-photo img {
-    width: 110px;
-    height: 110px;
-    object-fit: cover;
-    border-radius: 8px;
-    border: 1px solid #ddd;
-}
-
-.alumni-basic-info {
-    flex: 1;
-}
-
-.alumni-basic-name {
-    font-size: 1.3rem;
-    font-weight: 700;
-    color: #0b3b82;
-    margin-bottom: 6px;
-}
-
-.alumni-basic-batch {
-    font-size: 0.9rem;
-    color: #555;
-    font-weight: 600;
-    margin-bottom: 10px;
-}
-
-.alumni-basic-desc {
-    font-size: 0.95rem;
-    color: #333;
-    line-height: 1.6;
-}
-
-/* Mobile */
-@media (max-width: 600px) {
-    .alumni-basic-card {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-    }
-}
-
-    </style>
-</head>
+    </style>\n</head>
 <body>
-    <!-- Header -->
     <header class="top-header">
         <div class="header-container">
             <div class="header-center">
@@ -657,284 +212,69 @@
     </nav>
 
     <main class="main-container" id="main-content" role="main">
-        <!-- Page Header -->
         <div class="page-header">
-            <h1>Distinguished Alumni</h1>
-            <p>Meet our successful graduates who are making significant contributions in their respective fields across the globe</p>
+            <h1>Alumni Portal</h1>
+            <p>Meet our successful graduates</p>
         </div>
 
-        <!-- Alumni Section -->
-        <div class="alumni-section">
-            <div class="alumni-grid" id="alumniContainer">
-                <!-- Alumni 1 -->
-                <div class="alumni-basic-list">
-
-                    <div class="alumni-basic-card">
-                        <div class="alumni-basic-photo">
-                            <img src="images\Screenshot 2026-01-29 105008.png"
-                                alt="Ajinkya Waghulde"
-                                onerror="this.src='https://ui-avatars.com/api/?name=Ajinkya+Waghulde&background=0b3b82&color=fff&size=200'">
-                        </div>
-
-                        <div class="alumni-basic-info">
-                            <h3 class="alumni-basic-name">Ajinkya Waghulde</h3>
-                            <div class="alumni-basic-batch">Batch: 2005 – 2009 (UG)</div>
-                            <p class="alumni-basic-desc">
-                                MS Computer Science, University of Southern California
-                            </p>
-                        </div>
-                    </div>
-                    <div class="alumni-basic-card">
-                        <div class="alumni-basic-photo">
-                            <img src="images\Screenshot 2026-01-29 105011.png"
-                                alt="Priya Patel">
-                        </div>
-                        <div class="alumni-basic-info">
-                            <h3 class="alumni-basic-name">Rhuta Joshi</h3>
-                            <div class="alumni-basic-batch">Batch: 2015 – 2019 (UG)</div>
-                            <p class="alumni-basic-desc">
-                               MS – Computer Graphics and Gaming Technology University of Pennsylvania
-                            </p>
-                        </div>
-                    </div>
-                    <div class="alumni-basic-card">
-                        <div class="alumni-basic-photo">
-                            <img src="images\Screenshot 2026-01-29 105015.png"
-                                alt="Priya Patel">
-                        </div>
-                        <div class="alumni-basic-info">
-                            <h3 class="alumni-basic-name"> Janet Jocob </h3>
-                            <div class="alumni-basic-batch">Batch: 2016 – 2020 (UG)</div>
-                            <p class="alumni-basic-desc">
-                                M.Des. National Institute of Design(NID), Banglore 
-                            </p>
-                        </div>
-                    </div>
-                    <div class="alumni-basic-card">
-                        <div class="alumni-basic-photo">
-                            <img src="images\Screenshot 2026-01-29 105020.png"
-                                alt="Priya Patel">
-                        </div>
-                        <div class="alumni-basic-info">
-                            <h3 class="alumni-basic-name">Nupur Kulkarni</h3>
-                            <div class="alumni-basic-batch">Batch: 2018 – 2022 (UG)</div>
-                            <p class="alumni-basic-desc">
-                                MS Computer Science, Saarland University, Germany
-                            </p>
-                        </div>
-                    </div>
-                    <div class="alumni-basic-card">
-                        <div class="alumni-basic-photo">
-                            <img src="images\Screenshot 2026-01-29 110610.png"
-                                alt="Priya Patel">
-                        </div>
-                        <div class="alumni-basic-info">
-                            <h3 class="alumni-basic-name">Mr. Ravindra More</h3>
-                            <div class="alumni-basic-batch">Batch: 2012 – 2016 (UG)</div>
-                            <p class="alumni-basic-desc">
-                                Cleared UPSC ,CDS exam and was commissioned into Military Intelligence
-                            </p>
-                        </div>
-                    </div>
-                    <div class="alumni-basic-card">
-                        <div class="alumni-basic-photo">
-                            <img src="images\Screenshot 2026-01-29 110618.png"
-                                alt="Priya Patel">
-                        </div>
-                        <div class="alumni-basic-info">
-                            <h3 class="alumni-basic-name">Mr. Swijal Patil</h3>
-                            <div class="alumni-basic-batch">Batch: 2008 – 2012 (UG)</div>
-                            <p class="alumni-basic-desc">
-                                Master in Computer Science at Stony Brook University,Currently Software Development Engineer at Amazon.com
-                            </p>
-                        </div>
-                    </div>
-                    <div class="alumni-basic-card">
-                        <div class="alumni-basic-photo">
-                            <img src="images\Screenshot 2026-01-29 110622.png"
-                                alt="Priya Patel">
-                        </div>
-
-                        <div class="alumni-basic-info">
-                            <h3 class="alumni-basic-name">Mrs. Kanchan Phalke - Kulkarni</h3>
-                            <div class="alumni-basic-batch">Batch: 2006 – 2010 (UG)</div>
-                            <p class="alumni-basic-desc">
-                                CTO, Colossus Nexus Pvt. Ltd. Pune
-                            </p>
-                        </div>
-                    </div>
-                    <div class="alumni-basic-card">
-                        <div class="alumni-basic-photo">
-                            <img src="images\Screenshot 2026-01-29 110627.png"
-                                alt="Priya Patel">
-                        </div>
-
-                        <div class="alumni-basic-info">
-                            <h3 class="alumni-basic-name">Mr. Amrut Chaugule</h3>
-                            <div class="alumni-basic-batch">Batch: 2004 – 2008 (UG)</div>
-                            <p class="alumni-basic-desc">
-                                Vice Presidentat Citicorp Services India Pvt Ltd
-                            </p>
-                        </div>
-                    </div>
-                    <div class="alumni-basic-card">
-                        <div class="alumni-basic-photo">
-                            <img src="images\Screenshot 2026-01-29 110810.png"
-                                alt="Priya Patel">
-                        </div>
-                        <div class="alumni-basic-info">
-                            <h3 class="alumni-basic-name">Nachiket shelke</h3>
-                            <div class="alumni-basic-batch">Batch: 2014 – 2018 (UG)</div>
-                            <p class="alumni-basic-desc">
-                               UPSC AIR-167
-                            </p>
-                        </div>
-                    </div>
-                    <div class="alumni-basic-card">
-                        <div class="alumni-basic-photo">
-                            <img src="images\Screenshot 2026-01-29 110815.png"
-                                alt="Priya Patel">
-                        </div>
-
-                        <div class="alumni-basic-info">
-                            <h3 class="alumni-basic-name">Harshal Patil</h3>
-                            <div class="alumni-basic-batch">Batch: 2014 – 2018 (UG)</div>
-                            <p class="alumni-basic-desc">
-                                UPSC AIR-883
-                            </p>
-                        </div>
-                    </div>
-                    <div class="alumni-basic-card">
-                        <div class="alumni-basic-photo">
-                            <img src="images\Screenshot 2026-01-29 111423.png"
-                                alt="Priya Patel">
-                        </div>
-
-                        <div class="alumni-basic-info">
-                            <h3 class="alumni-basic-name">Gaurav Mahale</h3>
-                            <div class="alumni-basic-batch">Batch: 2021 – 2025 (UG)</div>
-                            <p class="alumni-basic-desc">
-                               Pursuing Masters in Data Science from University of Glasgow 
-                            </p>
-                        </div>
-                    </div>
-                    <div class="alumni-basic-card">
-                        <div class="alumni-basic-photo">
-                            <img src="images\Screenshot 2026-01-29 112126.png"
-                                alt="Priya Patel">
-                        </div>
-
-                        <div class="alumni-basic-info">
-                            <h3 class="alumni-basic-name">Lakhan Ashok Patil </h3>
-                            <div class="alumni-basic-batch">Batch: 2008 – 2012 (UG)</div>
-                            <p class="alumni-basic-desc">
-                               Maharashtra State GST Department State Tax Inspector(STI) at Maharashtra State GST Department
-                            </p>
-                        </div>
-                    </div>
-                    <div class="alumni-basic-card">
-                        <div class="alumni-basic-photo">
-                            <img src="images\Screenshot 2026-01-29 112128.png"
-                                alt="Priya Patel">
-                        </div>
-
-                        <div class="alumni-basic-info">
-                            <h3 class="alumni-basic-name">Ajay Bhujbal</h3>
-                            <div class="alumni-basic-batch">Batch: 2014 – 2018 (UG)</div>
-                            <p class="alumni-basic-desc">
-                                ISRO Post/designation with organization name: ISRO Scientist SC (Group A Gazetted Post)
-                            </p>
-                        </div>
-                    </div>
-                    <div class="alumni-basic-card">
-                        <div class="alumni-basic-photo">
-                            <img src="images\Screenshot 2026-01-29 112132.png"
-                                alt="Priya Patel">
-                        </div>
-
-                        <div class="alumni-basic-info">
-                            <h3 class="alumni-basic-name">Nitin Shinde</h3>
-                            <div class="alumni-basic-batch">Batch: 2015 – 2019 (UG)</div>
-                            <p class="alumni-basic-desc">
-                               Engineering Assistant at ONGC Mumbai
-                            </p>
-                        </div>
-                    </div>
-                    <div class="alumni-basic-card">
-                        <div class="alumni-basic-photo">
-                            <img src="images\Screenshot 2026-01-29 112612.png">
-                        </div>
-
-                        <div class="alumni-basic-info">
-                            <h3 class="alumni-basic-name">Shubhada Padwal</h3>
-                            <div class="alumni-basic-batch">Batch: 2015 – 2019 (UG)</div>
-                            <p class="alumni-basic-desc">
-                               Masters in Management Technical University of Munich, Germany
-                            </p>
-                        </div>
-                    </div>
-                    <div class="alumni-basic-card">
-                        <div class="alumni-basic-photo">
-                            <img src="images\Screenshot 2026-01-29 112616.png"
-                                alt="Priya Patel">
-                        </div>
-                        <div class="alumni-basic-info">
-                            <h3 class="alumni-basic-name">Om Anant Kulkarni</h3>
-                            <div class="alumni-basic-batch">Batch: 2019 – 2023 (UG)</div>
-                            <p class="alumni-basic-desc">
-                               M.Sc. Aerospace Engineering Technical University of Munich, Germany
-                            </p>
-                        </div>
-                    </div>
-                    <div class="alumni-basic-card">
-                        <div class="alumni-basic-photo">
-                            <img src="images\Screenshot 2026-01-29 112621.png"
-                                alt="Priya Patel">
-                        </div>
-
-                        <div class="alumni-basic-info">
-                            <h3 class="alumni-basic-name">Mridhul K. Iyer</h3>
-                            <div class="alumni-basic-batch">Batch: 2019 – 2023 (UG)</div>
-                            <p class="alumni-basic-desc">
-                               M.S. Quantitative Economics Indian Statistical Institute, Kolkata
-                            </p>
-                        </div>
-                    </div>
-                    <div class="alumni-basic-card">
-                        <div class="alumni-basic-photo">
-                            <img src="images\Screenshot 2026-01-29 112627.png"
-                                alt="Priya Patel">
-                        </div>
-
-                        <div class="alumni-basic-info">
-                            <h3 class="alumni-basic-name">Yash Naseri</h3>
-                            <div class="alumni-basic-batch">Batch: 2019 – 2023 (UG)</div>
-                            <p class="alumni-basic-desc">
-                               MiM/MBA Dual Degree International Business Management Development Institute (MDI) Gurgaon/ESCP Business School Paris
-                            </p>
-                        </div>
-                    </div>
-                    <div class="alumni-basic-card">
-                        <div class="alumni-basic-photo">
-                            <img src="images\Screenshot 2026-01-29 112632.png"
-                                alt="Priya Patel">
-                        </div>
-
-                        <div class="alumni-basic-info">
-                            <h3 class="alumni-basic-name">Shivam Hake</h3>
-                            <div class="alumni-basic-batch">Batch: 2019 – 2023 (UG)</div>
-                            <p class="alumni-basic-desc">
-                               M.Tech in Mobility Engineering Indian Institute of Science, Bangalore.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
+        <div class="filter-controls">
+            <div>
+                <label>Filter by Passing Year:</label>
+                <select id="yearFilter">
+                    <option value="">All Years</option>
+                    <option value="2025">2025</option>
+                    <option value="2024">2024</option>
+                    <option value="2023">2023</option>
+                    <option value="2022">2022</option>
+                    <option value="2021">2021</option>
+                    <option value="2020">2020</option>
+                    <option value="2019">2019</option>
+                    <option value="2018">2018</option>
+                </select>
+            </div>
+            <div>
+                <label>Filter by Department:</label>
+                <select id="deptFilter">
+                    <option value="">All Departments</option>
+                    <option value="Computer Science and Engineering (AIML)">Computer Science and Engineering (AIML)</option>
+                    <option value="Computer REGIONAL">Computer REGIONAL</option>
+                    <option value="Information Technology (IT)">Information Technology (IT)</option>
+                    <option value="Computer Engineering">Computer Engineering</option>
+                    <option value="Mechanical Engineering">Mechanical Engineering</option>
+                    <option value="Civil Engineering">Civil Engineering</option>
+                </select>
             </div>
         </div>
+
+        <section class="alumni-section" id="regularAlumniSection">
+            <div class="section-header">
+                <h2>विजिगीषा Alumni</h2>
+            </div>
+            <div class="department-cards" id="regularDeptCards"></div>
+            <div class="alumni-list" id="regularAlumniList"></div>
+        </section>
+
+        <section class="alumni-section" id="distinguishedAlumniSection">
+            <div class="section-header">
+                <h2>विजिगीषा Distinguished Alumni</h2>
+            </div>
+            <div class="filter-controls">
+                <div>
+                    <label>Filter by Education Type:</label>
+                    <select id="eduTypeFilter">
+                        <option value="">All Types</option>
+                        <option value="UPSC">UPSC</option>
+                        <option value="MPSC">MPSC</option>
+                        <option value="ME">ME (Masters/PhD)</option>
+                        <option value="MBA">MBA</option>
+                    </select>
+                </div>
+            </div>
+            <div class="department-cards" id="distinguishedDeptCards"></div>
+            <div class="alumni-list" id="distinguishedAlumniList"></div>
+        </section>
     </main>
 
-    <!-- Footer -->
     <footer class="footer">
         <div class="footer-bottom">
             © 2025 Higher Education and Competitive Exam Cell (विजिगीषा), PCCOE.<br>
@@ -942,140 +282,145 @@
         </div>
     </footer>
 
+    <script src="js/data.js"></script>
+    <script src="js/distinguished-data.js"></script>
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Mobile menu toggle
+        const departments = [
+            { name: 'Computer Science and Engineering (AIML)', icon: 'fa-brain' },
+            { name: 'Computer REGIONAL', icon: 'fa-globe' },
+            { name: 'Information Technology (IT)', icon: 'fa-laptop-code' },
+            { name: 'Computer Engineering', icon: 'fa-computer' },
+            { name: 'Mechanical Engineering', icon: 'fa-cogs' },
+            { name: 'Civil Engineering', icon: 'fa-building' }
+        ];
+
+        function renderDepartmentCards(containerId, type) {
+            const container = document.getElementById(containerId);
+            const deptFilterValue = document.getElementById('deptFilter').value;
+            
+            container.innerHTML = departments.map(dept => {
+                const isVisible = !deptFilterValue || dept.name === deptFilterValue;
+                return `
+                    <div class="dept-card" data-dept="${dept.name}" data-type="${type}" style="display: ${isVisible ? 'block' : 'none'}">
+                        <i class="fas ${dept.icon}"></i>
+                        <h3>${dept.name}</h3>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function filterAlumni(alumni, year, dept) {
+            return alumni.filter(a => {
+                const matchYear = !year || a.year === year;
+                const matchDept = !dept || a.department === dept;
+                return matchYear && matchDept;
+            });
+        }
+
+        function renderAlumniList(containerId, alumni) {
+            const container = document.getElementById(containerId);
+            if (alumni.length === 0) {
+                container.innerHTML = '<div class="alumni-item"><div class="info"><h4>No alumni found</h4></div></div>';
+            } else {
+                container.innerHTML = alumni.map(a => `
+                    <div class="alumni-item">
+                        <img src="${a.photo}" alt="${a.name}" style="width: 80px; height: 80px; border-radius: 8px; object-fit: cover;" onerror="this.src='https://ui-avatars.com/api/?name=${encodeURIComponent(a.name)}&background=0b3b82&color=fff&size=80'">
+                        <div class="info">
+                            <h4>${a.name}</h4>
+                            <p><strong>Department:</strong> ${a.department}</p>
+                            <p><strong>Passing Year:</strong> ${a.year}</p>
+                            ${a.educationType ? `<p><strong>Education Type:</strong> ${a.educationType}</p>` : ''}
+                            ${a.achievement ? `<p><strong>Achievement:</strong> ${a.achievement}</p>` : ''}
+                            ${a.description ? `<p style="margin-top: 8px; color: #555; font-style: italic;">${a.description}</p>` : ''}
+                        </div>
+                    </div>
+                `).join('');
+            }
+            container.classList.add('active');
+        }
+
+        let selectedDeptRegular = null;
+        let selectedDeptDistinguished = null;
+
+        function handleDeptCardClick(dept, type) {
+            const year = document.getElementById('yearFilter').value;
+            const deptFilterValue = document.getElementById('deptFilter').value;
+            const eduType = document.getElementById('eduTypeFilter') ? document.getElementById('eduTypeFilter').value : '';
+            
+            const alumni = type === 'regular' ? regularAlumni : distinguishedAlumni;
+            const listId = type === 'regular' ? 'regularAlumniList' : 'distinguishedAlumniList';
+            
+            if (type === 'regular') {
+                selectedDeptRegular = dept;
+            } else {
+                selectedDeptDistinguished = dept;
+            }
+            
+            let filtered = alumni.filter(a => a.department === dept);
+            
+            if (year) {
+                filtered = filtered.filter(a => a.year === year);
+            }
+            if (deptFilterValue && deptFilterValue !== dept) {
+                filtered = [];
+            }
+            if (type === 'distinguished' && eduType) {
+                filtered = filtered.filter(a => a.educationType === eduType);
+            }
+            
+            renderAlumniList(listId, filtered);
+        }
+
+        function setupEventListeners() {
+            document.getElementById('yearFilter').addEventListener('change', applyFilters);
+            document.getElementById('deptFilter').addEventListener('change', function() {
+                renderDepartmentCards('regularDeptCards', 'regular');
+                renderDepartmentCards('distinguishedDeptCards', 'distinguished');
+                setupCardClickListeners();
+                applyFilters();
+            });
+            
+            if (document.getElementById('eduTypeFilter')) {
+                document.getElementById('eduTypeFilter').addEventListener('change', applyFilters);
+            }
+            
+            setupCardClickListeners();
+            
             const menuToggle = document.getElementById('menuToggle');
             const navbarLinks = document.getElementById('navbarLinks');
-            
-            menuToggle.addEventListener('click', function() {
+            menuToggle.addEventListener('click', () => {
                 navbarLinks.classList.toggle('active');
             });
-
-            // Search functionality
-            const searchInput = document.getElementById('searchAlumni');
-            const filterBatch = document.getElementById('filterBatch');
-            const filterProfession = document.getElementById('filterProfession');
-            const alumniCards = document.querySelectorAll('.alumni-card');
-            
-            function filterAlumni() {
-                const searchTerm = searchInput.value.toLowerCase();
-                const batchFilter = filterBatch.value;
-                const professionFilter = filterProfession.value;
-                
-                alumniCards.forEach(card => {
-                    const name = card.querySelector('.alumni-name').textContent.toLowerCase();
-                    const profession = card.querySelector('.alumni-profession').textContent.toLowerCase();
-                    const description = card.querySelector('.alumni-description p').textContent.toLowerCase();
-                    const batch = card.dataset.batch;
-                    const professionType = card.dataset.profession;
-                    
-                    const matchesSearch = name.includes(searchTerm) || 
-                                        profession.includes(searchTerm) || 
-                                        description.includes(searchTerm);
-                    
-                    const matchesBatch = !batchFilter || batch === batchFilter;
-                    const matchesProfession = !professionFilter || professionType === professionFilter;
-                    
-                    if (matchesSearch && matchesBatch && matchesProfession) {
-                        card.style.display = 'flex';
-                        card.style.opacity = '0';
-                        card.style.transform = 'translateY(20px)';
-                        setTimeout(() => {
-                            card.style.opacity = '1';
-                            card.style.transform = 'translateY(0)';
-                            card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-                        }, 100);
-                    } else {
-                        card.style.display = 'none';
-                    }
+        }
+        
+        function setupCardClickListeners() {
+            document.querySelectorAll('.dept-card').forEach(card => {
+                card.addEventListener('click', function() {
+                    const dept = this.dataset.dept;
+                    const type = this.dataset.type;
+                    handleDeptCardClick(dept, type);
                 });
-                
-                // Show no results message if no cards are visible
-                const visibleCards = Array.from(alumniCards).filter(card => card.style.display !== 'none');
-                let noResults = document.querySelector('.no-results');
-                
-                if (visibleCards.length === 0) {
-                    if (!noResults) {
-                        noResults = document.createElement('div');
-                        noResults.className = 'no-results';
-                        noResults.innerHTML = `
-                            <i class="fas fa-search"></i>
-                            <h3>No Alumni Found</h3>
-                            <p>Try adjusting your search or filter criteria</p>
-                        `;
-                        document.getElementById('alumniContainer').appendChild(noResults);
-                    }
-                } else if (noResults) {
-                    noResults.remove();
-                }
-            }
-            
-            // Add event listeners
-            searchInput.addEventListener('input', filterAlumni);
-            filterBatch.addEventListener('change', filterAlumni);
-            filterProfession.addEventListener('change', filterAlumni);
-
-            // Animate cards on scroll
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.style.opacity = '1';
-                        entry.target.style.transform = 'translateY(0)';
-                        entry.target.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-                    }
-                });
-            }, { threshold: 0.1 });
-            
-            alumniCards.forEach(card => {
-                card.style.opacity = '0';
-                card.style.transform = 'translateY(20px)';
-                observer.observe(card);
             });
+        }
 
-            // Animate stats counter
-            const statElements = {
-                totalAlumni: { target: 150, current: 0, increment: 5, duration: 2000 },
-                companiesCount: { target: 40, current: 0, increment: 2, duration: 1500 },
-                countriesCount: { target: 15, current: 0, increment: 1, duration: 1000 },
-                avgExperience: { target: 8, current: 0, increment: 0.5, duration: 1200 }
-            };
-
-            function animateStats() {
-                Object.keys(statElements).forEach(key => {
-                    const element = document.getElementById(key);
-                    const config = statElements[key];
-                    
-                    const interval = setInterval(() => {
-                        config.current += config.increment;
-                        if (config.current >= config.target) {
-                            config.current = config.target;
-                            clearInterval(interval);
-                        }
-                        
-                        if (key === 'avgExperience') {
-                            element.textContent = config.current.toFixed(1) + '+';
-                        } else {
-                            element.textContent = Math.floor(config.current) + '+';
-                        }
-                    }, config.duration / (config.target / config.increment));
-                });
+        function applyFilters() {
+            if (selectedDeptRegular) {
+                handleDeptCardClick(selectedDeptRegular, 'regular');
+            } else {
+                document.getElementById('regularAlumniList').classList.remove('active');
             }
-
-            // Start animation when stats section comes into view
-            const statsObserver = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        animateStats();
-                        statsObserver.unobserve(entry.target);
-                    }
-                });
-            }, { threshold: 0.5 });
-
-            const statsSection = document.querySelector('.alumni-stats');
-            if (statsSection) {
-                statsObserver.observe(statsSection);
+            
+            if (selectedDeptDistinguished) {
+                handleDeptCardClick(selectedDeptDistinguished, 'distinguished');
+            } else {
+                document.getElementById('distinguishedAlumniList').classList.remove('active');
             }
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            renderDepartmentCards('regularDeptCards', 'regular');
+            renderDepartmentCards('distinguishedDeptCards', 'distinguished');
+            setupEventListeners();
         });
     </script>
 </body>
