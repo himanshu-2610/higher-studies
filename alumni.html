@@ -36,49 +36,113 @@
         .alumni-section {
             padding: 60px 30px;
             margin: 40px 0;
-            background: linear-gradient(135deg, #f0f7ff 0%, #e6f0fa 100%);
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(11, 59, 130, 0.1);
+            background: linear-gradient(135deg, #f0f7ff 0%, #e6f0fa 50%, #d4e7fa 100%);
+            border-radius: 25px;
+            box-shadow: 0 15px 40px rgba(11, 59, 130, 0.12);
+            position: relative;
+            overflow: hidden;
+        }
+        .alumni-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(41, 128, 185, 0.05) 0%, transparent 70%);
+            animation: pulse 15s ease-in-out infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(-10px, -10px) scale(1.1); }
         }
         .section-header {
             text-align: center;
-            margin-bottom: 40px;
+            margin-bottom: 50px;
+            position: relative;
+            z-index: 1;
         }
         .section-header h2 {
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             color: var(--primary-color);
-            margin-bottom: 10px;
+            margin-bottom: 15px;
+            background: linear-gradient(135deg, #0b3b82 0%, #2980b9 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: fadeInDown 0.8s ease-out;
+        }
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
         .department-cards {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
             margin-bottom: 40px;
+            position: relative;
+            z-index: 1;
         }
         .dept-card {
-            background: white;
-            padding: 25px;
-            border-radius: 15px;
+            background: linear-gradient(135deg, #ffffff 0%, #f8fbff 100%);
+            padding: 35px 25px;
+            border-radius: 20px;
             text-align: center;
             cursor: pointer;
-            transition: all 0.3s ease;
-            border: 2px solid rgba(41, 128, 185, 0.1);
-            box-shadow: 0 5px 15px rgba(11, 59, 130, 0.08);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 2px solid rgba(41, 128, 185, 0.15);
+            box-shadow: 0 8px 20px rgba(11, 59, 130, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        .dept-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(41, 128, 185, 0.15), transparent);
+            transition: left 0.5s ease;
+        }
+        .dept-card:hover::before {
+            left: 100%;
         }
         .dept-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 35px rgba(11, 59, 130, 0.15);
+            transform: translateY(-12px) scale(1.03);
+            box-shadow: 0 20px 45px rgba(11, 59, 130, 0.2);
             border-color: var(--secondary-color);
+            background: linear-gradient(135deg, #ffffff 0%, #e8f4ff 100%);
         }
         .dept-card i {
-            font-size: 3rem;
-            color: var(--secondary-color);
-            margin-bottom: 15px;
+            font-size: 3.5rem;
+            background: linear-gradient(135deg, #2980b9 0%, #0b3b82 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+        .dept-card:hover i {
+            transform: scale(1.15) rotate(5deg);
         }
         .dept-card h3 {
-            font-size: 1.2rem;
+            font-size: 1.25rem;
             color: var(--primary-color);
             margin: 0;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+        .dept-card:hover h3 {
+            color: var(--secondary-color);
         }
         .alumni-list {
             display: none;
@@ -112,6 +176,11 @@
             margin: 5px 0;
             color: #666;
         }
+        @media (max-width: 1200px) {
+            .department-cards {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
         @media (max-width: 768px) {
             .filter-controls {
                 flex-direction: column;
@@ -127,8 +196,80 @@
                 text-align: center;
                 align-items: center;
             }
+            .section-header h2 {
+                font-size: 2rem;
+            }
+            .dept-card {
+                padding: 25px 20px;
+            }
         }
-    </style>\n</head>
+        /* Section Navigation Buttons */
+        .section-nav {
+            position: sticky;
+            top: 65px;
+            z-index: 900;
+            background: linear-gradient(135deg, #0b3b82 0%, #1a5bb8 50%, #27c3e6 100%);
+            padding: 12px 0;
+            border-radius: 0 0 30px 30px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            margin-bottom: 20px;
+        }
+        .section-nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            padding: 0 20px;
+        }
+        .section-nav-btn {
+            flex: 1;
+            max-width: 400px;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            padding: 14px 30px;
+            font-weight: 600;
+            font-size: 15px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            background: rgba(255, 255, 255, 0.15);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50px;
+            box-shadow: 0 4px 15px rgba(11, 59, 130, 0.2);
+            backdrop-filter: blur(10px);
+        }
+        .section-nav-btn:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(11, 59, 130, 0.3);
+        }
+        .section-nav-btn.active {
+            background: linear-gradient(135deg, #f2c300 0%, #d4a800 100%);
+            color: #0b3b82;
+            border-color: #f2c300;
+            box-shadow: 0 6px 20px rgba(242, 195, 0, 0.4);
+            transform: translateY(-3px) scale(1.02);
+        }
+        .section-nav-btn i {
+            margin-right: 10px;
+            font-size: 18px;
+        }
+        @media (max-width: 768px) {
+            .section-nav-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .section-nav-btn {
+                max-width: 100%;
+                width: 100%;
+            }
+        }
+    </style></head>
 <body>
     <header class="top-header">
         <div class="header-container">
@@ -211,39 +352,24 @@
         </div>
     </nav>
 
+    <!-- Section Navigation Buttons -->
+    <nav class="section-nav" id="sectionNav">
+        <div class="section-nav-container">
+            <a href="#regularAlumniSection" class="section-nav-btn active" data-section="regular">
+                <i class="fas fa-user-graduate"></i>
+                <span>विजिगीषा Alumni</span>
+            </a>
+            <a href="#distinguishedAlumniSection" class="section-nav-btn" data-section="distinguished">
+                <i class="fas fa-trophy"></i>
+                <span>विजिगीषा Distinguished Alumni</span>
+            </a>
+        </div>
+    </nav>
+
     <main class="main-container" id="main-content" role="main">
-        <div class="page-header">
+        <div class="page-header" style="margin-bottom: 0px; border-radius: 20px 20px 0px 0px;">
             <h1>Alumni Portal</h1>
             <p>Meet our successful graduates</p>
-        </div>
-
-        <div class="filter-controls">
-            <div>
-                <label>Filter by Passing Year:</label>
-                <select id="yearFilter">
-                    <option value="">All Years</option>
-                    <option value="2025">2025</option>
-                    <option value="2024">2024</option>
-                    <option value="2023">2023</option>
-                    <option value="2022">2022</option>
-                    <option value="2021">2021</option>
-                    <option value="2020">2020</option>
-                    <option value="2019">2019</option>
-                    <option value="2018">2018</option>
-                </select>
-            </div>
-            <div>
-                <label>Filter by Department:</label>
-                <select id="deptFilter">
-                    <option value="">All Departments</option>
-                    <option value="Computer Science and Engineering (AIML)">Computer Science and Engineering (AIML)</option>
-                    <option value="Computer REGIONAL">Computer REGIONAL</option>
-                    <option value="Information Technology (IT)">Information Technology (IT)</option>
-                    <option value="Computer Engineering">Computer Engineering</option>
-                    <option value="Mechanical Engineering">Mechanical Engineering</option>
-                    <option value="Civil Engineering">Civil Engineering</option>
-                </select>
-            </div>
         </div>
 
         <section class="alumni-section" id="regularAlumniSection">
@@ -251,27 +377,13 @@
                 <h2>विजिगीषा Alumni</h2>
             </div>
             <div class="department-cards" id="regularDeptCards"></div>
-            <div class="alumni-list" id="regularAlumniList"></div>
         </section>
 
         <section class="alumni-section" id="distinguishedAlumniSection">
             <div class="section-header">
                 <h2>विजिगीषा Distinguished Alumni</h2>
             </div>
-            <div class="filter-controls">
-                <div>
-                    <label>Filter by Education Type:</label>
-                    <select id="eduTypeFilter">
-                        <option value="">All Types</option>
-                        <option value="UPSC">UPSC</option>
-                        <option value="MPSC">MPSC</option>
-                        <option value="ME">ME (Masters/PhD)</option>
-                        <option value="MBA">MBA</option>
-                    </select>
-                </div>
-            </div>
             <div class="department-cards" id="distinguishedDeptCards"></div>
-            <div class="alumni-list" id="distinguishedAlumniList"></div>
         </section>
     </main>
 
@@ -282,8 +394,6 @@
         </div>
     </footer>
 
-    <script src="js/data.js"></script>
-    <script src="js/distinguished-data.js"></script>
     <script>
         const departments = [
             { name: 'Computer Science and Engineering (AIML)', icon: 'fa-brain' },
@@ -296,94 +406,28 @@
 
         function renderDepartmentCards(containerId, type) {
             const container = document.getElementById(containerId);
-            const deptFilterValue = document.getElementById('deptFilter').value;
-            
-            container.innerHTML = departments.map(dept => {
-                const isVisible = !deptFilterValue || dept.name === deptFilterValue;
-                return `
-                    <div class="dept-card" data-dept="${dept.name}" data-type="${type}" style="display: ${isVisible ? 'block' : 'none'}">
-                        <i class="fas ${dept.icon}"></i>
-                        <h3>${dept.name}</h3>
-                    </div>
-                `;
-            }).join('');
+            container.innerHTML = departments.map(dept => `
+                <div class="dept-card" data-dept="${dept.name}" data-type="${type}">
+                    <i class="fas ${dept.icon}"></i>
+                    <h3>${dept.name}</h3>
+                </div>
+            `).join('');
         }
 
-        function filterAlumni(alumni, year, dept) {
-            return alumni.filter(a => {
-                const matchYear = !year || a.year === year;
-                const matchDept = !dept || a.department === dept;
-                return matchYear && matchDept;
+        function setupCardClickListeners() {
+            document.querySelectorAll('.dept-card').forEach(card => {
+                card.addEventListener('click', function() {
+                    const dept = this.dataset.dept;
+                    const type = this.dataset.type;
+                    const page = type === 'regular' ? 'alumni-list.html' : 'distinguished-list.html';
+                    window.location.href = `${page}?department=${encodeURIComponent(dept)}`;
+                });
             });
         }
 
-        function renderAlumniList(containerId, alumni) {
-            const container = document.getElementById(containerId);
-            if (alumni.length === 0) {
-                container.innerHTML = '<div class="alumni-item"><div class="info"><h4>No alumni found</h4></div></div>';
-            } else {
-                container.innerHTML = alumni.map(a => `
-                    <div class="alumni-item">
-                        <img src="${a.photo}" alt="${a.name}" style="width: 80px; height: 80px; border-radius: 8px; object-fit: cover;" onerror="this.src='https://ui-avatars.com/api/?name=${encodeURIComponent(a.name)}&background=0b3b82&color=fff&size=80'">
-                        <div class="info">
-                            <h4>${a.name}</h4>
-                            <p><strong>Department:</strong> ${a.department}</p>
-                            <p><strong>Passing Year:</strong> ${a.year}</p>
-                            ${a.educationType ? `<p><strong>Education Type:</strong> ${a.educationType}</p>` : ''}
-                            ${a.achievement ? `<p><strong>Achievement:</strong> ${a.achievement}</p>` : ''}
-                            ${a.description ? `<p style="margin-top: 8px; color: #555; font-style: italic;">${a.description}</p>` : ''}
-                        </div>
-                    </div>
-                `).join('');
-            }
-            container.classList.add('active');
-        }
-
-        let selectedDeptRegular = null;
-        let selectedDeptDistinguished = null;
-
-        function handleDeptCardClick(dept, type) {
-            const year = document.getElementById('yearFilter').value;
-            const deptFilterValue = document.getElementById('deptFilter').value;
-            const eduType = document.getElementById('eduTypeFilter') ? document.getElementById('eduTypeFilter').value : '';
-            
-            const alumni = type === 'regular' ? regularAlumni : distinguishedAlumni;
-            const listId = type === 'regular' ? 'regularAlumniList' : 'distinguishedAlumniList';
-            
-            if (type === 'regular') {
-                selectedDeptRegular = dept;
-            } else {
-                selectedDeptDistinguished = dept;
-            }
-            
-            let filtered = alumni.filter(a => a.department === dept);
-            
-            if (year) {
-                filtered = filtered.filter(a => a.year === year);
-            }
-            if (deptFilterValue && deptFilterValue !== dept) {
-                filtered = [];
-            }
-            if (type === 'distinguished' && eduType) {
-                filtered = filtered.filter(a => a.educationType === eduType);
-            }
-            
-            renderAlumniList(listId, filtered);
-        }
-
-        function setupEventListeners() {
-            document.getElementById('yearFilter').addEventListener('change', applyFilters);
-            document.getElementById('deptFilter').addEventListener('change', function() {
-                renderDepartmentCards('regularDeptCards', 'regular');
-                renderDepartmentCards('distinguishedDeptCards', 'distinguished');
-                setupCardClickListeners();
-                applyFilters();
-            });
-            
-            if (document.getElementById('eduTypeFilter')) {
-                document.getElementById('eduTypeFilter').addEventListener('change', applyFilters);
-            }
-            
+        document.addEventListener('DOMContentLoaded', function() {
+            renderDepartmentCards('regularDeptCards', 'regular');
+            renderDepartmentCards('distinguishedDeptCards', 'distinguished');
             setupCardClickListeners();
             
             const menuToggle = document.getElementById('menuToggle');
@@ -391,36 +435,52 @@
             menuToggle.addEventListener('click', () => {
                 navbarLinks.classList.toggle('active');
             });
-        }
-        
-        function setupCardClickListeners() {
-            document.querySelectorAll('.dept-card').forEach(card => {
-                card.addEventListener('click', function() {
-                    const dept = this.dataset.dept;
-                    const type = this.dataset.type;
-                    handleDeptCardClick(dept, type);
+
+            // Section navigation buttons
+            const sectionBtns = document.querySelectorAll('.section-nav-btn');
+            sectionBtns.forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Remove active class from all buttons
+                    sectionBtns.forEach(b => b.classList.remove('active'));
+                    
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    
+                    // Smooth scroll to section
+                    const targetId = this.getAttribute('href');
+                    const targetSection = document.querySelector(targetId);
+                    if (targetSection) {
+                        const navHeight = document.querySelector('.section-nav').offsetHeight + 70;
+                        const targetPosition = targetSection.offsetTop - navHeight;
+                        window.scrollTo({
+                            top: targetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
                 });
             });
-        }
 
-        function applyFilters() {
-            if (selectedDeptRegular) {
-                handleDeptCardClick(selectedDeptRegular, 'regular');
-            } else {
-                document.getElementById('regularAlumniList').classList.remove('active');
-            }
-            
-            if (selectedDeptDistinguished) {
-                handleDeptCardClick(selectedDeptDistinguished, 'distinguished');
-            } else {
-                document.getElementById('distinguishedAlumniList').classList.remove('active');
-            }
-        }
+            // Observer for active button on scroll
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const sectionId = entry.target.id;
+                        sectionBtns.forEach(btn => {
+                            const btnSection = btn.getAttribute('data-section');
+                            if (sectionId === btnSection + 'AlumniSection') {
+                                btn.classList.add('active');
+                            } else {
+                                btn.classList.remove('active');
+                            }
+                        });
+                    }
+                });
+            }, { threshold: 0.3 });
 
-        document.addEventListener('DOMContentLoaded', function() {
-            renderDepartmentCards('regularDeptCards', 'regular');
-            renderDepartmentCards('distinguishedDeptCards', 'distinguished');
-            setupEventListeners();
+            observer.observe(document.getElementById('regularAlumniSection'));
+            observer.observe(document.getElementById('distinguishedAlumniSection'));
         });
     </script>
 </body>
