@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Coordinators List | PCCOE</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        .page-header {
+            text-align: center;
+            padding: 50px 20px;
+            position: relative;
+            background: linear-gradient(135deg, rgba(11, 59, 130, 0.03) 0%, rgba(41, 128, 185, 0.05) 100%);
+            border-radius: 0 0 30px 30px;
+            margin-bottom: 30px;
+        }
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, #0b3b82 0%, #2980b9 50%, #0b3b82 100%);
+        }
+        .page-header h1 {
+            font-size: 2.8rem;
+            background: linear-gradient(135deg, #0b3b82 0%, #2980b9 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 15px;
+            animation: fadeInDown 0.8s ease-out;
+        }
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .page-header p {
+            color: #666;
+            font-size: 1.15rem;
+            animation: fadeIn 1s ease-out 0.2s both;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .student-count {
+            display: inline-block;
+            background: linear-gradient(135deg, #2980b9 0%, #0b3b82 100%);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-top: 10px;
+            box-shadow: 0 4px 12px rgba(41, 128, 185, 0.3);
+        }
+        .student-count i {
+            margin-right: 6px;
+        }
+        .controls-bar {
+            background: linear-gradient(135deg, #ffffff 0%, #f8fbff 100%);
+            padding: 20px 30px;
+            margin-bottom: 30px;
+            border-radius: 20px;
+            box-shadow: 0 8px 25px rgba(11, 59, 130, 0.12);
+            display: flex;
+            gap: 25px;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            border: 1px solid rgba(41, 128, 185, 0.1);
+        }
+        .back-btn {
+            background: linear-gradient(135deg, #2980b9 0%, #0b3b82 100%);
+            color: white;
+            padding: 13px 28px;
+            border-radius: 12px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 600;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 5px 15px rgba(11, 59, 130, 0.2);
+            border: none;
+            cursor: pointer;
+            font-size: 0.95rem;
+        }
+        .back-btn:hover {
+            background: linear-gradient(135deg, #0b3b82 0%, #2980b9 100%);
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 8px 20px rgba(11, 59, 130, 0.3);
+            color: white;
+        }
+        .filter-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .filter-group label {
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+        .filter-group select {
+            padding: 10px 18px;
+            border: 2px solid rgba(11, 59, 130, 0.2);
+            border-radius: 12px;
+            font-size: 0.95rem;
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+            color: var(--text-color);
+            cursor: pointer;
+            min-width: 160px;
+            transition: all 0.3s ease;
+        }
+        .filter-group select:hover {
+            border-color: var(--secondary-color);
+            box-shadow: 0 4px 12px rgba(41, 128, 185, 0.15);
+        }
+        .student-table-wrapper {
+            background: linear-gradient(135deg, #ffffff 0%, #f8fbff 100%);
+            border-radius: 20px;
+            box-shadow: 0 8px 25px rgba(11, 59, 130, 0.12);
+            overflow: hidden;
+            border: 1px solid rgba(41, 128, 185, 0.1);
+            animation: fadeInUp 0.6s ease-out;
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .coming-soon {
+            text-align: center;
+            padding: 80px 30px;
+            color: #888;
+        }
+        .coming-soon i {
+            font-size: 56px;
+            color: #ddd;
+            margin-bottom: 20px;
+            display: block;
+        }
+        .coming-soon h3 {
+            color: var(--primary-color);
+            margin-bottom: 12px;
+            font-size: 1.4rem;
+        }
+        .coming-soon p {
+            font-size: 1.05rem;
+            max-width: 400px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+        @media (max-width: 768px) {
+            .page-header { padding: 35px 15px; margin-bottom: 20px; border-radius: 0 0 20px 20px; }
+            .page-header h1 { font-size: 1.6rem; margin-bottom: 10px; }
+            .page-header p { font-size: 0.9rem; }
+            .student-count { font-size: 0.85rem; padding: 6px 16px; }
+            .controls-bar { flex-direction: column; padding: 15px; gap: 15px; border-radius: 16px; margin-bottom: 20px; }
+            .back-btn { padding: 10px 20px; font-size: 0.9rem; width: 100%; justify-content: center; border-radius: 10px; }
+            .filter-group { width: 100%; }
+            .filter-group select { width: 100%; min-width: unset; padding: 10px 14px; }
+            .filter-group label { font-size: 0.9rem; }
+            .student-table-wrapper { border-radius: 16px; }
+            .coming-soon { padding: 50px 20px; }
+            .coming-soon i { font-size: 42px; }
+            .coming-soon h3 { font-size: 1.2rem; }
+            .coming-soon p { font-size: 0.95rem; }
+            .students-table { font-size: 0.85rem; }
+            .students-table th, .students-table td { padding: 10px 8px; }
+        }
+        @media (max-width: 480px) {
+            .page-header { padding: 25px 12px; margin-bottom: 15px; }
+            .page-header h1 { font-size: 1.3rem; }
+            .page-header p { font-size: 0.8rem; }
+            .student-count { font-size: 0.8rem; padding: 5px 14px; }
+            .controls-bar { padding: 12px; gap: 12px; border-radius: 14px; margin-bottom: 15px; }
+            .back-btn { padding: 9px 16px; font-size: 0.85rem; }
+            .student-table-wrapper { border-radius: 14px; }
+            .students-table { font-size: 0.8rem; }
+            .students-table th, .students-table td { padding: 8px 6px; }
+            .students-table th:first-child, .students-table td:first-child { width: 35px; }
+            .coming-soon { padding: 40px 15px; }
+            .coming-soon i { font-size: 36px; margin-bottom: 14px; }
+            .coming-soon h3 { font-size: 1.1rem; }
+        }
+        @media (max-width: 360px) {
+            .page-header h1 { font-size: 1.15rem; }
+            .students-table { font-size: 0.75rem; }
+            .students-table th, .students-table td { padding: 7px 4px; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="top-header">
+        <div class="header-container">
+            <div class="header-center">
+                <div class="logo-group">
+                    <img src="images/PCCOE-Logo.png" alt="PCCOE" style="width: 100px; height: auto;">
+                </div>
+                <div class="header-text">
+                    <h4>PIMPRI CHINCHWAD EDUCATIONAL TRUST's</h4>
+                    <h1>PIMPRI CHINCHWAD COLLEGE OF ENGINEERING</h1>
+                    <p class="subtitle">
+                        NBA Accredited | NAAC Accredited with 'A' Grade | An Autonomous Institute | AICTE Approved | ISO 21001:2018 Certified | Permanently Affiliated to SPPU, Pune
+                    </p>
+                </div>
+                <div class="logo-group">
+                    <img src="images/ai.png" alt="AICTE">
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Updates Bar -->
+    <div class="updates-bar">
+        <span class="updates-label">UPDATES</span>
+        <marquee>
+            📌 Gate Exam 2026 schedules are now available. <a href="https://gate2026.iitg.ac.in/examination-schedule.html" style="color: white; text-decoration: underline;">View Schedule</a>
+        </marquee>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar" role="navigation">
+        <div class="navbar-container">
+            <button class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="navbar-links" id="navbarLinks">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">
+                        <i class="fas fa-home"></i>
+                        <span>Home</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="about.html" class="nav-link">
+                        <i class="fas fa-users"></i>
+                        <span>Our Team</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="support.html" class="nav-link">
+                        <i class="fas fa-hands-helping"></i>
+                        <span>Student Support</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="alumni.html" class="nav-link">
+                        <i class="fas fa-award"></i>
+                        <span>Distinguished Alumni</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="activities.html" class="nav-link">
+                        <i class="fas fa-tasks"></i>
+                        <span>Activities Conducted</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="membership.html" class="nav-link">
+                        <i class="fas fa-address-card"></i>
+                        <span>Membership</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="contact.html" class="nav-link">
+                        <i class="fas fa-phone"></i>
+                        <span>Contact Us</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-container" id="main-content" role="main">
+        <div class="page-header">
+            <h1 id="deptTitle">Student Coordinators</h1>
+            <p>Higher Education and Competitive Exam Cell (विजिगीषा) | Year: 2025-26</p>
+            <div class="student-count" id="studentCount"><i class="fas fa-users"></i> Loading...</div>
+        </div>
+
+        <div class="controls-bar">
+            <a href="student-coordinators.html" class="back-btn">
+                <i class="fas fa-arrow-left"></i>
+                Back to Departments
+            </a>
+            <div class="filter-group">
+                <label>Filter by Class:</label>
+                <select id="classFilter">
+                    <option value="">All Classes</option>
+                    <option value="SY">SY</option>
+                    <option value="TY">TY</option>
+                    <option value="B.Tech">B.Tech</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="student-table-wrapper">
+
+            <div id="studentListContainer"></div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-bottom">
+            © 2025 Higher Education and Competitive Exam Cell (विजिगीषा), PCCOE.<br>
+            All rights reserved. | Designed by Web Team PCCOE
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        // Department data mapping
+        const departmentData = {
+            'comp': {
+                name: 'Computer Engineering',
+                icon: 'fa-laptop-code',
+                students: [
+                    { sr: 1, name: 'Vedant Patel', prn: '124B1B276', class: 'SY' },
+                    { sr: 2, name: 'Aaryan Bhujang', prn: '123B1B004', class: 'TY' },
+                    { sr: 3, name: 'Aditi Bachulkar', prn: '123B1B085', class: 'TY' },
+                    { sr: 4, name: 'Adiyan Baig', prn: '124B2B013', class: 'TY' },
+                    { sr: 5, name: 'Adway Aghor', prn: '123B1B038', class: 'TY' },
+                    { sr: 6, name: 'Ajay Vishnu Wagh', prn: '123B1B281', class: 'TY' },
+                    { sr: 7, name: 'Akanksha Kale', prn: '123B1B159', class: 'TY' },
+                    { sr: 8, name: 'Aryan Anil Wankhade', prn: '123B1B286', class: 'TY' },
+                    { sr: 9, name: 'Ayush Patil', prn: '123B1B215', class: 'TY' },
+                    { sr: 10, name: 'Datta Devram Sable', prn: '123B1B250', class: 'TY' },
+                    { sr: 11, name: 'Diksha Vilas Rokade', prn: '123B1B249', class: 'TY' },
+                    { sr: 12, name: 'Harsh Mahesh Rajeshirke', prn: '123B1B237', class: 'TY' },
+                    { sr: 13, name: 'Ishani Narendra Soundankar', prn: '123B1B044', class: 'TY' },
+                    { sr: 14, name: 'Ishani Soundankar', prn: '123B1B044', class: 'TY' },
+                    { sr: 15, name: 'Janki Sachin Darandale', prn: '124B2B019', class: 'TY' },
+                    { sr: 16, name: 'Kartika Shah', prn: '123B1B030', class: 'TY' },
+                    { sr: 17, name: 'Keyura Satish Motegaonkar', prn: '123B5B293', class: 'TY' },
+                    { sr: 18, name: 'Mayuresh Shailesh Rane', prn: '123B1B241', class: 'TY' },
+                    { sr: 19, name: 'Md Emamul Islam Emon', prn: '123B1B189', class: 'TY' },
+                    { sr: 20, name: 'Mitali Ratilal Chaudhari', prn: '124B2B033', class: 'TY' },
+                    { sr: 21, name: 'Mohd Zeeshan Siddique', prn: '123B1B193', class: 'TY' },
+                    { sr: 22, name: 'Mrinmayee Pramod Kulkarni', prn: '124B2B025', class: 'TY' },
+                    { sr: 23, name: 'Mukund Pradip Fegade', prn: '123B1B197', class: 'TY' },
+                    { sr: 24, name: 'Neelay Brijesh Shah', prn: '123B1B261', class: 'TY' },
+                    { sr: 25, name: 'Parikshit Narayan Rajpurohit', prn: '123B1B238', class: 'TY' },
+                    { sr: 26, name: 'Parth Sunklod', prn: '123B1B274', class: 'TY' },
+                    { sr: 27, name: 'Piyush Patil', prn: '123B1B220', class: 'TY' },
+                    { sr: 28, name: 'Piyush Rajendra Waghmare', prn: '123B1B284', class: 'TY' },
+                    { sr: 29, name: 'Pranil Pramod Sakpal', prn: '123B1B255', class: 'TY' },
+                    { sr: 30, name: 'Prathamesh Badrinath Wagh', prn: '123B1B282', class: 'TY' },
+                    { sr: 31, name: 'Prathamesh Vikas Jadhav', prn: '123B1B045', class: 'TY' },
+                    { sr: 32, name: 'Prerana Rajput', prn: '123B1B235', class: 'TY' },
+                    { sr: 33, name: 'Raman Arun Randive', prn: '123B1B240', class: 'TY' },
+                    { sr: 34, name: 'Rohan Pradeep Mungse', prn: '123B1B248', class: 'TY' },
+                    { sr: 35, name: 'Sachet Lothe', prn: '123B1B252', class: 'TY' },
+                    { sr: 36, name: 'Sai Sanjay Veer', prn: '123B1B027', class: 'TY' },
+                    { sr: 37, name: 'Sanika Suhas Talkhedkar', prn: '124B2B023', class: 'TY' },
+                    { sr: 38, name: 'Shantanu Raju Mali', prn: '123B1B183', class: 'TY' },
+                    { sr: 39, name: 'Shravan Joshi', prn: '123B1B152', class: 'TY' },
+                    { sr: 40, name: 'Shreeya Dhairyashil Patil', prn: '123B1B225', class: 'TY' },
+                    { sr: 41, name: 'Smera Satish Nimje', prn: '123B1B269', class: 'TY' },
+                    { sr: 42, name: 'Swayam Laxminarayan Mandhani', prn: '123B1B184', class: 'TY' },
+                    { sr: 43, name: 'Swayam Mandhani', prn: '123B1B184', class: 'TY' },
+                    { sr: 44, name: 'Swarnim Satish Survase', prn: '123B1B275', class: 'TY' },
+                    { sr: 45, name: 'Trushita Sathe', prn: '124B2B024', class: 'TY' },
+                    { sr: 46, name: 'Ujwal Pradeep Wagh', prn: '123B1B283', class: 'TY' },
+                    { sr: 47, name: 'Vaibhav Pattanshetti', prn: '123B1B227', class: 'TY' },
+                    { sr: 48, name: 'Vedant Maldhure', prn: '123B1B279', class: 'TY' },
+                    { sr: 49, name: 'Yash Ajay Sonje', prn: '123B1B271', class: 'TY' },
+                    { sr: 50, name: 'Yash Anilkumar Dongare', prn: '122B1B077', class: 'TY' },
+                    { sr: 51, name: 'Yash Mahajan', prn: '123B1B289', class: 'TY' },
+                    { sr: 52, name: 'Yash Nama Talape', prn: '123B1B277', class: 'TY' },
+                    { sr: 53, name: 'Yashkumar Rathod', prn: '123B1B245', class: 'TY' },
+                    { sr: 54, name: 'Anurag Lengure', prn: '122B1B152', class: 'B.Tech' },
+                    { sr: 55, name: 'Om Prakash Babar', prn: '122B1B013', class: 'B.Tech' }
+                ]
+            },
+            'comp-regional': {
+                name: 'Computer Engineering Regional',
+                icon: 'fa-globe',
+                students: []
+            },
+            'it': {
+                name: 'Information Technology',
+                icon: 'fa-network-wired',
+                students: []
+            },
+            'mech': {
+                name: 'Mechanical Engineering',
+                icon: 'fa-cogs',
+                students: []
+            },
+            'entc': {
+                name: 'Electronics and Telecommunication Engineering',
+                icon: 'fa-microchip',
+                students: []
+            },
+            'civil': {
+                name: 'Civil Engineering',
+                icon: 'fa-building',
+                students: []
+            },
+            'aiml': {
+                name: 'Computer Science and Engineering (AI & ML)',
+                icon: 'fa-brain',
+                students: []
+            }
+        };
+
+        // Read department from URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const deptId = urlParams.get('department');
+
+        function getClassBadge(cls) {
+            const badgeMap = { 'SY': 'sy', 'TY': 'ty', 'B.Tech': 'btech' };
+            return `<span class="class-badge ${badgeMap[cls] || ''}">${cls}</span>`;
+        }
+
+        function renderStudents(students) {
+            const container = document.getElementById('studentListContainer');
+            if (students.length === 0) {
+                container.innerHTML = `
+                    <div class="coming-soon">
+                        <i class="fas fa-clock"></i>
+                        <h3>Coming Soon</h3>
+                        <p>Student coordinator list for this department will be updated shortly.</p>
+                    </div>`;
+                return;
+            }
+            container.innerHTML = `
+                <table class="students-table">
+                    <thead>
+                        <tr>
+                            <th>Sr.</th>
+                            <th>Name</th>
+                            <th>PRN No</th>
+                            <th>Class/Div</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        ${students.map((s, i) => `
+                            <tr style="animation: slideInUp 0.3s ease-out ${i * 0.02}s both;">
+                                <td>${i + 1}</td>
+                                <td>${s.name}</td>
+                                <td>${s.prn}</td>
+                                <td>${getClassBadge(s.class)}</td>
+                            </tr>
+                        `).join('')}
+                    </tbody>
+                </table>`;
+        }
+
+        function filterAndRender() {
+            const dept = departmentData[deptId];
+            if (!dept) return;
+
+            const classVal = document.getElementById('classFilter').value;
+            let filtered = dept.students;
+            if (classVal) {
+                filtered = filtered.filter(s => s.class === classVal);
+            }
+
+            const countText = filtered.length > 0 ? `${filtered.length} Students` : 'Coming Soon';
+            document.getElementById('studentCount').innerHTML = `<i class="fas fa-users"></i> ${countText}`;
+            renderStudents(filtered);
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            if (!deptId || !departmentData[deptId]) {
+                window.location.href = 'student-coordinators.html';
+                return;
+            }
+
+            const dept = departmentData[deptId];
+            document.getElementById('deptTitle').textContent = dept.name + ' - Student Coordinators';
+            document.title = dept.name + ' - Student Coordinators | PCCOE';
+
+            filterAndRender();
+
+            document.getElementById('classFilter').addEventListener('change', filterAndRender);
+
+            // Mobile menu toggle
+            const menuToggle = document.getElementById('menuToggle');
+            const navbarLinks = document.getElementById('navbarLinks');
+            menuToggle.addEventListener('click', () => {
+                navbarLinks.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+</html>

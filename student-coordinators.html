@@ -7,7 +7,156 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
- 
+    <style>
+        .coordinator-section {
+            padding: 40px 25px;
+            margin: 0 0 40px 0;
+            background: linear-gradient(135deg, #f0f7ff 0%, #e6f0fa 50%, #d4e7fa 100%);
+            border-radius: 0 0 25px 25px;
+            box-shadow: 0 15px 40px rgba(11, 59, 130, 0.12);
+            position: relative;
+            overflow: hidden;
+        }
+        .coordinator-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(41, 128, 185, 0.05) 0%, transparent 70%);
+            animation: pulse 15s ease-in-out infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(-10px, -10px) scale(1.1); }
+        }
+        .section-header {
+            text-align: center;
+            margin-bottom: 30px;
+            position: relative;
+            z-index: 1;
+        }
+        .section-header h2 {
+            font-size: 2.2rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            background: linear-gradient(135deg, #0b3b82 0%, #2980b9 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: fadeInDown 0.8s ease-out;
+        }
+        .section-header p {
+            color: #666;
+            font-size: 1.1rem;
+        }
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .department-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-bottom: 40px;
+            position: relative;
+            z-index: 1;
+        }
+        .dept-card {
+            background: linear-gradient(135deg, #ffffff 0%, #f8fbff 100%);
+            padding: 35px 25px;
+            border-radius: 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 2px solid rgba(41, 128, 185, 0.15);
+            box-shadow: 0 8px 20px rgba(11, 59, 130, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        .dept-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(41, 128, 185, 0.15), transparent);
+            transition: left 0.5s ease;
+        }
+        .dept-card:hover::before {
+            left: 100%;
+        }
+        .dept-card:hover {
+            transform: translateY(-12px) scale(1.03);
+            box-shadow: 0 20px 45px rgba(11, 59, 130, 0.2);
+            border-color: var(--secondary-color);
+            background: linear-gradient(135deg, #ffffff 0%, #e8f4ff 100%);
+        }
+        .dept-card i {
+            font-size: 3.5rem;
+            background: linear-gradient(135deg, #2980b9 0%, #0b3b82 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+        .dept-card:hover i {
+            transform: scale(1.15) rotate(5deg);
+        }
+        .dept-card h3 {
+            font-size: 1.25rem;
+            color: var(--primary-color);
+            margin: 0;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+        .dept-card:hover h3 {
+            color: var(--secondary-color);
+        }
+        .dept-card .student-count-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+            color: white;
+            padding: 4px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-top: 8px;
+        }
+        @media (max-width: 1200px) {
+            .department-cards { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 768px) {
+            .department-cards { grid-template-columns: 1fr; gap: 15px; }
+            .coordinator-section { padding: 25px 15px; border-radius: 0 0 18px 18px; }
+            .dept-card { padding: 25px 20px; border-radius: 16px; }
+            .dept-card i { font-size: 3rem; margin-bottom: 15px; }
+            .dept-card h3 { font-size: 1.15rem; }
+            .dept-card:hover { transform: translateY(-6px) scale(1.02); }
+            .page-header h1 { font-size: 1.6rem; }
+            .page-header p { font-size: 0.9rem; }
+            .back-button { padding: 10px 18px; font-size: 0.85rem; }
+        }
+        @media (max-width: 480px) {
+            .department-cards { grid-template-columns: 1fr; gap: 12px; }
+            .coordinator-section { padding: 18px 10px; }
+            .dept-card { padding: 22px 18px; border-radius: 14px; }
+            .dept-card i { font-size: 2.8rem; margin-bottom: 12px; }
+            .dept-card h3 { font-size: 1.05rem; }
+            .page-header h1 { font-size: 1.3rem; }
+            .page-header p { font-size: 0.8rem; }
+            .page-header { padding: 25px 12px; }
+        }
+        @media (max-width: 360px) {
+            .dept-card { padding: 20px 14px; }
+            .dept-card i { font-size: 2.5rem; }
+            .dept-card h3 { font-size: 1rem; }
+        }
+    </style>
 </head>
 <body>
     <!-- Header -->
@@ -102,385 +251,44 @@
             Back to Team
         </a>
 
-        <div class="page-header">
+        <div class="page-header" style="margin-bottom: 0px; border-radius: 20px 20px 0px 0px;">
             <h1>Student Coordinators</h1>
             <p>Higher Education and Competitive Exam Cell (विजिगीषा) | Year: 2025-26</p>
         </div>
 
-        <section class="coordinators-section">
-            <!-- Computer Engineering Department -->
-            <div class="department-box" id="dept-comp">
-                <div class="department-header" onclick="toggleDepartment('dept-comp')">
-                    <div class="department-info">
-                        <div class="department-icon">
-                            <i class="fas fa-laptop-code"></i>
-                        </div>
-                        <div class="department-title">
-                            <h3>Computer Engineering</h3>
-                            <span>Department of Computer Engineering</span>
-                        </div>
-                    </div>
-                    <div class="department-meta">
-                        <div class="expand-icon">
-                            <i class="fas fa-chevron-down"></i>
-                        </div>
-                    </div>
+        <section class="coordinator-section">
+            <!-- Department Cards Grid -->
+            <div class="department-cards" id="deptCardsGrid">
+                <div class="dept-card" onclick="window.location.href='student-list.html?department=comp'">
+                    <i class="fas fa-laptop-code"></i>
+                    <h3>Computer Engineering</h3>
                 </div>
-                <div class="students-content">
-                    <!-- Full Table -->
-                    <div class="students-table-container">
-                        <table class="students-table" id="comp-table">
-                            <thead>
-                                <tr>
-                                    <th>Sr.</th>
-                                    <th>Name</th>
-                                    <th>PRN No</th>
-                                    <th>Class/Div</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <!-- SY Students -->
-                                <tr data-name="Vedant Patel" data-prn="124B1B276" data-class="SY">
-                                    <td>1</td>
-                                    <td>Vedant Patel</td>
-                                    <td>124B1B276</td>
-                                    <td><span class="class-badge sy">SY</span></td>
-                                </tr>
-                                <!-- TY Students -->
-                                <tr data-name="Aaryan Bhujang" data-prn="123B1B004" data-class="TY">
-                                    <td>2</td>
-                                    <td>Aaryan Bhujang</td>
-                                    <td>123B1B004</td>
-                                    <td><span class="class-badge ty">TY</span></td>
-                                </tr>
-                                <tr data-name="Aditi Bachulkar" data-prn="123B1B085" data-class="TY">
-                                    <td>3</td>
-                                    <td>Aditi Bachulkar</td>
-                                    <td>123B1B085</td>
-                                    <td><span class="class-badge ty">TY</span></td>
-                                </tr>
-                                <tr data-name="Adiyan Baig" data-prn="124B2B013" data-class="TY">
-                                    <td>4</td>
-                                    <td>Adiyan Baig</td>
-                                    <td>124B2B013</td>
-                                    <td><span class="class-badge ty">TY</span></td>
-                                </tr>
-                                <tr data-name="Adway Aghor" data-prn="123B1B038" data-class="TY">
-                                    <td>5</td>
-                                    <td>Adway Aghor</td>
-                                    <td>123B1B038</td>
-                                    <td><span class="class-badge ty">TY</span></td>
-                                </tr>
-                                <tr data-name="Ajay Vishnu Wagh" data-prn="123B1B281" data-class="TY">
-                                    <td>6</td>
-                                    <td>Ajay Vishnu Wagh</td>
-                                    <td>123B1B281</td>
-                                    <td><span class="class-badge ty">TY</span></td>
-                                </tr>
-                                <tr data-name="Akanksha Kale" data-prn="123B1B159" data-class="TY">
-                                    <td>7</td>
-                                    <td>Akanksha Kale</td>
-                                    <td>123B1B159</td>
-                                    <td><span class="class-badge ty">TY</span></td>
-                                </tr>
-                                <tr data-name="Aryan Anil Wankhade" data-prn="123B1B286" data-class="TY">
-                                    <td>8</td>
-                                    <td>Aryan Anil Wankhade</td>
-                                    <td>123B1B286</td>
-                                    <td><span class="class-badge ty">TY</span></td>
-                                </tr>
-                                <tr data-name="Ayush Patil" data-prn="123B1B215" data-class="TY">
-                                    <td>9</td>
-                                    <td>Ayush Patil</td>
-                                    <td>123B1B215</td>
-                                    <td><span class="class-badge ty">TY</span></td>
-                                </tr>
-                                <tr data-name="Datta Devram Sable" data-prn="123B1B250" data-class="TY">
-                                    <td>10</td>
-                                    <td>Datta Devram Sable</td>
-                                    <td>123B1B250</td>
-                                    <td><span class="class-badge ty">TY</span></td>
-                                </tr>
-                                <tr data-name="Diksha Vilas Rokade" data-prn="123B1B249" data-class="TY">
-                                    <td>11</td>
-                                    <td>Diksha Vilas Rokade</td>
-                                    <td>123B1B249</td>
-                                    <td><span class="class-badge ty">TY</span></td>
-                                </tr>
-                                <tr data-name="Harsh Mahesh Rajeshirke" data-prn="123B1B237" data-class="TY">
-                                    <td>12</td>
-                                    <td>Harsh Mahesh Rajeshirke</td>
-                                    <td>123B1B237</td>
-                                    <td><span class="class-badge ty">TY</span></td>
-                                </tr>
-                                <tr data-name="Ishani Narendra Soundankar" data-prn="123B1B044" data-class="TY">
-                                    <td>13</td>
-                                    <td>Ishani Narendra Soundankar</td>
-                                    <td>123B1B044</td>
-                                    <td><span class="class-badge ty">TY</span></td>
-                                </tr>
-                                <tr data-name="Ishani Soundankar" data-prn="123B1B044" data-class="TY">
-                                    <td>14</td>
-                                    <td>Ishani Soundankar</td>
-                                    <td>123B1B044</td>
-                                    <td><span class="class-badge ty">TY</span></td>
-                                </tr>
-                                <tr data-name="Janki Sachin Darandale" data-prn="124B2B019" data-class="TY">
-                                    <td>15</td>
-                                    <td>Janki Sachin Darandale</td>
-                                    <td>124B2B019</td>
-                                    <td><span class="class-badge ty">TY</span></td>
-                                </tr>
-                                <tr data-name="Kartika Shah" data-prn="123B1B030" data-class="TY">
-                                    <td>16</td>
-                                    <td>Kartika Shah</td>
-                                    <td>123B1B030</td>
-                                    <td><span class="class-badge ty">TY</span></td>
-                                </tr>
-                                <tr data-name="Keyura Satish Motegaonkar" data-prn="123B5B293" data-class="TY">
-                                    <td>17</td>
-                                    <td>Keyura Satish Motegaonkar</td>
-                                    <td>123B5B293</td>
-                                    <td><span class="class-badge ty">TY</span></td>
-                                </tr>
-                                <tr data-name="Mayuresh Shailesh Rane" data-prn="123B1B241" data-class="TY">
-                                    <td>18</td>
-                                    <td>Mayuresh Shailesh Rane</td>
-                                    <td>123B1B241</td>
-                                    <td><span class="class-badge ty">TY</span></td>
-                                </tr>
-                                <tr data-name="Md Emamul Islam Emon" data-prn="123B1B189" data-class="TY">
-                                    <td>19</td>
-                                    <td>Md Emamul Islam Emon</td>
-                                    <td>123B1B189</td>
-                                    <td><span class="class-badge ty">TY</span></td>
-                                </tr>
-                                <tr data-name="Mitali Ratilal Chaudhari" data-prn="124B2B033" data-class="TY">
-                                    <td>20</td>
-                                    <td>Mitali Ratilal Chaudhari</td>
-                                    <td>124B2B033</td>
-                                    <td><span class="class-badge ty">TY</span></td>
-                                </tr>
-                                <tr data-name="Mohd Zeeshan Siddique" data-prn="123B1B193" data-class="TY">
-                                    <td>21</td>
-                                    <td>Mohd Zeeshan Siddique</td>
-                                    <td>123B1B193</td>
-                                    <td><span class="class-badge ty">TY</span></td>
-                                </tr>
-                                <tr data-name="Mrinmayee Pramod Kulkarni" data-prn="124B2B025" data-class="TY">
-                                    <td>22</td>
-                                    <td>Mrinmayee Pramod Kulkarni</td>
-                                    <td>124B2B025</td>
-                                    <td><span class="class-badge ty">TY</span></td>
-                                </tr>
-                                <tr data-name="Mukund Pradip Fegade" data-prn="123B1B197" data-class="TY">
-                                    <td>23</td>
-                                    <td>Mukund Pradip Fegade</td>
-                                    <td>123B1B197</td>
-                                    <td><span class="class-badge ty">TY</span></td>
-                                </tr>
-                                <tr data-name="Neelay Brijesh Shah" data-prn="123B1B261" data-class="TY">
-                                    <td>24</td>
-                                    <td>Neelay Brijesh Shah</td>
-                                    <td>123B1B261</td>
-                                    <td><span class="class-badge ty">TY</span></td>
-                                </tr>
-                                <tr data-name="Parikshit Narayan Rajpurohit" data-prn="123B1B238" data-class="TY">
-                                    <td>25</td>
-                                    <td>Parikshit Narayan Rajpurohit</td>
-                                    <td>123B1B238</td>
-                                    <td><span class="class-badge ty">TY</span></td>
-                                </tr>
-                                <tr data-name="Parth Sunklod" data-prn="123B1B274" data-class="TY">
-                                    <td>26</td>
-                                    <td>Parth Sunklod</td>
-                                    <td>123B1B274</td>
-                                    <td><span class="class-badge ty">TY</span></td>
-                                </tr>
-                                <tr data-name="Piyush Patil" data-prn="123B1B220" data-class="TY">
-                                    <td>27</td>
-                                    <td>Piyush Patil</td>
-                                    <td>123B1B220</td>
-                                    <td><span class="class-badge ty">TY</span></td>
-                                </tr>
-                                <tr data-name="Piyush Rajendra Waghmare" data-prn="123B1B284" data-class="TY">
-                                    <td>28</td>
-                                    <td>Piyush Rajendra Waghmare</td>
-                                    <td>123B1B284</td>
-                                    <td><span class="class-badge ty">TY</span></td>
-                                </tr>
-                                <tr data-name="Pranil Pramod Sakpal" data-prn="123B1B255" data-class="TY">
-                                    <td>29</td>
-                                    <td>Pranil Pramod Sakpal</td>
-                                    <td>123B1B255</td>
-                                    <td><span class="class-badge ty">TY</span></td>
-                                </tr>
-                                <tr data-name="Prathamesh Badrinath Wagh" data-prn="123B1B282" data-class="TY">
-                                    <td>30</td>
-                                    <td>Prathamesh Badrinath Wagh</td>
-                                    <td>123B1B282</td>
-                                    <td><span class="class-badge ty">TY</span></td>
-                                </tr>
-                                <tr data-name="Prathamesh Vikas Jadhav" data-prn="123B1B045" data-class="TY">
-                                    <td>31</td>
-                                    <td>Prathamesh Vikas Jadhav</td>
-                                    <td>123B1B045</td>
-                                    <td><span class="class-badge ty">TY</span></td>
-                                </tr>
-                                <tr data-name="Prerana Rajput" data-prn="123B1B235" data-class="TY">
-                                    <td>32</td>
-                                    <td>Prerana Rajput</td>
-                                    <td>123B1B235</td>
-                                    <td><span class="class-badge ty">TY</span></td>
-                                </tr>
-                                <tr data-name="Raman Arun Randive" data-prn="123B1B240" data-class="TY">
-                                    <td>33</td>
-                                    <td>Raman Arun Randive</td>
-                                    <td>123B1B240</td>
-                                    <td><span class="class-badge ty">TY</span></td>
-                                </tr>
-                                <tr data-name="Rohan Pradeep Mungse" data-prn="123B1B248" data-class="TY">
-                                    <td>34</td>
-                                    <td>Rohan Pradeep Mungse</td>
-                                    <td>123B1B248</td>
-                                    <td><span class="class-badge ty">TY</span></td>
-                                </tr>
-                                <tr data-name="Sachet Lothe" data-prn="123B1B252" data-class="TY">
-                                    <td>35</td>
-                                    <td>Sachet Lothe</td>
-                                    <td>123B1B252</td>
-                                    <td><span class="class-badge ty">TY</span></td>
-                                </tr>
-                                <tr data-name="Sai Sanjay Veer" data-prn="123B1B027" data-class="TY">
-                                    <td>36</td>
-                                    <td>Sai Sanjay Veer</td>
-                                    <td>123B1B027</td>
-                                    <td><span class="class-badge ty">TY</span></td>
-                                </tr>
-                                <tr data-name="Sanika Suhas Talkhedkar" data-prn="124B2B023" data-class="TY">
-                                    <td>37</td>
-                                    <td>Sanika Suhas Talkhedkar</td>
-                                    <td>124B2B023</td>
-                                    <td><span class="class-badge ty">TY</span></td>
-                                </tr>
-                                <tr data-name="Shantanu Raju Mali" data-prn="123B1B183" data-class="TY">
-                                    <td>38</td>
-                                    <td>Shantanu Raju Mali</td>
-                                    <td>123B1B183</td>
-                                    <td><span class="class-badge ty">TY</span></td>
-                                </tr>
-                                <tr data-name="Shravan Joshi" data-prn="123B1B152" data-class="TY">
-                                    <td>39</td>
-                                    <td>Shravan Joshi</td>
-                                    <td>123B1B152</td>
-                                    <td><span class="class-badge ty">TY</span></td>
-                                </tr>
-                                <tr data-name="Shreeya Dhairyashil Patil" data-prn="123B1B225" data-class="TY">
-                                    <td>40</td>
-                                    <td>Shreeya Dhairyashil Patil</td>
-                                    <td>123B1B225</td>
-                                    <td><span class="class-badge ty">TY</span></td>
-                                </tr>
-                                <tr data-name="Smera Satish Nimje" data-prn="123B1B269" data-class="TY">
-                                    <td>41</td>
-                                    <td>Smera Satish Nimje</td>
-                                    <td>123B1B269</td>
-                                    <td><span class="class-badge ty">TY</span></td>
-                                </tr>
-                                <tr data-name="Swayam Laxminarayan Mandhani" data-prn="123B1B184" data-class="TY">
-                                    <td>42</td>
-                                    <td>Swayam Laxminarayan Mandhani</td>
-                                    <td>123B1B184</td>
-                                    <td><span class="class-badge ty">TY</span></td>
-                                </tr>
-                                <tr data-name="Swayam Mandhani" data-prn="123B1B184" data-class="TY">
-                                    <td>43</td>
-                                    <td>Swayam Mandhani</td>
-                                    <td>123B1B184</td>
-                                    <td><span class="class-badge ty">TY</span></td>
-                                </tr>
-                                <tr data-name="Swarnim Satish Survase" data-prn="123B1B275" data-class="TY">
-                                    <td>44</td>
-                                    <td>Swarnim Satish Survase</td>
-                                    <td>123B1B275</td>
-                                    <td><span class="class-badge ty">TY</span></td>
-                                </tr>
-                                <tr data-name="Trushita Sathe" data-prn="124B2B024" data-class="TY">
-                                    <td>45</td>
-                                    <td>Trushita Sathe</td>
-                                    <td>124B2B024</td>
-                                    <td><span class="class-badge ty">TY</span></td>
-                                </tr>
-                                <tr data-name="Ujwal Pradeep Wagh" data-prn="123B1B283" data-class="TY">
-                                    <td>46</td>
-                                    <td>Ujwal Pradeep Wagh</td>
-                                    <td>123B1B283</td>
-                                    <td><span class="class-badge ty">TY</span></td>
-                                </tr>
-                                <tr data-name="Vaibhav Pattanshetti" data-prn="123B1B227" data-class="TY">
-                                    <td>47</td>
-                                    <td>Vaibhav Pattanshetti</td>
-                                    <td>123B1B227</td>
-                                    <td><span class="class-badge ty">TY</span></td>
-                                </tr>
-                                <tr data-name="Vedant Maldhure" data-prn="123B1B279" data-class="TY">
-                                    <td>48</td>
-                                    <td>Vedant Maldhure</td>
-                                    <td>123B1B279</td>
-                                    <td><span class="class-badge ty">TY</span></td>
-                                </tr>
-                                <tr data-name="Yash Ajay Sonje" data-prn="123B1B271" data-class="TY">
-                                    <td>49</td>
-                                    <td>Yash Ajay Sonje</td>
-                                    <td>123B1B271</td>
-                                    <td><span class="class-badge ty">TY</span></td>
-                                </tr>
-                                <tr data-name="Yash Anilkumar Dongare" data-prn="122B1B077" data-class="TY">
-                                    <td>50</td>
-                                    <td>Yash Anilkumar Dongare</td>
-                                    <td>122B1B077</td>
-                                    <td><span class="class-badge ty">TY</span></td>
-                                </tr>
-                                <tr data-name="Yash Mahajan" data-prn="123B1B289" data-class="TY">
-                                    <td>51</td>
-                                    <td>Yash Mahajan</td>
-                                    <td>123B1B289</td>
-                                    <td><span class="class-badge ty">TY</span></td>
-                                </tr>
-                                <tr data-name="Yash Nama Talape" data-prn="123B1B277" data-class="TY">
-                                    <td>52</td>
-                                    <td>Yash Nama Talape</td>
-                                    <td>123B1B277</td>
-                                    <td><span class="class-badge ty">TY</span></td>
-                                </tr>
-                                <tr data-name="Yashkumar Rathod" data-prn="123B1B245" data-class="TY">
-                                    <td>53</td>
-                                    <td>Yashkumar Rathod</td>
-                                    <td>123B1B245</td>
-                                    <td><span class="class-badge ty">TY</span></td>
-                                </tr>
-                                <!-- B.Tech Students -->
-                                <tr data-name="Anurag Lengure" data-prn="122B1B152" data-class="B.Tech">
-                                    <td>54</td>
-                                    <td>Anurag Lengure</td>
-                                    <td>122B1B152</td>
-                                    <td><span class="class-badge btech">B.Tech</span></td>
-                                </tr>
-                                <tr data-name="Om Prakash Babar" data-prn="122B1B013" data-class="B.Tech">
-                                    <td>55</td>
-                                    <td>Om Prakash Babar</td>
-                                    <td>122B1B013</td>
-                                    <td><span class="class-badge btech">B.Tech</span></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
+                <div class="dept-card" onclick="window.location.href='student-list.html?department=comp-regional'">
+                    <i class="fas fa-globe"></i>
+                    <h3>Computer Engineering Regional</h3>
+                </div>
+                <div class="dept-card" onclick="window.location.href='student-list.html?department=it'">
+                    <i class="fas fa-network-wired"></i>
+                    <h3>Information Technology</h3>
+                </div>
+                <div class="dept-card" onclick="window.location.href='student-list.html?department=mech'">
+                    <i class="fas fa-cogs"></i>
+                    <h3>Mechanical Engineering</h3>
+                </div>
+                <div class="dept-card" onclick="window.location.href='student-list.html?department=entc'">
+                    <i class="fas fa-microchip"></i>
+                    <h3>Electronics and Telecommunication Engineering</h3>
+                </div>
+                <div class="dept-card" onclick="window.location.href='student-list.html?department=civil'">
+                    <i class="fas fa-building"></i>
+                    <h3>Civil Engineering</h3>
+                </div>
+                <div class="dept-card" onclick="window.location.href='student-list.html?department=aiml'">
+                    <i class="fas fa-brain"></i>
+                    <h3>Computer Science and Engineering (AI &amp; ML)</h3>
                 </div>
             </div>
 
-            <!-- Placeholder for other departments -->
-            <!-- You can add more department boxes here following the same structure -->
-            
         </section>
     </main>
 
@@ -493,12 +301,5 @@
     </footer>
 
     <script src="js/main.js"></script>
-    <script>
-        // Toggle department expansion
-        function toggleDepartment(deptId) {
-            const dept = document.getElementById(deptId);
-            dept.classList.toggle('expanded');
-        }
-    </script>
 </body>
 </html>
