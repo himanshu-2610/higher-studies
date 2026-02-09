@@ -7,16 +7,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="css/styles.css">
     <style>
+
+        .back-icon {
+            fill: currentColor;
+        }
         .filter-controls {
-            background: white;
-            padding: 25px;
-            margin-bottom: 30px;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(11, 59, 130, 0.08);
-            display: flex;
-            gap: 20px;
-            flex-wrap: wrap;
-            align-items: center;
+            display: none;
         }
         .filter-controls label {
             font-weight: 600;
@@ -34,23 +30,25 @@
             min-width: 200px;
         }
         .alumni-section {
-            padding: 60px 30px;
-            margin: 40px 0;
-            background: linear-gradient(135deg, #f0f7ff 0%, #e6f0fa 50%, #d4e7fa 100%);
-            border-radius: 25px;
-            box-shadow: 0 15px 40px rgba(11, 59, 130, 0.12);
+            text-align: center;
+            padding: 50px 50px 50px;
+            border-radius: 24px;
             position: relative;
+            background: linear-gradient(135deg, #f0f8ff 0%, #e6f2ff 100%);
+            border: 1px solid rgba(41, 128, 185, 0.1);
+            box-shadow: 0 20px 60px rgba(41, 128, 185, 0.08);
             overflow: hidden;
+            margin-top: 40px;
         }
         .alumni-section::before {
             content: '';
             position: absolute;
-            top: -50%;
-            right: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(41, 128, 185, 0.05) 0%, transparent 70%);
-            animation: pulse 15s ease-in-out infinite;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #2980b9 0%, #3498db 50%, #2980b9 100%);
+            z-index: 1;
         }
         @keyframes pulse {
             0%, 100% { transform: translate(0, 0) scale(1); }
@@ -58,12 +56,12 @@
         }
         .section-header {
             text-align: center;
-            margin-bottom: 50px;
+            margin-bottom: 30px;
             position: relative;
             z-index: 1;
         }
         .section-header h2 {
-            font-size: 2.8rem;
+            font-size: 2.2rem;
             color: var(--primary-color);
             margin-bottom: 15px;
             background: linear-gradient(135deg, #0b3b82 0%, #2980b9 100%);
@@ -71,6 +69,10 @@
             -webkit-text-fill-color: transparent;
             background-clip: text;
             animation: fadeInDown 0.8s ease-out;
+        }
+        .section-header p {
+            color: #666;
+            font-size: 1.1rem;
         }
         @keyframes fadeInDown {
             from {
@@ -86,7 +88,6 @@
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 30px;
-            margin-bottom: 40px;
             position: relative;
             z-index: 1;
         }
@@ -130,9 +131,6 @@
             margin-bottom: 20px;
             transition: all 0.3s ease;
             display: inline-block;
-        }
-        .dept-card:hover i {
-            transform: scale(1.15) rotate(5deg);
         }
         .dept-card h3 {
             font-size: 1.25rem;
@@ -182,14 +180,13 @@
             }
         }
         @media (max-width: 768px) {
-            .filter-controls {
-                flex-direction: column;
-            }
-            .filter-controls select {
-                width: 100%;
-            }
             .department-cards {
                 grid-template-columns: 1fr;
+                gap: 15px;
+            }
+            .alumni-section {
+                padding: 25px 15px;
+                border-radius: 0 0 18px 18px;
             }
             .alumni-item {
                 flex-direction: column;
@@ -197,76 +194,56 @@
                 align-items: center;
             }
             .section-header h2 {
-                font-size: 2rem;
+                font-size: 1.8rem;
+            }
+            .section-header p {
+                font-size: 0.95rem;
             }
             .dept-card {
                 padding: 25px 20px;
+                border-radius: 16px;
+            }
+            .dept-card i {
+                font-size: 3rem;
+                margin-bottom: 15px;
+            }
+            .dept-card h3 {
+                font-size: 1.15rem;
+            }
+            .dept-card:hover {
+                transform: translateY(-6px) scale(1.02);
+            }
+            .page-header h1 {
+                font-size: 1.6rem;
+            }
+            .page-header p {
+                font-size: 0.9rem;
             }
         }
-        /* Section Navigation Buttons */
-        .section-nav {
-            position: sticky;
-            top: 65px;
-            z-index: 900;
-            background: linear-gradient(135deg, #0b3b82 0%, #1a5bb8 50%, #27c3e6 100%);
-            padding: 12px 0;
-            border-radius: 0 0 30px 30px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-            margin-bottom: 20px;
-        }
-        .section-nav-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 30px;
-            padding: 0 20px;
-        }
-        .section-nav-btn {
-            flex: 1;
-            max-width: 400px;
-            text-align: center;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            text-decoration: none;
-            padding: 14px 30px;
-            font-weight: 600;
-            font-size: 15px;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            position: relative;
-            background: rgba(255, 255, 255, 0.15);
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            border-radius: 50px;
-            box-shadow: 0 4px 15px rgba(11, 59, 130, 0.2);
-            backdrop-filter: blur(10px);
-        }
-        .section-nav-btn:hover {
-            background: rgba(255, 255, 255, 0.25);
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(11, 59, 130, 0.3);
-        }
-        .section-nav-btn.active {
-            background: linear-gradient(135deg, #f2c300 0%, #d4a800 100%);
-            color: #0b3b82;
-            border-color: #f2c300;
-            box-shadow: 0 6px 20px rgba(242, 195, 0, 0.4);
-            transform: translateY(-3px) scale(1.02);
-        }
-        .section-nav-btn i {
-            margin-right: 10px;
-            font-size: 18px;
-        }
-        @media (max-width: 768px) {
-            .section-nav-container {
-                flex-direction: column;
-                gap: 15px;
+        @media (max-width: 480px) {
+            .department-cards {
+                grid-template-columns: 1fr;
+                gap: 12px;
             }
-            .section-nav-btn {
-                max-width: 100%;
-                width: 100%;
+            .alumni-section {
+                padding: 18px 10px;
+            }
+            .dept-card {
+                padding: 20px 15px;
+                border-radius: 14px;
+            }
+            .dept-card i {
+                font-size: 2.5rem;
+                margin-bottom: 12px;
+            }
+            .section-header h2 {
+                font-size: 1.5rem;
+            }
+            .page-header h1 {
+                font-size: 1.3rem;
+            }
+            .page-header p {
+                font-size: 0.8rem;
             }
         }
     </style></head>
@@ -352,29 +329,36 @@
         </div>
     </nav>
 
-    <!-- Section Navigation Buttons -->
-    <nav class="section-nav" id="sectionNav">
-        <div class="section-nav-container">
-            <a href="#regularAlumniSection" class="section-nav-btn active" data-section="regular">
-                <i class="fas fa-user-graduate"></i>
-                <span>विजिगीषा Alumni</span>
-            </a>
-            <a href="#distinguishedAlumniSection" class="section-nav-btn" data-section="distinguished">
-                <i class="fas fa-trophy"></i>
-                <span>विजिगीषा Distinguished Alumni</span>
-            </a>
-        </div>
-    </nav>
-
+    <!-- Main Content -->
     <main class="main-container" id="main-content" role="main">
+        <!-- Page Header -->
+        <a href="about.html" class="back-button">
+            <svg class="back-icon" viewBox="0 0 24 24" width="20" height="20">
+                <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z" fill="currentColor"/>
+            </svg>
+            Back to Team
+        </a>
+
         <div class="page-header" style="margin-bottom: 0px; border-radius: 20px 20px 0px 0px;">
-            <h1>Alumni Portal</h1>
-            <p>Meet our successful graduates</p>
+            <h1>Distinguished Alumni</h1>
+            <p>विजिगीषा : Higher Education and Competitive Exam Cell| Meet our successful graduates</p>
         </div>
+        
+        <nav class="section-nav" id="sectionNav">
+            <div class="section-nav-container">
+                <a href="#regularAlumniSection" class="section-nav-btn active">
+                    <span>विजिगीषा : Alumni</span>
+                </a>
+                <a href="#distinguishedAlumniSection" class="section-nav-btn">
+                    <span>विजिगीषा : Distinguished Alumni</span>
+                </a>
+            </div>
+        </nav>
 
         <section class="alumni-section" id="regularAlumniSection">
             <div class="section-header">
                 <h2>विजिगीषा Alumni</h2>
+                <p>Browse our alumni by department</p>
             </div>
             <div class="department-cards" id="regularDeptCards"></div>
         </section>
@@ -382,6 +366,7 @@
         <section class="alumni-section" id="distinguishedAlumniSection">
             <div class="section-header">
                 <h2>विजिगीषा Distinguished Alumni</h2>
+                <p>Meet our celebrated graduates</p>
             </div>
             <div class="department-cards" id="distinguishedDeptCards"></div>
         </section>
@@ -396,12 +381,13 @@
 
     <script>
         const departments = [
-            { name: 'Computer Science and Engineering (AIML)', icon: 'fa-brain' },
-            { name: 'Computer REGIONAL', icon: 'fa-globe' },
-            { name: 'Information Technology (IT)', icon: 'fa-laptop-code' },
+            { name: 'Computer Science and Engineering (AI-ML)', icon: 'fa-brain' },
+            { name: 'Computer Engineering REGIONAL', icon: 'fa-globe' },
+            { name: 'Information Technology Engineering', icon: 'fa-laptop-code' },
             { name: 'Computer Engineering', icon: 'fa-computer' },
             { name: 'Mechanical Engineering', icon: 'fa-cogs' },
-            { name: 'Civil Engineering', icon: 'fa-building' }
+            { name: 'Civil Engineering', icon: 'fa-building' },
+            { name: 'Electronics and Telecommunication Engineering', icon: 'fa-microchip' },
         ];
 
         function renderDepartmentCards(containerId, type) {
@@ -425,35 +411,31 @@
             });
         }
 
-        document.addEventListener('DOMContentLoaded', function() {
-            renderDepartmentCards('regularDeptCards', 'regular');
-            renderDepartmentCards('distinguishedDeptCards', 'distinguished');
-            setupCardClickListeners();
-            
-            const menuToggle = document.getElementById('menuToggle');
-            const navbarLinks = document.getElementById('navbarLinks');
-            menuToggle.addEventListener('click', () => {
-                navbarLinks.classList.toggle('active');
-            });
+        // Section Navigation Functionality
+        function setupSectionNavigation() {
+            const sectionNavButtons = document.querySelectorAll('.section-nav-btn');
+            const regularAlumniSection = document.getElementById('regularAlumniSection');
+            const distinguishedAlumniSection = document.getElementById('distinguishedAlumniSection');
 
-            // Section navigation buttons
-            const sectionBtns = document.querySelectorAll('.section-nav-btn');
-            sectionBtns.forEach(btn => {
+            // Smooth scroll to section when button is clicked
+            sectionNavButtons.forEach(btn => {
                 btn.addEventListener('click', function(e) {
                     e.preventDefault();
                     
-                    // Remove active class from all buttons
-                    sectionBtns.forEach(b => b.classList.remove('active'));
-                    
-                    // Add active class to clicked button
-                    this.classList.add('active');
-                    
-                    // Smooth scroll to section
                     const targetId = this.getAttribute('href');
                     const targetSection = document.querySelector(targetId);
+                    
                     if (targetSection) {
+                        // Remove active class from all buttons
+                        sectionNavButtons.forEach(b => b.classList.remove('active'));
+                        
+                        // Add active class to clicked button
+                        this.classList.add('active');
+                        
+                        // Calculate offset accounting for sticky nav
                         const navHeight = document.querySelector('.section-nav').offsetHeight + 70;
                         const targetPosition = targetSection.offsetTop - navHeight;
+                        
                         window.scrollTo({
                             top: targetPosition,
                             behavior: 'smooth'
@@ -462,25 +444,46 @@
                 });
             });
 
-            // Observer for active button on scroll
+            // Update active button on scroll using Intersection Observer
+            const observerOptions = {
+                threshold: 0.3,
+                rootMargin: '-70px 0px -70px 0px'
+            };
+
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         const sectionId = entry.target.id;
-                        sectionBtns.forEach(btn => {
-                            const btnSection = btn.getAttribute('data-section');
-                            if (sectionId === btnSection + 'AlumniSection') {
+                        
+                        sectionNavButtons.forEach(btn => {
+                            btn.classList.remove('active');
+                            const btnHref = btn.getAttribute('href').substring(1);
+                            if (btnHref === sectionId) {
                                 btn.classList.add('active');
-                            } else {
-                                btn.classList.remove('active');
                             }
                         });
                     }
                 });
-            }, { threshold: 0.3 });
+            }, observerOptions);
 
-            observer.observe(document.getElementById('regularAlumniSection'));
-            observer.observe(document.getElementById('distinguishedAlumniSection'));
+            // Observe both sections
+            if (regularAlumniSection) observer.observe(regularAlumniSection);
+            if (distinguishedAlumniSection) observer.observe(distinguishedAlumniSection);
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            renderDepartmentCards('regularDeptCards', 'regular');
+            renderDepartmentCards('distinguishedDeptCards', 'distinguished');
+            setupCardClickListeners();
+            setupSectionNavigation();
+            
+            const menuToggle = document.getElementById('menuToggle');
+            const navbarLinks = document.getElementById('navbarLinks');
+            if (menuToggle && navbarLinks) {
+                menuToggle.addEventListener('click', () => {
+                    navbarLinks.classList.toggle('active');
+                });
+            }
         });
     </script>
 </body>

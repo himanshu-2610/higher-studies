@@ -93,18 +93,58 @@
 
     <!-- Main Content -->
     <main class="main-container" id="main-content" role="main">
-        <div class="page-header">
-            <h1>Activities executed</h1>
-            <p>Coming soon</p>
+        <!-- Page Header -->
+        <a href="activities.html" class="back-button">
+            <svg class="back-icon" viewBox="0 0 24 24" width="20" height="20">
+                <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z" fill="currentColor"/>
+            </svg>
+            Back to Team
+        </a>
+
+        <div class="page-header" style="margin-bottom: 0px; border-radius: 20px 20px 0px 0px;">
+            <h1>Activities Executed</h1>
+            <p>Higher Education and Competitive Exam Cell (विजिगीषा) | Semester 1</p>
         </div>
-        
-        <!-- Content Coming Soon -->
-        <div class="coming-soon">
-            <div class="coming-soon-icon">
-                <i class="fas fa-address-card"></i>
+
+        <section class="coordinator-section">
+            <!-- Department Cards Grid -->
+            <div class="department-cards" id="deptCardsGrid">
+                <div class="dept-card" data-dept="Computer Engineering">
+                    <i class="fas fa-laptop-code"></i>
+                    <h3>Computer Engineering</h3>
+                </div>
+                <div class="dept-card">
+                    <i class="fas fa-globe"></i>
+                    <h3>Computer Engineering (Regional)</h3>
+                </div>
+                <div class="dept-card">
+                    <i class="fas fa-network-wired"></i>
+                    <h3>Information Technology Engineering</h3>
+                </div>
+                <div class="dept-card">
+                    <i class="fas fa-cogs"></i>
+                    <h3>Mechanical Engineering</h3>
+                </div>
+                <div class="dept-card">
+                    <i class="fas fa-flask"></i>
+                    <h3>Applied Science & Humanities</h3>
+                </div>
+                <div class="dept-card">
+                    <i class="fas fa-building"></i>
+                    <h3>Civil Engineering</h3>
+                </div>
+                <div class="dept-card">
+                    <i class="fas fa-brain"></i>
+                    <h3>Computer Science and Engineering (AI-ML)</h3>
+                </div>
+                <div class="dept-card" data-dept="Electronics and Telecommunication Engineering">
+                    <i class="fas fa-microchip"></i>
+                    <h3>Electronics and Telecommunication Engineering</h3>
+                </div>
             </div>
-            <h2>Activities Executed Coming Soon</h2>
-        </div>
+            <!-- Events / Table container (rendered after clicking a department) -->
+            <div id="eventsContainer" style="margin-top:28px;"></div>
+        </section>
     </main>
 
     <!-- Footer -->
@@ -118,31 +158,315 @@
     <script src="js/main.js"></script>
     
     <style>
-        .coming-soon {
+        .back-icon {
+            fill: currentColor;
+        }
+        .coordinator-section {
             text-align: center;
-            padding: 80px 20px;
-            background: linear-gradient(135deg, #f0f7ff 0%, #e6f0fa 100%);
+            padding: 50px 50px 50px;
             border-radius: 24px;
-            margin: 40px 0;
+            position: relative;
+            background: linear-gradient(135deg, #f0f8ff 0%, #e6f2ff 100%);
+            border: 1px solid rgba(41, 128, 185, 0.1);
+            box-shadow: 0 20px 60px rgba(41, 128, 185, 0.08);
+            overflow: hidden;
+            margin-top: 40px;
         }
-        
-        .coming-soon-icon {
-            font-size: 80px;
-            color: var(--primary-color);
-            margin-bottom: 30px;
+        .coordinator-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #2980b9 0%, #3498db 50%, #2980b9 100%);
+            z-index: 1;
         }
-        
-        .coming-soon h2 {
-            color: var(--primary-color);
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .coming-soon-placeholder {
+            text-align: center;
+            padding: 60px 20px;
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: 16px;
+            position: relative;
+            z-index: 1;
+        }
+        .coming-soon-placeholder i {
+            font-size: 64px;
+            background: linear-gradient(135deg, #2980b9 0%, #0b3b82 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
             margin-bottom: 20px;
+            display: block;
         }
-        
-        .coming-soon p {
-            font-size: 1.2rem;
+        .coming-soon-placeholder h3 {
+            font-size: 1.6rem;
+            color: var(--primary-color);
+            margin: 15px 0;
+            font-weight: 600;
+        }
+        .coming-soon-placeholder p {
             color: #666;
-            max-width: 600px;
-            margin: 0 auto;
+            font-size: 1rem;
+        }
+        .department-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            position: relative;
+            z-index: 1;
+        }
+        .dept-card {
+            background: linear-gradient(135deg, #ffffff 0%, #f8fbff 100%);
+            padding: 35px 25px;
+            border-radius: 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 2px solid rgba(41, 128, 185, 0.15);
+            box-shadow: 0 8px 20px rgba(11, 59, 130, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        .dept-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(41, 128, 185, 0.15), transparent);
+            transition: left 0.5s ease;
+        }
+        .dept-card:hover::before {
+            left: 100%;
+        }
+        .dept-card:hover {
+            transform: translateY(-12px) scale(1.03);
+            box-shadow: 0 20px 45px rgba(11, 59, 130, 0.2);
+            border-color: var(--secondary-color);
+            background: linear-gradient(135deg, #ffffff 0%, #e8f4ff 100%);
+        }
+        .dept-card i {
+            font-size: 3.5rem;
+            background: linear-gradient(135deg, #2980b9 0%, #0b3b82 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+        .dept-card h3 {
+            font-size: 1.25rem;
+            color: var(--primary-color);
+            margin: 0;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+        .dept-card:hover h3 {
+            color: var(--secondary-color);
+        }
+        @media (max-width: 768px) {
+            .back-button {
+                margin: 15px 20px 0 20px;
+                padding: 8px 16px;
+                font-size: 0.9rem;
+            }
+            .coordinator-section {
+                padding: 25px 15px;
+                border-radius: 0 0 18px 18px;
+            }
+        }
+        @media (max-width: 480px) {
+            .back-button {
+                margin: 12px 15px 0 15px;
+                padding: 8px 12px;
+                font-size: 0.8rem;
+            }
+            .coming-soon-placeholder i {
+                font-size: 48px;
+            }
+        }
+        @media (max-width: 1200px) {
+            .department-cards {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        @media (max-width: 768px) {
+            .back-button {
+                margin: 15px 20px 0 20px;
+                padding: 8px 16px;
+                font-size: 0.9rem;
+            }
+            .coordinator-section {
+                padding: 25px 15px;
+                border-radius: 0 0 18px 18px;
+            }
+            .department-cards {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+            .dept-card {
+                padding: 25px 20px;
+                border-radius: 16px;
+            }
+            .dept-card i {
+                font-size: 3rem;
+                margin-bottom: 15px;
+            }
+            .dept-card h3 {
+                font-size: 1.15rem;
+            }
+            .dept-card:hover {
+                transform: translateY(-6px) scale(1.02);
+            }
+        }
+        @media (max-width: 480px) {
+            .back-button {
+                margin: 12px 15px 0 15px;
+                padding: 8px 12px;
+                font-size: 0.8rem;
+            }
+            .department-cards {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+            .dept-card {
+                padding: 20px 15px;
+                border-radius: 14px;
+            }
+            .dept-card i {
+                font-size: 2.5rem;
+                margin-bottom: 12px;
+            }
+            .dept-card h3 {
+                font-size: 1.05rem;
+            }
+        }
+        .back-btn {
+            background: linear-gradient(135deg, #2980b9 0%, #0b3b82 100%);
+            color: white;
+            padding: 13px 28px;
+            border-radius: 12px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 600;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 5px 15px rgba(11, 59, 130, 0.2);
+            border: none;
+            cursor: pointer;
+            font-size: 0.95rem;
+        }
+        .back-btn:hover {
+            background: linear-gradient(135deg, #0b3b82 0%, #2980b9 100%);
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 8px 20px rgba(11, 59, 130, 0.3);
+            color: white;
         }
     </style>
+    <script>
+        (function(){
+            const deptCards = document.querySelectorAll('.dept-card');
+            const eventsContainer = document.getElementById('eventsContainer');
+            const deptGrid = document.getElementById('deptCardsGrid');
+
+            function createTable(deptName, events) {
+                // events: array of {name, date, reportUrl}
+                const wrapper = document.createElement('div');
+                wrapper.className = 'student-table-wrapper';
+                wrapper.innerHTML = `
+                    <div style="padding:18px;display:flex;justify-content:space-between;align-items:center;">
+                        <div style="font-weight:700;color:var(--primary-color);">Events for: ${deptName}</div>
+                        <button class="back-btn" id="backToDepts">&larr; Back to Departments</button>
+                    </div>
+                    <div style="padding:0 18px 18px 18px;">
+                        <table class="students-table" style="width:100%;border-collapse:collapse;">
+                            <thead>
+                                <tr>
+                                    <th style="text-align:center;padding:12px;border-bottom:2px solid #e6eef9;width:60px;">Sr. No</th>
+                                    <th style="text-align:center;padding:12px;border-bottom:2px solid #e6eef9;">Name of Event</th>
+                                    <th style="text-align:center;padding:12px;border-bottom:2px solid #e6eef9;width:180px;">Date</th>
+                                    <th style="text-align:center;padding:12px;border-bottom:2px solid #e6eef9;width:140px;">Report</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                ${events && events.length ? events.map((ev, i) => `
+                                    <tr>
+                                        <td style="padding:12px;border-bottom:1px solid #f1f7fe;">${i+1}</td>
+                                        <td style="padding:12px;border-bottom:1px solid #f1f7fe;">${ev.name}</td>
+                                        <td style="padding:12px;border-bottom:1px solid #f1f7fe;">${ev.date || ''}</td>
+                                        <td style="padding:12px;border-bottom:1px solid #f1f7fe;"><a href="${ev.reportUrl || '#'}" target="_blank">${ev.reportUrl ? 'View' : '—'}</a></td>
+                                    </tr>
+                                `).join('') : `
+                                    <tr><td colspan="4" style="padding:24px;text-align:center;color:#666;">No events found for this department.</td></tr>
+                                `}
+                            </tbody>
+                        </table>
+                    </div>
+                `;
+                return wrapper;
+            }
+
+            function showEvents(deptName) {
+                    // sample events mapped by department name
+                    const eventsMap = {
+                        'Computer Engineering': [
+                            { name: 'AI Workshop', date: '2025-01-15', reportUrl: 'reports/comp-ai-workshop.pdf' },
+                            { name: 'Hackathon 2025', date: '2025-02-20', reportUrl: 'reports/comp-hackathon-2025.pdf' },
+                            { name: 'Alumni Talk: Cloud Computing', date: '2024-11-10', reportUrl: '' }
+                        ],
+                        'Computer Engineering (Regional)': [
+                            { name: 'Regional Coding Fest', date: '2025-03-05', reportUrl: '' },
+                            { name: 'Industry Visit - TechPark', date: '2024-12-12', reportUrl: 'reports/comp-reg-indvisit.pdf' }
+                        ],
+                        'Information Technology Engineering': [
+                            { name: 'IoT Lab Session', date: '2025-01-30', reportUrl: '' },
+                            { name: 'Data Science Seminar', date: '2024-10-18', reportUrl: 'reports/it-ds-seminar.pdf' }
+                        ],
+                        'Mechanical Engineering': [
+                            { name: 'CAD Workshop', date: '2025-02-10', reportUrl: '' },
+                            { name: 'Robotics Demo', date: '2024-09-25', reportUrl: '' }
+                        ],
+                        'Applied Science & Humanities': [
+                            { name: 'Communication Skills Session', date: '2025-01-08', reportUrl: '' },
+                            { name: 'Mathematics Refresher', date: '2024-11-02', reportUrl: '' }
+                        ],
+                        'Civil Engineering': [
+                            { name: 'Site Visit: Bridge Project', date: '2024-12-05', reportUrl: 'reports/civil-site-visit.pdf' }
+                        ],
+                        'Computer Science and Engineering (AI-ML)': [
+                            { name: 'Deep Learning Bootcamp', date: '2025-03-12', reportUrl: 'reports/aiml-bootcamp.pdf' },
+                            { name: 'Research Paper Club', date: '2024-10-30', reportUrl: '' }
+                        ],
+                        'Electronics and Telecommunication Engineering': [
+                            { name: 'Embedded Systems Workshop', date: '2025-02-18', reportUrl: '' },
+                            { name: 'Signal Processing Seminar', date: '2024-11-22', reportUrl: '' }
+                        ]
+                    };
+                    const sampleEvents = eventsMap[deptName] || [];
+                deptGrid.style.display = 'none';
+                eventsContainer.innerHTML = '';
+                eventsContainer.appendChild(createTable(deptName, sampleEvents));
+                document.getElementById('backToDepts').addEventListener('click', () => {
+                    eventsContainer.innerHTML = '';
+                    deptGrid.style.display = '';
+                });
+            }
+
+            deptCards.forEach(card => {
+                card.addEventListener('click', () => {
+                    const dept = card.dataset.dept || card.textContent.trim();
+                    showEvents(dept);
+                });
+            });
+        })();
+    </script>
 </body>
 </html>

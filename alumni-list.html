@@ -40,7 +40,7 @@
             border-color: var(--secondary-color);
             box-shadow: 0 4px 12px rgba(41, 128, 185, 0.15);
         }
-        .back-button {
+        .back-btn {
             background: linear-gradient(135deg, #2980b9 0%, #0b3b82 100%);
             color: white;
             padding: 13px 28px;
@@ -52,53 +52,17 @@
             font-weight: 600;
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             box-shadow: 0 5px 15px rgba(11, 59, 130, 0.2);
+            border: none;
+            cursor: pointer;
+            font-size: 0.95rem;
         }
-        .back-button:hover {
+        .back-btn:hover {
             background: linear-gradient(135deg, #0b3b82 0%, #2980b9 100%);
             transform: translateY(-3px) scale(1.02);
             box-shadow: 0 8px 20px rgba(11, 59, 130, 0.3);
+            color: white;
         }
-        .page-header {
-            text-align: center;
-            padding: 50px 20px;
-            position: relative;
-            background: linear-gradient(135deg, rgba(11, 59, 130, 0.03) 0%, rgba(41, 128, 185, 0.05) 100%);
-            border-radius: 0 0 30px 30px;
-            margin-bottom: 30px;
-        }
-        .page-header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 5px;
-            background: linear-gradient(90deg, #0b3b82 0%, #2980b9 50%, #0b3b82 100%);
-        }
-        .page-header h1 {
-            font-size: 2.8rem;
-            background: linear-gradient(135deg, #0b3b82 0%, #2980b9 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 15px;
-            animation: fadeInDown 0.8s ease-out;
-        }
-        @keyframes fadeInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        .page-header p {
-            color: #666;
-            font-size: 1.15rem;
-            animation: fadeIn 1s ease-out 0.2s both;
-        }
+
         .alumni-count {
             display: inline-block;
             background: linear-gradient(135deg, #2980b9 0%, #0b3b82 100%);
@@ -318,7 +282,7 @@
         </div>
 
         <div class="filter-controls">
-            <a href="alumni.html" class="back-button">
+            <a href="alumni.html" class="back-btn">
                 <i class="fas fa-arrow-left"></i>
                 Back to Alumni Portal
             </a>
@@ -360,7 +324,7 @@
             } else {
                 container.innerHTML = alumni.map((a, index) => `
                     <div class="alumni-item" style="animation-delay: ${index * 0.1}s">
-                        <img src="${a.photo}" alt="${a.name}" style="width: 80px; height: 80px;" onerror="this.src='https://ui-avatars.com/api/?name=${encodeURIComponent(a.name)}&background=0b3b82&color=fff&size=80'">
+                        <img src="${a.photo}" alt="${a.name}" style="width: 160px; height: auto;" onerror="this.src='https://ui-avatars.com/api/?name=${encodeURIComponent(a.name)}&background=0b3b82&color=fff&size=80'">
                         <div class="info">
                             <h4>${a.name}</h4>
                             <p><strong>Department:</strong> ${a.department}</p>
