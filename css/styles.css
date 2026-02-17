@@ -1429,7 +1429,7 @@ marquee {
 }
 
 .dept-name {
-    color: var(--accent-color);
+    color: var(--secondary-color);
     font-size: 0.95rem;
     font-weight: 500;
 }

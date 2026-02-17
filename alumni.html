@@ -8,28 +8,23 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
     <style>
+        :root {
+            --primary-color: #0b3b82;
+            --secondary-color: #27c3e6;
+            --accent-color: #f2c300;
+            --text-color: #333;
+            --bg-gradient-start: #f5f7fa;
+            --bg-gradient-end: #e4e8f0;
+            --white: #ffffff;
+            --shadow-color: rgba(11, 59, 130, 0.08);
+            --border-color: rgba(39, 195, 230, 0.1);
+        }
 
         .back-icon {
             fill: currentColor;
         }
-        .filter-controls {
-            display: none;
-        }
-        .filter-controls label {
-            font-weight: 600;
-            color: var(--primary-color);
-            margin-right: 10px;
-        }
-        .filter-controls select {
-            padding: 12px 20px;
-            border: 2px solid rgba(11, 59, 130, 0.2);
-            border-radius: 10px;
-            font-size: 0.95rem;
-            background: #f8f9fa;
-            color: var(--text-color);
-            cursor: pointer;
-            min-width: 200px;
-        }
+
+        /* Alumni Sections */
         .alumni-section {
             text-align: center;
             padding: 50px 50px 50px;
@@ -41,6 +36,7 @@
             overflow: hidden;
             margin-top: 40px;
         }
+
         .alumni-section::before {
             content: '';
             position: absolute;
@@ -51,18 +47,16 @@
             background: linear-gradient(90deg, #2980b9 0%, #3498db 50%, #2980b9 100%);
             z-index: 1;
         }
-        @keyframes pulse {
-            0%, 100% { transform: translate(0, 0) scale(1); }
-            50% { transform: translate(-10px, -10px) scale(1.1); }
-        }
+
         .section-header {
             text-align: center;
             margin-bottom: 30px;
             position: relative;
             z-index: 1;
         }
+
         .section-header h2 {
-            font-size: 2.2rem;
+            font-size: 2.6rem;
             color: var(--primary-color);
             margin-bottom: 15px;
             background: linear-gradient(135deg, #0b3b82 0%, #2980b9 100%);
@@ -71,10 +65,12 @@
             background-clip: text;
             animation: fadeInDown 0.8s ease-out;
         }
+
         .section-header p {
             color: #666;
             font-size: 1.1rem;
         }
+
         @keyframes fadeInDown {
             from {
                 opacity: 0;
@@ -85,6 +81,7 @@
                 transform: translateY(0);
             }
         }
+
         .department-cards {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -92,6 +89,7 @@
             position: relative;
             z-index: 1;
         }
+
         .dept-card {
             background: linear-gradient(135deg, #ffffff 0%, #f8fbff 100%);
             padding: 35px 25px;
@@ -104,6 +102,7 @@
             position: relative;
             overflow: hidden;
         }
+
         .dept-card::before {
             content: '';
             position: absolute;
@@ -114,15 +113,18 @@
             background: linear-gradient(90deg, transparent, rgba(41, 128, 185, 0.15), transparent);
             transition: left 0.5s ease;
         }
+
         .dept-card:hover::before {
             left: 100%;
         }
+
         .dept-card:hover {
-            transform: translateY(-12px) scale(1.03);
+            transform: translateY(-3px) scale(1.03);
             box-shadow: 0 20px 45px rgba(11, 59, 130, 0.2);
             border-color: var(--secondary-color);
             background: linear-gradient(135deg, #ffffff 0%, #e8f4ff 100%);
         }
+
         .dept-card i {
             font-size: 3.5rem;
             background: linear-gradient(135deg, #2980b9 0%, #0b3b82 100%);
@@ -133,6 +135,7 @@
             transition: all 0.3s ease;
             display: inline-block;
         }
+
         .dept-card h3 {
             font-size: 1.25rem;
             color: var(--primary-color);
@@ -140,120 +143,404 @@
             font-weight: 600;
             transition: color 0.3s ease;
         }
+
         .dept-card:hover h3 {
             color: var(--secondary-color);
         }
-        .alumni-list {
-            display: none;
+
+        /* ===== ATTRACTIVE TESTIMONIALS SECTION ===== */
+        .testimonials-section {
+            padding: 60px 40px;
+            text-align: center;
+            padding: 50px 50px 50px;
+            border-radius: 24px;
+            position: relative;
+            background: linear-gradient(135deg, #f0f8ff 0%, #e6f2ff 100%);
+            border: 1px solid rgba(41, 128, 185, 0.1);
+            box-shadow: 0 20px 60px rgba(41, 128, 185, 0.08);
+            overflow: hidden;
             margin-top: 40px;
         }
-        .alumni-list.active {
-            display: block;
+
+        .testimonials-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #2980b9 0%, #3498db 50%, #2980b9 100%);
+            z-index: 1;
         }
-        .alumni-item {
+
+        .testimonials-section::after {
+            content: '';
+            position: absolute;
+            bottom: -150px;
+            left: -150px;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(242, 195, 0, 0.08) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: floatBlob 25s ease-in-out infinite reverse;
+            z-index: 0;
+        }
+
+        @keyframes floatBlob {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(30px, -20px) scale(1.1); }
+        }
+
+        /* Testimonial Carousel */
+        .testimonial-wrapper {
+            position: relative;
+            padding: 20px 0;
+            z-index: 2;
+        }
+
+        .testimonial-carousel {
+            overflow: hidden;
+            border-radius: 30px;
+            box-shadow: 0 25px 60px rgba(11, 59, 130, 0.25);
             background: white;
-            padding: 20px;
-            margin-bottom: 20px;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+
+        .testimonial-track {
             display: flex;
-            align-items: flex-start;
-            gap: 20px;
+            transition: transform 0.7s cubic-bezier(0.34, 1.56, 0.64, 1);
         }
-        .alumni-item img {
-            flex-shrink: 0;
+
+        .testimonial-card {
+            flex: 0 0 100%;
+            padding: 50px 60px;
+            background: white;
+            display: flex;
+            flex-direction: column;
+            position: relative;
         }
-        .alumni-item .info {
+
+        /* Video Container */
+        .testimonial-video-container {
+            position: relative;
+            width: 100%;
+            height: 280px;
+            border-radius: 20px;
+            overflow: hidden;
+            margin-bottom: 30px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            z-index: 2;
+        }
+
+        .video-thumbnail {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            transition: transform 0.5s ease;
+        }
+
+        .testimonial-video-container:hover .video-thumbnail {
+            transform: scale(1.05);
+        }
+
+        .video-play-btn {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--accent-color), #ffaa00);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-color);
+            font-size: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            transition: all 0.4s ease;
+            border: 3px solid white;
+        }
+
+        .video-play-btn:hover {
+            transform: translate(-50%, -50%) scale(1.15);
+            background: white;
+            color: var(--secondary-color);
+        }
+
+        .video-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, transparent 60%, rgba(11, 59, 130, 0.7));
+        }
+
+        /* Text Content */
+        .testimonial-content {
+            position: relative;
+            z-index: 2;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .testimonial-quote {
+            font-size: 1.4rem;
+            line-height: 1.8;
+            color: #2c3e50;
+            margin-bottom: 30px;
+            flex: 1;
+            position: relative;
+            padding-left: 20px;
+            border-left: 4px solid var(--secondary-color);
+        }
+
+        /* Author Info */
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            margin-top: 20px;
+            padding: 20px 25px;
+            background: linear-gradient(135deg, #f8fbff, #f0f7ff);
+            border-radius: 60px;
+            border: 2px solid rgba(39, 195, 230, 0.2);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+
+        .author-details {
             flex: 1;
         }
-        .alumni-item h4 {
-            margin: 0 0 8px 0;
+
+        .author-name {
+            font-size: 1.6rem;
+            font-weight: 700;
             color: var(--primary-color);
-            font-size: 1.3rem;
+            margin-bottom: 5px;
         }
-        .alumni-item p {
-            margin: 5px 0;
-            color: #666;
+
+        .author-title {
+            font-size: 1rem;
+            color: #555;
+            margin-bottom: 3px;
+            font-weight: 500;
         }
+
+        .author-company {
+            font-size: 1.1rem;
+            color: var(--secondary-color);
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .author-batch {
+            display: inline-block;
+            padding: 5px 15px;
+            background: rgba(39, 195, 230, 0.1);
+            border-radius: 30px;
+            font-size: 0.85rem;
+            color: var(--primary-color);
+            font-weight: 600;
+            border: 1px solid rgba(39, 195, 230, 0.3);
+        }
+
+        /* Navigation Arrows */
+        .testimonial-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 60px;
+            height: 60px;
+            background: white;
+            border: none;
+            border-radius: 50%;
+            box-shadow: 0 10px 30px rgba(11, 59, 130, 0.25);
+            cursor: pointer;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.4s ease;
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            border: 2px solid transparent;
+        }
+
+        .testimonial-arrow:hover {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            transform: translateY(-50%) scale(1.1);
+            box-shadow: 0 15px 40px rgba(11, 59, 130, 0.4);
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+
+        .testimonial-arrow.prev {
+            left: -25px;
+        }
+
+        .testimonial-arrow.next {
+            right: -25px;
+        }
+
+        /* Indicators */
+        .testimonial-indicators {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 40px;
+            z-index: 2;
+            position: relative;
+        }
+
+        .testimonial-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 6px;
+            background: rgba(11, 59, 130, 0.2);
+            cursor: pointer;
+            transition: all 0.4s ease;
+            border: none;
+        }
+
+        .testimonial-dot.active {
+            width: 40px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            box-shadow: 0 0 15px rgba(39, 195, 230, 0.5);
+        }
+
+        .testimonial-dot:hover {
+            background: var(--secondary-color);
+            transform: scale(1.2);
+        }
+
+
+        /* Responsive */
         @media (max-width: 1200px) {
             .department-cards {
                 grid-template-columns: repeat(2, 1fr);
             }
+            
+            .testimonial-arrow.prev {
+                left: -15px;
+            }
+            
+            .testimonial-arrow.next {
+                right: -15px;
+            }
         }
+
         @media (max-width: 768px) {
             .department-cards {
                 grid-template-columns: 1fr;
                 gap: 15px;
             }
+            
             .alumni-section {
                 padding: 25px 15px;
-                border-radius: 0 0 18px 18px;
             }
-            .alumni-item {
-                flex-direction: column;
-                text-align: center;
-                align-items: center;
-            }
+            
             .section-header h2 {
                 font-size: 1.8rem;
             }
-            .section-header p {
-                font-size: 0.95rem;
+            
+            .testimonials-section {
+                padding: 40px 20px;
             }
-            .dept-card {
-                padding: 25px 20px;
-                border-radius: 16px;
+            
+            .testimonials-section .section-header h2 {
+                font-size: 2.2rem;
             }
-            .dept-card i {
-                font-size: 3rem;
-                margin-bottom: 15px;
+            
+            .testimonial-card {
+                padding: 30px 25px;
             }
-            .dept-card h3 {
-                font-size: 1.15rem;
+            
+            .testimonial-quote {
+                font-size: 1.1rem;
+                line-height: 1.6;
+                padding-left: 15px;
             }
-            .dept-card:hover {
-                transform: translateY(-6px) scale(1.02);
+            
+            .testimonial-author {
+                flex-direction: column;
+                text-align: center;
+                padding: 20px;
+                border-radius: 30px;
             }
-            .page-header h1 {
-                font-size: 1.6rem;
-            }
-            .page-header p {
-                font-size: 0.9rem;
-            }
-        }
-        @media (max-width: 480px) {
-            .department-cards {
-                grid-template-columns: 1fr;
-                gap: 12px;
-            }
-            .alumni-section {
-                padding: 18px 10px;
-            }
-            .dept-card {
-                padding: 20px 15px;
-                border-radius: 14px;
-            }
-            .dept-card i {
-                font-size: 2.5rem;
-                margin-bottom: 12px;
-            }
-            .section-header h2 {
-                font-size: 1.5rem;
-            }
-            .page-header h1 {
+            
+            .author-name {
                 font-size: 1.3rem;
             }
-            .page-header p {
-                font-size: 0.8rem;
+            
+            .testimonial-arrow {
+                width: 45px;
+                height: 45px;
+                font-size: 1.2rem;
+            }
+            
+            .testimonial-arrow.prev {
+                left: -5px;
+            }
+            
+            .testimonial-arrow.next {
+                right: -5px;
+            }
+            
+            .testimonial-video-container {
+                height: 200px;
+            }
+            
+            .video-play-btn {
+                width: 50px;
+                height: 50px;
+                font-size: 1.5rem;
+            }
+            
+        }
+
+        @media (max-width: 480px) {
+            .testimonials-section .section-header h2 {
+                font-size: 1.8rem;
+            }
+            
+            .testimonial-card {
+                padding: 25px 20px;
+            }
+            
+            .testimonial-quote {
+                font-size: 1rem;
+            }
+            
+            .author-name {
+                font-size: 1.2rem;
+            }
+            
+            .author-company {
+                font-size: 1rem;
+            }
+            
+            .testimonial-arrow {
+                display: none; /* Hide arrows on very small screens */
+            }
+            
+            .testimonial-indicators {
+                gap: 10px;
+            }
+            
+            .testimonial-dot.active {
+                width: 30px;
             }
         }
-    </style></head>
+    </style>
+</head>
 <body>
     <header class="top-header">
         <div class="header-container">
             <div class="header-center">
                 <div class="logo-group">
-                    <img src="images/PCCOE-Logo.png" alt="PCCOE" >
+                    <img src="images/PCCOE-Logo.png" alt="PCCOE">
                 </div>
                 <div class="header-text">
                     <h4>PIMPRI CHINCHWAD EDUCATIONAL TRUST's</h4>
@@ -342,7 +629,7 @@
 
         <div class="page-header" style="margin-bottom: 0px; border-radius: 20px 20px 0px 0px;">
             <h1>Alumni</h1>
-            <p>विजिगीषा : Higher Education and Competitive Exam Cell| Meet our successful graduates</p>
+            <p>विजिगीषा : Higher Education and Competitive Exam Cell | Meet our successful graduates</p>
         </div>
         
         <nav class="section-nav" id="sectionNav">
@@ -373,12 +660,31 @@
             <div class="department-cards" id="distinguishedDeptCards"></div>
         </section>
 
-        <section class="alumni-section" id="testimonialSection">
+        <!-- ===== ATTRACTIVE TESTIMONIALS SECTION ===== -->
+        <section class="testimonials-section" id="testimonialSection">
             <div class="section-header">
                 <h2>Alumni Testimonials</h2>
             </div>
-            <div class="alumni-list" id="testimonialList"></div>
-            <div class="department-cards" id="testimonialDeptCards"></div>
+
+            <!-- Testimonial Carousel -->
+            <div class="testimonial-wrapper">
+                <button class="testimonial-arrow prev" id="prevTestimonial">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                
+                <div class="testimonial-carousel">
+                    <div class="testimonial-track" id="testimonialTrack">
+                        <!-- Testimonials will be dynamically inserted here -->
+                    </div>
+                </div>
+
+                <button class="testimonial-arrow next" id="nextTestimonial">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+
+            <!-- Carousel Indicators -->
+            <div class="testimonial-indicators" id="testimonialIndicators"></div>
         </section>
     </main>
 
@@ -400,14 +706,276 @@
             { name: 'Electronics and Telecommunication Engineering', icon: 'fa-microchip' },
         ];
 
+        // Testimonial data - No department restrictions, one common pool
+        const testimonials = [
+            {
+                id: 1,
+                name: 'Shivam Hake',
+                company: 'Mtech ,IISc Bangalore',
+                batch: '2023',
+                type: 'text',
+                quote: 'My journey from PCCoE to pursuing my master’s at Indian Institute of science (IISc), Bangalore. has been shaped strongly by the academic foundation and guidance I received during my undergraduate years. The supportive faculty at PCCoE, along with a disciplined academic environment, encouraged me to think beyond exams and build conceptual clarity, which played a crucial role in my GATE preparation. Regular mentoring, access to resources at main and dept library or Higher Education & Competitive Exams Cell. To juniors, I would say: stay consistent, trust the process, and make the most of the faculty support and learning culture at PCCoE—it truly prepares you for competitive exams and future academic challenges.',
+                achievement: 'Mechanical Engineering'
+            },
+            {
+                id: 2,
+                name: 'Shivani Birajdar',
+                company: 'MS , University of California',
+                batch: '2019',
+                type: 'video',
+                quote: '',
+                videoUrl: 'https://drive.google.com/file/d/1BUifpJIboGnnKe5q56VqejV3mEdltFz-/view?usp=sharing',
+                thumbnail: 'images/ias-officer.jpg',
+                achievement: 'Information Technology Engineering'
+            },
+            {
+                id: 3,
+                name: 'Gaurav Mahale',
+                company: 'Masters, University of Glasgow, UK',
+                batch: '2025',
+                type: 'text',
+                rating: 5,
+                quote: ' I completed my Bachelor’s degree in Computer Engineering (Regional Language) from Pimpri Chinchwad College of Engineering (PCCOE) in Pune, where I built a solid academic foundation in a supportive and enriching learning environment. The guidance and mentorship from experienced faculty members enabled me to understand complex concepts clearly and develop essential technical, analytical, and problem-solving skills. My time at PCCOE also significantly contributed to my personal growth through various academic projects and collaborative activities. I am proud to be a PCCOE alumnus and remain grateful for the opportunities and encouragement provided by the institution. ',
+                achievement: 'Computer Engineering (Regional)'
+            },
+            {
+                id: 4,
+                name: 'Sudarshan Yadav',
+                company: 'Sub Divisional Officer,Soil and Water Conservation Department through MPSC',
+                batch: '2022',
+                type: 'video',
+                quote: '',
+                videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
+                thumbnail: 'images/Sudarshan Yadav.png',
+                achievement: 'Civil Engineering'
+            },
+            {
+                id: 5,
+                name: 'Juzer Shaikh',
+                company: 'Postdoctoral Associate at the University of Minnesota.',
+                batch: '2016',
+                type: 'text',
+                rating: 5,
+                quote: 'I completed my bachelor’s degree in Civil Engineering from PCCOE, Pune, graduating in 2016 as part of the department’s very first graduating class. Being in that inaugural batch was a unique experience. We were nurtured in a well-rounded academic environment that emphasized both rigor and curiosity. I had the privilege of learning from some of the finest teachers at Pune University, who helped make even the most challenging subjects engaging and accessible. Their guidance played a significant role in shaping my academic foundation and professional outlook. I am proud to be a PCCOE alumnus and remain deeply grateful to the institution and its faculty for the opportunities and mentorship they provided.',
+                achievement: 'Civil Engineering'
+            }
+        ];
+
         function renderDepartmentCards(containerId, type) {
             const container = document.getElementById(containerId);
-            container.innerHTML = departments.map(dept => `
-                <div class="dept-card" data-dept="${dept.name}" data-type="${type}">
-                    <i class="fas ${dept.icon}"></i>
-                    <h3>${dept.name}</h3>
-                </div>
+            if (container) {
+                container.innerHTML = departments.map(dept => `
+                    <div class="dept-card" data-dept="${dept.name}" data-type="${type}">
+                        <i class="fas ${dept.icon}"></i>
+                        <h3>${dept.name}</h3>
+                    </div>
+                `).join('');
+            }
+        }
+
+        // Carousel variables
+        let currentSlide = 0;
+        let currentFilter = 'all';
+        let filteredTestimonials = testimonials;
+            renderTestimonials();
+
+
+        function renderTestimonials() {
+            const track = document.getElementById('testimonialTrack');
+            const indicators = document.getElementById('testimonialIndicators');
+            
+            if (!track) return;
+
+            // Generate slides
+            track.innerHTML = filteredTestimonials.map((testimonial, index) => {
+                if (testimonial.type === 'video') {
+                    return `
+                        <div class="testimonial-card" data-index="${index}">
+                            
+                            <div class="testimonial-video-container" onclick="playVideo(${testimonial.id})">
+                                <img src="${testimonial.thumbnail || 'https://via.placeholder.com/800x400?text=Video+Thumbnail'}" alt="Video thumbnail" class="video-thumbnail">
+                                <div class="video-overlay"></div>
+                                <div class="video-play-btn">
+                                    <i class="fas fa-play"></i>
+                                </div>
+                            </div>
+                            
+                            <div class="testimonial-content">
+                                <div class="testimonial-author">
+                                    <div class="author-details">
+                                        <div class="author-name">${testimonial.name}</div>
+                                        <div class="author-company">${testimonial.company}</div>
+                                        <span class="author-batch">Batch ${testimonial.batch} | ${testimonial.achievement}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                } else {
+                    return `
+                        <div class="testimonial-card" data-index="${index}">
+                            
+                            <div class="testimonial-content">
+                                
+                                <div class="testimonial-quote">
+                                    "${testimonial.quote}"
+                                </div>
+                                
+                                <div class="testimonial-author">
+                                    <div class="author-details">
+                                        <div class="author-name">${testimonial.name}</div>
+                                        <div class="author-company">${testimonial.company}</div>
+                                        <span class="author-batch">Batch ${testimonial.batch} | ${testimonial.achievement}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                }
+            }).join('');
+
+            // Generate indicators
+            indicators.innerHTML = filteredTestimonials.map((_, index) => `
+                <button class="testimonial-dot ${index === 0 ? 'active' : ''}" data-index="${index}"></button>
             `).join('');
+
+            updateCarousel();
+            setupIndicatorListeners();
+        }
+
+        function playVideo(id) {
+            const testimonial = testimonials.find(t => t.id === id);
+            if (!testimonial || !testimonial.videoUrl) return;
+
+            /* ======================
+            YOUTUBE → REDIRECT
+            ====================== */
+            if (testimonial.source === 'youtube') {
+                window.open(testimonial.videoUrl, '_blank');
+                return;
+            }
+
+            /* ======================
+            DRIVE / LOCAL → MODAL
+            ====================== */
+            const modal = document.createElement('div');
+            modal.style.cssText = `
+                position: fixed;
+                inset: 0;
+                background: rgba(0,0,0,0.9);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                z-index: 1000;
+                padding: 20px;
+            `;
+
+            let videoHtml = '';
+
+            /* GOOGLE DRIVE */
+            if (testimonial.source === 'drive') {
+                const fileIdMatch = testimonial.videoUrl.match(/[-\w]{25,}/);
+                if (fileIdMatch) {
+                    const fileId = fileIdMatch[0];
+                    const embedUrl = `https://drive.google.com/file/d/${fileId}/preview`;
+                    videoHtml = `
+                        <iframe 
+                            src="${embedUrl}"
+                            style="width:100%;height:100%;border:none;border-radius:12px"
+                            allow="autoplay"
+                            allowfullscreen>
+                        </iframe>`;
+                }
+            }
+
+            /* LOCAL / MP4 */
+            if (testimonial.source === 'local') {
+                videoHtml = `
+                    <video controls autoplay
+                        style="width:100%;height:100%;border-radius:12px">
+                        <source src="${testimonial.videoUrl}" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>`;
+            }
+
+            modal.innerHTML = `
+                <div style="position:relative;width:100%;max-width:1000px;aspect-ratio:16/9">
+                    <button onclick="this.closest('.video-modal').remove()"
+                        style="position:absolute;top:-50px;right:0;
+                        width:40px;height:40px;border-radius:50%;
+                        border:none;font-size:26px;cursor:pointer">×</button>
+                    ${videoHtml}
+                </div>
+            `;
+
+            modal.classList.add('video-modal');
+            document.body.appendChild(modal);
+
+            modal.addEventListener('click', e => {
+                if (e.target === modal) modal.remove();
+            });
+
+            document.addEventListener('keydown', function esc(e) {
+                if (e.key === 'Escape') {
+                    modal.remove();
+                    document.removeEventListener('keydown', esc);
+                }
+            });
+        }
+
+
+        function updateCarousel() {
+            const track = document.getElementById('testimonialTrack');
+            const dots = document.querySelectorAll('.testimonial-dot');
+            
+            if (track && filteredTestimonials.length > 0) {
+                track.style.transform = `translateX(-${currentSlide * 100}%)`;
+                
+                dots.forEach((dot, index) => {
+                    if (index === currentSlide) {
+                        dot.classList.add('active');
+                    } else {
+                        dot.classList.remove('active');
+                    }
+                });
+            }
+        }
+
+        function nextSlide() {
+            if (filteredTestimonials.length > 0) {
+                currentSlide = (currentSlide + 1) % filteredTestimonials.length;
+                updateCarousel();
+            }
+        }
+
+        function prevSlide() {
+            if (filteredTestimonials.length > 0) {
+                currentSlide = (currentSlide - 1 + filteredTestimonials.length) % filteredTestimonials.length;
+                updateCarousel();
+            }
+        }
+
+        function setupIndicatorListeners() {
+            const dots = document.querySelectorAll('.testimonial-dot');
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                    currentSlide = index;
+                    updateCarousel();
+                });
+            });
+        }
+
+        function setupFilterListeners() {
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    currentFilter = this.dataset.filter;
+                    filterTestimonials(currentFilter);
+                });
+            });
         }
 
         function setupCardClickListeners() {
@@ -416,21 +984,10 @@
                     const dept = this.dataset.dept;
                     const type = this.dataset.type;
                     
-                    if (type === 'testimonial') {
-                        // Show coming soon message for testimonials
-                        showComingSoonMessage(dept);
-                    } else {
-                        const page = type === 'regular' ? 'alumni-list.html' : 'distinguished-list.html';
-                        window.location.href = `${page}?department=${encodeURIComponent(dept)}`;
-                    }
+                    const page = type === 'regular' ? 'alumni-list.html' : 'distinguished-list.html';
+                    window.location.href = `${page}?department=${encodeURIComponent(dept)}`;
                 });
             });
-        }
-
-        function showComingSoonMessage(dept) {
-            // Create a modal/alert for coming soon
-            const message = `Testimonials for ${dept} are coming soon!`;
-            alert(message);
         }
 
         // Section Navigation Functionality
@@ -438,8 +995,8 @@
             const sectionNavButtons = document.querySelectorAll('.section-nav-btn');
             const regularAlumniSection = document.getElementById('regularAlumniSection');
             const distinguishedAlumniSection = document.getElementById('distinguishedAlumniSection');
+            const testimonialSection = document.getElementById('testimonialSection');
 
-            // Smooth scroll to section when button is clicked
             sectionNavButtons.forEach(btn => {
                 btn.addEventListener('click', function(e) {
                     e.preventDefault();
@@ -448,13 +1005,9 @@
                     const targetSection = document.querySelector(targetId);
                     
                     if (targetSection) {
-                        // Remove active class from all buttons
                         sectionNavButtons.forEach(b => b.classList.remove('active'));
-                        
-                        // Add active class to clicked button
                         this.classList.add('active');
                         
-                        // Calculate offset accounting for sticky nav
                         const navHeight = document.querySelector('.section-nav').offsetHeight + 70;
                         const targetPosition = targetSection.offsetTop - navHeight;
                         
@@ -466,7 +1019,6 @@
                 });
             });
 
-            // Update active button on scroll using Intersection Observer
             const observerOptions = {
                 threshold: 0.3,
                 rootMargin: '-70px 0px -70px 0px'
@@ -488,7 +1040,6 @@
                 });
             }, observerOptions);
 
-            // Observe both sections
             if (regularAlumniSection) observer.observe(regularAlumniSection);
             if (distinguishedAlumniSection) observer.observe(distinguishedAlumniSection);
             if (testimonialSection) observer.observe(testimonialSection);
@@ -497,10 +1048,22 @@
         document.addEventListener('DOMContentLoaded', function() {
             renderDepartmentCards('regularDeptCards', 'regular');
             renderDepartmentCards('distinguishedDeptCards', 'distinguished');
-            renderDepartmentCards('testimonialDeptCards', 'testimonial');
+            
+            // Render testimonials (no department cards in testimonials section)
+            renderTestimonials();
+            
             setupCardClickListeners();
             setupSectionNavigation();
+            setupFilterListeners();
             
+            // Carousel navigation
+            const prevBtn = document.getElementById('prevTestimonial');
+            const nextBtn = document.getElementById('nextTestimonial');
+            
+            if (prevBtn) prevBtn.addEventListener('click', prevSlide);
+            if (nextBtn) nextBtn.addEventListener('click', nextSlide);
+            
+            // Mobile menu toggle
             const menuToggle = document.getElementById('menuToggle');
             const navbarLinks = document.getElementById('navbarLinks');
             if (menuToggle && navbarLinks) {
@@ -508,6 +1071,22 @@
                     navbarLinks.classList.toggle('active');
                 });
             }
+
+            // Auto-advance carousel every 8 seconds
+            setInterval(() => {
+                if (!document.querySelector('.testimonials-section:hover')) {
+                    nextSlide();
+                }
+            }, 8000);
+
+            // Keyboard navigation
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'ArrowLeft') {
+                    prevSlide();
+                } else if (e.key === 'ArrowRight') {
+                    nextSlide();
+                }
+            });
         });
     </script>
 </body>
