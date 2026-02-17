@@ -63,20 +63,6 @@
             color: white;
         }
 
-        .alumni-count {
-            display: inline-block;
-            background: linear-gradient(135deg, #2980b9 0%, #0b3b82 100%);
-            color: white;
-            padding: 8px 20px;
-            border-radius: 25px;
-            font-size: 0.95rem;
-            font-weight: 600;
-            margin-top: 10px;
-            box-shadow: 0 4px 12px rgba(41, 128, 185, 0.3);
-        }
-        .alumni-count i {
-            margin-right: 6px;
-        }
         @keyframes fadeIn {
             from { opacity: 0; }
             to { opacity: 1; }
@@ -97,13 +83,14 @@
         }
         .alumni-item {
             background: linear-gradient(135deg, #ffffff 0%, #f8fbff 100%);
-            padding: 25px;
+            padding: 20px 35px 10px;
             margin-bottom: 25px;
             border-radius: 18px;
             box-shadow: 0 6px 18px rgba(11, 59, 130, 0.1);
             display: flex;
+            flex-direction: column;
             align-items: flex-start;
-            gap: 25px;
+            gap: 15px;
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             border: 2px solid rgba(41, 128, 185, 0.08);
             position: relative;
@@ -139,13 +126,10 @@
             border-color: var(--secondary-color);
         }
         .alumni-item img {
-            border-radius: 12px;
-            object-fit: cover;
-            transition: transform 0.3s ease;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            display: none;
         }
-        .alumni-item:hover img {
-            transform: scale(1.05);
+        .alumni-item .info {
+            width: 100%;
         }
         .alumni-item .info h4 {
             background: linear-gradient(135deg, #0b3b82 0%, #2980b9 100%);
@@ -153,17 +137,30 @@
             -webkit-text-fill-color: transparent;
             background-clip: text;
             margin: 0 0 12px 0;
-            font-size: 1.4rem;
+            font-size: 1.5rem;
             font-weight: 700;
+            width: 100%;
         }
         .alumni-item .info p {
-            margin: 6px 0;
+            margin: 8px 0;
             color: #555;
             line-height: 1.6;
+            font-size: 0.95rem;
         }
         .alumni-item .info p strong {
             color: var(--primary-color);
             font-weight: 600;
+            min-width: 120px;
+            display: inline-block;
+        }
+        .alumni-item .info p:nth-of-type(3) {
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid rgba(11, 59, 130, 0.1);
+            color: #666;
+            font-style: italic;
+            line-height: 1.8;
+            font-size: 0.98rem;
         }
         .no-alumni {
             text-align: center;
@@ -182,9 +179,7 @@
                 flex-direction: column;
             }
             .alumni-item {
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
+                padding: 25px;
             }
             .page-header h1 {
                 font-size: 2rem;
@@ -197,7 +192,7 @@
         <div class="header-container">
             <div class="header-center">
                 <div class="logo-group">
-                    <img src="images/PCCOE-Logo.png" alt="PCCOE" style="width: 100px; height: auto;">
+                    <img src="images/PCCOE-Logo.png" alt="PCCOE" >
                 </div>
                 <div class="header-text">
                     <h4>PIMPRI CHINCHWAD EDUCATIONAL TRUST's</h4>
@@ -249,7 +244,7 @@
                 <li class="nav-item">
                     <a href="alumni.html" class="nav-link active">
                         <i class="fas fa-award"></i>
-                        <span>Distinguished Alumni</span>
+                        <span>विजिगीषा Alumni</span>
                     </a>
                 </li>
                 <li class="nav-item">
@@ -277,8 +272,6 @@
     <main class="main-container" id="main-content" role="main">
         <div class="page-header">
             <h1 id="departmentName">विजिगीषा Alumni</h1>
-            <p>Success stories from our department</p>
-            <div class="alumni-count" id="alumniCount"><i class="fas fa-users"></i> Loading...</div>
         </div>
 
         <div class="filter-controls">
@@ -324,16 +317,41 @@
             } else {
                 container.innerHTML = alumni.map((a, index) => `
                     <div class="alumni-item" style="animation-delay: ${index * 0.1}s">
-                        <img src="${a.photo}" alt="${a.name}" style="width: 160px; height: auto;" onerror="this.src='https://ui-avatars.com/api/?name=${encodeURIComponent(a.name)}&background=0b3b82&color=fff&size=80'">
                         <div class="info">
                             <h4>${a.name}</h4>
                             <p><strong>Department:</strong> ${a.department}</p>
                             <p><strong>Passing Year:</strong> ${a.year}</p>
-                            ${a.description ? `<p style="margin-top: 10px; color: #666; font-style: italic; line-height: 1.7;">${a.description}</p>` : ''}
+                            ${a.description ? `<p>${a.description}</p>` : ''}
                         </div>
                     </div>
                 `).join('');
             }
+        }
+
+        function populateYearFilter() {
+            // Get all alumni for the current department
+            const departmentAlumni = regularAlumni.filter(a => a.department === department);
+            
+            // Extract unique years and sort in descending order
+            const years = [...new Set(departmentAlumni.map(a => a.year))].sort((a, b) => b - a);
+            
+            // Get the dropdown
+            const yearFilter = document.getElementById('yearFilter');
+            
+            // Keep the "All Years" option
+            const allYearsOption = yearFilter.querySelector('option[value=""]');
+            
+            // Clear all options except "All Years"
+            yearFilter.innerHTML = '';
+            yearFilter.appendChild(allYearsOption.cloneNode(true));
+            
+            // Add year options
+            years.forEach(year => {
+                const option = document.createElement('option');
+                option.value = year;
+                option.textContent = year;
+                yearFilter.appendChild(option);
+            });
         }
 
         function filterAndRender() {
@@ -344,15 +362,13 @@
                 filtered = filtered.filter(a => a.year === year);
             }
             
-            // Update count
-            document.getElementById('alumniCount').innerHTML = `<i class="fas fa-users"></i> Total: ${filtered.length} Alumni`;
-            
             renderAlumniList(filtered);
         }
 
         document.addEventListener('DOMContentLoaded', function() {
             if (department) {
                 document.getElementById('departmentName').textContent = department;
+                populateYearFilter();
                 filterAndRender();
             } else {
                 window.location.href = 'alumni.html';

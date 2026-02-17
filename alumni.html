@@ -253,7 +253,7 @@
         <div class="header-container">
             <div class="header-center">
                 <div class="logo-group">
-                    <img src="images/PCCOE-Logo.png" alt="PCCOE" style="width: 100px; height: auto;">
+                    <img src="images/PCCOE-Logo.png" alt="PCCOE" >
                 </div>
                 <div class="header-text">
                     <h4>PIMPRI CHINCHWAD EDUCATIONAL TRUST's</h4>
@@ -305,7 +305,7 @@
                 <li class="nav-item">
                     <a href="alumni.html" class="nav-link active">
                         <i class="fas fa-award"></i>
-                        <span>Distinguished Alumni</span>
+                        <span>विजिगीषा Alumni</span>
                     </a>
                 </li>
                 <li class="nav-item">
@@ -341,7 +341,7 @@
         </a>
 
         <div class="page-header" style="margin-bottom: 0px; border-radius: 20px 20px 0px 0px;">
-            <h1>Distinguished Alumni</h1>
+            <h1>Alumni</h1>
             <p>विजिगीषा : Higher Education and Competitive Exam Cell| Meet our successful graduates</p>
         </div>
         
@@ -353,13 +353,15 @@
                 <a href="#distinguishedAlumniSection" class="section-nav-btn">
                     <span>विजिगीषा : Distinguished Alumni</span>
                 </a>
+                <a href="#testimonialSection" class="section-nav-btn">
+                    <span>Testimonials</span>
+                </a>
             </div>
         </nav>
 
         <section class="alumni-section" id="regularAlumniSection">
             <div class="section-header">
                 <h2>विजिगीषा Alumni</h2>
-                <p>Browse our alumni by department</p>
             </div>
             <div class="department-cards" id="regularDeptCards"></div>
         </section>
@@ -367,9 +369,16 @@
         <section class="alumni-section" id="distinguishedAlumniSection">
             <div class="section-header">
                 <h2>विजिगीषा Distinguished Alumni</h2>
-                <p>Meet our celebrated graduates</p>
             </div>
             <div class="department-cards" id="distinguishedDeptCards"></div>
+        </section>
+
+        <section class="alumni-section" id="testimonialSection">
+            <div class="section-header">
+                <h2>Alumni Testimonials</h2>
+            </div>
+            <div class="alumni-list" id="testimonialList"></div>
+            <div class="department-cards" id="testimonialDeptCards"></div>
         </section>
     </main>
 
@@ -382,7 +391,7 @@
 
     <script>
         const departments = [
-            { name: 'Computer Science and Engineering (AI-ML)', icon: 'fa-brain' },
+            { name: 'Computer Science & Engineering (AI-ML)', icon: 'fa-brain' },
             { name: 'Computer Engineering REGIONAL', icon: 'fa-globe' },
             { name: 'Information Technology Engineering', icon: 'fa-laptop-code' },
             { name: 'Computer Engineering', icon: 'fa-computer' },
@@ -406,10 +415,22 @@
                 card.addEventListener('click', function() {
                     const dept = this.dataset.dept;
                     const type = this.dataset.type;
-                    const page = type === 'regular' ? 'alumni-list.html' : 'distinguished-list.html';
-                    window.location.href = `${page}?department=${encodeURIComponent(dept)}`;
+                    
+                    if (type === 'testimonial') {
+                        // Show coming soon message for testimonials
+                        showComingSoonMessage(dept);
+                    } else {
+                        const page = type === 'regular' ? 'alumni-list.html' : 'distinguished-list.html';
+                        window.location.href = `${page}?department=${encodeURIComponent(dept)}`;
+                    }
                 });
             });
+        }
+
+        function showComingSoonMessage(dept) {
+            // Create a modal/alert for coming soon
+            const message = `Testimonials for ${dept} are coming soon!`;
+            alert(message);
         }
 
         // Section Navigation Functionality
@@ -470,11 +491,13 @@
             // Observe both sections
             if (regularAlumniSection) observer.observe(regularAlumniSection);
             if (distinguishedAlumniSection) observer.observe(distinguishedAlumniSection);
+            if (testimonialSection) observer.observe(testimonialSection);
         }
 
         document.addEventListener('DOMContentLoaded', function() {
             renderDepartmentCards('regularDeptCards', 'regular');
             renderDepartmentCards('distinguishedDeptCards', 'distinguished');
+            renderDepartmentCards('testimonialDeptCards', 'testimonial');
             setupCardClickListeners();
             setupSectionNavigation();
             

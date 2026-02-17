@@ -62,24 +62,6 @@
             border-color: var(--secondary-color);
             box-shadow: 0 4px 12px rgba(41, 128, 185, 0.15);
         }
-        .alumni-count {
-            display: inline-block;
-            background: linear-gradient(135deg, #2980b9 0%, #0b3b82 100%);
-            color: white;
-            padding: 8px 20px;
-            border-radius: 25px;
-            font-size: 0.95rem;
-            font-weight: 600;
-            margin-top: 10px;
-            box-shadow: 0 4px 12px rgba(41, 128, 185, 0.3);
-        }
-        .alumni-count i {
-            margin-right: 6px;
-        }
-        .fa-trophy {
-            color: gold;
-            font-size: 1.2rem;
-        }
         @keyframes fadeIn {
             from { opacity: 0; }
             to { opacity: 1; }
@@ -205,7 +187,7 @@
         <div class="header-container">
             <div class="header-center">
                 <div class="logo-group">
-                    <img src="images/PCCOE-Logo.png" alt="PCCOE" style="width: 100px; height: auto;">
+                    <img src="images/PCCOE-Logo.png" alt="PCCOE" >
                 </div>
                 <div class="header-text">
                     <h4>PIMPRI CHINCHWAD EDUCATIONAL TRUST's</h4>
@@ -257,7 +239,7 @@
                 <li class="nav-item">
                     <a href="alumni.html" class="nav-link active">
                         <i class="fas fa-award"></i>
-                        <span>Distinguished Alumni</span>
+                        <span>विजिगीषा Alumni</span>
                     </a>
                 </li>
                 <li class="nav-item">
@@ -285,8 +267,6 @@
     <main class="main-container" id="main-content" role="main">
         <div class="page-header">
             <h1 id="departmentName">विजिगीषा Distinguished Alumni</h1>
-            <p>Excellence and achievements from our department</p>
-            <div class="alumni-count" id="alumniCount"><i class="fas fa-trophy"></i> Loading...</div>
         </div>
 
         <div class="filter-controls">
@@ -348,11 +328,46 @@
                             <p><strong>Department:</strong> ${a.department}</p>
                             <p><strong>Passing Year:</strong> ${a.year}</p>
                             ${a.educationType ? `<p><strong>Education Type:</strong> ${a.educationType}</p>` : ''}
-                            ${a.achievement ? `<div class="achievement-text"><strong><i class="fas fa-star"></i> Achievement:</strong> ${a.achievement}</div>` : ''}
+                            ${a.achievement ? `<div class="achievement-text"><strong><i class="fas fa-star"></i>    :</strong> ${a.achievement}</div>` : ''}
                         </div>
                     </div>
                 `).join('');
             }
+        }
+
+        function populateFilters() {
+            // Get all alumni for the current department
+            const departmentAlumni = distinguishedAlumni.filter(a => a.department === department);
+            
+            // Extract unique years and sort in descending order
+            const years = [...new Set(departmentAlumni.map(a => a.year))].sort((a, b) => b - a);
+            
+            // Extract unique education types
+            const eduTypes = [...new Set(departmentAlumni.map(a => a.educationType))].sort();
+            
+            // Populate year filter
+            const yearFilter = document.getElementById('yearFilter');
+            const allYearsOption = yearFilter.querySelector('option[value=""]');
+            yearFilter.innerHTML = '';
+            yearFilter.appendChild(allYearsOption.cloneNode(true));
+            years.forEach(year => {
+                const option = document.createElement('option');
+                option.value = year;
+                option.textContent = year;
+                yearFilter.appendChild(option);
+            });
+            
+            // Populate education type filter
+            const eduTypeFilter = document.getElementById('eduTypeFilter');
+            const allTypesOption = eduTypeFilter.querySelector('option[value=""]');
+            eduTypeFilter.innerHTML = '';
+            eduTypeFilter.appendChild(allTypesOption.cloneNode(true));
+            eduTypes.forEach(type => {
+                const option = document.createElement('option');
+                option.value = type;
+                option.textContent = type;
+                eduTypeFilter.appendChild(option);
+            });
         }
 
         function filterAndRender() {
@@ -368,15 +383,13 @@
                 filtered = filtered.filter(a => a.educationType === eduType);
             }
             
-            // Update count
-            document.getElementById('alumniCount').innerHTML = `<i class="fas fa-trophy"></i> Total: ${filtered.length} Distinguished Alumni`;
-            
             renderAlumniList(filtered);
         }
 
         document.addEventListener('DOMContentLoaded', function() {
             if (department) {
                 document.getElementById('departmentName').textContent = department + ' - Distinguished Alumni';
+                populateFilters();
                 filterAndRender();
             } else {
                 window.location.href = 'alumni.html';

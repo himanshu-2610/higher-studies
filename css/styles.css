@@ -44,7 +44,7 @@ body {
 .header-center {
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 40px;
 }
 
 .logo-group {
@@ -55,6 +55,8 @@ body {
 .logo-group img {
     height: 80px;
     object-fit: contain;
+    width: 150px; 
+    height: auto;
 }
 
 .header-text {
@@ -65,18 +67,18 @@ body {
 .header-text h4 {
     color: #27c3e6;
     margin-bottom: 5px;
-    font-size: 14px;
+    font-size: 1.5rem;
 }
 
 .header-text h1 {
-    font-size: 20px;
+    font-size: 1.7rem;
     font-weight: 700;
     color: #0b3b82;
     margin-bottom: 8px;
 }
 
 .subtitle {
-    font-size: 12px;
+    font-size: 14px;
     color: #7b7b7b;
     margin: 4px 0;
     line-height: 1.4;
@@ -469,21 +471,10 @@ marquee {
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
     overflow: hidden;
-}
-
-.vision-content::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 5px;
-    height: 100%;
-    background: linear-gradient(180deg, #27c3e6 0%, #0b3b82 100%);
-    border-radius: 20px 0 0 20px;
+    box-shadow: 0 10px 20px rgba(0, 102, 255, 0.22), 0 0 0 1px rgba(0, 208, 255, 0.2);
 }
 
 .vision-content:hover {
-    box-shadow: 0 10px 20px rgba(11, 59, 130, 0.22), 0 0 0 1px rgba(39, 195, 230, 0.2);
     transform: translateY(-4px);
 }
 
@@ -3554,5 +3545,559 @@ STUDENT SUPPORT PAGE STYLING
 
             .students-table th, .students-table td {
                 padding: 10px 8px;
+            }
+
+            /* Additional Mobile Responsive Improvements */
+            
+            /* Touch targets */
+            .btn, .btn-profile, .btn-contact, .back-btn, .submit-btn {
+                min-height: 44px;
+                min-width: 44px;
+            }
+
+            /* Better spacing on mobile */
+            .objectives-section, .services-section, .support-section, .forums-section {
+                padding: 30px 20px !important;
+                margin: 30px 0 !important;
+            }
+
+            .objective-card, .service-tier, .forum-card, .educational-card {
+                padding: 20px 15px !important;
+            }
+
+            /* Improved grid on mobile */
+            .objectives-container, .services-container {
+                grid-template-columns: 1fr !important;
+                gap: 20px !important;
+            }
+
+            .competit-grid {
+                grid-template-columns: 1fr !important;
+            }
+
+            /* Section titles mobile sizing */
+            .section-title {
+                font-size: 1.8rem !important;
+            }
+
+            .page-header h1 {
+                font-size: 1.8rem !important;
+                padding: 15px 20px !important;
+            }
+
+            /* Icon sizing for mobile */
+            .fa-eye, .fa-bullseye, .fa-graduation-cap, .fa-trophy, .fa-comments {
+                font-size: 50px !important;
+            }
+
+            /* Improve cards responsiveness */
+            .quick-contact-grid {
+                gap: 20px !important;
+            }
+
+            .quick-card {
+                padding: 25px 20px !important;
+            }
+
+            .quick-icon {
+                width: 60px !important;
+                height: 60px !important;
+            }
+
+            .quick-icon i {
+                font-size: 1.8rem !important;
+            }
+
+            .quick-card h3 {
+                font-size: 1.5rem !important;
+            }
+
+            /* Faculty list improvements */
+            .faculty-main-info {
+                flex-direction: column !important;
+                text-align: center !important;
+            }
+
+            .faculty-avatar {
+                width: 100px !important;
+                height: 100px !important;
+            }
+
+            .faculty-actions {
+                width: 100% !important;
+            }
+
+            /* Better contact form on mobile */
+            .contact-form-container {
+                padding: 20px !important;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr !important;
+                gap: 15px !important;
+            }
+
+            .form-group input,
+            .form-group textarea,
+            .form-group select {
+                font-size: 16px !important; /* Prevent zoom on iOS */
+            }
+
+            /* Map responsiveness */
+            .map-container iframe {
+                height: 300px !important;
+            }
+
+            .map-info-card {
+                padding: 10px 12px !important;
+                font-size: 0.8rem !important;
+            }
+
+            /* Better image responsiveness */
+            img {
+                max-width: 100%;
+                height: auto;
+            }
+
+            /* Header responsive improvements */
+            .header-text h1 {
+                font-size: 1.4rem !important;
+            }
+
+            .header-text h4 {
+                font-size: 0.9rem !important;
+            }
+
+            .subtitle {
+                font-size: 0.75rem !important;
+            }
+
+            .logo-group img {
+                height: 60px !important;
+            }
+        }
+
+        /* Tablet Responsive (600px - 768px) */
+        @media (min-width: 600px) and (max-width: 768px) {
+            .section-nav-container {
+                gap: 10px !important;
+            }
+
+            .section-nav-btn {
+                padding: 10px 12px !important;
+                font-size: 12px !important;
+            }
+
+            .objectives-container, .services-container {
+                grid-template-columns: repeat(2, 1fr) !important;
+            }
+
+            .quick-contact-grid {
+                grid-template-columns: 1fr !important;
+                gap: 20px !important;
+            }
+
+            .competitive-grid {
+                grid-template-columns: 1fr !important;
+            }
+
+            .forums-container {
+                grid-template-columns: 1fr !important;
+            }
+        }
+
+        /* Small Devices (480px - 600px) */
+        @media (max-width: 600px) {
+            .navbar-links {
+                gap: 0 !important;
+                padding: 0 !important;
+            }
+
+            .section-nav-container {
+                padding: 0 10px !important;
+                gap: 8px !important;
+            }
+
+            .section-nav-btn {
+                padding: 8px 10px !important;
+                font-size: 11px !important;
+                flex: 1 !important;
+            }
+
+            .section-nav-btn span {
+                display: none;
+            }
+
+            .section-nav-btn i {
+                margin: 0 !important;
+            }
+
+            /* Hide less important elements */
+            .simple-counter {
+                display: none;
+            }
+
+            /* Hero section responsive */
+            .hero-container {
+                grid-template-columns: 1fr !important;
+            }
+
+            .hero-left-part {
+                padding: 20px 15px !important;
+                border-bottom: 2px solid rgba(255, 255, 255, 0.1) !important;
+            }
+
+            .hero-right-part {
+                padding: 20px 15px !important;
+            }
+
+            .logo-circle {
+                width: 100px !important;
+                height: 100px !important;
+            }
+
+            .logo-circle i {
+                font-size: 3.5rem !important;
+            }
+
+            .main-heading {
+                font-size: 1.6rem !important;
+                margin-bottom: 15px !important;
+            }
+
+            .main-description {
+                font-size: 0.95rem !important;
+                margin-bottom: 20px !important;
+            }
+
+            /* Better responsiveness for containers */
+            .container, .main-container, .contact-container {
+                padding: 0 15px !important;
+            }
+
+            /* Vision content spacing */
+            .vision-content {
+                padding: 20px 15px !important;
+            }
+
+            .vision-content p {
+                font-size: 1rem !important;
+                line-height: 1.6 !important;
+            }
+
+            .objectives-section, .services-section {
+                padding: 25px 15px !important;
+            }
+
+            /* Better spacing for cards */
+            .objective-card, .service-tier, .forum-card {
+                padding: 15px 12px !important;
+                margin-bottom: 15px !important;
+            }
+
+            /* Typography scaling */
+            .objective-name, .service-name, .forum-name {
+                font-size: 1.1rem !important;
+            }
+
+            .objective-description p, .service-detail, .forum-description p {
+                font-size: 0.9rem !important;
+            }
+
+            /* Grid adjustments */
+            .objectives-container {
+                grid-template-columns: 1fr !important;
+                gap: 15px !important;
+            }
+
+            .services-container {
+                grid-template-columns: 1fr !important;
+                gap: 15px !important;
+            }
+
+            .forums-container {
+                grid-template-columns: 1fr !important;
+                gap: 15px !important;
+            }
+
+            /* Remove fixed widths */
+            .section-nav-btn {
+                min-width: auto !important;
+            }
+
+            .quick-contact-grid {
+                grid-template-columns: 1fr !important;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr !important;
+            }
+
+            /* Better table display on small screens */
+            .students-table {
+                font-size: 11px !important;
+                overflow-x: auto !important;
+                display: block !important;
+            }
+
+            .students-table thead, .students-table tbody, .students-table th, .students-table td, .students-table tr {
+                display: block !important;
+            }
+
+            .students-table tr {
+                margin-bottom: 15px !important;
+                border-bottom: 2px solid #ddd !important;
+            }
+
+            .students-table th {
+                text-align: left !important;
+                padding: 5px 0 !important;
+                font-weight: 600 !important;
+            }
+
+            .students-table td {
+                padding: 5px 0 5px 100px !important;
+                position: relative !important;
+            }
+
+            .students-table thead {
+                display: none !important;
+            }
+
+            /* Alumni list improvements */
+            .alumni-item {
+                padding: 20px 15px !important;
+            }
+
+            .alumni-item .info h4 {
+                font-size: 1.2rem !important;
+            }
+
+            .alumni-item .info p {
+                font-size: 0.9rem !important;
+            }
+
+            /* Updates bar */
+            .updates-bar {
+                height: auto !important;
+                flex-wrap: wrap !important;
+                gap: 10px !important;
+                padding: 10px 15px !important;
+            }
+
+            marquee {
+                min-width: 100% !important;
+                font-size: 0.9rem !important;
+            }
+        }
+
+        /* Extra Small Devices (Below 480px) */
+        @media (max-width: 480px) {
+            /* Already defined above, adding additional tweaks */
+            
+            .header-center {
+                gap: 10px !important;
+            }
+
+            .logo-group {
+                gap: 8px !important;
+            }
+
+            .logo-group img {
+                height: 50px !important;
+            }
+
+            .header-text h1 {
+                font-size: 1.2rem !important;
+            }
+
+            .subtitle {
+                font-size: 0.65rem !important;
+                line-height: 1.3 !important;
+            }
+
+            /* Contact form on tiny screens */
+            .phone-link, .email-link, .social-link, .address-item, .timing-item {
+                padding: 8px 10px !important;
+                font-size: 0.85rem !important;
+            }
+
+            /* Button sizing for touch */
+            .btn, .back-btn, .submit-btn {
+                padding: 12px 16px !important;
+                font-size: 0.9rem !important;
+                width: 100% !important;
+                margin-bottom: 8px !important;
+            }
+
+            .action-buttons {
+                width: 100% !important;
+            }
+
+            .action-buttons .btn {
+                min-width: auto !important;
+                width: 48% !important;
+            }
+
+            /* Competitive cards on tiny screens */
+            .competitive-card {
+                padding: 15px 12px !important;
+            }
+
+            .competitive-header {
+                flex-direction: column !important;
+                gap: 12px !important;
+            }
+
+            .competitive-header h3 {
+                position: static !important;
+                left: auto !important;
+                margin-top: 10px !important;
+            }
+
+            /* Forum card adjustments */
+            .forum-features {
+                flex-direction: column !important;
+                gap: 8px !important;
+            }
+
+            /* Contact info on tiny screens */
+            .info-block {
+                flex-direction: column !important;
+                text-align: center !important;
+                padding: 15px 10px !important;
+            }
+
+            .info-icon {
+                margin: 0 auto 10px !important;
+            }
+
+            /* Faculty card stacking */
+            .faculty-details {
+                text-align: center !important;
+            }
+
+            .faculty-meta {
+                justify-content: center !important;
+            }
+
+            /* CTA section */
+            .cta-section {
+                padding: 30px 15px !important;
+            }
+
+            .cta-content h2 {
+                font-size: 1.6rem !important;
+            }
+
+            .cta-content p {
+                font-size: 0.95rem !important;
+            }
+
+            /* Department box */
+            .department-header {
+                padding: 15px !important;
+                flex-direction: column !important;
+                text-align: center !important;
+            }
+
+            .department-title h3 {
+                font-size: 1.1rem !important;
+            }
+
+            .expand-icon {
+                width: 32px !important;
+                height: 32px !important;
+            }
+
+            /* Filters */
+            .filter-input, .filter-select {
+                padding: 10px 8px !important;
+                font-size: 14px !important; /* Prevent zoom */
+            }
+
+            .filter-group label {
+                font-size: 0.85rem !important;
+            }
+
+            .clear-filters-btn {
+                padding: 10px 12px !important;
+                font-size: 0.85rem !important;
+            }
+
+            /* Sidebar visibility on mobile */
+            .sidebar {
+                display: none !important;
+            }
+
+            /* Fixed positioning review */
+            .navbar {
+                position: sticky !important;
+                top: 0 !important;
+            }
+
+            /* Margin and padding consistency */
+            * {
+                margin-collapse: collapse !important;
+            }
+
+            /* Prevent horizontal scroll */
+            body, html {
+                overflow-x: hidden !important;
+                max-width: 100vw !important;
+            }
+        }
+
+        /* Landscape orientation adjustments */
+        @media (max-height: 600px) and (orientation: landscape) {
+            .hero-section {
+                padding: 20px 0 !important;
+            }
+
+            .hero-left-part, .hero-right-part {
+                padding: 15px !important;
+            }
+
+            .logo-circle {
+                width: 80px !important;
+                height: 80px !important;
+            }
+
+            .logo-circle i {
+                font-size: 3rem !important;
+            }
+
+            .main-heading {
+                font-size: 1.4rem !important;
+            }
+
+            .main-description {
+                font-size: 0.9rem !important;
+            }
+
+            .navbar {
+                height: auto !important;
+            }
+
+            .section-nav {
+                top: 50px !important;
+            }
+        }
+
+        /* Print styles */
+        @media print {
+            .navbar, .updates-bar, .section-nav, .footer, .back-button, .submit-btn {
+                display: none !important;
+            }
+
+            * {
+                box-shadow: none !important;
+                text-shadow: none !important;
+            }
+
+            .main-container {
+                max-width: 100% !important;
+                padding: 0 !important;
+                margin: 0 !important;
             }
         }
