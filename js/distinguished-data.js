@@ -43,6 +43,16 @@ const distinguishedAlumni = [
     { name: 'Vinay Agarwal', department: 'Civil Engineering', year: '2018', educationType: 'M.Tech', achievement: 'M Tech in Remote Sensing and GIS,\nNIT Warangal', photo: 'images/Vinay Agarwal.png' },
     { name: 'Darshana Udhane', department: 'Civil Engineering', year: '2018', educationType: 'MS', achievement: 'MS in Construction Management,\nDeakin University, Australia', photo: 'images/Darshana Udhane.png' },
 
+    { name: 'Rahul Randive', department: 'Civil Engineering', year: '2016', educationType: 'MES', achievement: 'Urban development department municipal Engineer ', photo: 'images/Rahul Randive.png' },
+    { name: 'Kamalesh Zinjurke', department: 'Civil Engineering', year: '2016', educationType: 'MES', achievement: 'Assistant Engineer-Grade2 Water Resources Department, GoM', photo: 'images/Kamalesh Zinjurke.png' },
+    { name: 'Avinash Bogulwar', department: 'Civil Engineering', year: '2016', educationType: 'MES', achievement: 'Water Conservation Officer, WCD, GoM ', photo: 'images/Avinash Bogulwar.png' },
+    { name: 'Bhagyarekha Jadhav', department: 'Civil Engineering', year: '2016', educationType: 'MES', achievement: 'Assistant Engineer-Class II\nMAHATRANSCO\n', photo: 'images/Bhagyarekha Jadhav.png' },
+    { name: 'Rushikesh Kasar', department: 'Civil Engineering', year: '2016', educationType: 'MES', achievement: 'Sectional Engineer, PWD, GoM \n', photo: 'images/Rushikesh Kasar.png' },
+    { name: 'Rajneesh Baria', department: 'Civil Engineering', year: '2016', educationType: 'MES', achievement: 'Junior Engineer ,Water Resources Department, GoM', photo: 'images/Rajneesh Baria.png' },
+    { name: 'Tejaswini Bagul', department: 'Civil Engineering', year: '2016', educationType: 'MES', achievement: 'Junior Engineer, Water supply Department, Pune Municipal Corporation, GoM', photo: 'images/Tejaswini Bagul.png' },
+    { name: 'Yogesh Sharma', department: 'Civil Engineering', year: '2016', educationType: 'MES', achievement: 'Sectional Engineer, \nPWD, GoM', photo: 'images/Yogesh Sharma.png' },
+
+
     { name: 'Nachiket shelke', department: 'Electronics and Telecommunication Engineering', year: '2014', educationType: 'UPSC', achievement: 'UPSC AIR-167', photo: 'images/Nachiket shelke.png' },
     { name: 'Harshal Patil', department: 'Electronics and Telecommunication Engineering', year: '2014', educationType: 'UPSC', achievement: 'UPSC AIR-833', photo: 'images/Harshal Patil.png' },
     { name: 'Mane Harshali Dnyaneshwar', department: 'Electronics and Telecommunication Engineering', year: '2011', educationType: 'M.Tech', achievement: 'K L University,Visakhapatnam', photo: 'images/Mane Harshali Dnyaneshwar.png' },

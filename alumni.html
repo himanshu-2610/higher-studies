@@ -8,22 +8,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
     <style>
-        :root {
-            --primary-color: #0b3b82;
-            --secondary-color: #27c3e6;
-            --accent-color: #f2c300;
-            --text-color: #333;
-            --bg-gradient-start: #f5f7fa;
-            --bg-gradient-end: #e4e8f0;
-            --white: #ffffff;
-            --shadow-color: rgba(11, 59, 130, 0.08);
-            --border-color: rgba(39, 195, 230, 0.1);
-        }
-
-        .back-icon {
-            fill: currentColor;
-        }
-
         /* Alumni Sections */
         .alumni-section {
             text-align: center;
@@ -148,11 +132,11 @@
             color: var(--secondary-color);
         }
 
-        /* ===== ATTRACTIVE TESTIMONIALS SECTION ===== */
+        /* ===== COMPACT TESTIMONIALS SECTION ===== */
+        
         .testimonials-section {
-            padding: 60px 40px;
+            padding: 30px 30px 30px;
             text-align: center;
-            padding: 50px 50px 50px;
             border-radius: 24px;
             position: relative;
             background: linear-gradient(135deg, #f0f8ff 0%, #e6f2ff 100%);
@@ -168,40 +152,31 @@
             top: 0;
             left: 0;
             right: 0;
-            height: 4px;
+            height: 2px;
             background: linear-gradient(90deg, #2980b9 0%, #3498db 50%, #2980b9 100%);
             z-index: 1;
         }
 
-        .testimonials-section::after {
-            content: '';
-            position: absolute;
-            bottom: -150px;
-            left: -150px;
-            width: 400px;
-            height: 400px;
-            background: radial-gradient(circle, rgba(242, 195, 0, 0.08) 0%, transparent 70%);
-            border-radius: 50%;
-            animation: floatBlob 25s ease-in-out infinite reverse;
-            z-index: 0;
+        .testimonials-section .section-header {
+            margin-bottom: 20px;
         }
 
-        @keyframes floatBlob {
-            0%, 100% { transform: translate(0, 0) scale(1); }
-            50% { transform: translate(30px, -20px) scale(1.1); }
+        .testimonials-section .section-header h2 {
+            font-size: 2.2rem;
+            margin-bottom: 5px;
         }
 
-        /* Testimonial Carousel */
+        /* Testimonial Carousel - Compact */
         .testimonial-wrapper {
             position: relative;
-            padding: 20px 0;
+            padding: 10px 0;
             z-index: 2;
         }
 
         .testimonial-carousel {
             overflow: hidden;
-            border-radius: 30px;
-            box-shadow: 0 25px 60px rgba(11, 59, 130, 0.25);
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(11, 59, 130, 0.2);
             background: white;
         }
 
@@ -212,22 +187,22 @@
 
         .testimonial-card {
             flex: 0 0 100%;
-            padding: 50px 60px;
+            padding: 25px 35px;
             background: white;
             display: flex;
             flex-direction: column;
             position: relative;
         }
 
-        /* Video Container */
+        /* Video Container - Compact */
         .testimonial-video-container {
             position: relative;
             width: 100%;
-            height: 280px;
-            border-radius: 20px;
+            height: 180px;
+            border-radius: 16px;
             overflow: hidden;
-            margin-bottom: 30px;
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+            margin-bottom: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
             cursor: pointer;
             z-index: 2;
         }
@@ -248,24 +223,25 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 70px;
-            height: 70px;
-            background: linear-gradient(135deg, var(--accent-color), #ffaa00);
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, #f1c40f, #e67e22);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--primary-color);
-            font-size: 2rem;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            color: #0b3b82;
+            font-size: 1.2rem;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
             transition: all 0.4s ease;
-            border: 3px solid white;
+            border: 2px solid white;
         }
 
         .video-play-btn:hover {
             transform: translate(-50%, -50%) scale(1.15);
             background: white;
-            color: var(--secondary-color);
+            color: #e67e22;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
         }
 
         .video-overlay {
@@ -274,10 +250,10 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(to bottom, transparent 60%, rgba(11, 59, 130, 0.7));
+            background: linear-gradient(to bottom, transparent 50%, rgba(11, 59, 130, 0.8));
         }
 
-        /* Text Content */
+        /* Text Content - Compact */
         .testimonial-content {
             position: relative;
             z-index: 2;
@@ -287,117 +263,179 @@
         }
 
         .testimonial-quote {
-            font-size: 1.4rem;
-            line-height: 1.8;
+            font-size: 1.3rem;
+            line-height: 1.5;
+            text-align: justify;
             color: #2c3e50;
-            margin-bottom: 30px;
+            margin-bottom: 15px;
             flex: 1;
             position: relative;
-            padding-left: 20px;
-            border-left: 4px solid var(--secondary-color);
+            padding-left: 12px;
+            border-left: 3px solid #f39c12;
         }
 
-        /* Author Info */
+        /* Scrollbar styling for quote */
+        .testimonial-quote::-webkit-scrollbar {
+            width: 4px;
+        }
+
+        .testimonial-quote::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 4px;
+        }
+
+        .testimonial-quote::-webkit-scrollbar-thumb {
+            background: #3498db;
+            border-radius: 4px;
+        }
+
+        /* Author Info - One Line Beautiful with Larger Font */
         .testimonial-author {
             display: flex;
             align-items: center;
-            gap: 25px;
-            margin-top: 20px;
-            padding: 20px 25px;
-            background: linear-gradient(135deg, #f8fbff, #f0f7ff);
-            border-radius: 60px;
-            border: 2px solid rgba(39, 195, 230, 0.2);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            gap: 15px;
+            margin-top: 8px;
+            padding: 12px 20px;
+            background: linear-gradient(135deg, #ffffff, #f8fcff);
+            border-radius: 50px;
+            border: 1px solid rgba(52, 152, 219, 0.3);
+            box-shadow: 0 4px 15px rgba(52, 152, 219, 0.15);
+            transition: all 0.3s ease;
+        }
+
+        .testimonial-author:hover {
+            box-shadow: 0 8px 25px rgba(52, 152, 219, 0.25);
+            border-color: #3498db;
+            transform: translateY(-3px);
         }
 
         .author-details {
             flex: 1;
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px 20px;
         }
 
         .author-name {
-            font-size: 1.6rem;
+            font-size: 1.3rem;
             font-weight: 700;
-            color: var(--primary-color);
-            margin-bottom: 5px;
+            color: #0b3b82;
+            white-space: nowrap;
+            letter-spacing: 0.3px;
+            position: relative;
+            padding-right: 15px;
+            transform: translateY(-2px); /* Shift name upward slightly */
         }
 
-        .author-title {
-            font-size: 1rem;
-            color: #555;
-            margin-bottom: 3px;
-            font-weight: 500;
+        .author-name::after {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 3px;
+            height: 24px; /* Taller separator for larger font */
+            background: linear-gradient(to bottom, #3498db, #f39c12);
+            border-radius: 3px;
         }
 
         .author-company {
-            font-size: 1.1rem;
-            color: var(--secondary-color);
+            font-size: 1.1rem; /* Slightly larger to match */
+            color: #e67e22;
             font-weight: 600;
-            margin-bottom: 5px;
+            white-space: nowrap;
+            background: rgba(230, 126, 34, 0.1);
+            padding: 4px 12px;
+            border-radius: 30px;
+            border: 1px solid rgba(230, 126, 34, 0.2);
         }
 
         .author-batch {
             display: inline-block;
-            padding: 5px 15px;
-            background: rgba(39, 195, 230, 0.1);
+            padding: 4px 14px;
+            background: linear-gradient(135deg, rgba(11, 59, 130, 0.08), rgba(52, 152, 219, 0.08));
             border-radius: 30px;
-            font-size: 0.85rem;
-            color: var(--primary-color);
+            font-size: 0.9rem; /* Slightly larger */
+            color: #0b3b82;
             font-weight: 600;
-            border: 1px solid rgba(39, 195, 230, 0.3);
+            border: 1px solid rgba(52, 152, 219, 0.3);
+            white-space: nowrap;
+            letter-spacing: 0.3px;
         }
 
-        /* Navigation Arrows */
+        /* Add a small icon before company */
+        .author-company::before {
+            content: '\f0b1';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            margin-right: 6px;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* Add a small icon before batch */
+        .author-batch::before {
+            content: '\f02e';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            margin-right: 6px;
+            font-size: 0.85rem;
+            opacity: 0.7;
+        }
+
+        /* Navigation Arrows - Enhanced */
         .testimonial-arrow {
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            width: 60px;
-            height: 60px;
+            width: 38px;
+            height: 38px;
             background: white;
             border: none;
             border-radius: 50%;
-            box-shadow: 0 10px 30px rgba(11, 59, 130, 0.25);
+            box-shadow: 0 5px 20px rgba(11, 59, 130, 0.3);
             cursor: pointer;
             z-index: 10;
             display: flex;
             align-items: center;
             justify-content: center;
             transition: all 0.4s ease;
-            color: var(--primary-color);
-            font-size: 1.5rem;
+            color: #0b3b82;
+            font-size: 1.1rem;
             border: 2px solid transparent;
         }
 
         .testimonial-arrow:hover {
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            background: linear-gradient(135deg, #0b3b82, #3498db);
             color: white;
             transform: translateY(-50%) scale(1.1);
-            box-shadow: 0 15px 40px rgba(11, 59, 130, 0.4);
+            box-shadow: 0 10px 25px rgba(11, 59, 130, 0.5);
             border-color: rgba(255, 255, 255, 0.5);
         }
 
         .testimonial-arrow.prev {
-            left: -25px;
+            left: -12px;
         }
 
         .testimonial-arrow.next {
-            right: -25px;
+            right: -12px;
         }
 
-        /* Indicators */
+        /* Indicators - Enhanced */
         .testimonial-indicators {
             display: flex;
             justify-content: center;
-            gap: 15px;
-            margin-top: 40px;
+            gap: 10px;
+            margin-top: 18px;
             z-index: 2;
             position: relative;
         }
 
         .testimonial-dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 6px;
+            width: 8px;
+            height: 8px;
+            border-radius: 4px;
             background: rgba(11, 59, 130, 0.2);
             cursor: pointer;
             transition: all 0.4s ease;
@@ -405,13 +443,13 @@
         }
 
         .testimonial-dot.active {
-            width: 40px;
-            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
-            box-shadow: 0 0 15px rgba(39, 195, 230, 0.5);
+            width: 30px;
+            background: linear-gradient(90deg, #0b3b82, #3498db, #f39c12);
+            box-shadow: 0 0 12px rgba(243, 156, 18, 0.5);
         }
 
         .testimonial-dot:hover {
-            background: var(--secondary-color);
+            background: #3498db;
             transform: scale(1.2);
         }
 
@@ -428,124 +466,6 @@
         /* Video Modal Styles */
         .video-modal {
             animation: fadeIn 0.3s ease;
-        }
-
-        /* Responsive */
-        @media (max-width: 1200px) {
-            .department-cards {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .testimonial-arrow.prev {
-                left: -15px;
-            }
-            
-            .testimonial-arrow.next {
-                right: -15px;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .department-cards {
-                grid-template-columns: 1fr;
-                gap: 15px;
-            }
-            
-            .alumni-section {
-                padding: 25px 15px;
-            }
-            
-            .section-header h2 {
-                font-size: 1.8rem;
-            }
-            
-            .testimonials-section {
-                padding: 40px 20px;
-            }
-            
-            .testimonials-section .section-header h2 {
-                font-size: 2.2rem;
-            }
-            
-            .testimonial-card {
-                padding: 30px 25px;
-            }
-            
-            .testimonial-quote {
-                font-size: 1.1rem;
-                line-height: 1.6;
-                padding-left: 15px;
-            }
-            
-            .testimonial-author {
-                flex-direction: column;
-                text-align: center;
-                padding: 20px;
-                border-radius: 30px;
-            }
-            
-            .author-name {
-                font-size: 1.3rem;
-            }
-            
-            .testimonial-arrow {
-                width: 45px;
-                height: 45px;
-                font-size: 1.2rem;
-            }
-            
-            .testimonial-arrow.prev {
-                left: -5px;
-            }
-            
-            .testimonial-arrow.next {
-                right: -5px;
-            }
-            
-            .testimonial-video-container {
-                height: 200px;
-            }
-            
-            .video-play-btn {
-                width: 50px;
-                height: 50px;
-                font-size: 1.5rem;
-            }
-            
-        }
-
-        @media (max-width: 480px) {
-            .testimonials-section .section-header h2 {
-                font-size: 1.8rem;
-            }
-            
-            .testimonial-card {
-                padding: 25px 20px;
-            }
-            
-            .testimonial-quote {
-                font-size: 1rem;
-            }
-            
-            .author-name {
-                font-size: 1.2rem;
-            }
-            
-            .author-company {
-                font-size: 1rem;
-            }
-            
-            .testimonial-arrow {
-                display: none; /* Hide arrows on very small screens */
-            }
-            
-            .testimonial-indicators {
-                gap: 10px;
-            }
-            
-            .testimonial-dot.active {
-                width: 30px;
-            }
         }
     </style>
 </head>
@@ -606,7 +526,7 @@
                 <li class="nav-item">
                     <a href="alumni.html" class="nav-link active">
                         <i class="fas fa-award"></i>
-                        <span>विजिगीषा Alumni</span>
+                        <span>Alumni</span>
                     </a>
                 </li>
                 <li class="nav-item">
@@ -633,14 +553,6 @@
 
     <!-- Main Content -->
     <main class="main-container" id="main-content" role="main">
-        <!-- Page Header -->
-        <a href="about.html" class="back-button">
-            <svg class="back-icon" viewBox="0 0 24 24" width="20" height="20">
-                <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z" fill="currentColor"/>
-            </svg>
-            Back to Team
-        </a>
-
         <div class="page-header" style="margin-bottom: 0px; border-radius: 20px 20px 0px 0px;">
             <h1>Alumni</h1>
             <p>विजिगीषा : Higher Education and Competitive Exam Cell | Meet our successful graduates</p>
@@ -649,10 +561,10 @@
         <nav class="section-nav" id="sectionNav">
             <div class="section-nav-container">
                 <a href="#regularAlumniSection" class="section-nav-btn active">
-                    <span>विजिगीषा : Alumni</span>
+                    <span>Alumni</span>
                 </a>
                 <a href="#distinguishedAlumniSection" class="section-nav-btn">
-                    <span>विजिगीषा : Distinguished Alumni</span>
+                    <span>Distinguished Alumni</span>
                 </a>
                 <a href="#testimonialSection" class="section-nav-btn">
                     <span>Testimonials</span>
@@ -662,19 +574,19 @@
 
         <section class="alumni-section" id="regularAlumniSection">
             <div class="section-header">
-                <h2>विजिगीषा Alumni</h2>
+                <h2>Alumni</h2>
             </div>
             <div class="department-cards" id="regularDeptCards"></div>
         </section>
 
         <section class="alumni-section" id="distinguishedAlumniSection">
             <div class="section-header">
-                <h2>विजिगीषा Distinguished Alumni</h2>
+                <h2>Distinguished Alumni</h2>
             </div>
             <div class="department-cards" id="distinguishedDeptCards"></div>
         </section>
 
-        <!-- ===== ATTRACTIVE TESTIMONIALS SECTION ===== -->
+        <!-- ===== COMPACT TESTIMONIALS SECTION ===== -->
         <section class="testimonials-section" id="testimonialSection">
             <div class="section-header">
                 <h2>Alumni Testimonials</h2>
@@ -705,13 +617,13 @@
     <footer class="footer">
         <div class="footer-bottom">
             © 2025 Higher Education and Competitive Exam Cell (विजिगीषा), PCCOE.<br>
-            All rights reserved. | Designed by Web Team PCCOE
+            All rights reserved | Designed by The Department of Computer Science & Engineering(Artificial Intelligence and Machine Learning) PCCOE
         </div>
     </footer>
 
     <script>
         const departments = [
-            { name: 'Computer Science & Engineering (AI-ML)', icon: 'fa-brain' },
+            { name: 'Computer Science and Engineering (AI-ML)', icon: 'fa-brain' },
             { name: 'Computer Engineering REGIONAL', icon: 'fa-globe' },
             { name: 'Information Technology Engineering', icon: 'fa-laptop-code' },
             { name: 'Computer Engineering', icon: 'fa-computer' },
@@ -725,55 +637,55 @@
             {
                 id: 1,
                 name: 'Shivam Hake',
-                company: 'Mtech ,IISc Bangalore',
+                company: 'IISc Bangalore',
                 batch: '2023',
                 type: 'text',
                 quote: 'My journey from PCCoE to pursuing my master’s at Indian Institute of science (IISc), Bangalore. has been shaped strongly by the academic foundation and guidance I received during my undergraduate years. The supportive faculty at PCCoE, along with a disciplined academic environment, encouraged me to think beyond exams and build conceptual clarity, which played a crucial role in my GATE preparation. Regular mentoring, access to resources at main and dept library or Higher Education & Competitive Exams Cell. To juniors, I would say: stay consistent, trust the process, and make the most of the faculty support and learning culture at PCCoE—it truly prepares you for competitive exams and future academic challenges.',
-                achievement: 'Mechanical Engineering'
+                achievement: 'Mechanical Engg'
             },
             {
                 id: 2,
                 name: 'Shivani Birajdar',
-                company: 'MS , University of California',
+                company: 'UC Berkeley',
                 batch: '2019',
                 type: 'video',
                 quote: '',
                 source: 'drive',
                 videoUrl: 'https://drive.google.com/file/d/1BUifpJIboGnnKe5q56VqejV3mEdltFz-/view?usp=drive_link',
                 thumbnail: 'images/ias-officer.jpg',
-                achievement: 'Information Technology Engineering'
+                achievement: 'IT Engineering'
             },
             {
                 id: 3,
                 name: 'Gaurav Mahale',
-                company: 'Masters, University of Glasgow, UK',
+                company: 'Univ of Glasgow',
                 batch: '2025',
                 type: 'text',
                 rating: 5,
-                quote: ' I completed my Bachelor’s degree in Computer Engineering (Regional Language) from Pimpri Chinchwad College of Engineering (PCCOE) in Pune, where I built a solid academic foundation in a supportive and enriching learning environment. The guidance and mentorship from experienced faculty members enabled me to understand complex concepts clearly and develop essential technical, analytical, and problem-solving skills. My time at PCCOE also significantly contributed to my personal growth through various academic projects and collaborative activities. I am proud to be a PCCOE alumnus and remain grateful for the opportunities and encouragement provided by the institution. ',
-                achievement: 'Computer Engineering (Regional)'
+                quote: 'I completed my Bachelor’s degree in Computer Engineering (Regional Language) from Pimpri Chinchwad College of Engineering (PCCOE) in Pune, where I built a solid academic foundation in a supportive and enriching learning environment. The guidance and mentorship from experienced faculty members enabled me to understand complex concepts clearly and develop essential technical, analytical, and problem-solving skills. My time at PCCOE also significantly contributed to my personal growth through various academic projects and collaborative activities. I am proud to be a PCCOE alumnus and remain grateful for the opportunities and encouragement provided by the institution.',
+                achievement: 'Comp Engg (Regional)'
             },
             {
                 id: 4,
                 name: 'Sudarshan Yadav',
-                company: 'Sub Divisional Officer,Soil and Water Conservation Department through MPSC',
+                company: 'MPSC Officer',
                 batch: '2022',
                 type: 'video',
                 quote: '',
                 source: 'drive',
                 videoUrl: 'https://drive.google.com/file/d/1kigbnSUJOg1VkZ9B-hsGedks4kVxXGx9/view?usp=sharing',
                 thumbnail: 'images/Sudarshan Yadav.png',
-                achievement: 'Civil Engineering'
+                achievement: 'Civil Engg'
             },
             {
                 id: 5,
                 name: 'Juzer Shaikh',
-                company: 'Postdoctoral Associate at the University of Minnesota.',
+                company: 'Univ of Minnesota',
                 batch: '2016',
                 type: 'text',
                 rating: 5,
                 quote: 'I completed my bachelor’s degree in Civil Engineering from PCCOE, Pune, graduating in 2016 as part of the department’s very first graduating class. Being in that inaugural batch was a unique experience. We were nurtured in a well-rounded academic environment that emphasized both rigor and curiosity. I had the privilege of learning from some of the finest teachers at Pune University, who helped make even the most challenging subjects engaging and accessible. Their guidance played a significant role in shaping my academic foundation and professional outlook. I am proud to be a PCCOE alumnus and remain deeply grateful to the institution and its faculty for the opportunities and mentorship they provided.',
-                achievement: 'Civil Engineering'
+                achievement: 'Civil Engg'
             }
         ];
 
@@ -819,9 +731,9 @@
                             <div class="testimonial-content">
                                 <div class="testimonial-author">
                                     <div class="author-details">
-                                        <div class="author-name">${testimonial.name}</div>
-                                        <div class="author-company">${testimonial.company}</div>
-                                        <span class="author-batch">Batch ${testimonial.batch} | ${testimonial.achievement}</span>
+                                        <span class="author-name">${testimonial.name}</span>
+                                        <span class="author-company">${testimonial.company}</span>
+                                        <span class="author-batch">${testimonial.batch} | ${testimonial.achievement}</span>
                                     </div>
                                 </div>
                             </div>
@@ -839,9 +751,9 @@
                                 
                                 <div class="testimonial-author">
                                     <div class="author-details">
-                                        <div class="author-name">${testimonial.name}</div>
-                                        <div class="author-company">${testimonial.company}</div>
-                                        <span class="author-batch">Batch ${testimonial.batch} | ${testimonial.achievement}</span>
+                                        <span class="author-name">${testimonial.name}</span>
+                                        <span class="author-company">${testimonial.company}</span>
+                                        <span class="author-batch">${testimonial.batch} | ${testimonial.achievement}</span>
                                     </div>
                                 </div>
                             </div>
@@ -961,18 +873,7 @@
 
             // Build modal content
             modal.innerHTML = `
-                <div style="position:relative;width:100%;max-width:1200px;display:flex;flex-direction:column;">
-                    <!-- Close X button - Top Right -->
-                    <button onclick="this.closest('.video-modal').remove()"
-                        style="position:absolute;top:-50px;right:0;
-                        width:45px;height:45px;border-radius:50%;
-                        background:white;color:#333;
-                        border:none;font-size:28px;cursor:pointer;
-                        font-weight:bold;box-shadow:0 4px 12px rgba(0,0,0,0.3);
-                        transition:all 0.3s ease;z-index:10001"
-                        onmouseover="this.style.background='#27c3e6';this.style.color='white';this.style.transform='scale(1.1)'"
-                        onmouseout="this.style.background='white';this.style.color='#333';this.style.transform='scale(1)'">×</button>
-                    
+                <div style="position:relative;width:100%;max-width:1200px;display:flex;flex-direction:column;">                    
                     <!-- Cancel Button - Top Left -->
                     <button onclick="this.closest('.video-modal').remove()"
                         class="cancel-video-btn"
@@ -987,7 +888,7 @@
                         z-index:10001"
                         onmouseover="this.style.transform='translateY(-3px) scale(1.05)';this.style.boxShadow='0 12px 35px rgba(231,76,60,0.8)';this.style.background='#c0392b'"
                         onmouseout="this.style.transform='translateY(0) scale(1)';this.style.boxShadow='0 8px 25px rgba(231,76,60,0.6)';this.style.background='#e74c3c'">
-                        <i class="fas fa-times-circle" style="margin-right:8px"></i>Cancel
+                        <i class="fas fa-times-circle"></i>
                     </button>
                     
                     <div style="aspect-ratio:16/9;background:#000;border-radius:12px;box-shadow:0 20px 60px rgba(0,0,0,0.5);overflow:hidden">
