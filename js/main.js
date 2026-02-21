@@ -122,10 +122,11 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Contact form submission
     const contactForm = document.querySelector('.contact-form');
+
     if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
+        contactForm.addEventListener('submit', async function(e) {
             e.preventDefault();
-            
+
             const formData = {
                 name: document.getElementById('name').value,
                 email: document.getElementById('email').value,
@@ -133,11 +134,23 @@ document.addEventListener('DOMContentLoaded', function() {
                 message: document.getElementById('message').value,
                 category: document.getElementById('category').value
             };
-            
-            // Here you would typically send the data to a server
-            // For now, we'll just show a success message
-            alert('Thank you for your message! We will get back to you soon.');
-            contactForm.reset();
+
+            try {
+                const response = await fetch("/api/send-email", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(formData)
+                });
+
+                const result = await response.json();
+                alert(result.message);
+                contactForm.reset();
+
+            } catch (error) {
+                alert("Something went wrong!");
+            }
         });
     }
     
