@@ -143,8 +143,8 @@
                 </div>
             </div>
             <!-- Events / Table container (rendered after clicking a department) -->
+            <div id="eventsContainer" style="margin-top:28px;"></div>
         </section>
-        <div id="eventsContainer" style="margin-top:28px;"></div>
     </main>
 
     <!-- Footer -->
@@ -159,89 +159,16 @@
     <script>
         (function(){
             const deptCards = document.querySelectorAll('.dept-card');
-            const eventsContainer = document.getElementById('eventsContainer');
-            const deptGrid = document.getElementById('deptCardsGrid');
-
-            function createTable(deptName, events) {
-                const wrapper = document.createElement('div');
-                wrapper.className = 'student-table-wrapper';
-                wrapper.innerHTML = `
-                    <div style="padding:18px;display:flex;justify-content:space-between;align-items:center;">
-                        <div style="font-weight:700;color:var(--primary-color);">Events for: ${deptName}</div>
-                        <button class="back-button" id="backToDepts">&larr; Back to Departments</button>
-                    </div>
-                    <div style="padding:0 18px 18px 18px;">
-                        <table class="students-table" style="width:100%;border-collapse:collapse;">
-                            <thead>
-                                <tr>
-                                    <th style="text-align:center;padding:12px;border-bottom:2px solid #e6eef9;width:60px;">Sr. No</th>
-                                    <th style="text-align:center;padding:12px;border-bottom:2px solid #e6eef9;">Name of Event</th>
-                                    <th style="text-align:center;padding:12px;border-bottom:2px solid #e6eef9;width:180px;">Date</th>
-                                    <th style="text-align:center;padding:12px;border-bottom:2px solid #e6eef9;width:140px;">Report</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                ${events && events.length ? events.map((ev, i) => `
-                                    <tr>
-                                        <td style="padding:12px;border-bottom:1px solid #f1f7fe;">${i+1}</td>
-                                        <td style="padding:12px;border-bottom:1px solid #f1f7fe;">${ev.name}</td>
-                                        <td style="padding:12px;border-bottom:1px solid #f1f7fe;">${ev.date || ''}</td>
-                                        <td style="padding:12px;border-bottom:1px solid #f1f7fe;"><a href="${ev.reportUrl || '#'}" target="_blank">${ev.reportUrl ? 'View' : '—'}</a></td>
-                                    </tr>
-                                `).join('') : `
-                                    <tr><td colspan="4" style="padding:24px;text-align:center;color:#666;">No events found for this department.</td></tr>
-                                `}
-                            </tbody>
-                        </table>
-                    </div>
-                `;
-                return wrapper;
-            }
-
-            function showEvents(deptName) {
-                const eventsMap = {
-                    'Computer Engineering': [
-                    ],
-                    'Computer Engineering (Regional)': [
-                    ],
-                    'Information Technology Engineering': [
-                        { name: 'Guidance Session on “GATE Exam Preparation”', date: '2026-01-21', reportUrl: '' },
-                        { name: 'Guidance Session on “CAT and MBA Pathways”', date: '25/2/2026', reportUrl: '' }
-                    ],
-                    'Mechanical Engineering': [
-                    ],
-                    'Applied Science & Humanities': [
-                        { name: 'Pathways to Higher Education: A Global Perspective', date: '28/02/2026', reportUrl: '' }
-                    ],
-                    'Civil Engineering': [
-                        { name: 'Research Avenues for Aspiring Engineers', date: '09/02/2026', reportUrl: '' },
-                        { name: 'From Aspirant to State Ranker: MES Civil Exam Roadmap', date: '13/02/2026', reportUrl: '' },
-                        { name: 'Guidance session on “Inside the World of Dams and Water Systems”', date: '13/03/2026', reportUrl: '' },
-                        { name: 'Dream MS Journey: From India to Global Universities', date: '27/03/2026', reportUrl: '' },
-                        { name: 'Online Test for MES aspirants', date: 'Every Saturday', reportUrl: '' }
-                    ],
-                    'Computer Science and Engineering (AI-ML)': [
-                    ],
-                    'Electronics and Telecommunication Engineering': [
-                    ]
-                };
-                const sampleEvents = eventsMap[deptName] || [];
-                deptGrid.style.display = 'none';
-                eventsContainer.innerHTML = '';
-                eventsContainer.appendChild(createTable(deptName, sampleEvents));
-                document.getElementById('backToDepts').addEventListener('click', () => {
-                    eventsContainer.innerHTML = '';
-                    deptGrid.style.display = '';
-                });
-            }
 
             deptCards.forEach(card => {
                 card.addEventListener('click', () => {
                     const dept = card.dataset.dept || card.textContent.trim();
-                    showEvents(dept);
+                    const encodedDept = encodeURIComponent(dept);
+                    window.location.href = `activities-list.html?department=${encodedDept}&semester=2`;
                 });
             });
         })();
     </script>
 </body>
 </html>
+ 

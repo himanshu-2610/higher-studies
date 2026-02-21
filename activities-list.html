@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Activities List | PCCOE</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        .no-results {
+            text-align: center;
+            padding: 60px 20px;
+            color: #666;
+        }
+        .no-results i {
+            font-size: 48px;
+            color: #ddd;
+            margin-bottom: 20px;
+            display: block;
+        }
+        .no-results h3 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+        .no-results p {
+            font-size: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="top-header">
+        <div class="header-container">
+            <div class="header-center">
+                <div class="logo-group">
+                    <img src="images/PCCOE-Logo.png" alt="PCCOE" >
+                </div>
+                <div class="header-text">
+                    <h4>PIMPRI CHINCHWAD EDUCATIONAL TRUST's</h4>
+                    <h1>PIMPRI CHINCHWAD COLLEGE OF ENGINEERING</h1>
+                    <p class="subtitle">
+                        NBA Accredited | NAAC Accredited with 'A' Grade | An Autonomous Institute | AICTE Approved | ISO 21001:2018 Certified | Permanently Affiliated to SPPU, Pune
+                    </p>
+                </div>
+                <div class="logo-group">
+                    <img src="images/ai.png" alt="AICTE">
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Updates Bar -->
+    <div class="updates-bar">
+        <span class="updates-label">UPDATES</span>
+        <marquee>
+            📌 Gate Exam 2026 schedules are now available. <a href="https://gate2026.iitg.ac.in/examination-schedule.html" style="color: white; text-decoration: underline;">View Schedule</a>
+        </marquee>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar" role="navigation">
+        <div class="navbar-container">
+            <button class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="navbar-links" id="navbarLinks">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">
+                        <i class="fas fa-home"></i>
+                        <span>Home</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="about.html" class="nav-link">
+                        <i class="fas fa-users"></i>
+                        <span>Our Team</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="support.html" class="nav-link">
+                        <i class="fas fa-hands-helping"></i>
+                        <span>Student Support</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="alumni.html" class="nav-link">
+                        <i class="fas fa-award"></i>
+                        <span>विजिगीषा Alumni</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="activities.html" class="nav-link">
+                        <i class="fas fa-tasks"></i>
+                        <span>Activities Conducted</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="membership.html" class="nav-link">
+                        <i class="fas fa-address-card"></i>
+                        <span>Membership</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="contact.html" class="nav-link">
+                        <i class="fas fa-phone"></i>
+                        <span>Contact Us</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-container" id="main-content" role="main">
+        <button class="back-button" id="backBtn">
+            <svg class="back-icon" viewBox="0 0 24 24" width="20" height="20">
+                <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z" fill="currentColor"/>
+            </svg>
+            <span id="backText">Back</span>
+        </button>
+        <div class="page-header">
+            <h1 id="deptTitle">Activities</h1>
+            <p id="semesterInfo">Higher Education and Competitive Exam Cell (विजिगीषा)</p>
+        </div>
+
+        <div class="student-table-wrapper">
+            <div id="activitiesListContainer"></div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-bottom">
+            © 2025 Higher Education and Competitive Exam Cell (विजिगीषा), PCCOE.<br>
+            All rights reserved. | Designed by Web Team PCCOE
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        // Get URL parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const department = urlParams.get('department');
+        const semester = urlParams.get('semester') || '1';
+
+        // Department mapping with keys and display names
+        const departmentMap = {
+            'Computer Engineering': 'Computer Engineering',
+            'Computer Engineering (Regional)': 'Computer Engineering (Regional)',
+            'Information Technology Engineering': 'Information Technology Engineering',
+            'Mechanical Engineering': 'Mechanical Engineering',
+            'Applied Science & Humanities': 'Applied Science & Humanities',
+            'Civil Engineering': 'Civil Engineering',
+            'Computer Science and Engineering (AI-ML)': 'Computer Science and Engineering (AI-ML)',
+            'Electronics and Telecommunication Engineering': 'Electronics and Telecommunication Engineering'
+        };
+
+        const eventsDataSem1 = {
+            'Computer Engineering': [
+                { name: 'GATE Awareness Session', date: '30/9/2025', reportUrl: 'https://drive.google.com/file/d/1cESCobURerRwxqA41AKBN46TeVoSUmj-/preview' },
+                { name: 'Higher Studies in Abroad', date: '14/10/2025', reportUrl: 'https://drive.google.com/file/d/1cESCobURerRwxqA41AKBN46TeVoSUmj-/preview' }
+            ],
+            'Computer Engineering (Regional)': [
+                { name: 'GRE Awareness & Preparation Guidance', date: '2024-12-12', reportUrl: 'https://drive.google.com/file/d/1H-_ZvVnlxO6UQIEtryvSvuZDy0QjT7lH/preview' },
+                { name: 'Gate Exam Orientation & Preparation Guidance', date: '2025-09-09', reportUrl: 'https://drive.google.com/file/d/1NucpdcrBFk_G-8mkQ07bgFFrnXdcwjDY/preview' },
+                { name: 'Crack the Gate Exam: Strategy Planning & Opportunities', date: '2025-10-17', reportUrl: 'https://drive.google.com/file/d/1XBZr4fZEoi3kmn2FX-UIGOyJTqluPstm/preview' }
+            ],
+            'Information Technology Engineering': [
+                { name: 'Interactive Session on GRE Readiness', date: '5/08/2025', reportUrl: 'https://drive.google.com/file/d/1cxR1jFevDOJdBB1LsOPzOK48w_CPQzZh/preview' },
+                { name: 'Mock Gate Exam', date: '17/09/2025', reportUrl: 'https://drive.google.com/file/d/1cxR1jFevDOJdBB1LsOPzOK48w_CPQzZh/preview' },
+                { name: 'Guest Lecture on "Higher Education Opportunities in AI', date: '20/09/2025', reportUrl: 'https://drive.google.com/file/d/1cxR1jFevDOJdBB1LsOPzOK48w_CPQzZh/preview' },
+                { name: 'Career pathways to Government Exam', date: '11/10/2025', reportUrl: 'https://drive.google.com/file/d/1cxR1jFevDOJdBB1LsOPzOK48w_CPQzZh/preview' }
+            ],
+            'Mechanical Engineering': [
+                { name: 'MPSC (State Service Preliminary Examination) Career Guidance Session', date: '18/08/2025', reportUrl: 'https://drive.google.com/file/d/1OYK7oPRr8uf3R0fR75T2gO1_59MG0eSk/preview' },
+                { name: 'MPSC (AMVI) Career Guidance Session-Online', date: '01/09/2025', reportUrl: 'https://drive.google.com/file/d/1OYK7oPRr8uf3R0fR75T2gO1_59MG0eSk/preview' },
+                { name: 'GRE awareness Program (Explore Germany)', date: '16/09/2025', reportUrl: 'https://drive.google.com/file/d/1OYK7oPRr8uf3R0fR75T2gO1_59MG0eSk/preview' },
+                { name: 'ESE Awareness session by Mr.Hajarathvali Shaikh', date: '23/09/2025', reportUrl: 'https://drive.google.com/file/d/1OYK7oPRr8uf3R0fR75T2gO1_59MG0eSk/preview' },
+                { name: 'GRE/IELTS/TOEFL Guidance Session', date: '1/10/2025', reportUrl: 'https://drive.google.com/file/d/1OYK7oPRr8uf3R0fR75T2gO1_59MG0eSk/preview' },
+            ],
+            'Applied Science & Humanities': [
+                { name: 'Alumni Abroad: Inspiring Journeys in Higher Education', date: '27/09/2025', reportUrl: 'https://drive.google.com/file/d/1kyHbiKYDO71vD0esKpaGDYF8BLSz4XYT/preview' }
+            ],
+            'Civil Engineering': [                            
+                { name: 'Session on MES preparation', date: '07/07/2025', reportUrl: 'https://drive.google.com/file/d/1wmsK7hBQDbQog-bluTxksUTlUBXxBgN2/preview' },
+                { name: 'Session on opportunities for Civil Engineers in various Government departments', date: '08/07/2025', reportUrl: 'https://drive.google.com/file/d/1wmsK7hBQDbQog-bluTxksUTlUBXxBgN2/preview' },
+                { name: 'Guidance session on GATE', date: '08/09/2025', reportUrl: 'https://drive.google.com/file/d/1wmsK7hBQDbQog-bluTxksUTlUBXxBgN2/preview' },
+                { name: 'Career guidance session on MES for civil engineering students', date: '13/09/2025', reportUrl: 'https://drive.google.com/file/d/1wmsK7hBQDbQog-bluTxksUTlUBXxBgN2/preview' },
+                { name: 'Guidance session on GATE preparation', date: '23/09/2025', reportUrl: 'https://drive.google.com/file/d/1wmsK7hBQDbQog-bluTxksUTlUBXxBgN2/preview' },
+                { name: 'Golden opportunities for Civil engineers in the government sector', date: '25/09/2025', reportUrl: 'https://drive.google.com/file/d/1wmsK7hBQDbQog-bluTxksUTlUBXxBgN2/preview' },
+            ],
+            'Computer Science and Engineering (AI-ML)': [
+                { name: 'Study Abroad Guidance Session', date: '2025-07-31', reportUrl: 'https://drive.google.com/file/d/1rVEQ7n_MfSrzDJ9SfQDj13U4JtU7iXD_/preview' },
+                { name: 'Alumni Guidance', date: '2025-08-20', reportUrl: 'https://drive.google.com/file/d/1Kpriqh5cnbb9BRIWOD--KOUr071L8k6d/preview' },
+                { name: 'Placement and Higher study opportunities through GATE and other competitive exam', date: '2025-09-12', reportUrl: '' },
+                { name: 'Study Abroad Guidance Session in Germany', date: '2025-10-13', reportUrl: 'https://drive.google.com/file/d/1J1HiveUXTaTUnuuGGNsGN0vtnuTgaXr1/preview' }
+            ],
+            'Electronics and Telecommunication Engineering': [
+                { name: 'TY Students GATE 2026, ESE & PSU INTERVIEW Preparation Awareness', date: '30/07/2025', reportUrl: 'https://drive.google.com/file/d/1lDvUI0wxgVAYk46bkovU3w7X44Nh8OqG/preview' },
+                { name: 'GATE preparation awareness for SY Students Placement and Higher Studies', date: '15,16 & 17 September 2025', reportUrl: 'https://drive.google.com/file/d/1lDvUI0wxgVAYk46bkovU3w7X44Nh8OqG/preview' },
+                { name: 'GATE Form filling 28 August to 28 Sep till 3rd Oct', date: 'Till last date', reportUrl: 'https://drive.google.com/file/d/1lDvUI0wxgVAYk46bkovU3w7X44Nh8OqG/preview' },
+                { name: 'IELTS/GATE: Verbal Aptitude & Competitive Exams:UPSC/MPSC A series of session/International Higher Studies Exhibition', date: '18 September Till October', reportUrl: 'https://drive.google.com/file/d/1lDvUI0wxgVAYk46bkovU3w7X44Nh8OqG/preview' },
+                { name: 'GATE NPTEL MOCK', date: 'Every Sunday', reportUrl: 'https://drive.google.com/file/d/1lDvUI0wxgVAYk46bkovU3w7X44Nh8OqG/preview' }
+            ]
+        };
+
+        const eventsDataSem2 = {
+            'Computer Engineering': [
+                { name: 'Entrance Exams Preparations - GATE, GRE, TOEFL, IELTS, GMAT, CAT', date: 'January 2025', reportUrl: 'https://drive.google.com/file/d/1cgP7Ny8xHDjkl-vzPjyCilz7pjmBJwDf/preview' },
+                { name: 'Soft Skill and Professional Readiness', date: 'January 2025', reportUrl: 'https://drive.google.com/file/d/1cgP7Ny8xHDjkl-vzPjyCilz7pjmBJwDf/preview' },
+                { name: 'University Admission Guidance', date: 'February 2025', reportUrl: 'https://drive.google.com/file/d/1cgP7Ny8xHDjkl-vzPjyCilz7pjmBJwDf/preview' },
+                { name: 'Career & Academic Mentorship', date: 'March 2025', reportUrl: 'https://drive.google.com/file/d/1cgP7Ny8xHDjkl-vzPjyCilz7pjmBJwDf/preview' },
+                { name: 'International Education Exposure Activities', date: 'April 2025', reportUrl: 'https://drive.google.com/file/d/1cgP7Ny8xHDjkl-vzPjyCilz7pjmBJwDf/preview' }
+            ],
+            'Computer Engineering (Regional)': [
+                { name: 'GATE Test series', date: 'Jan 1st week', reportUrl: 'https://drive.google.com/file/d/1tosNnJbfNkIppTGg_HzYbSjbO39MTcSV/preview' },
+                { name: 'MPSC तयारी व मार्गदर्शन', date: 'Jan 3st week', reportUrl: 'https://drive.google.com/file/d/1tosNnJbfNkIppTGg_HzYbSjbO39MTcSV/preview' },
+                { name: 'Exhaustive weekly Programs ', date: 'Feb 4th week', reportUrl: 'https://drive.google.com/file/d/1tosNnJbfNkIppTGg_HzYbSjbO39MTcSV/preview' },
+                { name: 'Opportunities of GRE/CAT/ToFFEL', date: 'March 1st week', reportUrl: 'https://drive.google.com/file/d/1tosNnJbfNkIppTGg_HzYbSjbO39MTcSV/preview' },
+            ],
+            'Information Technology Engineering': [
+                { name: 'Guidance Session on "GATE Exam Preparation"', date: '2026-01-21', reportUrl: 'https://drive.google.com/file/d/1JkcydXzQUEzmX9rRaor8idjvl9f1IQ6_/preview' },
+                { name: 'Guidance Session on "CAT and MBA Pathways"', date: '2026-02-25', reportUrl: 'https://drive.google.com/file/d/1JkcydXzQUEzmX9rRaor8idjvl9f1IQ6_/preview' }
+            ],
+            'Mechanical Engineering': [
+                { name: 'Inauguration & Orientation Session', date: 'January end', reportUrl: 'https://drive.google.com/file/d/1ZEOZzhxY1OnRvIv8SO9IZVapx5TlQg4R/preview' },
+                { name: 'Exam Awareness Week', date: 'Mid-February 2026', reportUrl: 'https://drive.google.com/file/d/1ZEOZzhxY1OnRvIv8SO9IZVapx5TlQg4R/preview' },
+                { name: 'Diagnostic Test & Self-Assessment', date: 'Late Feb – Early March 2026', reportUrl: 'https://drive.google.com/file/d/1ZEOZzhxY1OnRvIv8SO9IZVapx5TlQg4R/preview' },
+                { name: 'Structured Study Group Formation', date: 'Early March 2026', reportUrl: 'https://drive.google.com/file/d/1ZEOZzhxY1OnRvIv8SO9IZVapx5TlQg4R/preview' },
+                { name: 'Weekly Doubt Clearing & Discussion Hours', date: 'March – April 2026', reportUrl: 'https://drive.google.com/file/d/1ZEOZzhxY1OnRvIv8SO9IZVapx5TlQg4R/preview' },
+                { name: 'Seniors & Alumni Interaction', date: 'Mid-March 2026', reportUrl: 'https://drive.google.com/file/d/1ZEOZzhxY1OnRvIv8SO9IZVapx5TlQg4R/preview' },
+                { name: 'Strategy Workshop: "How to Study with College"', date: 'Late March 2026', reportUrl: 'https://drive.google.com/file/d/1ZEOZzhxY1OnRvIv8SO9IZVapx5TlQg4R/preview' },
+                { name: 'Mid-Sem Review & Commitment Check', date: 'Early April 2026', reportUrl: 'https://drive.google.com/file/d/1ZEOZzhxY1OnRvIv8SO9IZVapx5TlQg4R/preview' },
+                { name: 'Competitive Exam Awareness Drive', date: 'Mid-April 2026', reportUrl: 'https://drive.google.com/file/d/1ZEOZzhxY1OnRvIv8SO9IZVapx5TlQg4R/preview' }              
+            ],
+            'Applied Science & Humanities': [
+                { name: 'Pathways to Higher Education: A Global Perspective', date: '28/02/2026', reportUrl: 'https://drive.google.com/file/d/1f6NAhMIwitcI831yZSNxUfoeW0dqRdmO/preview' }
+            ],
+            'Civil Engineering': [
+                { name: 'Research Avenues for Aspiring Engineers', date: '09/02/2026', reportUrl: 'https://drive.google.com/file/d/1mKCos239gwy_K_2bbLRHQmh3tp9zG6Mw/preview' },
+                { name: 'From Aspirant to State Ranker: MES Civil Exam Roadmap', date: '13/02/2026', reportUrl: 'https://drive.google.com/file/d/1mKCos239gwy_K_2bbLRHQmh3tp9zG6Mw/preview' },
+                { name: 'Guidance session on "Inside the World of Dams and Water Systems"', date: '13/03/2026', reportUrl: 'https://drive.google.com/file/d/1mKCos239gwy_K_2bbLRHQmh3tp9zG6Mw/preview' },
+                { name: 'Dream MS Journey: From India to Global Universities', date: '27/03/2026', reportUrl: 'https://drive.google.com/file/d/1mKCos239gwy_K_2bbLRHQmh3tp9zG6Mw/preview' },
+                { name: 'Online Test for MES aspirants', date: 'Every Saturday', reportUrl: 'https://drive.google.com/file/d/1mKCos239gwy_K_2bbLRHQmh3tp9zG6Mw/preview' }
+            ],
+            'Computer Science and Engineering (AI-ML)': [],
+            'Electronics and Telecommunication Engineering': []
+        };
+
+        // Get events based on semester
+        const eventsData = semester === '2' ? eventsDataSem2 : eventsDataSem1;
+
+        function renderActivities() {
+            const container = document.getElementById('activitiesListContainer');
+            
+            if (!department) {
+                window.location.href = semester === '2' ? 'sem2.html' : 'sem1.html';
+                return;
+            }
+
+            // Decode department name from URL
+            const decodedDept = decodeURIComponent(department);
+            const activities = eventsData[decodedDept] || [];
+
+            // Update page title
+            document.getElementById('deptTitle').textContent = decodedDept + ' - Activities';
+            document.getElementById('semesterInfo').textContent = 'Higher Education and Competitive Exam Cell (विजिगीषा) | Semester ' + semester;
+            document.title = decodedDept + ' - Activities | PCCOE';
+
+            // Set back button
+            const backBtn = document.getElementById('backBtn');
+            const backText = document.getElementById('backText');
+            const backUrl = semester === '2' ? 'sem2.html' : 'sem1.html';
+            backText.textContent = 'Back to ' + (semester === '2' ? 'Semester 2' : 'Semester 1');
+            backBtn.addEventListener('click', () => {
+                window.location.href = backUrl;
+            });
+
+            if (activities.length === 0) {
+                container.innerHTML = `
+                    <div class="no-results">
+                        <i class="fas fa-inbox"></i>
+                        <h3>No Activities Found</h3>
+                        <p>No activities have been scheduled for this department in this semester yet.</p>
+                    </div>
+                `;
+                return;
+            }
+
+            container.innerHTML = `
+                <table class="students-table" style="width:100%;border-collapse:collapse;">
+                    <thead>
+                        <tr>
+                            <th style="text-align:center;padding:12px;border-bottom:2px solid #e6eef9;width:60px;">Sr. No</th>
+                            <th style="text-align:center;padding:12px;border-bottom:2px solid #e6eef9;">Name of Event</th>
+                            <th style="text-align:center;padding:12px;border-bottom:2px solid #e6eef9;width:180px;">Date</th>
+                            <th style="text-align:center;padding:12px;border-bottom:2px solid #e6eef9;width:140px;">Report</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        ${activities.map((activity, index) => `
+                            <tr>
+                                <td style="padding:12px;border-bottom:1px solid #f1f7fe;text-align:center;">${index + 1}</td>
+                                <td style="padding:12px;border-bottom:1px solid #f1f7fe;">${activity.name}</td>
+                                <td style="padding:12px;border-bottom:1px solid #f1f7fe;text-align:center;">${activity.date || ''}</td>
+                                <td style="padding:12px;border-bottom:1px solid #f1f7fe;text-align:center;">
+                                    <a href="${activity.reportUrl || '#'}" target="_blank">${activity.reportUrl ? 'View' : '—'}</a>
+                                </td>
+                            </tr>
+                        `).join('')}
+                    </tbody>
+                </table>
+            `;
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            renderActivities();
+
+            // Mobile menu toggle
+            const menuToggle = document.getElementById('menuToggle');
+            const navbarLinks = document.getElementById('navbarLinks');
+            if (menuToggle) {
+                menuToggle.addEventListener('click', () => {
+                    navbarLinks.classList.toggle('active');
+                });
+            }
+        });
+    </script>
+</body>
+</html>
