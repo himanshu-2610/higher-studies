@@ -415,6 +415,20 @@
             transform: scale(1.2);
         }
 
+        /* Modal Animation */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Video Modal Styles */
+        .video-modal {
+            animation: fadeIn 0.3s ease;
+        }
 
         /* Responsive */
         @media (max-width: 1200px) {
@@ -724,6 +738,7 @@
                 batch: '2019',
                 type: 'video',
                 quote: '',
+                source: 'drive',
                 videoUrl: 'https://drive.google.com/file/d/1BUifpJIboGnnKe5q56VqejV3mEdltFz-/view?usp=drive_link',
                 thumbnail: 'images/ias-officer.jpg',
                 achievement: 'Information Technology Engineering'
@@ -745,6 +760,7 @@
                 batch: '2022',
                 type: 'video',
                 quote: '',
+                source: 'drive',
                 videoUrl: 'https://drive.google.com/file/d/1kigbnSUJOg1VkZ9B-hsGedks4kVxXGx9/view?usp=sharing',
                 thumbnail: 'images/Sudarshan Yadav.png',
                 achievement: 'Civil Engineering'
@@ -845,34 +861,28 @@
 
         function playVideo(id) {
             const testimonial = testimonials.find(t => t.id === id);
-            if (!testimonial || !testimonial.videoUrl) return;
-
-            /* ======================
-            YOUTUBE → REDIRECT
-            ====================== */
-            if (testimonial.source === 'youtube') {
-                window.open(testimonial.videoUrl, '_blank');
+            if (!testimonial || !testimonial.videoUrl) {
+                alert('Video not available');
                 return;
             }
 
-            /* ======================
-            DRIVE / LOCAL → MODAL
-            ====================== */
+            // Create modal overlay
             const modal = document.createElement('div');
             modal.style.cssText = `
                 position: fixed;
                 inset: 0;
-                background: rgba(0,0,0,0.9);
+                background: rgba(0,0,0,0.95);
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                z-index: 1000;
+                z-index: 10000;
                 padding: 20px;
+                animation: fadeIn 0.3s ease;
             `;
 
             let videoHtml = '';
 
-            /* GOOGLE DRIVE */
+            /* GOOGLE DRIVE - Embed and play inline */
             if (testimonial.source === 'drive') {
                 const fileIdMatch = testimonial.videoUrl.match(/[-\w]{25,}/);
                 if (fileIdMatch) {
@@ -881,46 +891,129 @@
                     videoHtml = `
                         <iframe 
                             src="${embedUrl}"
-                            style="width:100%;height:100%;border:none;border-radius:12px"
-                            allow="autoplay"
-                            allowfullscreen>
+                            style="width:100%;height:100%;border:none;border-radius:12px;background:#000"
+                            allow="autoplay; fullscreen"
+                            allowfullscreen
+                            loading="eager"
+                            frameborder="0">
                         </iframe>`;
+                } else {
+                    alert('Invalid video URL');
+                    return;
                 }
             }
 
-            /* LOCAL / MP4 */
-            if (testimonial.source === 'local') {
+            /* YOUTUBE - Embed inline (not redirect) */
+            else if (testimonial.source === 'youtube') {
+                let videoId = '';
+                // Extract YouTube video ID
+                const regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#&?]*).*/;
+                const match = testimonial.videoUrl.match(regExp);
+                videoId = (match && match[7].length == 11) ? match[7] : false;
+                
+                if (videoId) {
+                    const embedUrl = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`;
+                    videoHtml = `
+                        <iframe 
+                            src="${embedUrl}"
+                            style="width:100%;height:100%;border:none;border-radius:12px"
+                            allow="autoplay; fullscreen; encrypted-media"
+                            allowfullscreen
+                            frameborder="0">
+                        </iframe>`;
+                } else {
+                    alert('Invalid YouTube URL');
+                    return;
+                }
+            }
+
+            /* LOCAL VIDEO - Play inline */
+            else if (testimonial.source === 'local') {
                 videoHtml = `
                     <video controls autoplay
-                        style="width:100%;height:100%;border-radius:12px">
+                        style="width:100%;height:100%;border-radius:12px;background:#000">
                         <source src="${testimonial.videoUrl}" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>`;
             }
+            
+            /* VIMEO - Embed inline */
+            else if (testimonial.source === 'vimeo') {
+                const vimeoId = testimonial.videoUrl.match(/vimeo\.com\/(\d+)/);
+                if (vimeoId && vimeoId[1]) {
+                    const embedUrl = `https://player.vimeo.com/video/${vimeoId[1]}?autoplay=1`;
+                    videoHtml = `
+                        <iframe 
+                            src="${embedUrl}"
+                            style="width:100%;height:100%;border:none;border-radius:12px"
+                            allow="autoplay; fullscreen"
+                            allowfullscreen
+                            frameborder="0">
+                        </iframe>`;
+                }
+            }
 
+            /* Default fallback */
+            else {
+                alert('Video source not configured properly. Please set source property.');
+                return;
+            }
+
+            // Build modal content
             modal.innerHTML = `
-                <div style="position:relative;width:100%;max-width:1000px;aspect-ratio:16/9">
+                <div style="position:relative;width:100%;max-width:1200px;display:flex;flex-direction:column;">
+                    <!-- Close X button - Top Right -->
                     <button onclick="this.closest('.video-modal').remove()"
                         style="position:absolute;top:-50px;right:0;
-                        width:40px;height:40px;border-radius:50%;
-                        border:none;font-size:26px;cursor:pointer">×</button>
-                    ${videoHtml}
+                        width:45px;height:45px;border-radius:50%;
+                        background:white;color:#333;
+                        border:none;font-size:28px;cursor:pointer;
+                        font-weight:bold;box-shadow:0 4px 12px rgba(0,0,0,0.3);
+                        transition:all 0.3s ease;z-index:10001"
+                        onmouseover="this.style.background='#27c3e6';this.style.color='white';this.style.transform='scale(1.1)'"
+                        onmouseout="this.style.background='white';this.style.color='#333';this.style.transform='scale(1)'">×</button>
+                    
+                    <!-- Cancel Button - Top Left -->
+                    <button onclick="this.closest('.video-modal').remove()"
+                        class="cancel-video-btn"
+                        style="position:absolute;top:15px;left:15px;
+                        padding:12px 30px;
+                        background:#e74c3c;
+                        color:white;border:2px solid white;border-radius:50px;
+                        font-size:16px;font-weight:700;cursor:pointer;
+                        box-shadow:0 8px 25px rgba(231,76,60,0.6);
+                        transition:all 0.3s ease;
+                        text-transform:uppercase;letter-spacing:1px;
+                        z-index:10001"
+                        onmouseover="this.style.transform='translateY(-3px) scale(1.05)';this.style.boxShadow='0 12px 35px rgba(231,76,60,0.8)';this.style.background='#c0392b'"
+                        onmouseout="this.style.transform='translateY(0) scale(1)';this.style.boxShadow='0 8px 25px rgba(231,76,60,0.6)';this.style.background='#e74c3c'">
+                        <i class="fas fa-times-circle" style="margin-right:8px"></i>Cancel
+                    </button>
+                    
+                    <div style="aspect-ratio:16/9;background:#000;border-radius:12px;box-shadow:0 20px 60px rgba(0,0,0,0.5);overflow:hidden">
+                        ${videoHtml}
+                    </div>
                 </div>
             `;
 
             modal.classList.add('video-modal');
             document.body.appendChild(modal);
 
+            // Close on background click
             modal.addEventListener('click', e => {
-                if (e.target === modal) modal.remove();
-            });
-
-            document.addEventListener('keydown', function esc(e) {
-                if (e.key === 'Escape') {
+                if (e.target === modal) {
                     modal.remove();
-                    document.removeEventListener('keydown', esc);
                 }
             });
+
+            // Close on Escape key
+            const escapeHandler = function(e) {
+                if (e.key === 'Escape') {
+                    modal.remove();
+                    document.removeEventListener('keydown', escapeHandler);
+                }
+            };
+            document.addEventListener('keydown', escapeHandler);
         }
 
 
