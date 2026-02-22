@@ -7,7 +7,138 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
+    <style>
+        /* Faculty List Container */
+        .faculty-list-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Faculty Row Card */
+        .faculty-list {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            margin-bottom: 60px;
+        }
+
+        .faculty-row-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 30px;
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            box-shadow: 0 8px 30px var(--shadow-color);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+        }
+
+        .faculty-row-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px var(--shadow-color);
+            border-color: var(--border-color);
+        }
+
+        .card-hover-effect {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(11, 59, 130, 0.02), rgba(39, 195, 230, 0.02));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+        }
+
+        .faculty-row-card:hover .card-hover-effect {
+            opacity: 1;
+        }
+
+        /* Faculty Main Info */
+        .faculty-main-info {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            flex: 1;
+        }
+
+        /* Avatar */
+        .faculty-avatar {
+            position: relative;
+            width: 120px;
+            height: 120px;
+            flex-shrink: 0;
+        }
+
+        .avatar-wrapper {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 4px solid white;
+            box-shadow: 0 8px 25px rgba(11, 59, 130, 0.15);
+        }
+
+        .avatar-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .faculty-row-card:hover .avatar-wrapper img {
+            transform: scale(1.08);
+        }
+
+        /* Faculty Details */
+        .faculty-details {
+            flex: 1;
+        }
+
+        .name-title {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+        }
+
+        .faculty-name {
+            font-size: 1.4rem;
+            color: var(--primary-color);
+            font-weight: 700;
+            margin: 0;
+            transition: color 0.3s ease;
+        }
+
+        /* Faculty Meta */
+        .faculty-meta {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #555;
+            font-size: 0.95rem;
+        }
+
+        .meta-icon {
+            flex-shrink: 0;
+            color: var(--secondary-color);
+        }
+    </style>
 </head>
+
 <body>
     <!-- Header -->
     <header class="top-header">
@@ -231,6 +362,64 @@
                     <div class="faculty-main-info">
                         <div class="faculty-avatar">
                             <div class="avatar-wrapper">
+                                <img src="images/Ms. Manjusha Devkule.png" 
+                                    alt="Ms. Manjusha Devkule"
+                                    onerror="this.src='https://ui-avatars.com/api/?name=Manjusha+Devkule&background=0b3b82&color=fff&size=200'">
+                            </div>
+                        </div>
+                        
+                        <div class="faculty-details">
+                            <div class="name-title">
+                                <h3 class="faculty-name">Ms. Manjusha Devkule</h3>
+                            </div>
+                            
+                            <div class="faculty-meta">
+                                <div class="meta-item">
+                                    <svg class="meta-icon" viewBox="0 0 24 24" width="16" height="16">
+                                        <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" fill="#27c3e6"/>
+                                    </svg>
+                                    <span>Faculty Coordinator</span>
+                                </div>
+                                <div class="meta-item">
+                                    <svg class="meta-icon" viewBox="0 0 24 24" width="16" height="16">
+                                        <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" fill="#27c3e6"/>
+                                    </svg>
+                                    <span>manjusha.devkule@pccoepune.org</span>
+                                </div>
+                            </div>
+                            
+                            <div class="department-section">
+                                <span class="dept-label">Department:</span>
+                                <span class="dept-name">Applied Science and Humanities</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="faculty-actions">                            
+                        <div class="action-buttons">
+                            <a href="https://sites.google.com/view/ms-manjusha-devkule-londhe/bio" class="btn btn-profile" target="_blank">
+                                <svg viewBox="0 0 24 24" width="16" height="16">
+                                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z" fill="currentColor"/>
+                                </svg>
+                                View Profile
+                            </a>
+                            <a href="mailto:manjusha.devkule@pccoepune.org" class="btn btn-contact">
+                                <svg viewBox="0 0 24 24" width="16" height="16">
+                                    <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" fill="currentColor"/>
+                                </svg>
+                                Send Email
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="card-hover-effect"></div>
+                </div>
+
+                <!-- Faculty Member 4 -->
+                <div class="faculty-row-card">
+                    <div class="faculty-main-info">
+                        <div class="faculty-avatar">
+                            <div class="avatar-wrapper">
                                 <img src="images/Dr. Upendra Maurya.png" 
                                     alt="Dr. Upendra Maurya"
                                     onerror="this.src='https://ui-avatars.com/api/?name=Upendra+Maurya&background=0b3b82&color=fff&size=200'">
@@ -284,7 +473,7 @@
                     <div class="card-hover-effect"></div>
                 </div>
 
-                <!-- Faculty Member 4 -->
+                <!-- Faculty Member 5 -->
                 <div class="faculty-row-card">
                     <div class="faculty-main-info">
                         <div class="faculty-avatar">
@@ -342,20 +531,20 @@
                     <div class="card-hover-effect"></div>
                 </div>
 
-                <!-- Faculty Member 5 -->
+                <!-- Faculty Member 6 -->
                 <div class="faculty-row-card">
                     <div class="faculty-main-info">
                         <div class="faculty-avatar">
                             <div class="avatar-wrapper">
-                                <img src="images/Ms. Manjusha Devkule.png" 
-                                    alt="Ms. Manjusha Devkule"
-                                    onerror="this.src='https://ui-avatars.com/api/?name=Manjusha+Devkule&background=0b3b82&color=fff&size=200'">
+                                <img src="images/Mr. Atul Pawar.png" 
+                                    alt="Mr. Atul Pawar"
+                                    onerror="this.src='https://ui-avatars.com/api/?name=Atul+Pawar&background=0b3b82&color=fff&size=200'">
                             </div>
                         </div>
                         
                         <div class="faculty-details">
                             <div class="name-title">
-                                <h3 class="faculty-name">Ms. Manjusha Devkule</h3>
+                                <h3 class="faculty-name">Mr. Atul Pawar</h3>
                             </div>
                             
                             <div class="faculty-meta">
@@ -369,26 +558,26 @@
                                     <svg class="meta-icon" viewBox="0 0 24 24" width="16" height="16">
                                         <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" fill="#27c3e6"/>
                                     </svg>
-                                    <span>manjusha.devkule@pccoepune.org</span>
+                                    <span>atul.pawar@pccoepune.org</span>
                                 </div>
                             </div>
                             
                             <div class="department-section">
                                 <span class="dept-label">Department:</span>
-                                <span class="dept-name">Applied Science and Humanities</span>
+                                <span class="dept-name">Computer Engineering</span>
                             </div>
                         </div>
                     </div>
                     
                     <div class="faculty-actions">                            
                         <div class="action-buttons">
-                            <a href="https://sites.google.com/view/ms-manjusha-devkule-londhe/bio" class="btn btn-profile" target="_blank">
+                            <a href="https://sites.google.com/view/atulpawar/home" class="btn btn-profile">
                                 <svg viewBox="0 0 24 24" width="16" height="16">
                                     <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z" fill="currentColor"/>
                                 </svg>
                                 View Profile
                             </a>
-                            <a href="mailto:manjusha.devkule@pccoepune.org" class="btn btn-contact">
+                            <a href="mailto:atul.pawar@pccoepune.org" class="btn btn-contact">
                                 <svg viewBox="0 0 24 24" width="16" height="16">
                                     <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" fill="currentColor"/>
                                 </svg>
@@ -396,11 +585,9 @@
                             </a>
                         </div>
                     </div>
-                    
-                    <div class="card-hover-effect"></div>
                 </div>
 
-                    <!-- Faculty Member 6 -->
+                <!-- Faculty Member 7 -->
                 <div class="faculty-row-card">
                     <div class="faculty-main-info">
                         <div class="faculty-avatar">
@@ -446,64 +633,6 @@
                                 View Profile
                             </a>
                             <a href="mailto:radha.deoghare@pccoepune.org" class="btn btn-contact">
-                                <svg viewBox="0 0 24 24" width="16" height="16">
-                                    <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" fill="currentColor"/>
-                                </svg>
-                                Send Email
-                            </a>
-                        </div>
-                    </div>
-                    
-                    <div class="card-hover-effect"></div>
-                </div>
-
-                <!-- Faculty Member 7 -->
-                <div class="faculty-row-card">
-                    <div class="faculty-main-info">
-                        <div class="faculty-avatar">
-                            <div class="avatar-wrapper">
-                                <img src="images/Mrs. Supriya Vaishnav.png" 
-                                    alt="Mrs. Supriya Vaishnav"
-                                    onerror="this.src='https://ui-avatars.com/api/?name=Supriya+Vaishnav&background=0b3b82&color=fff&size=200'">
-                            </div>
-                        </div>
-                        
-                        <div class="faculty-details">
-                            <div class="name-title">
-                                <h3 class="faculty-name">Mrs. Supriya Vaishnav</h3>
-                            </div>
-                            
-                            <div class="faculty-meta">
-                                <div class="meta-item">
-                                    <svg class="meta-icon" viewBox="0 0 24 24" width="16" height="16">
-                                        <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" fill="#27c3e6"/>
-                                    </svg>
-                                    <span>Faculty Coordinator</span>
-                                </div>
-                                <div class="meta-item">
-                                    <svg class="meta-icon" viewBox="0 0 24 24" width="16" height="16">
-                                        <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" fill="#27c3e6"/>
-                                    </svg>
-                                    <span>supriya.vaishnav@pccoepune.org</span>
-                                </div>
-                            </div>
-                            
-                            <div class="department-section">
-                                <span class="dept-label">Department:</span>
-                                <span class="dept-name">Computer Engineering (Regional)</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="faculty-actions">                            
-                        <div class="action-buttons">
-                            <a href="#" class="btn btn-profile">
-                                <svg viewBox="0 0 24 24" width="16" height="16">
-                                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z" fill="currentColor"/>
-                                </svg>
-                                View Profile
-                            </a>
-                            <a href="mailto:supriya.vaishnav@pccoepune.org" class="btn btn-contact">
                                 <svg viewBox="0 0 24 24" width="16" height="16">
                                     <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" fill="currentColor"/>
                                 </svg>
@@ -578,15 +707,15 @@
                     <div class="faculty-main-info">
                         <div class="faculty-avatar">
                             <div class="avatar-wrapper">
-                                <img src="images/Mr. Atul Pawar.png" 
-                                    alt="Mr. Atul Pawar"
-                                    onerror="this.src='https://ui-avatars.com/api/?name=Atul+Pawar&background=0b3b82&color=fff&size=200'">
+                                <img src="images/Mrs. Supriya Vaishnav.png" 
+                                    alt="Mrs. Supriya Vaishnav"
+                                    onerror="this.src='https://ui-avatars.com/api/?name=Supriya+Vaishnav&background=0b3b82&color=fff&size=200'">
                             </div>
                         </div>
                         
                         <div class="faculty-details">
                             <div class="name-title">
-                                <h3 class="faculty-name">Mr. Atul Pawar</h3>
+                                <h3 class="faculty-name">Mrs. Supriya Vaishnav</h3>
                             </div>
                             
                             <div class="faculty-meta">
@@ -600,26 +729,26 @@
                                     <svg class="meta-icon" viewBox="0 0 24 24" width="16" height="16">
                                         <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" fill="#27c3e6"/>
                                     </svg>
-                                    <span>atul.pawar@pccoepune.org</span>
+                                    <span>supriya.vaishnav@pccoepune.org</span>
                                 </div>
                             </div>
                             
                             <div class="department-section">
                                 <span class="dept-label">Department:</span>
-                                <span class="dept-name">Computer Engineering</span>
+                                <span class="dept-name">Computer Engineering (Regional)</span>
                             </div>
                         </div>
                     </div>
                     
                     <div class="faculty-actions">                            
                         <div class="action-buttons">
-                            <a href="https://sites.google.com/view/atulpawar/home" class="btn btn-profile">
+                            <a href="#" class="btn btn-profile">
                                 <svg viewBox="0 0 24 24" width="16" height="16">
                                     <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z" fill="currentColor"/>
                                 </svg>
                                 View Profile
                             </a>
-                            <a href="mailto:atul.pawar@pccoepune.org" class="btn btn-contact">
+                            <a href="mailto:supriya.vaishnav@pccoepune.org" class="btn btn-contact">
                                 <svg viewBox="0 0 24 24" width="16" height="16">
                                     <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" fill="currentColor"/>
                                 </svg>
@@ -627,6 +756,8 @@
                             </a>
                         </div>
                     </div>
+                    
+                    <div class="card-hover-effect"></div>
                 </div>
             </div>
         </div>
@@ -643,3 +774,4 @@
     <script src="js/main.js"></script>
 </body>
 </html>
+
