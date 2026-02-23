@@ -50,11 +50,6 @@
             animation: fadeInDown 0.8s ease-out;
         }
 
-        .section-header p {
-            color: #666;
-            font-size: 1.1rem;
-        }
-
         @keyframes fadeInDown {
             from {
                 opacity: 0;
@@ -315,6 +310,7 @@
             align-items: center;
             flex-wrap: wrap;
             gap: 15px 20px;
+            justify-content: center;
         }
 
         .author-name {
@@ -467,6 +463,193 @@
         .video-modal {
             animation: fadeIn 0.3s ease;
         }
+
+        /* MPSC Officers Section Styles */
+        .mpsc-officers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 35px;
+            position: relative;
+            z-index: 1;
+            margin-top: 30px;
+        }
+
+        .mpsc-officer-card {
+            background: linear-gradient(135deg, #ffffff 0%, #f8fbff 100%);
+            border-radius: 20px;
+            padding: 35px 30px;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(11, 59, 130, 0.12);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);   
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .mpsc-officer-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(41, 128, 185, 0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .mpsc-officer-card:hover::before {
+            left: 100%;
+        }
+
+        .mpsc-officer-card:hover {
+            transform: translateY(-15px) scale(1.04);
+            box-shadow: 0 25px 50px rgba(11, 59, 130, 0.25);
+            border-color: #f39c12;
+            background: linear-gradient(135deg, #ffffff 0%, #f0f8ff 100%);
+        }
+
+        .mpsc-officer-photo {
+            width: 200px;
+            height: 200px;
+            margin: 0 auto 15px;
+            border-radius: 50%;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(11, 59, 130, 0.2);
+            border: 4px solid var(--secondary-color);
+            background: linear-gradient(135deg, #e0e0e0 0%, #f5f5f5 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .mpsc-photo-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .mpsc-officer-card:hover .mpsc-photo-img {
+            transform: scale(1.1);
+        }
+
+        .mpsc-officer-name {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #0b3b82;
+            margin-bottom: 12px;
+            line-height: 1.3;
+        }
+
+        .mpsc-position {
+            font-size: 1.1rem;
+            color: #e67e22;
+            font-weight: 600;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .mpsc-position::before {
+            content: '\f19d';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            font-size: 1rem;
+        }
+
+        .mpsc-batch-year {
+            font-size: 0.95rem;
+            color: #666;
+        }
+
+        .mpsc-batch-year strong {
+            color: #0b3b82;
+        }
+
+        .no-mpsc-data {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 60px 30px;
+            color: #666;
+            font-size: 1.1rem;
+        }
+
+        .no-mpsc-data i {
+            font-size: 3rem;
+            color: #ccc;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        /* Responsive MPSC Grid */
+        @media (max-width: 1024px) {
+            .mpsc-officers-grid {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                gap: 25px;
+            }
+
+            .mpsc-officer-card {
+                padding: 30px 25px;
+                min-height: 330px;
+            }
+
+            .mpsc-officer-name {
+                font-size: 1.4rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .mpsc-officers-grid {
+                grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+                gap: 20px;
+            }
+
+            .mpsc-officer-card {
+                padding: 25px 20px;
+                min-height: 320px;
+            }
+
+            .mpsc-officer-icon {
+                font-size: 2.8rem;
+            }
+
+            .mpsc-officer-name {
+                font-size: 1.3rem;
+            }
+
+            .mpsc-position {
+                font-size: 1rem;
+            }
+
+        }
+
+        @media (max-width: 480px) {
+            .mpsc-officers-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .mpsc-officer-card {
+                padding: 20px 15px;
+                min-height: 300px;
+            }
+
+            .mpsc-officer-icon {
+                font-size: 2.4rem;
+            }
+
+            .mpsc-officer-name {
+                font-size: 1.2rem;
+            }
+
+            .mpsc-position {
+                font-size: 0.95rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -566,6 +749,9 @@
                 <a href="#distinguishedAlumniSection" class="section-nav-btn">
                     <span>Distinguished Alumni</span>
                 </a>
+                <a href="#mpscAlumniSection" class="section-nav-btn">
+                    <span>MPSC Officers (Civil)</span>
+                </a>
                 <a href="#testimonialSection" class="section-nav-btn">
                     <span>Testimonials</span>
                 </a>
@@ -586,7 +772,15 @@
             <div class="department-cards" id="distinguishedDeptCards"></div>
         </section>
 
-        <!-- ===== COMPACT TESTIMONIALS SECTION ===== -->
+        <!-- MPSC Officers Section -->
+        <section class="alumni-section" id="mpscAlumniSection">
+            <div class="section-header">
+                <h2>Technical MPSC in Civil</h2>
+            </div>
+            <div class="mpsc-officers-grid" id="mpscOfficersGrid">
+                <!-- MPSC officers will be dynamically loaded here -->
+            </div>
+        </section>
         <section class="testimonials-section" id="testimonialSection">
             <div class="section-header">
                 <h2>Alumni Testimonials</h2>
@@ -641,7 +835,7 @@
                 batch: '2023',
                 type: 'text',
                 quote: 'My journey from PCCoE to pursuing my master’s at Indian Institute of science (IISc), Bangalore. has been shaped strongly by the academic foundation and guidance I received during my undergraduate years. The supportive faculty at PCCoE, along with a disciplined academic environment, encouraged me to think beyond exams and build conceptual clarity, which played a crucial role in my GATE preparation. Regular mentoring, access to resources at main and dept library or Higher Education & Competitive Exams Cell. To juniors, I would say: stay consistent, trust the process, and make the most of the faculty support and learning culture at PCCoE—it truly prepares you for competitive exams and future academic challenges.',
-                achievement: 'Mechanical Engg'
+                achievement: 'Mechanical Engineering'
             },
             {
                 id: 2,
@@ -652,7 +846,7 @@
                 quote: '',
                 source: 'drive',
                 videoUrl: 'https://drive.google.com/file/d/1BUifpJIboGnnKe5q56VqejV3mEdltFz-/view?usp=drive_link',
-                thumbnail: 'images/ias-officer.jpg',
+                thumbnail: 'images/Shivani Birajdar.png',
                 achievement: 'IT Engineering'
             },
             {
@@ -663,7 +857,7 @@
                 type: 'text',
                 rating: 5,
                 quote: 'I completed my Bachelor’s degree in Computer Engineering (Regional Language) from Pimpri Chinchwad College of Engineering (PCCOE) in Pune, where I built a solid academic foundation in a supportive and enriching learning environment. The guidance and mentorship from experienced faculty members enabled me to understand complex concepts clearly and develop essential technical, analytical, and problem-solving skills. My time at PCCOE also significantly contributed to my personal growth through various academic projects and collaborative activities. I am proud to be a PCCOE alumnus and remain grateful for the opportunities and encouragement provided by the institution.',
-                achievement: 'Comp Engg (Regional)'
+                achievement: 'Comp Engineering (Regional)'
             },
             {
                 id: 4,
@@ -675,7 +869,7 @@
                 source: 'drive',
                 videoUrl: 'https://drive.google.com/file/d/1kigbnSUJOg1VkZ9B-hsGedks4kVxXGx9/view?usp=sharing',
                 thumbnail: 'images/Sudarshan Yadav.png',
-                achievement: 'Civil Engg'
+                achievement: 'Civil Engineering'
             },
             {
                 id: 5,
@@ -685,7 +879,141 @@
                 type: 'text',
                 rating: 5,
                 quote: 'I completed my bachelor’s degree in Civil Engineering from PCCOE, Pune, graduating in 2016 as part of the department’s very first graduating class. Being in that inaugural batch was a unique experience. We were nurtured in a well-rounded academic environment that emphasized both rigor and curiosity. I had the privilege of learning from some of the finest teachers at Pune University, who helped make even the most challenging subjects engaging and accessible. Their guidance played a significant role in shaping my academic foundation and professional outlook. I am proud to be a PCCOE alumnus and remain deeply grateful to the institution and its faculty for the opportunities and mentorship they provided.',
-                achievement: 'Civil Engg'
+                achievement: 'Civil Engineering'
+            },
+            {
+                id: 6,
+                name: 'Shubhada Padwal',
+                company: 'Technical University of Munich',
+                batch: '2019',
+                type: 'text',
+                rating: 5,
+                quote: 'Through campus placements, I secured a Business Analyst role with one of the highest package in my batch and worked in the role for 1.5 years. I then pursued a Master’s in Management from the Technical University of Munich, gaining global exposure and deeper insights into leadership and business strategy. PCCoE gave me a strong academic foundation, a competitive environment, and platforms to grow beyond academics. The exposure, discipline, and peer learning culture helped me build confidence and resilience. A message to the younger generations: step out of your comfort zone and say “yes” more often than “no.” Say yes to new responsibilities, new skills, and new challenges. Start early, stay consistent, and trust the process — your efforts today will define your opportunities tomorrow.',
+                achievement: 'Mechanical Engineering'
+            },
+            {
+                id: 7,
+                name: 'Arin Jain',
+                company: 'Meta Platforms Inc',
+                batch: '2025',
+                type: 'text',
+                rating: 5,
+                quote: 'I began my B.Tech in Electronics and Telecommunication Engineering at PCCOE Pune in 2021. During my second year, while studying core subjects such as Network Theory, Dr. A. R. Suryawanshi introduced us to the GATE examination, which motivated me to start my preparation towards the end of my second year. I appeared for GATE during my third year and secured an AIR 4626 with a score of 414. Around the same time, my interest in the VLSI domain developed strongly due to the guidance and teaching of Dr. Deepti Khurge, particularly through electives related to RTL design and VLSI concepts. This helped me realise the importance of higher studies for a career in the semiconductor industry. With a clear goal, I prepared seriously and reappeared for GATE in my final year, securing an All India Rank 1312 with a score of 596. After completing my B.Tech, I joined the National Institute of Technology Calicut to pursue M.Tech in VLSI and Microelectronics. I am currently continuing my studies with a first semester CGPA of 9.3.',              
+                achievement: 'Electronics and Telecommunication Engineering'
+            },
+            {
+                id: 8,
+                name: 'Sandeep Sharma',
+                company: 'Meta Platforms Inc',
+                batch: '2008',
+                type: 'text',
+                rating: 5,
+                quote: 'Along with academics, I actively participated in technical competitions and extracurricular activities. I believe that success in higher education and career requires not only good grades but also initiative, curiosity, and practical exposure. My time at PCCOE gave me both knowledge and confidence to aim higher. , After graduating in 2008 during the global recession, my job offer was delayed. Instead of waiting, I decided to prepare for GRE and TOEFL and pursue higher education. This decision proved to be a turning point in my career. I completed my master’s degree in the VLSI and electronics domain. The experience enhanced my technical depth, research mindset, and problem-solving skills. It also opened doors to opportunities in the semiconductor industry, allowing me to continue working in my core field.',
+                achievement: 'Electronics and Telecommunication Engineering'
+            },
+            {
+                id: 9,
+                name: 'Ms. Amrita Anilkumar Nai',
+                company: 'Assistant General Manager/ Internal Vigilance Officer at NABFINS Ltd (Subsidiary of NABARD.)',
+                batch: '2008',
+                type: 'text',
+                rating: 5,
+                quote: 'I am proud to be an alumna of the Computer Engineering Department at Pimpri Chinchwad College of Engineering (PCCOE). The strong academic foundation, dedicated faculty, and value-based learning environment at PCCOE played a crucial role in shaping my career. Clearing the NABARD Grade A Examination in 2021 and serving with National Bank for Agriculture and Rural Development has been a significant milestone in my journey. I am currently deputed as Assistant General Manager / Internal Vigilance Officer at NABFINS Ltd.. I sincerely thank PCCOE for nurturing my skills, confidence, and professional ethics that continue to guide me in my career.',
+                achievement: 'Electronics and Telecommunication Engineering'
+            },
+            {
+                id: 10,
+                name: 'Mr. Birudev Khandekar',
+                company: 'PSI, Maharashtra Police Department',
+                batch: '2008',
+                type: 'text',
+                rating: 5,
+                quote: 'I feel honored to be an alumnus of the Computer Engineering Department at Pimpri Chinchwad College of Engineering (PCCOE). The institute provided me with strong academic grounding, discipline, and moral values that shaped my professional outlook. Successfully clearing the MPSE examination and serving as a Police Sub-Inspector (PSI) in the Maharashtra Police is a result of the confidence and perseverance developed during my time at PCCOE. I am grateful to the faculty and institution for preparing me to serve society with integrity and dedication.',
+                achievement: 'Electronics and Telecommunication Engineering'
+            },
+        ];
+
+        // MPSC Officers Data - Civil Technical
+        const mpscOfficers = [
+            {
+                id: 1,
+                name: 'Vanshaj Wadhwa',
+                position: 'Indian Army, Major',
+                batch: '2012 - 2016',
+                department: 'Civil Engineering',
+                image: 'images/Vanshaj Wadhwa.png',
+            },
+            {
+                id: 2,
+                name: 'Vikash Kumar Sharma',
+                position: 'Indian Army, Major',
+                batch: '2012 - 2016',
+                department: 'Civil Engineering',
+                image: 'images/Vikash Kumar Sharma.png',
+            },
+            {
+                id: 3,
+                name: 'Rahul Randive',
+                position: 'Urban development department municipal Engineer',
+                batch: '2012 - 2016',
+                department: 'Civil Engineering',
+                image: 'images/Rahul Randive.png'
+            }  ,          
+            {
+                id: 4,
+                name: 'Kamalesh Zinjurke',
+                position: 'Assistant Engineer-Grade2 Water Resources Department, GoM',
+                batch: '2012 - 2016',
+                department: 'Civil Engineering',
+                image: 'images/Kamalesh Zinjurke.png'
+            },
+            {
+                id: 6,
+                name: 'Avinash Bogulwar',
+                position: 'Water Conservation Officer, WCD, GoM',
+                batch: '2012 - 2016',
+                department: 'Civil Engineering',
+                image: 'images/Avinash Bogulwar.png'
+            },
+            {
+                id: 7,
+                name: 'Bhagyarekha Jadhav',
+                position: 'Assistant Engineer-Class II\nMAHATRANSCO\n',
+                batch: '2012 - 2016',
+                department: 'Civil Engineering',
+                image: 'images/Bhagyarekha Jadhav.png'
+            },
+            {
+                id: 8,
+                name: 'Rushikesh Kasar',
+                position: 'Sectional Engineer, PWD, GoM ',
+                batch: '2012 - 2016',
+                department: 'Civil Engineering',
+                image: 'images/Rushikesh Kasar.png'
+            },
+            {
+                id: 9,
+                name: 'Rajneesh Baria',
+                position: 'Junior Engineer ,Water Resources Department, GoM',
+                batch: '2012 - 2016',
+                department: 'Civil Engineering',
+                image: 'images/Rajneesh Baria.png'
+            },
+            {
+                id: 10,
+                name: 'Tejaswini Bagul',
+                position: 'Junior Engineer, Water supply Department, Pune Municipal Corporation, GoM',
+                batch: '2012 - 2016',
+                department: 'Civil Engineering',
+                image: 'images/Tejaswini Bagul.png'
+            },            
+            {
+                id: 5,
+                name: 'Yogesh Sharma',
+                position: 'Sectional Engineer, PWD, GoM',
+                batch: '2012 - 2016',
+                department: 'Civil Engineering',
+                image: 'images/Yogesh Sharma.png'
             }
         ];
 
@@ -699,6 +1027,28 @@
                     </div>
                 `).join('');
             }
+        }
+
+        // Render MPSC Officers
+        function renderMPSCOfficers() {
+            const container = document.getElementById('mpscOfficersGrid');
+            if (!container) return;
+
+            if (mpscOfficers.length === 0) {
+                container.innerHTML = '<div class="no-mpsc-data"><i class="fas fa-info-circle"></i><p>No MPSC officers data available yet.</p></div>';
+                return;
+            }
+
+            container.innerHTML = mpscOfficers.map(officer => `
+                <div class="mpsc-officer-card">
+                    <div class="mpsc-officer-photo">
+                        <img src="${officer.image || 'https://via.placeholder.com/250x250?text=No+Photo'}" alt="${officer.name}" class="mpsc-photo-img">
+                    </div>
+                    <h3 class="mpsc-officer-name">${officer.name}</h3>
+                    <p class="mpsc-position">${officer.position}</p>
+                    <p class="mpsc-batch-year">Batch: <strong>${officer.batch}</strong> | ${officer.department}</p>
+                </div>
+            `).join('');
         }
 
         // Carousel variables
@@ -989,6 +1339,7 @@
             const sectionNavButtons = document.querySelectorAll('.section-nav-btn');
             const regularAlumniSection = document.getElementById('regularAlumniSection');
             const distinguishedAlumniSection = document.getElementById('distinguishedAlumniSection');
+            const mpscAlumniSection = document.getElementById('mpscAlumniSection');
             const testimonialSection = document.getElementById('testimonialSection');
 
             sectionNavButtons.forEach(btn => {
@@ -1036,12 +1387,14 @@
 
             if (regularAlumniSection) observer.observe(regularAlumniSection);
             if (distinguishedAlumniSection) observer.observe(distinguishedAlumniSection);
+            if (mpscAlumniSection) observer.observe(mpscAlumniSection);
             if (testimonialSection) observer.observe(testimonialSection);
         }
 
         document.addEventListener('DOMContentLoaded', function() {
             renderDepartmentCards('regularDeptCards', 'regular');
             renderDepartmentCards('distinguishedDeptCards', 'distinguished');
+            renderMPSCOfficers();
             
             // Render testimonials (no department cards in testimonials section)
             renderTestimonials();
