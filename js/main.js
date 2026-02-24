@@ -7,9 +7,15 @@ document.addEventListener('DOMContentLoaded', function() {
     if (menuToggle) {
         menuToggle.addEventListener('click', function() {
             navbarLinks.classList.toggle('active');
+            menuToggle.classList.toggle('active');
             this.innerHTML = navbarLinks.classList.contains('active') 
                 ? '<i class="fas fa-times"></i>' 
                 : '<i class="fas fa-bars"></i>';
+            
+            // Add/remove body class for overlay effect on mobile
+            if (window.innerWidth <= 480) {
+                document.body.classList.toggle('menu-open');
+            }
         });
     }
     
@@ -21,10 +27,27 @@ document.addEventListener('DOMContentLoaded', function() {
             menuToggle && 
             !menuToggle.contains(e.target)) {
             navbarLinks.classList.remove('active');
+            document.body.classList.remove('menu-open');
             if (menuToggle) {
+                menuToggle.classList.remove('active');
                 menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
             }
         }
+    });
+    
+    // Close mobile menu when a nav link is clicked
+    const navLinksElements = document.querySelectorAll('.nav-link');
+    navLinksElements.forEach(link => {
+        link.addEventListener('click', function() {
+            if (window.innerWidth <= 768 && navbarLinks) {
+                navbarLinks.classList.remove('active');
+                document.body.classList.remove('menu-open');
+                if (menuToggle) {
+                    menuToggle.classList.remove('active');
+                    menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+                }
+            }
+        });
     });
     
     // Set active navigation link based on current page
@@ -150,6 +173,36 @@ document.addEventListener('DOMContentLoaded', function() {
 
             } catch (error) {
                 alert("Something went wrong!");
+            }
+        });
+    }
+    
+    // Handle window resize - close mobile menu if window is resized to desktop
+    let resizeTimer;
+    window.addEventListener('resize', function() {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(function() {
+            if (window.innerWidth > 768 && navbarLinks) {
+                navbarLinks.classList.remove('active');
+                document.body.classList.remove('menu-open');
+                if (menuToggle) {
+                    menuToggle.classList.remove('active');
+                    menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+                }
+            }
+        }, 250);
+    });
+    
+    // Prevent body scroll when mobile menu is open
+    if (menuToggle && navbarLinks) {
+        const body = document.body;
+        menuToggle.addEventListener('click', function() {
+            if (window.innerWidth <= 768) {
+                if (navbarLinks.classList.contains('active')) {
+                    body.style.overflow = 'hidden';
+                } else {
+                    body.style.overflow = '';
+                }
             }
         });
     }

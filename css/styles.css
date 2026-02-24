@@ -16,6 +16,25 @@
     box-sizing: border-box;
 }
 
+/* Ensure images are responsive */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Prevent text size adjustment on mobile */
+html {
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+}
+
+/* Better focus indicators for accessibility */
+*:focus-visible {
+    outline: 2px solid var(--secondary-color);
+    outline-offset: 2px;
+}
+
 body {
     font-family: 'Roboto', sans-serif;
     line-height: 1.6;
@@ -420,6 +439,7 @@ marquee {
     position: relative;
     z-index: 2;
     color: white;
+    -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
     color: white;
     border: 1px solid rgba(255, 255, 255, 0.3);
@@ -2410,4 +2430,1087 @@ STUDENT SUPPORT PAGE STYLING
     font-weight: 600;
     color: var(--primary-color);
     width: 60px;
+}
+
+/* ===============================================
+   RESPONSIVE DESIGN - MOBILE & TABLET STYLES
+   =============================================== */
+
+/* Touch-friendly improvements for all screen sizes */
+@media (hover: none) and (pointer: coarse) {
+    /* Increase tap target sizes for touch devices */
+    .nav-link,
+    .section-nav-btn,
+    .btn,
+    .menu-toggle,
+    button,
+    a {
+        min-height: 44px;
+        min-width: 44px;
+    }
+    
+    /* Smoother touch scrolling */
+    * {
+        -webkit-overflow-scrolling: touch;
+        scroll-behavior: smooth;
+    }
+    
+    /* Remove hover effects on touch devices */
+    .team-card:hover,
+    .forum-card:hover,
+    .contact-card:hover,
+    .dept-card:hover {
+        transform: none;
+    }
+    
+    /* Better touch feedback */
+    .nav-link:active,
+    .btn:active,
+    button:active {
+        opacity: 0.7;
+    }
+}
+
+/* Horizontal scroll indicators for tables on mobile */
+.students-table-container {
+    position: relative;
+}
+
+.students-table-container::after {
+    content: '← Scroll →';
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background: rgba(11, 59, 130, 0.9);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 11px;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+@media screen and (max-width: 768px) {
+    .students-table-container:hover::after {
+        opacity: 1;
+    }
+}
+
+/* ========== LARGE TABLETS (max-width: 1024px) ========== */
+@media screen and (max-width: 1024px) {
+    /* Header adjustments */
+    .header-text h1 {
+        font-size: 1.5rem;
+    }
+    
+    .header-text h4 {
+        font-size: 1.3rem;
+    }
+    
+    .logo-group img {
+        height: 70px;
+    }
+    
+    /* Navbar */
+    .nav-link {
+        padding: 16px 18px;
+        font-size: 14px;
+    }
+    
+    /* Page headers */
+    .page-header h1 {
+        font-size: 2.4rem;
+    }
+    
+    /* Grids */
+    .team-section {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 25px;
+    }
+    
+    .competitive-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
+    }
+    
+    .department-cards {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
+    }
+    
+    /* Contact grid */
+    .contact-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+    
+    .contact-info-form-section {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ========== TABLETS (max-width: 768px) ========== */
+@media screen and (max-width: 768px) {
+    /* Base font size */
+    body {
+        font-size: 14px;
+    }
+    
+    /* Header */
+    .header-container {
+        padding: 12px 15px;
+    }
+    
+    .header-center {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+    
+    .logo-group {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    
+    .logo-group img {
+        height: 60px;
+        width: auto;
+    }
+    
+    .header-text h1 {
+        font-size: 1.3rem;
+    }
+    
+    .header-text h4 {
+        font-size: 1.1rem;
+    }
+    
+    .subtitle {
+        font-size: 13px;
+    }
+    
+    /* Updates Bar */
+    .updates-bar {
+        height: auto;
+        min-height: 40px;
+        flex-wrap: wrap;
+        padding: 5px 0;
+    }
+    
+    .updates-label {
+        margin: 5px;
+    }
+    
+    .simple-counter {
+        font-size: 12px;
+    }
+    
+    /* Navbar - Mobile Menu */
+    .navbar-container {
+        padding: 0 15px;
+        justify-content: space-between;
+    }
+    
+    .menu-toggle {
+        display: flex;
+        position: relative;
+        z-index: 1001;
+        transition: all 0.3s ease;
+    }
+    
+    /* When menu is active, position toggle button in top right corner */
+    .menu-toggle.active {
+        position: fixed;
+        top: 12px;
+        right: 15px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 4px;
+    }
+    
+    .navbar-links {
+        position: fixed;
+        top: 0;
+        left: -100%;
+        width: 280px;
+        height: 100vh;
+        background: var(--primary-color);
+        flex-direction: column;
+        gap: 0;
+        transition: left 0.3s ease;
+        box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
+        overflow-y: auto;
+        padding-top: 60px;
+        z-index: 1000;
+    }
+    
+    .navbar-links.active {
+        left: 0;
+    }
+    
+    /* Mobile menu overlay */
+    .navbar-links.active::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 280px;
+        width: calc(100vw - 280px);
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: -1;
+        animation: fadeIn 0.3s ease;
+    }
+    
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+    
+    .nav-link {
+        width: 100%;
+        padding: 16px 20px;
+        border-left: none !important;
+        border-right: none !important;
+        border-top: none !important;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .nav-link.active {
+        border-left: 4px solid var(--secondary-color) !important;
+        background-color: rgba(39, 195, 230, 0.2);
+    }
+    
+    .nav-item.active::before {
+        display: none;
+    }
+    
+    /* Section Navigation */
+    .section-nav {
+        top: 60px;
+        padding: 8px 0;
+        margin: 5px 10px;
+    }
+    
+    .section-nav-container {
+        flex-direction: column;
+        gap: 10px;
+        padding: 0 15px;
+    }
+    
+    .section-nav-btn {
+        padding: 10px 15px;
+        font-size: 13px;
+    }
+    
+    /* Main Container */
+    .main-container {
+        padding: 0 15px;
+        margin: 20px auto;
+    }
+    
+    /* Page Headers */
+    .page-header {
+        padding: 20px 15px;
+        margin-bottom: 25px;
+    }
+    
+    .page-header h1 {
+        font-size: 2rem;
+    }
+    
+    .page-header p {
+        font-size: 1rem;
+    }
+    
+    /* Hero Section */
+    .hero-container {
+        grid-template-columns: 1fr;
+    }
+    
+    /* Team Section */
+    .team-section {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .team-card {
+        padding: 25px;
+    }
+    
+    /* Quick Contact Grid */
+    .quick-contact-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .quick-card {
+        padding: 30px;
+    }
+    
+    /* Contact Information */
+    .contact-info-form-section {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .contact-information-card {
+        padding: 30px 20px;
+    }
+    
+    .info-block {
+        flex-direction: column;
+        text-align: center;
+        padding: 15px;
+    }
+    
+    /* Support Section */
+    .support-section {
+        padding: 30px 20px;
+        margin: 30px 0;
+    }
+    
+    .support-section-header h2,
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .opportunities-container {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+    
+    .opportunity-column {
+        padding: 20px;
+    }
+    
+    /* Competitive Grid */
+    .competitive-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .competitive-card {
+        padding: 25px 20px;
+    }
+    
+    .competitive-header h3 {
+        font-size: 1.5rem;
+    }
+    
+    /* Forums Section */
+    .forums-section {
+        padding: 30px 20px;
+    }
+    
+    .forums-container {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .forum-card {
+        padding: 25px 20px;
+        min-height: 250px;
+    }
+    
+    .forum-features {
+        flex-direction: column;
+    }
+    
+    /* Contact Grid */
+    .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .contact-card {
+        padding: 25px 20px;
+    }
+    
+    .social-links {
+        grid-template-columns: 1fr;
+    }
+    
+    /* Contact Form */
+    .contact-form-container {
+        padding: 30px 20px;
+    }
+    
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    /* Map Section */
+    .map-section {
+        padding: 30px 20px;
+    }
+    
+    .map-info-card {
+        position: relative;
+        top: auto;
+        left: auto;
+        max-width: 100%;
+        margin-bottom: 15px;
+    }
+    
+    .map-container iframe {
+        height: 300px;
+    }
+    
+    /* CTA Section */
+    .cta-section {
+        padding: 40px 20px;
+    }
+    
+    .cta-content h2 {
+        font-size: 2rem;
+    }
+    
+    .cta-content p {
+        font-size: 1rem;
+    }
+    
+    /* Department Cards */
+    .department-cards {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .dept-card {
+        padding: 25px 20px;
+    }
+    
+    /* Filters */
+    .filters-container {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .filter-group {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .filter-input,
+    .filter-select {
+        width: 100%;
+        min-width: auto;
+    }
+    
+    .clear-filters-btn {
+        margin-left: 0;
+        width: 100%;
+    }
+    
+    /* Department Box */
+    .department-header {
+        padding: 15px 20px;
+    }
+    
+    .department-info {
+        gap: 12px;
+    }
+    
+    .department-icon {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .department-icon i {
+        font-size: 20px;
+    }
+    
+    .department-title h3 {
+        font-size: 16px;
+    }
+    
+    .department-meta {
+        flex-direction: column;
+        gap: 10px;
+        align-items: flex-end;
+    }
+    
+    /* Tables */
+    .students-table-container {
+        overflow-x: auto;
+        padding: 15px;
+    }
+    
+    .students-table {
+        font-size: 13px;
+    }
+    
+    .students-table th,
+    .students-table td {
+        padding: 10px 12px;
+        white-space: nowrap;
+    }
+    
+    /* Footer */
+    .footer {
+        padding: 20px 15px;
+        margin-top: 50px;
+    }
+}
+
+/* ========== MOBILE DEVICES (max-width: 480px) ========== */
+@media screen and (max-width: 480px) {
+    /* Header */
+    .header-container {
+        padding: 10px;
+    }
+    
+    .header-center {
+        gap: 10px;
+    }
+    
+    .logo-group img {
+        height: 50px;
+    }
+    
+    .header-text h1 {
+        font-size: 1.1rem;
+        line-height: 1.3;
+    }
+    
+    .header-text h4 {
+        font-size: 1rem;
+    }
+    
+    .subtitle {
+        font-size: 12px;
+    }
+    
+    /* Updates Bar */
+    .updates-label {
+        font-size: 12px;
+        padding: 4px 6px;
+    }
+    
+    marquee {
+        font-size: 13px;
+    }
+    
+    /* Navbar */
+    .navbar-links {
+        width: 100%;
+    }
+    
+    /* Update overlay for full width menu */
+    .navbar-links.active::before {
+        display: none;
+    }
+    
+    /* Add backdrop blur effect for modern browsers */
+    body.menu-open::after {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 999;
+        -webkit-backdrop-filter: blur(3px);
+        backdrop-filter: blur(3px);
+    }
+    
+    .menu-toggle {
+        font-size: 20px;
+    }
+    
+    /* When menu is active on mobile, keep toggle button in top right corner */
+    .menu-toggle.active {
+        position: fixed;
+        top: 10px;
+        right: 10px;
+        z-index: 1001;
+    }
+    
+    /* Section Navigation */
+    .section-nav-btn {
+        font-size: 12px;
+        padding: 8px 12px;
+    }
+    
+    /* Main Container */
+    .main-container {
+        padding: 0 10px;
+        margin: 15px auto;
+    }
+    
+    /* Page Headers */
+    .page-header {
+        padding: 15px 10px;
+        border-radius: 15px;
+    }
+    
+    .page-header h1 {
+        font-size: 1.6rem;
+        margin-bottom: 10px;
+    }
+    
+    .page-header p {
+        font-size: 0.9rem;
+    }
+    
+    /* Back Button */
+    .back-button {
+        padding: 10px 18px;
+        font-size: 0.85rem;
+    }
+    
+    /* Team Cards */
+    .team-card {
+        padding: 20px;
+    }
+    
+    .team-img {
+        width: 100px;
+        height: 100px;
+        font-size: 2rem;
+    }
+    
+    /* Quick Cards */
+    .quick-card {
+        padding: 25px 20px;
+    }
+    
+    .quick-icon {
+        width: 70px;
+        height: 70px;
+    }
+    
+    .quick-icon i {
+        font-size: 2rem;
+    }
+    
+    .quick-card h3 {
+        font-size: 1.5rem;
+    }
+    
+    .email-label {
+        font-size: 0.95rem;
+    }
+    
+    /* Contact Information */
+    .contact-information-card {
+        padding: 25px 15px;
+    }
+    
+    .contact-information-card h2 {
+        font-size: 1.6rem;
+    }
+    
+    .info-icon {
+        width: 45px;
+        height: 45px;
+    }
+    
+    .info-icon i {
+        font-size: 1.2rem;
+    }
+    
+    .info-content h3 {
+        font-size: 1.1rem;
+    }
+    
+    .info-content p {
+        font-size: 0.9rem;
+    }
+    
+    /* Support Section */
+    .support-section {
+        padding: 20px 15px;
+        border-radius: 20px;
+    }
+    
+    .support-section-header h2,
+    .section-title {
+        font-size: 1.6rem;
+    }
+    
+    .fa-graduation-cap,
+    .fa-trophy,
+    .fa-comments {
+        font-size: 50px;
+    }
+    
+    .column-header {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
+    
+    .column-header h3 {
+        font-size: 1.4rem;
+    }
+    
+    .edu-card {
+        padding: 20px 15px;
+    }
+    
+    .edu-card h4 {
+        font-size: 1.1rem;
+    }
+    
+    .edu-card p {
+        font-size: 0.9rem;
+    }
+    
+    /* Competitive Cards */
+    .competitive-card {
+        padding: 20px 15px;
+    }
+    
+    .competitive-header {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .competitive-header h3 {
+        position: static;
+        font-size: 1.3rem;
+        margin-top: 10px;
+    }
+    
+    .competitive-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 24px;
+    }
+    
+    /* Forums */
+    .forums-section {
+        padding: 20px 15px;
+    }
+    
+    .forum-card {
+        padding: 20px 15px;
+        min-height: 200px;
+    }
+    
+    .forum-icon {
+        width: 48px;
+        height: 48px;
+        font-size: 20px;
+    }
+    
+    .forum-name {
+        font-size: 1.1rem;
+    }
+    
+    .forum-features li {
+        font-size: 0.85rem;
+        padding-left: 22px;
+    }
+    
+    /* Contact Cards */
+    .contact-card {
+        padding: 20px 15px;
+    }
+    
+    .contact-badge {
+        width: 35px;
+        height: 35px;
+        font-size: 16px;
+    }
+    
+    .contact-icon {
+        width: 48px;
+        height: 48px;
+        font-size: 20px;
+    }
+    
+    .contact-name {
+        font-size: 1.2rem;
+    }
+    
+    .contact-tag {
+        font-size: 0.8rem;
+    }
+    
+    .phone-link,
+    .email-link,
+    .address-item,
+    .timing-item {
+        padding: 10px 12px;
+        font-size: 0.85rem;
+    }
+    
+    /* Contact Form */
+    .contact-form-container {
+        padding: 25px 15px;
+    }
+    
+    .form-header h3 {
+        font-size: 1.6rem;
+    }
+    
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+        padding: 12px 15px;
+        font-size: 0.95rem;
+    }
+    
+    .submit-btn {
+        padding: 14px 25px;
+        font-size: 1rem;
+    }
+    
+    /* Map Section */
+    .map-section {
+        padding: 25px 15px;
+    }
+    
+    .map-header h3 {
+        font-size: 1.5rem;
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .map-header p {
+        font-size: 0.9rem;
+    }
+    
+    .map-info-card {
+        padding: 12px 15px;
+    }
+    
+    .map-info-header h4 {
+        font-size: 0.95rem;
+    }
+    
+    .map-container iframe {
+        height: 250px;
+    }
+    
+    /* CTA Section */
+    .cta-section {
+        padding: 30px 15px;
+        border-radius: 15px;
+    }
+    
+    .cta-content h2 {
+        font-size: 1.6rem;
+    }
+    
+    .cta-content p {
+        font-size: 0.95rem;
+    }
+    
+    /* Department Cards */
+    .dept-card {
+        padding: 20px 15px;
+    }
+    
+    .dept-card i {
+        font-size: 2.8rem;
+    }
+    
+    .dept-card h3 {
+        font-size: 1.1rem;
+    }
+    
+    /* Department Box */
+    .department-header {
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px;
+    }
+    
+    .department-info {
+        flex-direction: column;
+        text-align: center;
+        width: 100%;
+    }
+    
+    .department-title h3 {
+        font-size: 15px;
+    }
+    
+    .department-meta {
+        width: 100%;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .students-preview {
+        padding: 12px 15px;
+    }
+    
+    /* Tables - Horizontal Scroll */
+    .students-table-container {
+        padding: 10px;
+        -webkit-overflow-scrolling: touch;
+        overflow-x: auto;
+    }
+    
+    .students-table {
+        font-size: 12px;
+        min-width: 600px;
+    }
+    
+    .students-table th,
+    .students-table td {
+        padding: 8px 10px;
+    }
+    
+    /* Buttons */
+    .btn {
+        padding: 8px 16px;
+        font-size: 0.85rem;
+        min-width: 90px;
+    }
+    
+    .action-buttons {
+        gap: 10px;
+    }
+    
+    /* Results Count */
+    .results-count {
+        font-size: 13px;
+        padding: 8px 12px;
+    }
+    
+    /* Footer */
+    .footer {
+        padding: 15px 10px;
+        margin-top: 40px;
+    }
+    
+    .footer-bottom {
+        font-size: 12px;
+    }
+}
+
+/* ========== EXTRA SMALL DEVICES (max-width: 360px) ========== */
+@media screen and (max-width: 360px) {
+    .header-text h1 {
+        font-size: 1rem;
+    }
+    
+    .header-text h4 {
+        font-size: 0.9rem;
+    }
+    
+    .page-header h1 {
+        font-size: 1.4rem;
+    }
+    
+    .section-title,
+    .support-section-header h2 {
+        font-size: 1.4rem;
+    }
+    
+    .quick-card h3,
+    .contact-information-card h2 {
+        font-size: 1.3rem;
+    }
+    
+    .team-img {
+        width: 80px;
+        height: 80px;
+        font-size: 1.6rem;
+    }
+    
+    .students-table {
+        font-size: 11px;
+    }
+}
+
+/* ========== LANDSCAPE ORIENTATION for MOBILE ========== */
+@media screen and (max-height: 500px) and (orientation: landscape) {
+    .navbar-links {
+        padding-top: 10px;
+        height: 100vh;
+    }
+    
+    .nav-link {
+        padding: 12px 20px;
+        font-size: 13px;
+    }
+    
+    .page-header {
+        padding: 15px;
+    }
+    
+    .page-header h1 {
+        font-size: 1.8rem;
+    }
+}
+
+/* ========== PRINT STYLES ========== */
+@media print {
+    .navbar,
+    .menu-toggle,
+    .updates-bar,
+    .back-button,
+    .section-nav,
+    .footer {
+        display: none;
+    }
+    
+    .main-container {
+        max-width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+    
+    .page-header {
+        box-shadow: none;
+    }
+    
+    * {
+        background: white !important;
+        color: black !important;
+    }
+}
+
+/* ========== REDUCED MOTION ACCESSIBILITY ========== */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* ========== OPTIMIZE PERFORMANCE ON MOBILE ========== */
+@media screen and (max-width: 768px) {
+    /* Reduce complex animations on mobile */
+    .hero-background,
+    .bg-circle,
+    .cta-section::before {
+        animation: none;
+    }
+    
+    /* Optimize transforms for better performance */
+    .team-card,
+    .forum-card,
+    .contact-card,
+    .dept-card,
+    .competitive-card,
+    .edu-card {
+        will-change: auto;
+        transform: translateZ(0);
+        backface-visibility: hidden;
+    }
+}
+
+/* ========== DARK MODE SUPPORT (Optional Enhancement) ========== */
+@media (prefers-color-scheme: dark) {
+    /* Users can uncomment this for dark mode support
+    :root {
+        --text-color: #e0e0e0;
+        --bg-gradient-start: #1a1a1a;
+        --bg-gradient-end: #2d2d2d;
+        --white: #1e1e1e;
+        --shadow-color: rgba(0, 0, 0, 0.3);
+    }
+    */
 }
