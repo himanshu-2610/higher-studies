@@ -640,13 +640,21 @@
             
             /* Testimonials section */
             .testimonials-section {
-                padding: 20px 20px 30px;
+                padding: 20px 15px 30px;
                 margin-top: 30px;
                 border-radius: 20px;
             }
             
             .testimonials-section .section-header h2 {
                 font-size: 1.8rem;
+            }
+
+            .testimonial-wrapper {
+                padding: 10px 0;
+            }
+
+            .testimonial-card {
+                padding: 20px;
             }
             
             .testimonial-video-container {
@@ -660,19 +668,37 @@
             }
             
             .testimonial-quote {
-                font-size: 1.1rem;
+                font-size: 1.05rem;
+                line-height: 1.5;
+                padding-left: 10px;
+            }
+
+            .testimonial-author {
+                padding: 10px 15px;
+                gap: 12px;
+            }
+
+            .author-details {
+                gap: 10px 15px;
             }
             
             .author-name {
-                font-size: 1.1rem;
+                font-size: 1.05rem;
+                padding-right: 12px;
+            }
+
+            .author-name::after {
+                height: 20px;
             }
             
             .author-company {
                 font-size: 0.95rem;
+                padding: 3px 10px;
             }
             
             .author-batch {
                 font-size: 0.85rem;
+                padding: 3px 10px;
             }
             
             .testimonial-arrow {
@@ -687,6 +713,10 @@
 
             .testimonial-arrow.next {
                 right: -8px;
+            }
+
+            .testimonial-indicators {
+                margin-top: 15px;
             }
             /* MPSC Officers */
             .mpsc-officers-grid {
@@ -740,46 +770,62 @@
             
             /* Testimonials section */
             .testimonials-section {
-                padding: 15px 15px 25px;
+                padding: 15px 10px 25px;
                 margin-top: 20px;
                 border-radius: 15px;
             }
             
             .testimonials-section .section-header h2 {
-                font-size: 1.4rem;
+                font-size: 1.3rem;
+                margin-bottom: 15px;
+            }
+
+            .testimonial-wrapper {
+                padding: 5px 0;
             }
             
             .testimonial-card {
-                padding: 20px 15px;
+                padding: 15px;
             }
             
             .testimonial-video-container {
-                height: 180px;
+                height: 160px;
                 border-radius: 12px;
+                margin-bottom: 12px;
             }
             
             .video-play-btn {
-                width: 45px;
-                height: 45px;
-                font-size: 1.2rem;
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
             }
             
             .testimonial-quote {
-                font-size: 1rem;
+                font-size: 0.95rem;
                 line-height: 1.4;
-                padding-left: 10px;
+                padding-left: 8px;
+                border-left-width: 2px;
+                margin-bottom: 12px;
+            }
+
+            .testimonial-author {
+                flex-direction: column;
+                gap: 8px;
+                padding: 12px 15px;
             }
             
             .author-details {
                 flex-direction: column;
                 align-items: center;
-                gap: 10px;
+                gap: 8px;
+                width: 100%;
             }
             
             .author-name {
-                font-size: 1rem;
+                font-size: 0.95rem;
                 padding-right: 0;
                 transform: none;
+                text-align: center;
             }
             
             .author-name::after {
@@ -787,41 +833,41 @@
             }
             
             .author-company {
-                font-size: 0.9rem;
+                font-size: 0.85rem;
                 padding: 3px 10px;
             }
             
             .author-batch {
-                font-size: 0.8rem;
+                font-size: 0.75rem;
                 padding: 3px 10px;
             }
             
             .testimonial-arrow {
-                width: 32px;
-                height: 32px;
-                font-size: 0.9rem;
+                width: 28px;
+                height: 28px;
+                font-size: 0.85rem;
             }
             
             .testimonial-arrow.prev {
-                left: -5px;
+                left: -3px;
             }
 
             .testimonial-arrow.next {
-                right: -5px;
+                right: -3px;
             }
             
             .testimonial-indicators {
-                margin-top: 15px;
-                gap: 8px;
+                margin-top: 12px;
+                gap: 6px;
             }
             
             .testimonial-dot {
-                width: 7px;
-                height: 7px;
+                width: 6px;
+                height: 6px;
             }
             
             .testimonial-dot.active {
-                width: 25px;
+                width: 20px;
             }
             
             /* MPSC photo smaller on mobile */
@@ -860,16 +906,81 @@
                 font-size: 1.3rem;
             }
             
+            .testimonials-section {
+                padding: 12px 8px 20px;
+            }
+
             .testimonials-section .section-header h2 {
-                font-size: 1.2rem;
+                font-size: 1.1rem;
+                margin-bottom: 12px;
+            }
+
+            .testimonial-card {
+                padding: 12px;
+            }
+            
+            .testimonial-video-container {
+                height: 140px;
+                margin-bottom: 10px;
+            }
+
+            .video-play-btn {
+                width: 35px;
+                height: 35px;
+                font-size: 0.9rem;
+            }
+
+            .testimonial-quote {
+                font-size: 0.85rem;
+                line-height: 1.3;
+                padding-left: 6px;
+            }
+
+            .testimonial-author {
+                padding: 10px;
+                gap: 6px;
+            }
+
+            .author-details {
+                gap: 6px;
+            }
+
+            .author-name {
+                font-size: 0.85rem;
+            }
+
+            .author-company {
+                font-size: 0.75rem;
+                padding: 2px 8px;
+            }
+
+            .author-batch {
+                font-size: 0.7rem;
+                padding: 2px 8px;
+            }
+
+            .testimonial-arrow {
+                width: 24px;
+                height: 24px;
+                font-size: 0.75rem;
+            }
+
+            .testimonial-indicators {
+                margin-top: 10px;
+                gap: 5px;
+            }
+
+            .testimonial-dot {
+                width: 5px;
+                height: 5px;
+            }
+
+            .testimonial-dot.active {
+                width: 18px;
             }
             
             .dept-card i {
                 font-size: 2rem;
-            }
-            
-            .testimonial-video-container {
-                height: 150px;
             }
             
             .mpsc-officer-photo {

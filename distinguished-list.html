@@ -184,6 +184,151 @@
             margin: 0 auto;
             line-height: 1.6;
         }
+
+        /* Responsive Styles */
+        @media screen and (max-width: 768px) {
+            .page-header h1 {
+                font-size: 1.6rem !important;
+            }
+
+            .page-header p {
+                font-size: 0.9rem !important;
+            }
+
+            .back-btn {
+                padding: 10px 20px;
+                font-size: 0.85rem;
+            }
+
+            .filter-controls {
+                flex-direction: column;
+                padding: 20px;
+                gap: 15px;
+                align-items: stretch;
+            }
+
+            .filter-controls select {
+                min-width: auto;
+                width: 100%;
+            }
+
+            .alumni-item {
+                flex-direction: column;
+                padding: 20px;
+                gap: 15px;
+                text-align: center;
+            }
+
+            .alumni-item img {
+                max-width: 150px;
+                margin: 0 auto;
+            }
+
+            .alumni-item .info h4 {
+                font-size: 1.2rem;
+            }
+
+            .alumni-item .info p {
+                font-size: 0.9rem;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .page-header h1 {
+                font-size: 1.3rem !important;
+            }
+
+            .page-header p {
+                font-size: 0.8rem !important;
+            }
+
+            .back-btn {
+                padding: 8px 16px;
+                font-size: 0.8rem;
+                gap: 8px;
+            }
+
+            .filter-controls {
+                padding: 15px;
+            }
+
+            .filter-controls label {
+                font-size: 0.9rem;
+            }
+
+            .filter-controls select {
+                padding: 10px 15px;
+                font-size: 0.85rem;
+            }
+
+            .alumni-item {
+                padding: 15px;
+            }
+
+            .alumni-item img {
+                max-width: 120px;
+            }
+
+            .alumni-item .info h4 {
+                font-size: 1.1rem;
+            }
+
+            .alumni-item .info p {
+                font-size: 0.85rem;
+            }
+
+            .achievement-text {
+                padding: 10px 12px;
+                font-size: 0.85rem;
+            }
+
+            .coming-soon {
+                padding: 15px 10px;
+            }
+
+            .coming-soon i {
+                font-size: 40px;
+            }
+
+            .coming-soon h3 {
+                font-size: 1.2rem;
+            }
+
+            .coming-soon p {
+                font-size: 0.9rem;
+            }
+        }
+
+        @media screen and (max-width: 360px) {
+            .page-header h1 {
+                font-size: 1.1rem !important;
+            }
+
+            .page-header p {
+                font-size: 0.75rem !important;
+            }
+
+            .back-btn {
+                padding: 6px 12px;
+                font-size: 0.75rem;
+            }
+
+            .alumni-item {
+                padding: 12px;
+            }
+
+            .alumni-item img {
+                max-width: 100px;
+            }
+
+            .alumni-item .info h4 {
+                font-size: 1rem;
+            }
+
+            .alumni-item .info p {
+                font-size: 0.8rem;
+            }
+        }
     </style>
 </head>
 <body>

@@ -9,6 +9,180 @@
     <link rel="stylesheet" href="css/styles.css">
     <style>
         a{ text-decoration: none; color: inherit; }
+
+        /* Responsive Styles */
+        @media screen and (max-width: 768px) {
+            .page-header {
+                padding: 15px !important;
+            }
+
+            .page-header h1 {
+                font-size: 1.6rem !important;
+            }
+
+            .page-header p {
+                font-size: 0.9rem !important;
+            }
+
+            .section-nav-container {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .section-nav-btn {
+                width: 100%;
+                text-align: center;
+            }
+
+            .forums-container {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .forum-card {
+                padding: 20px;
+            }
+
+            .forum-header {
+                flex-direction: column;
+                text-align: center;
+                gap: 15px;
+            }
+
+            .opportunities-container {
+                flex-direction: column;
+            }
+
+            .opportunity-column {
+                width: 100%;
+            }
+
+            .competitive-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .column-header h3 {
+                font-size: 1.4rem;
+            }
+
+            .edu-card h4 {
+                font-size: 1.2rem;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .page-header h1 {
+                font-size: 1.3rem !important;
+            }
+
+            .page-header p {
+                font-size: 0.8rem !important;
+            }
+
+            .section-nav-btn {
+                font-size: 0.85rem;
+                padding: 10px 15px;
+            }
+
+            .forums-section i.fa-comments,
+            .support-section-header i {
+                font-size: 40px !important;
+            }
+
+            .section-title,
+            .support-section-header h2 {
+                font-size: 1.4rem !important;
+            }
+
+            .forum-card {
+                padding: 15px;
+            }
+
+            .forum-name {
+                font-size: 1.1rem;
+            }
+
+            .forum-description {
+                font-size: 0.85rem;
+            }
+
+            .forum-features li {
+                font-size: 0.85rem;
+            }
+
+            .column-header {
+                flex-direction: column;
+                text-align: center;
+                gap: 10px;
+            }
+
+            .column-header h3 {
+                font-size: 1.2rem;
+            }
+
+            .edu-card {
+                padding: 20px 15px;
+            }
+
+            .edu-card h4 {
+                font-size: 1.1rem;
+            }
+
+            .edu-card p {
+                font-size: 0.85rem;
+            }
+
+            .competitive-card h3 {
+                font-size: 1.2rem;
+            }
+
+            .competitive-card h4 {
+                font-size: 1rem;
+            }
+
+            .competitive-desc {
+                font-size: 0.85rem;
+            }
+
+            .feature-item {
+                font-size: 0.85rem;
+            }
+        }
+
+        @media screen and (max-width: 360px) {
+            .page-header {
+                padding: 12px !important;
+            }
+
+            .page-header h1 {
+                font-size: 1.1rem !important;
+            }
+
+            .page-header p {
+                font-size: 0.75rem !important;
+            }
+
+            .section-title,
+            .support-section-header h2 {
+                font-size: 1.2rem !important;
+            }
+
+            .forum-card,
+            .edu-card,
+            .competitive-card {
+                padding: 12px;
+            }
+
+            .forum-name,
+            .edu-card h4 {
+                font-size: 1rem;
+            }
+
+            .column-header h3 {
+                font-size: 1.1rem;
+            }
+        }
     </style>
 </head>
 <body>
