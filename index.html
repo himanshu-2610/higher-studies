@@ -8,6 +8,20 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
     <style>
+        /* Base responsive improvements */
+        * {
+            box-sizing: border-box;
+        }
+        
+        html {
+            overflow-x: hidden;
+        }
+        
+        body {
+            overflow-x: hidden;
+            width: 100%;
+        }
+        
         /* Hero Section */
 .hero-section { 
     background: linear-gradient(135deg, #0b3b82 0%, #1a5bb8 50%, #27c3e6 100%);
@@ -82,8 +96,15 @@
     display: flex;
     justify-content: center;
     padding: 10px;
+    -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
     overflow: hidden;
+}
+
+.hero-left-part img {
+    width: 300px;
+    max-width: 100%;
+    height: auto;
 }
 
 /* Right Part - All Information */
@@ -163,7 +184,7 @@
 
 .objectives-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 35px;
     perspective: 1000px;
 }
@@ -374,6 +395,7 @@
     position: relative;
     z-index: 2;
     background: rgba(255, 255, 255, 0.95);
+    -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
     border-radius: 40px;
     padding: 45px 50px;
@@ -523,6 +545,7 @@
     width: 60px;
     height: 60px;
     background: rgba(255, 255, 255, 0.15);
+    -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
     border: 2px solid rgba(255, 255, 255, 0.3);
     border-radius: 50%;
@@ -562,6 +585,7 @@
     width: 50px;
     height: 50px;
     background: rgba(255, 255, 255, 0.15);
+    -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
     border: 2px solid rgba(255, 255, 255, 0.3);
     border-radius: 50%;
@@ -627,7 +651,7 @@
 
 .services-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 40px;
     perspective: 1000px;
 }
@@ -751,6 +775,525 @@
     background: linear-gradient(90deg, #9b59b6, #8e44ad);
 }
 
+/* ===============================================
+   RESPONSIVE MEDIA QUERIES FOR INDEX.HTML
+   =============================================== */
+
+/* TABLETS AND BELOW (max-width: 768px) */
+@media screen and (max-width: 768px) {
+    /* Hero Section */
+    .hero-section {
+        padding: 0;
+    }
+    
+    .hero-container {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+    
+    .hero-left-part {
+        padding: 20px 10px 10px;
+        justify-content: center;
+    }
+    
+    .hero-left-part img {
+        max-width: 150px;
+        height: auto;
+    }
+    
+    .hero-right-part {
+        padding: 20px 15px 30px;
+    }
+    
+    .main-heading {
+        font-size: 1.8rem;
+        margin: 0 0 15px 0;
+        text-align: center;
+    }
+    
+    .main-description {
+        font-size: 0.95rem;
+        line-height: 1.6;
+        margin: 0 0 20px 0;
+        text-align: center;
+    }
+    
+    /* Background circles - reduce size */
+    .bg-circle-1 {
+        width: 200px;
+        height: 200px;
+        top: -80px;
+    }
+    
+    .bg-circle-2 {
+        width: 150px;
+        height: 150px;
+        bottom: -50px;
+    }
+    
+    .bg-circle-3 {
+        width: 120px;
+        height: 120px;
+    }
+    
+    /* Objectives Section */
+    .objectives-section {
+        padding: 30px 20px;
+        margin: 30px 0;
+        border-radius: 20px;
+    }
+    
+    .fa-bullseye {
+        font-size: 50px;
+    }
+    
+    .objectives-container {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .objective-card {
+        padding: 25px 20px;
+    }
+    
+    .objective-header {
+        flex-direction: row;
+        text-align: left;
+    }
+    
+    .objective-icon {
+        width: 45px;
+        height: 45px;
+        font-size: 20px;
+    }
+    
+    .objective-name {
+        font-size: 1.1rem;
+    }
+    
+    .objective-description p {
+        font-size: 0.9rem;
+    }
+    
+    /* Vision Section */
+    .vision-section {
+        padding: 20px 20px 30px;
+        margin: 30px 0;
+        border-radius: 20px;
+    }
+    
+    .vision-section .fa-eye {
+        font-size: 50px;
+        padding-top: 10px;
+    }
+    
+    .vision-section .section-title {
+        font-size: 2rem;
+    }
+    
+    .vision-content-box {
+        padding: 30px 25px;
+        border-radius: 25px;
+        transform: none;
+    }
+    
+    .vision-content-box:hover {
+        transform: scale(1.02);
+    }
+    
+    .vision-content-box p {
+        font-size: 1.1rem;
+        line-height: 1.6;
+    }
+    
+    /* Image Slider */
+    .slider-container {
+        height: 400px;
+        border-radius: 15px;
+    }
+    
+    .slide-text {
+        padding: 20px 15px;
+    }
+    
+    .dept-name {
+        font-size: 1rem;
+    }
+    
+    .slider-arrow {
+        width: 45px;
+        height: 45px;
+        font-size: 1.2rem;
+    }
+    
+    .prev-arrow {
+        left: 15px;
+    }
+    
+    .next-arrow {
+        right: 15px;
+    }
+    
+    .autoplay-control {
+        bottom: 15px;
+        right: 15px;
+    }
+    
+    .autoplay-toggle {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+    }
+    
+    /* Services Section */
+    .services-section {
+        padding: 30px 20px;
+        margin: 30px 0;
+        border-radius: 20px;
+    }
+    
+    .services-section .fa-graduation-cap {
+        font-size: 50px;
+    }
+    
+    .services-container {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+    
+    .service-tier {
+        padding: 25px 20px;
+    }
+    
+    .tier-header {
+        gap: 15px;
+    }
+    
+    .tier-icon {
+        width: 48px;
+        height: 48px;
+        font-size: 22px;
+    }
+    
+    .tier-title {
+        font-size: 1.3rem;
+    }
+    
+    .service-name {
+        font-size: 1.1rem;
+    }
+    
+    .service-detail {
+        font-size: 0.95rem;
+    }
+}
+
+/* MOBILE DEVICES (max-width: 480px) */
+@media screen and (max-width: 480px) {
+    /* Hero Section */
+    .hero-left-part img {
+        max-width: 120px;
+    }
+    
+    .hero-right-part {
+        padding: 15px 10px 25px;
+    }
+    
+    .main-heading {
+        font-size: 1.4rem;
+        margin: 0 0 12px 0;
+    }
+    
+    .main-description {
+        font-size: 0.9rem;
+        line-height: 1.5;
+        margin: 0 0 15px 0;
+    }
+    
+    /* Background circles - hide smallest */
+    .bg-circle-3 {
+        display: none;
+    }
+    
+    .bg-circle-1 {
+        width: 150px;
+        height: 150px;
+    }
+    
+    .bg-circle-2 {
+        width: 100px;
+        height: 100px;
+    }
+    
+    /* Objectives Section */
+    .objectives-section {
+        padding: 20px 15px;
+        margin: 20px 0;
+        border-radius: 15px;
+    }
+    
+    .fa-bullseye {
+        font-size: 40px;
+    }
+    
+    .objectives-container {
+        gap: 15px;
+    }
+    
+    .objective-card {
+        padding: 20px 15px;
+        border-radius: 15px;
+    }
+    
+    .objective-header {
+        flex-direction: column;
+        text-align: center;
+        padding-bottom: 12px;
+        margin-bottom: 8px;
+    }
+    
+    .objective-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 24px;
+    }
+    
+    .objective-info {
+        text-align: center;
+    }
+    
+    .objective-name {
+        font-size: 1rem;
+    }
+    
+    .objective-description {
+        text-align: center;
+    }
+    
+    .objective-description p {
+        font-size: 0.85rem;
+    }
+    
+    /* Vision Section */
+    .vision-section {
+        padding: 15px 15px 25px;
+        margin: 20px 0;
+        border-radius: 15px;
+    }
+    
+    .vision-section .fa-eye {
+        font-size: 40px;
+    }
+    
+    .vision-section .section-title {
+        font-size: 1.5rem;
+        letter-spacing: 1px;
+    }
+    
+    .vision-content-box {
+        padding: 25px 20px;
+        border-radius: 20px;
+        border-width: 2px;
+    }
+    
+    .vision-content-box p {
+        font-size: 1rem;
+        line-height: 1.5;
+    }
+    
+    /* Hide vision particles on mobile for performance */
+    .vision-particles {
+        display: none;
+    }
+    
+    /* Image Slider */
+    .image-slider-section {
+        margin: 30px 0;
+    }
+    
+    .slider-container {
+        height: 300px;
+        border-radius: 12px;
+    }
+    
+    .slide-image {
+        object-fit: cover;
+    }
+    
+    .slide-text {
+        padding: 15px 10px;
+    }
+    
+    .dept-name {
+        font-size: 0.9rem;
+    }
+    
+    .slider-arrow {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+    }
+    
+    .prev-arrow {
+        left: 10px;
+    }
+    
+    .next-arrow {
+        right: 10px;
+    }
+    
+    .autoplay-control {
+        bottom: 10px;
+        right: 10px;
+    }
+    
+    .autoplay-toggle {
+        width: 35px;
+        height: 35px;
+        font-size: 0.9rem;
+    }
+    
+    /* Services Section */
+    .services-section {
+        padding: 20px 15px;
+        margin: 20px 0;
+        border-radius: 15px;
+    }
+    
+    .services-section .fa-graduation-cap {
+        font-size: 40px;
+    }
+    
+    .services-container {
+        gap: 20px;
+    }
+    
+    .service-tier {
+        padding: 20px 15px;
+        border-radius: 15px;
+    }
+    
+    .tier-header {
+        flex-direction: column;
+        text-align: center;
+        gap: 12px;
+    }
+    
+    .tier-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 24px;
+    }
+    
+    .tier-info {
+        text-align: center;
+    }
+    
+    .tier-title {
+        font-size: 1.2rem;
+    }
+    
+    .tier-description {
+        text-align: center;
+    }
+    
+    .service-name {
+        font-size: 1rem;
+    }
+    
+    .service-detail {
+        font-size: 0.9rem;
+    }
+}
+
+/* EXTRA SMALL DEVICES (max-width: 360px) */
+@media screen and (max-width: 360px) {
+    .main-heading {
+        font-size: 1.2rem;
+    }
+    
+    .main-description {
+        font-size: 0.85rem;
+    }
+    
+    .vision-section .section-title {
+        font-size: 1.3rem;
+    }
+    
+    .vision-content-box p {
+        font-size: 0.9rem;
+    }
+    
+    .slider-container {
+        height: 250px;
+    }
+    
+    .objective-name,
+    .tier-title {
+        font-size: 0.95rem;
+    }
+}
+
+/* LANDSCAPE MODE FOR MOBILES */
+@media screen and (max-height: 500px) and (orientation: landscape) {
+    .hero-container {
+        grid-template-columns: 1fr 3fr;
+    }
+    
+    .hero-left-part {
+        padding: 15px 10px;
+    }
+    
+    .hero-left-part img {
+        max-width: 100px;
+    }
+    
+    .main-heading {
+        font-size: 1.3rem;
+    }
+    
+    .slider-container {
+        height: 350px;
+    }
+    
+    .vision-section {
+        padding: 20px;
+    }
+}
+
+/* DISABLE COMPLEX ANIMATIONS ON MOBILE FOR PERFORMANCE */
+@media screen and (max-width: 768px) {
+    body {
+        font-size: 16px; /* Prevent zoom on input focus */
+    }
+    
+    .bg-circle {
+        animation: none;
+    }
+    
+    .vision-particle {
+        animation: none;
+    }
+    
+    @keyframes gradientMove {
+        0%, 100% { background-position: 0% 50%; }
+    }
+    
+    /* Reduce hover effects on touch devices */
+    .objective-card:hover,
+    .service-tier:hover {
+        transform: translateY(-5px) scale(1.01);
+    }
+    
+    /* Better touch targets */
+    button,
+    .slider-arrow,
+    .autoplay-toggle {
+        min-width: 44px;
+        min-height: 44px;
+    }
+}
+
 
     </style>
 </head>
@@ -770,7 +1313,7 @@
                     </p>
                 </div>
                 <div class="logo-group">
-                    <img src="images/ai.png" alt="AICTE"  style="width: 150px; height: auto;">
+                    <img src="images/ai.png" alt="AICTE">
                 </div>
             </div>
         </div>
@@ -848,7 +1391,7 @@
             <div class="hero-container">
                 <!-- Left Part: Logo Only -->
                 <div class="hero-left-part">
-                    <img src="images/vijigisha logo.png" alt="Higher Studies Cell Logo" style="width: 300px; height: auto; ">
+                    <img src="images/vijigisha logo.png" alt="Higher Studies Cell Logo">
                 </div>
 
                 <!-- Right Part: All Information -->
@@ -1185,21 +1728,6 @@
     <script src="js/main.js"></script>
     
     <script>
-        // Mobile menu toggle
-        const menuToggle = document.getElementById('menuToggle');
-        const navbarLinks = document.getElementById('navbarLinks');
-
-        if (menuToggle && navbarLinks) {
-            menuToggle.addEventListener('click', () => {
-                navbarLinks.classList.toggle('active');
-                const icon = menuToggle.querySelector('i');
-                if (icon) {
-                    icon.classList.toggle('fa-bars');
-                    icon.classList.toggle('fa-times');
-                }
-            });
-        }
-
         // Section navigation active state
         const sectionNavBtns = document.querySelectorAll('.section-nav-btn');
         const sections = {

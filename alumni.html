@@ -600,9 +600,95 @@
             .mpsc-officer-name {
                 font-size: 1.4rem;
             }
+            
+            /* Department cards responsive */
+            .department-cards {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 25px;
+            }
         }
 
         @media (max-width: 768px) {
+            /* Alumni section */
+            .alumni-section {
+                padding: 30px 20px;
+                margin-top: 30px;
+                border-radius: 20px;
+            }
+            
+            .section-header h2 {
+                font-size: 2rem;
+            }
+            
+            /* Department cards */
+            .department-cards {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .dept-card {
+                padding: 25px 20px;
+            }
+            
+            .dept-card i {
+                font-size: 2.8rem;
+            }
+            
+            .dept-card h3 {
+                font-size: 1.1rem;
+            }
+            
+            /* Testimonials section */
+            .testimonials-section {
+                padding: 20px 20px 30px;
+                margin-top: 30px;
+                border-radius: 20px;
+            }
+            
+            .testimonials-section .section-header h2 {
+                font-size: 1.8rem;
+            }
+            
+            .testimonial-video-container {
+                height: 200px;
+            }
+            
+            .video-play-btn {
+                width: 50px;
+                height: 50px;
+                font-size: 1.3rem;
+            }
+            
+            .testimonial-quote {
+                font-size: 1.1rem;
+            }
+            
+            .author-name {
+                font-size: 1.1rem;
+            }
+            
+            .author-company {
+                font-size: 0.95rem;
+            }
+            
+            .author-batch {
+                font-size: 0.85rem;
+            }
+            
+            .testimonial-arrow {
+                width: 35px;
+                height: 35px;
+                font-size: 1rem;
+            }
+            
+            .testimonial-arrow.prev {
+                left: -8px;
+            }
+
+            .testimonial-arrow.next {
+                right: -8px;
+            }
+            /* MPSC Officers */
             .mpsc-officers-grid {
                 grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
                 gap: 20px;
@@ -624,10 +710,127 @@
             .mpsc-position {
                 font-size: 1rem;
             }
-
         }
 
         @media (max-width: 480px) {
+            /* Alumni section */
+            .alumni-section {
+                padding: 20px 15px;
+                margin-top: 20px;
+                border-radius: 15px;
+            }
+            
+            .section-header h2 {
+                font-size: 1.5rem;
+            }
+            
+            /* Department cards */
+            .dept-card {
+                padding: 20px 15px;
+                border-radius: 15px;
+            }
+            
+            .dept-card i {
+                font-size: 2.4rem;
+            }
+            
+            .dept-card h3 {
+                font-size: 1rem;
+            }
+            
+            /* Testimonials section */
+            .testimonials-section {
+                padding: 15px 15px 25px;
+                margin-top: 20px;
+                border-radius: 15px;
+            }
+            
+            .testimonials-section .section-header h2 {
+                font-size: 1.4rem;
+            }
+            
+            .testimonial-card {
+                padding: 20px 15px;
+            }
+            
+            .testimonial-video-container {
+                height: 180px;
+                border-radius: 12px;
+            }
+            
+            .video-play-btn {
+                width: 45px;
+                height: 45px;
+                font-size: 1.2rem;
+            }
+            
+            .testimonial-quote {
+                font-size: 1rem;
+                line-height: 1.4;
+                padding-left: 10px;
+            }
+            
+            .author-details {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+            }
+            
+            .author-name {
+                font-size: 1rem;
+                padding-right: 0;
+                transform: none;
+            }
+            
+            .author-name::after {
+                display: none;
+            }
+            
+            .author-company {
+                font-size: 0.9rem;
+                padding: 3px 10px;
+            }
+            
+            .author-batch {
+                font-size: 0.8rem;
+                padding: 3px 10px;
+            }
+            
+            .testimonial-arrow {
+                width: 32px;
+                height: 32px;
+                font-size: 0.9rem;
+            }
+            
+            .testimonial-arrow.prev {
+                left: -5px;
+            }
+
+            .testimonial-arrow.next {
+                right: -5px;
+            }
+            
+            .testimonial-indicators {
+                margin-top: 15px;
+                gap: 8px;
+            }
+            
+            .testimonial-dot {
+                width: 7px;
+                height: 7px;
+            }
+            
+            .testimonial-dot.active {
+                width: 25px;
+            }
+            
+            /* MPSC photo smaller on mobile */
+            .mpsc-officer-photo {
+                width: 150px;
+                height: 150px;
+            }
+            
+            /* MPSC Officers */
             .mpsc-officers-grid {
                 grid-template-columns: 1fr;
                 gap: 15px;
@@ -648,6 +851,30 @@
 
             .mpsc-position {
                 font-size: 0.95rem;
+            }
+        }
+        
+        /* Extra small devices */
+        @media (max-width: 360px) {
+            .section-header h2 {
+                font-size: 1.3rem;
+            }
+            
+            .testimonials-section .section-header h2 {
+                font-size: 1.2rem;
+            }
+            
+            .dept-card i {
+                font-size: 2rem;
+            }
+            
+            .testimonial-video-container {
+                height: 150px;
+            }
+            
+            .mpsc-officer-photo {
+                width: 120px;
+                height: 120px;
             }
         }
     </style>
