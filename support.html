@@ -32,11 +32,18 @@
             .section-nav-btn {
                 width: 100%;
                 text-align: center;
+                padding: 12px 20px;
             }
 
             .forums-container {
-                grid-template-columns: 1fr;
+                grid-template-columns: 1fr !important;
+                grid-template-rows: auto !important;
                 gap: 20px;
+            }
+
+            .forums-container .forum-card {
+                grid-column: auto !important;
+                grid-row: auto !important;
             }
 
             .forum-card {
@@ -44,13 +51,34 @@
             }
 
             .forum-header {
-                flex-direction: column;
-                text-align: center;
+                flex-direction: row;
+                text-align: left;
                 gap: 15px;
+                align-items: center;
+            }
+
+            .forum-info {
+                text-align: left;
+            }
+
+            .forum-name {
+                font-size: 1.1rem;
+                text-align: left;
+            }
+
+            .forum-category {
+                text-align: left;
+            }
+
+            .forum-description p {
+                text-align: left;
             }
 
             .opportunities-container {
                 flex-direction: column;
+                display: grid !important;
+                grid-template-columns: 1fr !important;
+                gap: 20px;
             }
 
             .opportunity-column {
@@ -58,8 +86,12 @@
             }
 
             .competitive-grid {
-                grid-template-columns: 1fr;
+                grid-template-columns: 1fr !important;
                 gap: 20px;
+            }
+
+            .column-header {
+                text-align: center;
             }
 
             .column-header h3 {
@@ -95,16 +127,56 @@
                 font-size: 1.4rem !important;
             }
 
+            .forums-container {
+                grid-template-columns: 1fr !important;
+                grid-template-rows: auto !important;
+                gap: 15px;
+            }
+
+            .forums-container .forum-card {
+                grid-column: auto !important;
+                grid-row: auto !important;
+            }
+
             .forum-card {
                 padding: 15px;
             }
 
+            .forum-header {
+                flex-direction: column;
+                text-align: center;
+                align-items: center;
+            }
+
+            .forum-icon {
+                margin: 0 auto;
+            }
+
+            .forum-info {
+                text-align: center;
+                width: 100%;
+            }
+
             .forum-name {
-                font-size: 1.1rem;
+                font-size: 1.05rem;
+                text-align: center;
+            }
+
+            .forum-category {
+                text-align: center;
             }
 
             .forum-description {
+                text-align: center;
+            }
+
+            .forum-description p {
                 font-size: 0.85rem;
+                text-align: center;
+            }
+
+            .forum-features {
+                text-align: left;
             }
 
             .forum-features li {
@@ -121,16 +193,40 @@
                 font-size: 1.2rem;
             }
 
+            .opportunities-container {
+                grid-template-columns: 1fr !important;
+                gap: 15px;
+            }
+
+            .competitive-grid {
+                grid-template-columns: 1fr !important;
+                gap: 15px;
+            }
+
             .edu-card {
                 padding: 20px 15px;
             }
 
             .edu-card h4 {
                 font-size: 1.1rem;
+                text-align: center;
             }
 
             .edu-card p {
                 font-size: 0.85rem;
+                text-align: center;
+            }
+
+            .card-tags {
+                justify-content: center;
+            }
+
+            .competitive-card {
+                text-align: center;
+            }
+
+            .competitive-header {
+                justify-content: center;
             }
 
             .competitive-card h3 {
@@ -139,14 +235,17 @@
 
             .competitive-card h4 {
                 font-size: 1rem;
+                text-align: center;
             }
 
             .competitive-desc {
                 font-size: 0.85rem;
+                text-align: center;
             }
 
             .feature-item {
                 font-size: 0.85rem;
+                justify-content: center;
             }
         }
 
@@ -163,9 +262,34 @@
                 font-size: 0.75rem !important;
             }
 
+            .section-nav-btn {
+                font-size: 0.8rem;
+                padding: 8px 12px;
+            }
+
             .section-title,
             .support-section-header h2 {
                 font-size: 1.2rem !important;
+            }
+
+            .forums-container {
+                grid-template-columns: 1fr !important;
+                gap: 12px;
+            }
+
+            .forums-container .forum-card {
+                grid-column: auto !important;
+                grid-row: auto !important;
+            }
+
+            .opportunities-container {
+                grid-template-columns: 1fr !important;
+                gap: 12px;
+            }
+
+            .competitive-grid {
+                grid-template-columns: 1fr !important;
+                gap: 12px;
             }
 
             .forum-card,
@@ -177,10 +301,44 @@
             .forum-name,
             .edu-card h4 {
                 font-size: 1rem;
+                text-align: center;
+            }
+
+            .forum-category,
+            .forum-description p {
+                font-size: 0.75rem;
+                text-align: center;
+            }
+
+            .forum-features li {
+                font-size: 0.75rem;
             }
 
             .column-header h3 {
                 font-size: 1.1rem;
+            }
+
+            .edu-card p {
+                font-size: 0.75rem;
+                text-align: center;
+            }
+
+            .competitive-card h3 {
+                font-size: 1.05rem;
+            }
+
+            .competitive-card h4 {
+                font-size: 0.9rem;
+                text-align: center;
+            }
+
+            .competitive-desc {
+                font-size: 0.75rem;
+                text-align: center;
+            }
+
+            .feature-item {
+                font-size: 0.75rem;
             }
         }
     </style>
