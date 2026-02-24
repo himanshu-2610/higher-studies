@@ -102,8 +102,8 @@
 }
 
 .hero-left-part img {
-    width: 300px;
-    max-width: 100%;
+    width: 400px;
+    max-width: 800px;
     height: auto;
 }
 
@@ -122,19 +122,35 @@
     font-size: 2.5rem;
     font-weight: 800;
     color: #ffffff;
-    margin: 0 0 20px 0;
+    margin: 10px 0 10px 0;
     text-shadow: none;
     font-family: 'Roboto', sans-serif;
     letter-spacing: -0.5px;
+    text-align: center;
 }
 
 .main-description {
     font-size: 1rem;
     color: rgba(255, 255, 255, 0.92);
     line-height: 1.8;
-    margin: 0 0 30px 0;
+    margin: 0 0 10px 0;
     font-weight: 400;
     letter-spacing: 0.3px;
+    text-align: justify;
+    background: rgba(255, 255, 255, 0.12);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 25px 30px;
+    border: 2px solid rgba(255, 255, 255, 0.25);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1), inset 0 0 20px rgba(255, 255, 255, 0.1);
+    transition: all 0.4s ease;
+}
+
+.main-description:hover {
+    background: rgba(255, 255, 255, 0.18);
+    border-color: rgba(255, 255, 255, 0.35);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15), inset 0 0 30px rgba(255, 255, 255, 0.15);
 }
 
 /* Objectives Section - Modern Theme */
@@ -815,7 +831,7 @@
         font-size: 0.95rem;
         line-height: 1.6;
         margin: 0 0 20px 0;
-        text-align: center;
+        text-align : justify;
     }
     
     /* Background circles - reduce size */
