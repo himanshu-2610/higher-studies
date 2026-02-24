@@ -2686,7 +2686,7 @@ STUDENT SUPPORT PAGE STYLING
     
     .nav-link.active {
         border-left: 4px solid var(--secondary-color) !important;
-        background-color: rgba(39, 195, 230, 0.2);
+        background-color: rgb(255, 255, 255);
     }
     
     .nav-item.active::before {
