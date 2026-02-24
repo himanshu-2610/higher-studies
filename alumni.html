@@ -139,6 +139,8 @@
             box-shadow: 0 20px 60px rgba(41, 128, 185, 0.08);
             overflow: hidden;
             margin-top: 40px;
+            width: 100%;
+            box-sizing: border-box;
         }
 
         .testimonials-section::before {
@@ -166,6 +168,8 @@
             position: relative;
             padding: 10px 0;
             z-index: 2;
+            width: 100%;
+            max-width: 100%;
         }
 
         .testimonial-carousel {
@@ -173,6 +177,8 @@
             border-radius: 20px;
             box-shadow: 0 15px 40px rgba(11, 59, 130, 0.2);
             background: white;
+            width: 100%;
+            max-width: 100%;
         }
 
         .testimonial-track {
@@ -181,12 +187,13 @@
         }
 
         .testimonial-card {
-            flex: 0 0 100%;
+            flex-shrink: 0;
             padding: 25px 35px;
             background: white;
             display: flex;
             flex-direction: column;
             position: relative;
+            box-sizing: border-box;
         }
 
         /* Video Container - Compact */
@@ -309,8 +316,9 @@
             display: flex;
             align-items: center;
             flex-wrap: wrap;
-            gap: 15px 20px;
+            gap: 10px 15px;
             justify-content: center;
+            width: 100%;
         }
 
         .author-name {
@@ -322,6 +330,9 @@
             position: relative;
             padding-right: 15px;
             transform: translateY(-2px); /* Shift name upward slightly */
+            max-width: 250px;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
 
         .author-name::after {
@@ -340,11 +351,15 @@
             font-size: 1.1rem; /* Slightly larger to match */
             color: #e67e22;
             font-weight: 600;
-            white-space: nowrap;
             background: rgba(230, 126, 34, 0.1);
             padding: 4px 12px;
             border-radius: 30px;
             border: 1px solid rgba(230, 126, 34, 0.2);
+            max-width: 400px;
+            text-align: center;
+            line-height: 1.3;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
         }
 
         .author-batch {
@@ -356,8 +371,12 @@
             color: #0b3b82;
             font-weight: 600;
             border: 1px solid rgba(52, 152, 219, 0.3);
-            white-space: nowrap;
             letter-spacing: 0.3px;
+            max-width: 300px;
+            text-align: center;
+            line-height: 1.3;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
         }
 
         /* Add a small icon before company */
@@ -447,6 +466,45 @@
         .testimonial-dot:hover {
             background: #3498db;
             transform: scale(1.2);
+        }
+
+        /* Read More Button */
+        .read-more-btn {
+            background: linear-gradient(135deg, #0b3b82, #3498db);
+            color: white;
+            border: none;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+            box-shadow: 0 4px 12px rgba(11, 59, 130, 0.3);
+            display: inline-block;
+        }
+
+        .read-more-btn:hover {
+            background: linear-gradient(135deg, #3498db, #0b3b82);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(11, 59, 130, 0.4);
+        }
+
+        .read-more-btn:active {
+            transform: translateY(0);
+        }
+
+        .testimonial-quote.truncated {
+            display: -webkit-box;
+            -webkit-line-clamp: 4;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .testimonial-quote.expanded {
+            display: block;
+            max-height: 400px;
+            overflow-y: auto;
         }
 
         /* Modal Animation */
@@ -673,6 +731,11 @@
                 padding-left: 10px;
             }
 
+            .read-more-btn {
+                font-size: 0.85rem;
+                padding: 6px 16px;
+            }
+
             .testimonial-author {
                 padding: 10px 15px;
                 gap: 12px;
@@ -694,11 +757,17 @@
             .author-company {
                 font-size: 0.95rem;
                 padding: 3px 10px;
+                max-width: 300px;
+                word-wrap: break-word;
+                overflow-wrap: break-word;
             }
             
             .author-batch {
                 font-size: 0.85rem;
                 padding: 3px 10px;
+                max-width: 250px;
+                word-wrap: break-word;
+                overflow-wrap: break-word;
             }
             
             .testimonial-arrow {
@@ -783,7 +852,7 @@
             .testimonial-wrapper {
                 padding: 5px 0;
             }
-            
+
             .testimonial-card {
                 padding: 15px;
             }
@@ -806,6 +875,15 @@
                 padding-left: 8px;
                 border-left-width: 2px;
                 margin-bottom: 12px;
+            }
+
+            .testimonial-quote.truncated {
+                -webkit-line-clamp: 3;
+            }
+
+            .read-more-btn {
+                font-size: 0.8rem;
+                padding: 6px 14px;
             }
 
             .testimonial-author {
@@ -835,11 +913,17 @@
             .author-company {
                 font-size: 0.85rem;
                 padding: 3px 10px;
+                max-width: 100%;
+                word-wrap: break-word;
+                overflow-wrap: break-word;
             }
             
             .author-batch {
                 font-size: 0.75rem;
                 padding: 3px 10px;
+                max-width: 100%;
+                word-wrap: break-word;
+                overflow-wrap: break-word;
             }
             
             .testimonial-arrow {
@@ -952,11 +1036,17 @@
             .author-company {
                 font-size: 0.75rem;
                 padding: 2px 8px;
+                max-width: 100%;
+                word-wrap: break-word;
+                overflow-wrap: break-word;
             }
 
             .author-batch {
                 font-size: 0.7rem;
                 padding: 2px 8px;
+                max-width: 100%;
+                word-wrap: break-word;
+                overflow-wrap: break-word;
             }
 
             .testimonial-arrow {
@@ -1421,6 +1511,7 @@
         function renderTestimonials() {
             const track = document.getElementById('testimonialTrack');
             const indicators = document.getElementById('testimonialIndicators');
+            const carousel = document.querySelector('.testimonial-carousel');
             
             if (!track) return;
 
@@ -1450,14 +1541,17 @@
                         </div>
                     `;
                 } else {
+                    // Check if quote is long (more than 250 characters)
+                    const isLongQuote = testimonial.quote.length > 250;
                     return `
                         <div class="testimonial-card" data-index="${index}">
                             
                             <div class="testimonial-content">
                                 
-                                <div class="testimonial-quote">
+                                <div class="testimonial-quote ${isLongQuote ? 'truncated' : ''}" id="quote-${index}">
                                     "${testimonial.quote}"
                                 </div>
+                                ${isLongQuote ? `<button class="read-more-btn" onclick="toggleReadMore(${index})">Read More</button>` : ''}
                                 
                                 <div class="testimonial-author">
                                     <div class="author-details">
@@ -1477,8 +1571,38 @@
                 <button class="testimonial-dot ${index === 0 ? 'active' : ''}" data-index="${index}"></button>
             `).join('');
 
+            // Set proper width for each card after rendering
+            setTimeout(() => {
+                if (carousel) {
+                    const carouselWidth = carousel.offsetWidth;
+                    const cards = track.querySelectorAll('.testimonial-card');
+                    cards.forEach(card => {
+                        card.style.width = `${carouselWidth}px`;
+                        card.style.flexShrink = '0';
+                    });
+                }
+            }, 0);
+
+            // Reset track position
+            currentSlide = 0;
+
             updateCarousel();
             setupIndicatorListeners();
+        }
+
+        function toggleReadMore(index) {
+            const quoteElement = document.getElementById(`quote-${index}`);
+            const button = event.target;
+            
+            if (quoteElement.classList.contains('truncated')) {
+                quoteElement.classList.remove('truncated');
+                quoteElement.classList.add('expanded');
+                button.textContent = 'Read Less';
+            } else {
+                quoteElement.classList.remove('expanded');
+                quoteElement.classList.add('truncated');
+                button.textContent = 'Read More';
+            }
         }
 
         function playVideo(id) {
@@ -1769,6 +1893,24 @@
             
             if (prevBtn) prevBtn.addEventListener('click', prevSlide);
             if (nextBtn) nextBtn.addEventListener('click', nextSlide);
+
+            // Update carousel card widths on window resize
+            let resizeTimeout;
+            window.addEventListener('resize', () => {
+                clearTimeout(resizeTimeout);
+                resizeTimeout = setTimeout(() => {
+                    const carousel = document.querySelector('.testimonial-carousel');
+                    const track = document.getElementById('testimonialTrack');
+                    if (carousel && track) {
+                        const carouselWidth = carousel.offsetWidth;
+                        const cards = track.querySelectorAll('.testimonial-card');
+                        cards.forEach(card => {
+                            card.style.width = `${carouselWidth}px`;
+                        });
+                        updateCarousel();
+                    }
+                }, 200);
+            });
             
             // Mobile menu toggle
             const menuToggle = document.getElementById('menuToggle');
