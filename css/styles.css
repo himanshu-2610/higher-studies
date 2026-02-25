@@ -4027,6 +4027,106 @@ STUDENT SUPPORT PAGE STYLING
     }
 }
 
+/* ========== TOAST NOTIFICATION ========== */
+.custom-toast {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: white;
+    padding: 16px 20px;
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-width: 320px;
+    max-width: 500px;
+    z-index: 10000;
+    opacity: 0;
+    transform: translateX(400px);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border-left: 4px solid var(--primary-color);
+}
+
+.custom-toast.show {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.custom-toast.success {
+    border-left-color: #27c3e6;
+    background: linear-gradient(135deg, #ffffff 0%, #f0f9ff 100%);
+}
+
+.custom-toast.error {
+    border-left-color: #e74c3c;
+    background: linear-gradient(135deg, #ffffff 0%, #ffebee 100%);
+}
+
+.toast-icon {
+    font-size: 24px;
+    flex-shrink: 0;
+    animation: popIn 0.3s ease-out;
+}
+
+@keyframes popIn {
+    0% { transform: scale(0); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+.toast-message {
+    flex: 1;
+    color: #333;
+    font-size: 14px;
+    line-height: 1.5;
+    font-weight: 500;
+}
+
+.toast-close {
+    background: transparent;
+    border: none;
+    color: #999;
+    font-size: 24px;
+    line-height: 1;
+    cursor: pointer;
+    padding: 0;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+}
+
+.toast-close:hover {
+    background: rgba(0, 0, 0, 0.05);
+    color: #333;
+    transform: rotate(90deg);
+}
+
+/* Mobile responsiveness for toast */
+@media screen and (max-width: 480px) {
+    .custom-toast {
+        top: 10px;
+        right: 10px;
+        left: 10px;
+        min-width: auto;
+        max-width: none;
+        transform: translateY(-100px);
+    }
+    
+    .custom-toast.show {
+        transform: translateY(0);
+    }
+    
+    .toast-message {
+        font-size: 13px;
+    }
+}
+
 /* ========== DARK MODE SUPPORT (Optional Enhancement) ========== */
 @media (prefers-color-scheme: dark) {
     /* Users can uncomment this for dark mode support

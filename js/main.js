@@ -1,3 +1,34 @@
+// Toast Notification Function
+function showToast(message, type = 'success') {
+    // Remove existing toast if any
+    const existingToast = document.querySelector('.custom-toast');
+    if (existingToast) {
+        existingToast.remove();
+    }
+
+    // Create toast element
+    const toast = document.createElement('div');
+    toast.className = `custom-toast ${type}`;
+    
+    const icon = type === 'success' ? '✅' : '❌';
+    toast.innerHTML = `
+        <div class="toast-icon">${icon}</div>
+        <div class="toast-message">${message}</div>
+        <button class="toast-close" onclick="this.parentElement.remove()">×</button>
+    `;
+    
+    document.body.appendChild(toast);
+    
+    // Trigger animation
+    setTimeout(() => toast.classList.add('show'), 10);
+    
+    // Auto remove after 5 seconds
+    setTimeout(() => {
+        toast.classList.remove('show');
+        setTimeout(() => toast.remove(), 300);
+    }, 5000);
+}
+
 // Mobile menu toggle functionality
 document.addEventListener('DOMContentLoaded', function() {
     const navbarLinks = document.getElementById('navbarLinks');
@@ -143,37 +174,59 @@ document.addEventListener('DOMContentLoaded', function() {
         observer.observe(card);
     });
     
-    // Contact form submission
+    // Contact form submission with EmailJS
     const contactForm = document.querySelector('.contact-form');
 
     if (contactForm) {
-        contactForm.addEventListener('submit', async function(e) {
+        contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
 
-            const formData = {
-                name: document.getElementById('name').value,
-                email: document.getElementById('email').value,
-                subject: document.getElementById('subject').value,
-                message: document.getElementById('message').value,
-                category: document.getElementById('category').value
+            // Get form values
+            const firstName = document.getElementById('firstName')?.value || '';
+            const lastName = document.getElementById('lastName')?.value || '';
+            const email = document.getElementById('email')?.value || '';
+            const phone = document.getElementById('phone')?.value || 'Not provided';
+            const organization = document.getElementById('organization')?.value || 'Not provided';
+            const inquiryType = document.getElementById('inquiryType')?.value || '';
+            const subject = document.getElementById('subject')?.value || '';
+            const message = document.getElementById('message')?.value || '';
+
+            // Disable submit button and show loading state
+            const submitBtn = contactForm.querySelector('.submit-btn');
+            const originalBtnText = submitBtn.innerHTML;
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+
+            // Prepare template parameters for EmailJS
+            const templateParams = {
+                from_name: `${firstName} ${lastName}`,
+                first_name: firstName,
+                last_name: lastName,
+                from_email: email,
+                phone: phone,
+                organization: organization,
+                inquiry_type: inquiryType,
+                subject: subject,
+                message: message,
+                to_email: 'himanshu.dhakad23@pccoepune.org' // Developer's email
             };
 
-            try {
-                const response = await fetch("/api/send-email", {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json"
-                    },
-                    body: JSON.stringify(formData)
+            // Send email using EmailJS
+            // Replace 'YOUR_SERVICE_ID' and 'YOUR_TEMPLATE_ID' with your actual EmailJS credentials
+            // Get these from: https://dashboard.emailjs.com/
+            emailjs.send('service_cijruvf', 'template_a8w3pvq', templateParams)
+                .then(function(response) {
+                    console.log('SUCCESS!', response.status, response.text);
+                    showToast('Message sent successfully! We will get back to you soon.', 'success');
+                    contactForm.reset();
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = originalBtnText;
+                }, function(error) {
+                    console.error('FAILED...', error);
+                    showToast('Failed to send message. Please try again or contact us directly via email.', 'error');
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = originalBtnText;
                 });
-
-                const result = await response.json();
-                alert(result.message);
-                contactForm.reset();
-
-            } catch (error) {
-                alert("Something went wrong!");
-            }
         });
     }
     
