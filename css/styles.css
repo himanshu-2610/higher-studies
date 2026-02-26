@@ -317,7 +317,8 @@ marquee {
 .section-nav-container {
     max-width: 1400px;
     margin: 0 auto;
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
     justify-content: space-between; /* SPREAD BUTTONS */
     align-items: center;
     gap: 20px;
