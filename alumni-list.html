@@ -63,108 +63,138 @@
             color: white;
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
+        /* ===== EXCEL-STYLE TABLE ===== */
         .alumni-list {
-            margin-top: 35px;
-            animation: fadeInUp 0.6s ease-out;
+            margin-top: 20px;
+            animation: fadeInUp 0.5s ease-out;
+            overflow-x: auto;
+            border-radius: 14px;
+            box-shadow: 0 8px 28px rgba(11, 59, 130, 0.13);
         }
         @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(20px); }
+            to   { opacity: 1; transform: translateY(0); }
         }
-        .alumni-item {
-            background: linear-gradient(135deg, #ffffff 0%, #f8fbff 100%);
-            padding: 20px 35px 10px;
-            margin-bottom: 25px;
-            border-radius: 18px;
-            box-shadow: 0 6px 18px rgba(11, 59, 130, 0.1);
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            gap: 15px;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            border: 2px solid rgba(41, 128, 185, 0.08);
-            position: relative;
-            overflow: hidden;
-            animation: slideInUp 0.5s ease-out backwards;
-        }
-        @keyframes slideInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        .alumni-item::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
+
+        .alumni-table {
             width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(41, 128, 185, 0.08), transparent);
-            transition: left 0.6s ease;
-        }
-        .alumni-item:hover::before {
-            left: 100%;
-        }
-        .alumni-item:hover {
-            transform: translateY(-6px) scale(1.01);
-            box-shadow: 0 12px 30px rgba(11, 59, 130, 0.18);
-            border-color: var(--secondary-color);
-        }
-        .alumni-item img {
-            display: none;
-        }
-        .alumni-item .info {
-            width: 100%;
-        }
-        .alumni-item .info h4 {
-            background: linear-gradient(135deg, #0b3b82 0%, #2980b9 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin: 0 0 12px 0;
-            font-size: 1.5rem;
-            font-weight: 700;
-            width: 100%;
-        }
-        .alumni-item .info p {
-            margin: 8px 0;
-            color: #555;
-            line-height: 1.6;
+            border-collapse: collapse;
             font-size: 0.95rem;
+            background: #fff;
+            border-radius: 14px;
+            overflow: hidden;
         }
-        .alumni-item .info p strong {
-            color: var(--primary-color);
-            font-weight: 600;
-            min-width: 120px;
-            display: inline-block;
-        }
-        .alumni-item .info p:nth-of-type(3) {
-            margin-top: 15px;
-            padding-top: 15px;
-            border-top: 1px solid rgba(11, 59, 130, 0.1);
-            color: #666;
-            font-style: italic;
-            line-height: 1.8;
-            font-size: 0.98rem;
-        }
-        .fa-clock{
+
+        /* Header row — Excel green-ish header replaced with brand blue */
+        .alumni-table thead tr {
+            background: linear-gradient(135deg, #0b3b82 0%, #1a5bb8 100%);
             color: #ffffff;
         }
+
+        .alumni-table thead th {
+            padding: 14px 18px;
+            text-align: left;
+            font-weight: 700;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            white-space: nowrap;
+            border-right: 1px solid rgba(255,255,255,0.15);
+            user-select: none;
+        }
+
+        .alumni-table thead th:last-child { border-right: none; }
+
+        /* Row number column */
+        .alumni-table thead th.col-no,
+        .alumni-table tbody td.col-no {
+            width: 52px;
+            text-align: center;
+            background: rgba(11, 59, 130, 0.06);
+            font-weight: 700;
+            color: #0b3b82;
+            border-right: 2px solid rgba(11, 59, 130, 0.15);
+        }
+        .alumni-table thead th.col-no {
+            background: rgba(255,255,255,0.12);
+            color: #fff;
+        }
+
+        /* Body rows */
+        .alumni-table tbody tr {
+            border-bottom: 1px solid #d0dce8;
+            transition: background 0.18s ease;
+        }
+
+        /* Alternating row colours — classic Excel look */
+        .alumni-table tbody tr:nth-child(even) {
+            background: #eef4fb;
+        }
+        .alumni-table tbody tr:nth-child(odd) {
+            background: #ffffff;
+        }
+
+        .alumni-table tbody tr:hover {
+            background: #d6e8fa !important;
+        }
+
+        .alumni-table tbody td {
+            padding: 11px 18px;
+            color: #1a2a3a;
+            border-right: 1px solid #ccd9e8;
+            vertical-align: middle;
+            line-height: 1.5;
+        }
+
+        .alumni-table tbody td:last-child { border-right: none; }
+
+        /* Name cell emphasis */
+        .alumni-table tbody td.col-name {
+            font-weight: 600;
+            color: #0b3b82;
+        }
+
+        /* Description cell — slightly muted */
+        .alumni-table tbody td.col-desc {
+            color: #445566;
+            font-style: italic;
+            font-size: 0.9rem;
+        }
+
+        /* Freeze-pane visual hint on row number column */
+        .alumni-table tbody td.col-no {
+            font-size: 0.82rem;
+        }
+
+        /* Responsive: stack for very small screens */
+        @media (max-width: 600px) {
+            .alumni-table thead { display: none; }
+            .alumni-table tbody tr {
+                display: block;
+                margin-bottom: 12px;
+                border-radius: 10px;
+                border: 1px solid #ccd9e8;
+                box-shadow: 0 2px 8px rgba(11,59,130,0.08);
+            }
+            .alumni-table tbody td {
+                display: flex;
+                justify-content: space-between;
+                border-right: none;
+                border-bottom: 1px solid #dde8f3;
+                padding: 10px 14px;
+            }
+            .alumni-table tbody td::before {
+                content: attr(data-label);
+                font-weight: 700;
+                color: #0b3b82;
+                flex-shrink: 0;
+                margin-right: 12px;
+                min-width: 110px;
+            }
+            .alumni-table tbody td.col-no { display: none; }
+        }
+
+        .fa-clock{ color: #ffffff; }
         .coming-soon {
             text-align: center;
             padding: 20px 13px;
@@ -260,6 +290,12 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a href="events.html" class="nav-link">
+                        <i class="fas fa-star"></i>
+                        <span>Events Organized</span>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="membership.html" class="nav-link">
                         <i class="fas fa-address-card"></i>
                         <span>Membership</span>
@@ -307,7 +343,7 @@
     <footer class="footer">
         <div class="footer-bottom">
             © 2025 Higher Education and Competitive Exam Cell (विजिगीषा), PCCOE.<br>
-            All rights reserved | Designed by The Department of Computer Science & Engineering(Artificial Intelligence and Machine Learning) PCCOE
+            All rights reserved | <a href="designers.html" target="_blank" style="color:rgba(255,255,255,0.78); text-decoration:none;">Designed by The Department of Computer Science &amp; Engineering (Artificial Intelligence and Machine Learning) PCCOE</a>
         </div>
     </footer>
 
@@ -326,16 +362,30 @@
                         <p>Alumni list for this department will be updated soon.</p>
                     </div>`;
             } else {
-                container.innerHTML = alumni.map((a, index) => `
-                    <div class="alumni-item" style="animation-delay: ${index * 0.1}s">
-                        <div class="info">
-                            <h4>${a.name}</h4>
-                            <p><strong>Department:</strong> ${a.department}</p>
-                            <p><strong>Passing Year:</strong> ${a.year}</p>
-                            ${a.description ? `<p>${a.description}</p>` : ''}
-                        </div>
-                    </div>
+                const hasDescription = alumni.some(a => a.description);
+                const rows = alumni.map((a, index) => `
+                    <tr>
+                        <td class="col-no">${index + 1}</td>
+                        <td class="col-name" data-label="Name">${a.name}</td>
+                        <td data-label="Department">${a.department}</td>
+                        <td data-label="Passing Year">${a.year}</td>
+                        ${hasDescription ? `<td class="col-desc" data-label="Details">${a.description || '—'}</td>` : ''}
+                    </tr>
                 `).join('');
+
+                container.innerHTML = `
+                    <table class="alumni-table">
+                        <thead>
+                            <tr>
+                                <th class="col-no">#</th>
+                                <th>Name</th>
+                                <th>Department</th>
+                                <th>Passing Year</th>
+                                ${hasDescription ? '<th>Details</th>' : ''}
+                            </tr>
+                        </thead>
+                        <tbody>${rows}</tbody>
+                    </table>`;
             }
         }
 

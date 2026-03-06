@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events Organized | Higher Education Cell - PCCOE</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        /* ===== EVENT TABS ===== */
+        .event-tabs-wrapper {
+            display: flex;
+            justify-content: center;
+            margin: 0 0 35px 0;
+        }
+
+        .event-tabs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            justify-content: center;
+        }
+
+        .event-tab-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 30px;
+            border: 2px solid rgba(11, 59, 130, 0.25);
+            border-radius: 50px;
+            background: #ffffff;
+            color: #4a6572;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Roboto', sans-serif;
+            letter-spacing: 0.3px;
+            box-shadow: 0 3px 10px rgba(11, 59, 130, 0.07);
+        }
+
+        .event-tab-btn i {
+            font-size: 1.05rem;
+        }
+
+        .event-tab-btn.active {
+            background: linear-gradient(135deg, #0b3b82, #1a5bb8);
+            color: #ffffff;
+            border-color: transparent;
+            box-shadow: 0 6px 20px rgba(11, 59, 130, 0.28);
+        }
+
+        .event-tab-btn:not(.active):hover {
+            background: #f0f7ff;
+            border-color: rgba(11, 59, 130, 0.4);
+            color: #0b3b82;
+            transform: translateY(-2px);
+        }
+
+        /* ===== EVENT PANELS ===== */
+        .event-panel {
+            display: none;
+            animation: fadeInUp 0.4s ease-out;
+        }
+
+        .event-panel.active {
+            display: block;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ===== EVENT HEADER CARD ===== */
+        .event-header-card {
+            background: linear-gradient(135deg, #0b3b82 0%, #1a5bb8 60%, #27c3e6 100%);
+            border-radius: 24px;
+            padding: 40px 50px;
+            margin-bottom: 35px;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            box-shadow: 0 15px 40px rgba(11, 59, 130, 0.25);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .event-header-card::before {
+            content: '';
+            position: absolute;
+            top: -60px; right: -60px;
+            width: 220px; height: 220px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.07);
+        }
+
+        .event-header-card::after {
+            content: '';
+            position: absolute;
+            bottom: -40px; left: 40%;
+            width: 150px; height: 150px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.05);
+        }
+
+        .event-header-icon {
+            flex-shrink: 0;
+            width: 80px; height: 80px;
+            border-radius: 20px;
+            background: rgba(255,255,255,0.15);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 2.2rem;
+            border: 2px solid rgba(255,255,255,0.25);
+            position: relative; z-index: 1;
+        }
+
+        .event-header-text { position: relative; z-index: 1; }
+
+        .event-header-text h2 {
+            font-size: 1.9rem;
+            font-weight: 800;
+            margin: 0 0 8px 0;
+            letter-spacing: -0.3px;
+        }
+
+        .event-header-text p {
+            font-size: 1rem;
+            color: rgba(255,255,255,0.85);
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        /* ===== CONTENT SECTION ===== */
+        .event-content {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 8px 28px rgba(11, 59, 130, 0.1);
+            border: 1px solid rgba(41,128,185,0.1);
+        }
+
+        /* ===== COMING SOON ===== */
+        .coming-soon-block {
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        .coming-soon-block .cs-icon {
+            font-size: 64px;
+            color: #c8d9ee;
+            margin-bottom: 20px;
+        }
+
+        .coming-soon-block h3 {
+            font-size: 1.6rem;
+            color: #0b3b82;
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+
+        .coming-soon-block p {
+            font-size: 1rem;
+            color: #6b7e8f;
+            max-width: 420px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        /* ===== HIGHLIGHT CARDS (for key facts / highlights) ===== */
+        .highlight-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 22px;
+            margin-top: 30px;
+        }
+
+        .highlight-card {
+            background: linear-gradient(135deg, #f0f7ff 0%, #e6f0fa 100%);
+            border-radius: 16px;
+            padding: 26px 22px;
+            border: 1px solid rgba(41,128,185,0.12);
+            text-align: center;
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .highlight-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 28px rgba(11, 59, 130, 0.12);
+        }
+
+        .highlight-card i {
+            font-size: 2rem;
+            color: #1a5bb8;
+            margin-bottom: 12px;
+        }
+
+        .highlight-card h4 {
+            font-size: 1rem;
+            font-weight: 700;
+            color: #0b3b82;
+            margin: 0 0 6px;
+        }
+
+        .highlight-card p {
+            font-size: 0.88rem;
+            color: #546a7b;
+            margin: 0;
+            line-height: 1.5;
+        }
+
+        /* ===== GALLERY GRID ===== */
+        .event-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 18px;
+            margin-top: 30px;
+        }
+
+        .event-gallery img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 14px;
+            box-shadow: 0 4px 14px rgba(11,59,130,0.12);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .event-gallery img:hover {
+            transform: scale(1.03);
+            box-shadow: 0 8px 22px rgba(11,59,130,0.2);
+        }
+
+        .section-subheading {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #0b3b82;
+            margin: 0 0 18px 0;
+            padding-bottom: 10px;
+            border-bottom: 2px solid rgba(41,128,185,0.15);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .event-header-card {
+                flex-direction: column;
+                text-align: center;
+                padding: 30px 25px;
+            }
+            .event-header-text h2 { font-size: 1.5rem; }
+            .event-content { padding: 25px 20px; }
+            .event-tab-btn { padding: 12px 20px; font-size: 0.88rem; }
+        }
+
+        @media (max-width: 480px) {
+            .event-tab-btn { padding: 10px 16px; font-size: 0.83rem; }
+            .event-header-card { padding: 25px 18px; }
+            .event-header-text h2 { font-size: 1.3rem; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="top-header">
+        <div class="header-container">
+            <div class="header-center">
+                <div class="logo-group">
+                    <img src="images/PCCOE-Logo.png" alt="PCCOE">
+                </div>
+                <div class="header-text">
+                    <h4>PIMPRI CHINCHWAD EDUCATIONAL TRUST's</h4>
+                    <h1>PIMPRI CHINCHWAD COLLEGE OF ENGINEERING</h1>
+                    <p class="subtitle">
+                        NBA Accredited | NAAC Accredited with 'A' Grade | An Autonomous Institute | AICTE Approved | ISO 21001:2018 Certified | Permanently Affiliated to SPPU, Pune
+                    </p>
+                </div>
+                <div class="logo-group">
+                    <img src="images/ai.png" alt="AICTE">
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Updates Bar -->
+    <div class="updates-bar">
+        <span class="updates-label">UPDATES</span>
+        <marquee>
+            📌 Gate Exam 2026 Important Dates are now available. <a href="https://gate2026.iitg.ac.in/important-dates.html" style="color: white; text-decoration: underline;">View Schedule</a>
+        </marquee>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar" role="navigation">
+        <div class="navbar-container">
+            <button class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="navbar-links" id="navbarLinks">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">
+                        <i class="fas fa-home"></i>
+                        <span>Home</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="about.html" class="nav-link">
+                        <i class="fas fa-users"></i>
+                        <span>Our Team</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="support.html" class="nav-link">
+                        <i class="fas fa-hands-helping"></i>
+                        <span>Student Support</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="alumni.html" class="nav-link">
+                        <i class="fas fa-award"></i>
+                        <span>Alumni</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="activities.html" class="nav-link">
+                        <i class="fas fa-tasks"></i>
+                        <span>Activities Conducted</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="events.html" class="nav-link active">
+                        <i class="fas fa-star"></i>
+                        <span>Events Organized</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="membership.html" class="nav-link">
+                        <i class="fas fa-address-card"></i>
+                        <span>Membership</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="contact.html" class="nav-link">
+                        <i class="fas fa-phone"></i>
+                        <span>Contact Us</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-container" id="main-content" role="main">
+        <div class="page-header">
+            <h1>Events Organized</h1>
+            <p>Special events organized by the Higher Education and Competitive Exam Cell (विजिगीषा)</p>
+        </div>
+
+        <!-- Event Tab Buttons -->
+        <div class="event-tabs-wrapper">
+            <div class="event-tabs">
+                <button class="event-tab-btn active" data-event="logo-design">
+                    <i class="fas fa-pen-nib"></i>
+                    Logo Design Competition
+                </button>
+                <button class="event-tab-btn" data-event="unveiling">
+                    <i class="fas fa-star"></i>
+                    Logo &amp; Website Unveiling
+                </button>
+                <button class="event-tab-btn" data-event="quiz">
+                    <i class="fas fa-question-circle"></i>
+                    Quiz Competition
+                </button>
+            </div>
+        </div>
+
+        <!-- ===== Panel 1: Logo Design Competition ===== -->
+        <div class="event-panel active" id="panel-logo-design">
+            <div class="event-header-card">
+                <div class="event-header-icon">
+                    <i class="fas fa-pen-nib"></i>
+                </div>
+                <div class="event-header-text">
+                    <h2>Logo Design Competition</h2>
+                    <p>A creative competition inviting students to design the official logo for the विजिगीषा cell, showcasing their design skills and vision for higher education.</p>
+                </div>
+            </div>
+
+            <div class="event-content">
+                <p class="section-subheading"><i class="fas fa-info-circle"></i> Event Highlights</p>
+                <div class="highlight-grid">
+                    <div class="highlight-card">
+                        <i class="fas fa-palette"></i>
+                        <h4>Open to All Students</h4>
+                        <p>Any student of PCCoE could participate and showcase their creativity.</p>
+                    </div>
+                    <div class="highlight-card">
+                        <i class="fas fa-trophy"></i>
+                        <h4>Winner Selected</h4>
+                        <p>The winning design became the official logo of the विजिगीषा cell.</p>
+                    </div>
+                    <div class="highlight-card">
+                        <i class="fas fa-lightbulb"></i>
+                        <h4>Theme: Higher Aspirations</h4>
+                        <p>Entries reflected the spirit of academic excellence and competitive readiness.</p>
+                    </div>
+                </div>
+
+                <br>
+                <p class="section-subheading"><i class="fas fa-images"></i> Event Gallery</p>
+                <div class="event-gallery">
+                    <img src="images/logo 8.jpg" alt="Logo Design Competition">
+                    <img src="images/logo 9.jpg" alt="Logo Design Competition">
+                    <img src="images/logo 10.jpg" alt="Logo Design Competition">
+                    <img src="images/logo 11.jpg" alt="Logo Design Competition">
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== Panel 2: Logo & Website Unveiling ===== -->
+        <div class="event-panel" id="panel-unveiling">
+            <div class="event-header-card">
+                <div class="event-header-icon">
+                    <i class="fas fa-star"></i>
+                </div>
+                <div class="event-header-text">
+                    <h2>Logo &amp; Website Unveiling Ceremony</h2>
+                    <p>The grand ceremony marking the official launch of the विजिगीषा brand — unveiling the logo and the website to the PCCOE community.</p>
+                </div>
+            </div>
+
+            <div class="event-content">
+                <p class="section-subheading"><i class="fas fa-info-circle"></i> Event Highlights</p>
+                <div class="highlight-grid">
+                    <div class="highlight-card">
+                        <i class="fas fa-flag"></i>
+                        <h4>Official Launch</h4>
+                        <p>The logo and website were officially unveiled at a dedicated ceremony at PCCoE.</p>
+                    </div>
+                    <div class="highlight-card">
+                        <i class="fas fa-users"></i>
+                        <h4>Faculty &amp; Students</h4>
+                        <p>The event was attended by faculty coordinators, student coordinators, and invited guests.</p>
+                    </div>
+                    <div class="highlight-card">
+                        <i class="fas fa-globe"></i>
+                        <h4>Website Go-Live</h4>
+                        <p>The विजिगीषा website went live simultaneously during the ceremony.</p>
+                    </div>
+                </div>
+
+                <br>
+                <p class="section-subheading"><i class="fas fa-images"></i> Event Gallery</p>
+                <div class="event-gallery">
+                    <img src="images/logo 1.jpeg" alt="Logo & Website Unveiling Ceremony">
+                    <img src="images/logo 2.jpeg" alt="Logo & Website Unveiling Ceremony">
+                    <img src="images/logo 3.jpeg" alt="Logo & Website Unveiling Ceremony">
+                    <img src="images/logo 4.jpeg" alt="Logo & Website Unveiling Ceremony">
+                    <img src="images/logo 5.jpeg" alt="Logo & Website Unveiling Ceremony">
+                    <img src="images/logo 6.jpg" alt="Logo & Website Unveiling Ceremony">
+                    <img src="images/logo 7.jpg" alt="Logo & Website Unveiling Ceremony">
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== Panel 3: Quiz Competition ===== -->
+        <div class="event-panel" id="panel-quiz">
+            <div class="event-header-card">
+                <div class="event-header-icon">
+                    <i class="fas fa-question-circle"></i>
+                </div>
+                <div class="event-header-text">
+                    <h2>Quiz Competition</h2>
+                    <p>An inter-department quiz testing students' knowledge of higher education pathways, competitive examinations, and general awareness.</p>
+                </div>
+            </div>
+
+            <div class="event-content">
+                <p class="section-subheading"><i class="fas fa-info-circle"></i> Event Highlights</p>
+                <div class="highlight-grid">
+                    <div class="highlight-card">
+                        <i class="fas fa-brain"></i>
+                        <h4>Knowledge-Based</h4>
+                        <p>Questions covered GATE, GRE, CAT, UPSC, and higher education abroad topics.</p>
+                    </div>
+                    <div class="highlight-card">
+                        <i class="fas fa-layer-group"></i>
+                        <h4>Inter-Department</h4>
+                        <p>Teams from multiple departments competed in rounds of increasing difficulty.</p>
+                    </div>
+                    <div class="highlight-card">
+                        <i class="fas fa-award"></i>
+                        <h4>Prizes &amp; Recognition</h4>
+                        <p>Winning teams received certificates and prizes recognising their excellence.</p>
+                    </div>
+                </div>
+
+                <br>
+                <p class="section-subheading"><i class="fas fa-images"></i> Event Gallery</p>
+                <div class="coming-soon-block">
+                    <div class="cs-icon"><i class="fas fa-images"></i></div>
+                    <h3>Gallery Coming Soon</h3>
+                    <p>Photos and highlights from the Quiz Competition will be added here shortly.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-bottom">
+            © 2025 Higher Education and Competitive Exam Cell (विजिगीषा), PCCOE.<br>
+            All rights reserved | <a href="designers.html" target="_blank" style="color:rgba(255,255,255,0.78); text-decoration:none;">Designed by The Department of Computer Science &amp; Engineering (Artificial Intelligence and Machine Learning) PCCOE</a>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        // Event tab switching
+        const eventTabBtns = document.querySelectorAll('.event-tab-btn');
+        const eventPanels  = document.querySelectorAll('.event-panel');
+
+        eventTabBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                eventTabBtns.forEach(b => b.classList.remove('active'));
+                eventPanels.forEach(p => p.classList.remove('active'));
+                btn.classList.add('active');
+                document.getElementById('panel-' + btn.dataset.event).classList.add('active');
+            });
+        });
+
+        // Mobile menu toggle
+        const menuToggle  = document.getElementById('menuToggle');
+        const navbarLinks = document.getElementById('navbarLinks');
+        menuToggle.addEventListener('click', () => navbarLinks.classList.toggle('active'));
+    </script>
+</body>
+</html>
