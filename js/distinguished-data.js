@@ -16,7 +16,7 @@ const distinguishedAlumni = [
     
     { name: 'Shubhada Padwal', department: 'Mechanical Engineering', year: '2019', educationType: 'MS', achievement: 'Masters in Management\nTechnical University of Munich, Germany', photo: 'images/Shubhada Padwal.png' },
     { name: 'Om Anant Kulkarni', department: 'Mechanical Engineering', year: '2023', educationType: 'M.Sc', achievement: 'M.Sc. Aerospace Engineering\nTechnical University of Munich, Germany', photo: 'images/Om Anant Kulkarni.png' },
-    { name: 'Mridhul K. Iyer', department: 'Mechanical Engineering', year: '2023', educationType: 'MS', achievement: 'M.S. Quantitative Economics\nIndian Statistical Institute, Kolkata', photo: 'images/Mridhul K. Iyer.png' },
+    // { name: 'Mridhul K. Iyer', department: 'Mechanical Engineering', year: '2023', educationType: 'MS', achievement: 'M.S. Quantitative Economics\nIndian Statistical Institute, Kolkata', photo: 'images/Mridhul K. Iyer.png' },
     { name: 'Yash Naseri', department: 'Mechanical Engineering', year: '2023', educationType: 'MBA', achievement: 'MiM/MBA Dual Degree International Business\nManagement Development Institute (MDI) Gurgaon/ESCP Business School Paris', photo: 'images/Yash Naseri.png' },
     { name: 'Shivam Hake', department: 'Mechanical Engineering', year: '2023', educationType: 'M.Tech', achievement: 'M.Tech in Mobility Engineering\nIndian Institute of Science, Bangalore.', photo: 'images/Shivam Hake.png' },
     { name: 'Sanjuksha Nirgude', department: 'Mechanical Engineering', year: '2016', educationType: 'MS', achievement: "Master's degree, Mechatronics, Robotics, and Automation Engineering\nWorcester Polytechnic Institute", photo: 'images/Sanjuksha Nirgude.png' },
