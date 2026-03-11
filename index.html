@@ -1414,33 +1414,58 @@
             margin-bottom: 35px;
             background: #ffffff;
             border-radius: 20px;
-            padding: 30px 40px;
+            padding: 25px 30px;
             box-shadow: 0 8px 28px rgba(11, 59, 130, 0.1);
             border: 1px solid rgba(41,128,185,0.1);
             text-align: center;
         }
 
-        .promo-video-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 12px;
-            padding: 16px 36px;
-            background: linear-gradient(135deg, #0b3b82, #1a5bb8);
-            color: #fff;
-            border-radius: 50px;
-            font-size: 1rem;
+        .promo-video-title {
+            font-size: 1.2rem;
             font-weight: 700;
-            text-decoration: none;
-            box-shadow: 0 8px 24px rgba(11,59,130,0.28);
-            transition: transform 0.25s ease, box-shadow 0.25s ease, opacity 0.2s ease;
+            color: #0b3b82;
+            margin: 0 0 18px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
         }
 
-        .promo-video-link i { font-size: 1.4rem; }
+        .promo-video-title i {
+            color: #e74c3c;
+            font-size: 1.4rem;
+        }
 
-        .promo-video-link:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 30px rgba(11,59,130,0.38);
-            opacity: 0.93;
+        .promo-video-wrapper {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: 0 10px 35px rgba(11, 59, 130, 0.2);
+            background: #000;
+            aspect-ratio: 16 / 9;
+        }
+
+        .promo-video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 14px;
+        }
+
+        @media (max-width: 768px) {
+            .promo-video-section {
+                padding: 20px 15px;
+                border-radius: 15px;
+            }
+            .promo-video-title {
+                font-size: 1rem;
+            }
         }
 
     </style>
@@ -1585,10 +1610,19 @@
 
         <!-- Promotional Video -->
         <div class="promo-video-section">
-            <a href="https://drive.google.com/file/d/1SelUq51Kgh2n7UPYcdOV9_6zeHdAbAE-/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="promo-video-link">
+            <p class="promo-video-title">
                 <i class="fas fa-play-circle"></i>
-                <span>Purpose of विजिगीषा cell </span>
-            </a>
+                Purpose of विजिगीषा Cell
+            </p>
+            <div class="promo-video-wrapper">
+                <iframe
+                    src="https://drive.google.com/file/d/1SelUq51Kgh2n7UPYcdOV9_6zeHdAbAE-/preview"
+                    allow="autoplay; fullscreen"
+                    allowfullscreen
+                    loading="lazy"
+                    title="Purpose of विजिगीषा Cell"
+                ></iframe>
+            </div>
         </div>
         
         <!-- Gallery Tab Switcher -->
