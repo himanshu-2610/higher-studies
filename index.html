@@ -1389,6 +1389,35 @@
     color: #0b3b82;
 }
 
+.ceremony-date-badge {
+    position: absolute;
+    top: 16px;
+    left: 18px;
+    z-index: 12;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: linear-gradient(135deg, rgba(11, 59, 130, 0.62), rgba(26, 91, 184, 0.45));
+    color: #f8fbff;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 12px;
+    padding: 7px 12px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+    box-shadow: 0 4px 14px rgba(11, 59, 130, 0.2);
+    pointer-events: none;
+}
+
+.ceremony-date-badge::before {
+    content: "\f073";
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    font-size: 0.78rem;
+}
+
 @media (max-width: 768px) {
     .gallery-tabs {
         flex-direction: column;
@@ -1399,6 +1428,13 @@
         border-radius: 15px;
         padding: 12px 20px;
         justify-content: center;
+    }
+
+    .ceremony-date-badge {
+        top: 12px;
+        left: 12px;
+        font-size: 0.76rem;
+        padding: 6px 10px;
     }
 }
 
@@ -1713,6 +1749,7 @@
 
                 <!-- Logo & Website Unveiling Ceremony Slider Content -->
                 <div class="slider-content" id="ceremonySlider">
+                    <div class="ceremony-date-badge">26 February 2026</div>
                     <div class="slider-track" id="ceremonyTrack">
                         <!-- Ceremony Slide 1 -->
                         <div class="slide">
