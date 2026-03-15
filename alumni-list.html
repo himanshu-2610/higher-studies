@@ -366,10 +366,9 @@
                 const rows = alumni.map((a, index) => `
                     <tr>
                         <td class="col-no">${index + 1}</td>
-                        <td class="col-name" data-label="Name">${a.name}</td>
-                        <td data-label="Department">${a.department}</td>
-                        <td data-label="Passing Year">${a.year}</td>
-                        ${hasDescription ? `<td class="col-desc" data-label="Details">${a.description || '—'}</td>` : ''}
+                        <td class="col-name" data-label="Name of Alumni">${a.name}</td>
+                        <td data-label="Year of Graduation Passout from PCCoE">${a.year}</td>
+                        ${hasDescription ? `<td class="col-desc" data-label="Details of Higher Study/Competitive exam with year of completion">${a.description || '—'}</td>` : ''}
                     </tr>
                 `).join('');
 
@@ -378,10 +377,9 @@
                         <thead>
                             <tr>
                                 <th class="col-no">#</th>
-                                <th>Name</th>
-                                <th>Department</th>
-                                <th>Passing Year</th>
-                                ${hasDescription ? '<th>Details</th>' : ''}
+                                <th>Name of Alumni</th>
+                                <th>Year of Graduation Passout from PCCoE</th>
+                                ${hasDescription ? '<th>Details of Higher Study/Competitive exam with year of completion</th>' : ''}
                             </tr>
                         </thead>
                         <tbody>${rows}</tbody>

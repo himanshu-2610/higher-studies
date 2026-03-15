@@ -67,12 +67,12 @@ const distinguishedAlumni = [
 
     { name: 'Nachiket shelke', department: 'Electronics and Telecommunication Engineering', year: '2014', educationType: 'UPSC', achievement: 'UPSC AIR-167', photo: 'images/Nachiket shelke.png' },
     { name: 'Harshal Patil', department: 'Electronics and Telecommunication Engineering', year: '2014', educationType: 'UPSC', achievement: 'UPSC AIR-833', photo: 'images/Harshal Patil.png' },
-    { name: 'Mane Harshali Dnyaneshwar', department: 'Electronics and Telecommunication Engineering', year: '2011', educationType: 'M.Tech', achievement: 'K L University,Visakhapatnam', photo: 'images/Mane Harshali Dnyaneshwar.png' },
+    { name: 'Mane Harshali Dnyaneshwar', department: 'Electronics and Telecommunication Engineering', year: '2011', educationType: 'M.Tech and PhD', achievement: 'K L University,Visakhapatnam', photo: 'images/Mane Harshali Dnyaneshwar.png' },
     { name: 'Sailee Borse', department: 'Electronics and Telecommunication Engineering', year: '2016', educationType: 'MBA', achievement: 'MBA Indian Institute of Management Kozhikode', photo: 'images/Sailee Borse.png' },
     { name: 'Shreekanya Kodate', department: 'Electronics and Telecommunication Engineering', year: '2017', educationType: 'M.Tech', achievement: ' M.Tech IIT Bombay', photo: 'images/Shreekanya Kodate.png' },
     { name: 'Sandeep Sharma', department: 'Electronics and Telecommunication Engineering', year: '2008', educationType: 'MS', achievement: 'MS  Missouri University of science and technology', photo: 'images/Sandeep Sharma.png' },
-    { name: 'Nilkanth Kadlag', department: 'Electronics and Telecommunication Engineering', year: '2023', educationType: 'MBA', achievement: 'MS University of Georgia', photo: 'images/Nilkanth Kadlag.png' },
-    { name: 'Arin Jain', department: 'Electronics and Telecommunication Engineering', year: '2025', educationType: 'GATE', achievement: 'BTech with :\nScore - 596 \nAIR - 1313 ', photo: 'images/Arin Jain.png' },
+    { name: 'Nilkanth Kadlag', department: 'Electronics and Telecommunication Engineering', year: '2023', educationType: 'MS', achievement: 'MS University of Georgia', photo: 'images/Nilkanth Kadlag.png' },
+    { name: 'Arin Jain', department: 'Electronics and Telecommunication Engineering', year: '2025', educationType: 'M.Tech', achievement: 'Gate \nScore - 596 \nAIR - 1313 , Pursuing M.Tech from NIT Calicut', photo: 'images/Arin Jain.png' },
     { name: 'Ajinkya Patwardhan', department: 'Electronics and Telecommunication Engineering', year: '2017', educationType: 'MBA', achievement: '2019-21 from Symbiosis International University Currently working at Infosys Ltd. Recently moved to Frankfurt, Germany Designation: Business Development Executive', photo: 'images/Ajinkya Patwardhan.png' },
     { name: 'Satyajeet Poddar', department: 'Electronics and Telecommunication Engineering', year: '2008', educationType: 'UPSC', achievement: 'UPSC All India Merit holder for Indian Army, Indian Air Force & Indian Navy.\nJoined Indian Military Academy, Dehradun ( Indian Army) in Jan 2009\n', photo: 'images/Satyajeet Poddar.png' },
 ];
