@@ -142,9 +142,25 @@ body {
     white-space: nowrap;
 }
 
-marquee {
+.marquee-container {
     flex: 1;
     padding: 10px 0;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.marquee-content {
+    display: inline-block;
+    animation: marquee 15s linear infinite;
+}
+
+@keyframes marquee {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
 }
 
 .simple-counter {
@@ -3068,7 +3084,7 @@ STUDENT SUPPORT PAGE STYLING
         padding: 4px 6px;
     }
     
-    marquee {
+    .marquee-content {
         font-size: 13px;
     }
     
