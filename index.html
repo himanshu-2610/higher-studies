@@ -1335,59 +1335,6 @@
     }
 }
 
-/* ===== GALLERY TAB SWITCHER ===== */
-.gallery-tabs-wrapper {
-    display: flex;
-    justify-content: center;
-    margin: 40px 0 0 0;
-    width: 100%;
-}
-
-.gallery-tabs {
-    display: flex;
-    background: #f0f7ff;
-    border-radius: 20px 20px 0px 0px;
-    padding: 6px;
-    gap: 6px;
-    box-shadow: 0 4px 20px rgba(11, 59, 130, 0.12);
-    border: 1px solid rgba(52, 152, 219, 0.2);
-    width: 100%;
-}
-
-.gallery-tab-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    padding: 12px 28px;
-    border: none;
-    border-radius: 50px;
-    background: transparent;
-    color: #4a6572;
-    font-size: 0.95rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    font-family: 'Roboto', sans-serif;
-    white-space: nowrap;
-    letter-spacing: 0.3px;
-    flex: 1;
-}
-
-.gallery-tab-btn i {
-    font-size: 1rem;
-}
-
-.gallery-tab-btn.active {
-    background: linear-gradient(135deg, #0b3b82, #1a5bb8);
-    color: white;
-    box-shadow: 0 4px 15px rgba(11, 59, 130, 0.3);
-}
-
-.gallery-tab-btn:not(.active):hover {
-    background: rgba(11, 59, 130, 0.08);
-    color: #0b3b82;
-}
 
 .ceremony-date-badge {
     position: absolute;
@@ -1419,17 +1366,6 @@
 }
 
 @media (max-width: 768px) {
-    .gallery-tabs {
-        flex-direction: column;
-        border-radius: 20px;
-    }
-
-    .gallery-tab-btn {
-        border-radius: 15px;
-        padding: 12px 20px;
-        justify-content: center;
-    }
-
     .ceremony-date-badge {
         top: 12px;
         left: 12px;
@@ -1439,9 +1375,9 @@
 }
 
 @media (max-width: 480px) {
-    .gallery-tab-btn {
-        font-size: 0.85rem;
-        padding: 10px 16px;
+    .ceremony-date-badge {
+        font-size: 0.72rem;
+        padding: 5px 8px;
     }
 }
 
@@ -1663,21 +1599,6 @@
             </div>
         </div>
         
-        <!-- Gallery Tab Switcher -->
-        <div class="gallery-tabs-wrapper">
-            <div class="gallery-tabs">
-                <button class="gallery-tab-btn active" data-gallery="ceremony">
-                    Logo &amp; Website Unveiling Ceremony
-                </button>
-                <button class="gallery-tab-btn" data-gallery="bhagwat">
-                    Session By Dr. Mahesh Bhagwat
-                </button>
-                <button class="gallery-tab-btn" data-gallery="activities">
-                    Activities Conducted
-                </button>
-            </div>
-        </div>
-
         <!-- Image Slider Section -->
         <section class="image-slider-section">
             <div class="slider-container">
@@ -1806,133 +1727,70 @@
                     <div class="ceremony-date-badge">11 March 2026</div>
                     <div class="slider-track" id="bhagwatTrack">
                         <div class="slide active">
-                            <div class="activity-title">Insightful Session on Serving the Nation</div>
+                            <div class="activity-title">Dr.Mahesh Bhagwat IPS : Insightful Session on Serving the Nation</div>
                             <img src="images\Dr.Mahesh%20Bhagwat%20IPS.jpeg" alt="Dr. Mahesh Bhagwat Session" class="slide-image">
                             <div class="slide-text">
                                 <div class="dept-name">Opportunities for Engineers in Civil Services</div>
                             </div>
                         </div>
                         <div class="slide">
-                            <div class="activity-title">Insightful Session on Serving the Nation</div>
+                            <div class="activity-title">Dr.Mahesh Bhagwat IPS : Insightful Session on Serving the Nation</div>
                             <img src="images\Dr.Mahesh%20Bhagwat%20IPS%20(2).jpeg" alt="Dr. Mahesh Bhagwat Session" class="slide-image">
                             <div class="slide-text">
                                 <div class="dept-name">Opportunities for Engineers in Civil Services</div>
                             </div>
                         </div>
                         <div class="slide">
-                            <div class="activity-title">Insightful Session on Serving the Nation</div>
+                            <div class="activity-title">Dr.Mahesh Bhagwat IPS : Insightful Session on Serving the Nation</div>
                             <img src="images\Dr.Mahesh%20Bhagwat%20IPS%20(3).jpeg" alt="Dr. Mahesh Bhagwat Session" class="slide-image">
                             <div class="slide-text">
                                 <div class="dept-name">Opportunities for Engineers in Civil Services</div>
                             </div>
                         </div>
                         <div class="slide">
-                            <div class="activity-title">Insightful Session on Serving the Nation</div>
+                            <div class="activity-title">Dr.Mahesh Bhagwat IPS : Insightful Session on Serving the Nation</div>
                             <img src="images\Dr.Mahesh%20Bhagwat%20IPS%20(4).jpeg" alt="Dr. Mahesh Bhagwat Session" class="slide-image">
                             <div class="slide-text">
                                 <div class="dept-name">Opportunities for Engineers in Civil Services</div>
                             </div>
                         </div>
                         <div class="slide">
-                            <div class="activity-title">Insightful Session on Serving the Nation</div>
-                            <img src="images\Dr.Mahesh%20Bhagwat%20IPS%20(5).jpeg" alt="Dr. Mahesh Bhagwat Session" class="slide-image">
-                            <div class="slide-text">
-                                <div class="dept-name">Opportunities for Engineers in Civil Services</div>
-                            </div>
-                        </div>
-                        <div class="slide">
-                            <div class="activity-title">Insightful Session on Serving the Nation</div>
-                            <img src="images\Dr.Mahesh%20Bhagwat%20IPS%20(6).jpeg" alt="Dr. Mahesh Bhagwat Session" class="slide-image">
-                            <div class="slide-text">
-                                <div class="dept-name">Opportunities for Engineers in Civil Services</div>
-                            </div>
-                        </div>
-                        <div class="slide">
-                            <div class="activity-title">Insightful Session on Serving the Nation</div>
-                            <img src="images\Dr.Mahesh%20Bhagwat%20IPS%20(7).jpeg" alt="Dr. Mahesh Bhagwat Session" class="slide-image">
-                            <div class="slide-text">
-                                <div class="dept-name">Opportunities for Engineers in Civil Services</div>
-                            </div>
-                        </div>
-                        <div class="slide">
-                            <div class="activity-title">Insightful Session on Serving the Nation</div>
-                            <img src="images\Dr.Mahesh%20Bhagwat%20IPS%20(8).jpeg" alt="Dr. Mahesh Bhagwat Session" class="slide-image" object-fit="scale-down">
-                            <div class="slide-text">
-                                <div class="dept-name">Opportunities for Engineers in Civil Services</div>
-                            </div>
-                        </div>
-                        <div class="slide">
-                            <div class="activity-title">Insightful Session on Serving the Nation</div>
-                            <img src="images\Dr.Mahesh%20Bhagwat%20IPS%20(9).jpeg" alt="Dr. Mahesh Bhagwat Session" class="slide-image">
-                            <div class="slide-text">
-                                <div class="dept-name">Opportunities for Engineers in Civil Services</div>
-                            </div>
-                        </div>
-                        <div class="slide">
-                            <div class="activity-title">Insightful Session on Serving the Nation</div>
+                            <div class="activity-title">Dr.Mahesh Bhagwat IPS : Insightful Session on Serving the Nation</div>
                             <img src="images\Dr.Mahesh%20Bhagwat%20IPS%20(10).jpeg" alt="Dr. Mahesh Bhagwat Session" class="slide-image">
                             <div class="slide-text">
                                 <div class="dept-name">Opportunities for Engineers in Civil Services</div>
                             </div>
                         </div>
                         <div class="slide">
-                            <div class="activity-title">Insightful Session on Serving the Nation</div>
+                            <div class="activity-title">Dr.Mahesh Bhagwat IPS : Insightful Session on Serving the Nation</div>
                             <img src="images\Dr.Mahesh%20Bhagwat%20IPS%20(11).jpeg" alt="Dr. Mahesh Bhagwat Session" class="slide-image">
                             <div class="slide-text">
                                 <div class="dept-name">Opportunities for Engineers in Civil Services</div>
                             </div>
                         </div>
                         <div class="slide">
-                            <div class="activity-title">Insightful Session on Serving the Nation</div>
+                            <div class="activity-title">Dr.Mahesh Bhagwat IPS : Insightful Session on Serving the Nation</div>
                             <img src="images\Dr.Mahesh%20Bhagwat%20IPS%20(12).jpeg" alt="Dr. Mahesh Bhagwat Session" class="slide-image">
                             <div class="slide-text">
                                 <div class="dept-name">Opportunities for Engineers in Civil Services</div>
                             </div>
                         </div>
                         <div class="slide">
-                            <div class="activity-title">Insightful Session on Serving the Nation</div>
-                            <img src="images\Dr.Mahesh%20Bhagwat%20IPS%20(13).jpeg" alt="Dr. Mahesh Bhagwat Session" class="slide-image">
-                            <div class="slide-text">
-                                <div class="dept-name">Opportunities for Engineers in Civil Services</div>
-                            </div>
-                        </div>
-                        <div class="slide">
-                            <div class="activity-title">Insightful Session on Serving the Nation</div>
+                            <div class="activity-title">Dr.Mahesh Bhagwat IPS : Insightful Session on Serving the Nation</div>
                             <img src="images\Dr.Mahesh%20Bhagwat%20IPS%20(14).jpeg" alt="Dr. Mahesh Bhagwat Session" class="slide-image">
                             <div class="slide-text">
                                 <div class="dept-name">Opportunities for Engineers in Civil Services</div>
                             </div>
                         </div>
                         <div class="slide">
-                            <div class="activity-title">Insightful Session on Serving the Nation</div>
-                            <img src="images\Dr.Mahesh%20Bhagwat%20IPS%20(15).jpeg" alt="Dr. Mahesh Bhagwat Session" class="slide-image">
-                            <div class="slide-text">
-                                <div class="dept-name">Opportunities for Engineers in Civil Services</div>
-                            </div>
-                        </div>
-                        <div class="slide">
-                            <div class="activity-title">Insightful Session on Serving the Nation</div>
+                            <div class="activity-title">Dr.Mahesh Bhagwat IPS : Insightful Session on Serving the Nation</div>
                             <img src="images\Dr.Mahesh%20Bhagwat%20IPS%20(16).jpeg" alt="Dr. Mahesh Bhagwat Session" class="slide-image">
                             <div class="slide-text">
                                 <div class="dept-name">Opportunities for Engineers in Civil Services</div>
                             </div>
                         </div>
                         <div class="slide">
-                            <div class="activity-title">Insightful Session on Serving the Nation</div>
-                            <img src="images\Dr.Mahesh%20Bhagwat%20IPS%20(17).jpeg" alt="Dr. Mahesh Bhagwat Session" class="slide-image">
-                            <div class="slide-text">
-                                <div class="dept-name">Opportunities for Engineers in Civil Services</div>
-                            </div>
-                        </div>
-                        <div class="slide">
-                            <div class="activity-title">Insightful Session on Serving the Nation</div>
-                            <img src="images\Dr.Mahesh%20Bhagwat%20IPS%20(18).jpeg" alt="Dr. Mahesh Bhagwat Session" class="slide-image">
-                            <div class="slide-text">
-                                <div class="dept-name">Opportunities for Engineers in Civil Services</div>
-                            </div>
-                        </div>
-                        <div class="slide">
-                            <div class="activity-title">Insightful Session on Serving the Nation</div>
+                            <div class="activity-title">Dr.Mahesh Bhagwat IPS : Insightful Session on Serving the Nation</div>
                             <img src="images\Dr.Mahesh%20Bhagwat%20IPS%20(19).jpeg" alt="Dr. Mahesh Bhagwat Session" class="slide-image">
                             <div class="slide-text">
                                 <div class="dept-name">Opportunities for Engineers in Civil Services</div>
@@ -2228,57 +2086,50 @@
         const prevArrow = document.querySelector('.prev-arrow');
         const nextArrow = document.querySelector('.next-arrow');
         const autoplayToggle = document.getElementById('autoplayToggle');
-        const galleryTabBtns = document.querySelectorAll('.gallery-tab-btn');
 
         const activitiesTrack = document.getElementById('activitiesTrack');
         const ceremonyTrack   = document.getElementById('ceremonyTrack');
         const bhagwatTrack    = document.getElementById('bhagwatTrack');
 
-        const state = {
-            activities: {
-                index: 0,
-                track: activitiesTrack,
-                count: activitiesTrack ? activitiesTrack.querySelectorAll('.slide').length : 0
-            },
-            ceremony: {
-                index: 0,
-                track: ceremonyTrack,
-                count: ceremonyTrack ? ceremonyTrack.querySelectorAll('.slide').length : 0
-            },
-            bhagwat: {
-                index: 0,
-                track: bhagwatTrack,
-                count: bhagwatTrack ? bhagwatTrack.querySelectorAll('.slide').length : 0
+        // Merge all gallery slides into one track so images stay visible without tabs.
+        if (ceremonyTrack) {
+            if (bhagwatTrack) {
+                Array.from(bhagwatTrack.children).forEach(slide => ceremonyTrack.appendChild(slide.cloneNode(true)));
             }
-        };
-
-        // Initialize bhagwat state count
-        if (state.bhagwat.track) {
-            state.bhagwat.count = state.bhagwat.track.querySelectorAll('.slide').length;
+            if (activitiesTrack) {
+                Array.from(activitiesTrack.children).forEach(slide => ceremonyTrack.appendChild(slide.cloneNode(true)));
+            }
         }
 
-        let currentGallery = 'ceremony';
+        const state = {
+            index: 0,
+            track: ceremonyTrack,
+            count: ceremonyTrack ? ceremonyTrack.querySelectorAll('.slide').length : 0
+        };
+
+        const ceremonySlider = document.getElementById('ceremonySlider');
+        const activitiesSlider = document.getElementById('activitiesSlider');
+        const bhagwatSlider = document.getElementById('bhagwatSlider');
+        if (ceremonySlider) ceremonySlider.style.display = '';
+        if (activitiesSlider) activitiesSlider.style.display = 'none';
+        if (bhagwatSlider) bhagwatSlider.style.display = 'none';
+
         let isPlaying = true;
         let autoplayInterval;
 
-        function getCurrentState() { return state[currentGallery]; }
-
         function updateSlider() {
-            const s = getCurrentState();
-            if (s.track) s.track.style.transform = `translateX(-${s.index * 100}%)`;
+            if (state.track) state.track.style.transform = `translateX(-${state.index * 100}%)`;
         }
 
         function nextSlide() {
-            const s = getCurrentState();
-            if (s.count === 0) return;
-            s.index = (s.index + 1) % s.count;
+            if (state.count === 0) return;
+            state.index = (state.index + 1) % state.count;
             updateSlider();
         }
 
         function prevSlide() {
-            const s = getCurrentState();
-            if (s.count === 0) return;
-            s.index = (s.index - 1 + s.count) % s.count;
+            if (state.count === 0) return;
+            state.index = (state.index - 1 + state.count) % state.count;
             updateSlider();
         }
 
@@ -2299,16 +2150,6 @@
             if (isPlaying) stopAutoplay(); else startAutoplay();
         }
 
-        function switchGallery(gallery) {
-            if (gallery === currentGallery) return;
-            document.getElementById(currentGallery + 'Slider').style.display = 'none';
-            currentGallery = gallery;
-            document.getElementById(currentGallery + 'Slider').style.display = '';
-            getCurrentState().index = 0;
-            updateSlider();
-            if (isPlaying) { stopAutoplay(); startAutoplay(); }
-        }
-
         if (prevArrow) prevArrow.addEventListener('click', () => {
             prevSlide();
             if (isPlaying) { stopAutoplay(); startAutoplay(); }
@@ -2320,14 +2161,6 @@
         });
 
         if (autoplayToggle) autoplayToggle.addEventListener('click', toggleAutoplay);
-
-        galleryTabBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                galleryTabBtns.forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
-                switchGallery(btn.dataset.gallery);
-            });
-        });
 
         startAutoplay();
     </script>
