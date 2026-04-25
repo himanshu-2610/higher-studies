@@ -17,6 +17,171 @@
             overflow-x: hidden;
             width: 100%;
         }
+
+        body.startup-lock {
+            overflow: hidden;
+        }
+
+        /* Startup welcome page */
+        .startup-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 99999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 22px;
+            background:
+                radial-gradient(circle at 18% 20%, rgba(39, 195, 230, 0.32), transparent 42%),
+                radial-gradient(circle at 82% 74%, rgba(242, 195, 0, 0.26), transparent 40%),
+                linear-gradient(140deg, #062657 0%, #0b3b82 44%, #1a5bb8 100%);
+            opacity: 1;
+            visibility: visible;
+            transition: opacity 0.7s ease, visibility 0.7s ease;
+        }
+
+        .startup-overlay::before,
+        .startup-overlay::after {
+            content: '';
+            position: absolute;
+            border-radius: 50%;
+            border: 1px solid rgba(255, 255, 255, 0.24);
+            animation: splashFloat 8s ease-in-out infinite;
+        }
+
+        .startup-overlay::before {
+            width: 320px;
+            height: 320px;
+            top: -95px;
+            right: -60px;
+        }
+
+        .startup-overlay::after {
+            width: 220px;
+            height: 220px;
+            bottom: -72px;
+            left: -45px;
+            animation-delay: 2s;
+        }
+
+        .startup-overlay.is-hidden {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        .startup-card {
+            position: relative;
+            width: min(92vw, 740px);
+            text-align: center;
+            color: #ffffff;
+            border-radius: 24px;
+            padding: 36px 26px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.34);
+            -webkit-backdrop-filter: blur(12px);
+            backdrop-filter: blur(12px);
+            box-shadow: 0 24px 60px rgba(5, 24, 52, 0.45);
+            transform: translateY(12px) scale(0.98);
+            animation: splashCardIn 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+        }
+
+        .startup-kicker {
+            margin: 0;
+            font-size: 0.82rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.86);
+        }
+
+        .startup-title {
+            margin: 14px 0 10px;
+            font-size: clamp(1.45rem, 3.1vw, 2.45rem);
+            line-height: 1.24;
+            font-weight: 800;
+            letter-spacing: 0.2px;
+        }
+
+        .startup-subtitle {
+            margin: 0;
+            font-size: clamp(1.02rem, 2.25vw, 1.34rem);
+            line-height: 1.7;
+            color: rgba(255, 255, 255, 0.93);
+        }
+
+        .startup-count-wrap {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            margin: 0 3px;
+            color: #ffd24d;
+            font-weight: 800;
+            text-shadow: 0 0 16px rgba(242, 195, 0, 0.58);
+        }
+
+        .startup-count-slot {
+            display: inline-flex;
+            align-items: center;
+            min-width: 56px;
+            min-height: 24px;
+            justify-content: center;
+        }
+
+        .startup-count-image {
+            display: block;
+            max-height: 30px;
+            width: auto;
+            border-radius: 4px;
+        }
+
+        .startup-count-fallback {
+            display: inline-block;
+            min-width: 18px;
+        }
+
+        .startup-loader {
+            margin: 24px auto 0;
+            width: min(270px, 90%);
+            height: 6px;
+            border-radius: 100px;
+            background: rgba(255, 255, 255, 0.2);
+            overflow: hidden;
+        }
+
+        .startup-loader span {
+            display: block;
+            width: 42%;
+            height: 100%;
+            border-radius: inherit;
+            background: linear-gradient(90deg, #ffd24d 0%, #27c3e6 100%);
+            animation: splashLoader 1.7s ease-in-out infinite;
+        }
+
+        @keyframes splashCardIn {
+            to {
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        @keyframes splashLoader {
+            0% {
+                transform: translateX(-130%);
+            }
+            100% {
+                transform: translateX(340%);
+            }
+        }
+
+        @keyframes splashFloat {
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-12px);
+            }
+        }
         
         /* Hero Section */
 .hero-section { 
@@ -1333,6 +1498,26 @@
         min-width: 44px;
         min-height: 44px;
     }
+
+    .startup-card {
+        padding: 28px 20px;
+        border-radius: 18px;
+    }
+
+    .startup-count-image {
+        max-height: 26px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .startup-overlay,
+    .startup-card,
+    .startup-loader span,
+    .startup-overlay::before,
+    .startup-overlay::after {
+        animation: none !important;
+        transition: none !important;
+    }
 }
 
 
@@ -1443,6 +1628,22 @@
     </style>
 </head>
 <body>
+    <!-- Startup welcome page -->
+    <div class="startup-overlay" id="startupOverlay" aria-live="polite">
+        <div class="startup-card">
+            <p class="startup-kicker">Welcome</p>
+            <h2 class="startup-title">Welcome to विजिगीषा Cell</h2>
+            <p class="startup-subtitle">
+                You are our
+                <span class="startup-count-wrap">
+                    <span class="startup-count-slot" id="startupCountSlot"><span class="startup-count-fallback">...</span></span>th
+                </span>
+                visitor.
+            </p>
+            <div class="startup-loader"><span></span></div>
+        </div>
+    </div>
+
     <!-- Header -->
     <header class="top-header">
         <div class="header-container">
@@ -1555,6 +1756,7 @@
                         </h1>
                         <p class="main-description">
                             Your dreams deserve the right direction. The Vijigisha cell supports students of PCCoE in raising awareness about higher education and competitive exams, also preparing for GATE, CAT, GRE, TOEFL, IELTS, UPSC, MPSC, PSUs, and other competitive exams. Through expert guidance, structured preparation, mentoring, and career counseling, the cell helps students to build confidence, achieve their goals, and shape a successful future. “Turning Aspirations into Achievements.”
+                        </p>
                     </div>
                 </div>
 
@@ -1586,13 +1788,12 @@
         <div class="promo-video-section">
             <p class="promo-video-title">
                 <i class="fas fa-play-circle"></i>
-                Introducrion of "विजिगीषा" cell
+                Introduction of "विजिगीषा" cell
             </p>
             <div class="promo-video-wrapper">
                 <iframe
                     src="https://drive.google.com/file/d/1SelUq51Kgh2n7UPYcdOV9_6zeHdAbAE-/preview"
                     allow="autoplay; fullscreen"
-                    allowfullscreen
                     loading="lazy"
                     title="Purpose of विजिगीषा Cell"
                 ></iframe>
@@ -1613,7 +1814,7 @@
                         <!-- Slide 1 -->
                         <div class="slide active">
                             <div class="activity-title">Activities Conducted 2025-2026</div>
-                            <img src="images\IT.png" alt="Interactive Session on GRE Readiness" class="slide-image">
+                            <img src="images/IT.png" alt="Interactive Session on GRE Readiness" class="slide-image">
                             <div class="slide-text">
                                 <div class="dept-name">Information Technology</div>
                             </div>
@@ -1622,7 +1823,7 @@
                         <!-- Slide 2 -->
                         <div class="slide">
                             <div class="activity-title">Activities Conducted 2025-2026</div>
-                            <img src="images\E&TC.png" alt="GATE,ESE & PSU INTERVIEW Preparation Awareness" class="slide-image">
+                            <img src="images/E&TC.png" alt="GATE,ESE & PSU INTERVIEW Preparation Awareness" class="slide-image">
                             <div class="slide-text">
                                 <div class="dept-name">Electronics & Telecommunication</div>
                             </div>
@@ -1631,7 +1832,7 @@
                         <!-- Slide 3 -->
                         <div class="slide">
                             <div class="activity-title">Activities Conducted 2025-2026</div>
-                            <img src="images\AIML.png" alt="Study Abroad Guidance Session" class="slide-image">
+                            <img src="images/AIML.png" alt="Study Abroad Guidance Session" class="slide-image">
                             <div class="slide-text">
                                 <div class="dept-name">Computer Science and Engineering (AI-ML)</div>
                             </div>
@@ -1640,7 +1841,7 @@
                         <!-- Slide 4 -->
                         <div class="slide">
                             <div class="activity-title">Activities Conducted 2025-2026</div>
-                            <img src="images\Civil.png" alt="Gate Exam Orientation" class="slide-image">
+                            <img src="images/Civil.png" alt="Gate Exam Orientation" class="slide-image">
                             <div class="slide-text">
                                 <div class="dept-name">Civil Engineering</div>
                             </div>
@@ -1648,7 +1849,7 @@
 
                         <div class="slide">
                             <div class="activity-title">Activities Conducted 2025-2026</div>
-                            <img src="images\comp.png" alt="Regional Alumni Guest session" class="slide-image">
+                            <img src="images/comp.png" alt="Regional Alumni Guest session" class="slide-image">
                             <div class="slide-text">
                                 <div class="dept-name">Computer Engineering</div>
                             </div>
@@ -1657,7 +1858,7 @@
                         <!-- Slide 5 -->
                         <div class="slide">
                             <div class="activity-title">Activities Conducted 2025-2026</div>
-                            <img src="images\RL.png" alt="Regional Alumni Guest session" class="slide-image">
+                            <img src="images/RL.png" alt="Regional Alumni Guest session" class="slide-image">
                             <div class="slide-text">
                                 <div class="dept-name">Computer Engineering (Regional)</div>
                             </div>
@@ -1665,7 +1866,7 @@
 
                         <div class="slide">
                             <div class="activity-title">Activities Conducted 2025-2026</div>
-                            <img src="images\as&h.png" alt="Engineering Your Way to Germany" class="slide-image">
+                            <img src="images/as&h.png" alt="Engineering Your Way to Germany" class="slide-image">
                             <div class="slide-text">
                                 <div class="dept-name">Applied Science & Humanities</div>
                             </div>
@@ -1680,7 +1881,7 @@
                         <!-- Ceremony Slide 1 -->
                         <div class="slide">
                             <div class="activity-title">Logo &amp; Website Unveiling Ceremony</div>
-                            <img src="images\logo 1.png" alt="Logo & Website Unveiling Ceremony" class="slide-image">
+                            <img src="images/logo 1.png" alt="Logo & Website Unveiling Ceremony" class="slide-image">
                             <div class="slide-text">
                                 <div class="dept-name">विजिगीषा — Logo &amp; Website Unveiled</div>
                             </div>
@@ -1689,7 +1890,7 @@
                         <!-- Ceremony Slide 2 -->
                         <div class="slide">
                             <div class="activity-title">Logo &amp; Website Unveiling Ceremony</div>
-                            <img src="images\logo 2.png" alt="Logo & Website Unveiling Ceremony" class="slide-image">
+                            <img src="images/logo 2.png" alt="Logo & Website Unveiling Ceremony" class="slide-image">
                             <div class="slide-text">
                                 <div class="dept-name">विजिगीषा — Logo &amp; Website Unveiled</div>
                             </div>
@@ -1698,7 +1899,7 @@
                         <!-- Ceremony Slide 3 -->
                         <div class="slide">
                             <div class="activity-title">Logo &amp; Website Unveiling Ceremony</div>
-                            <img src="images\logo 3.png" alt="Logo & Website Unveiling Ceremony" class="slide-image">
+                            <img src="images/logo 3.png" alt="Logo & Website Unveiling Ceremony" class="slide-image">
                             <div class="slide-text">
                                 <div class="dept-name">विजिगीषा — Logo &amp; Website Unveiled</div>
                             </div>
@@ -1706,7 +1907,7 @@
 
                         <div class="slide">
                             <div class="activity-title">Logo &amp; Website Unveiling Ceremony</div>
-                            <img src="images\logo 4.png" alt="Logo & Website Unveiling Ceremony" class="slide-image">
+                            <img src="images/logo 4.png" alt="Logo & Website Unveiling Ceremony" class="slide-image">
                             <div class="slide-text">
                                 <div class="dept-name">विजिगीषा — Logo &amp; Website Unveiled</div>
                             </div>
@@ -1714,7 +1915,7 @@
 
                         <div class="slide">
                             <div class="activity-title">Logo &amp; Website Unveiling Ceremony</div>
-                            <img src="images\logo 5.png" alt="Logo & Website Unveiling Ceremony" class="slide-image">
+                            <img src="images/logo 5.png" alt="Logo & Website Unveiling Ceremony" class="slide-image">
                             <div class="slide-text">
                                 <div class="dept-name">विजिगीषा — Logo &amp; Website Unveiled</div>
                             </div>
@@ -1728,70 +1929,70 @@
                     <div class="slider-track" id="bhagwatTrack">
                         <div class="slide active">
                             <div class="activity-title">Dr.Mahesh Bhagwat IPS : Insightful Session on Serving the Nation</div>
-                            <img src="images\Dr.Mahesh%20Bhagwat%20IPS.jpeg" alt="Dr. Mahesh Bhagwat Session" class="slide-image">
+                            <img src="images/Dr.Mahesh%20Bhagwat%20IPS.jpeg" alt="Dr. Mahesh Bhagwat Session" class="slide-image">
                             <div class="slide-text">
                                 <div class="dept-name">Opportunities for Engineers in Civil Services</div>
                             </div>
                         </div>
                         <div class="slide">
                             <div class="activity-title">Dr.Mahesh Bhagwat IPS : Insightful Session on Serving the Nation</div>
-                            <img src="images\Dr.Mahesh%20Bhagwat%20IPS%20(2).jpeg" alt="Dr. Mahesh Bhagwat Session" class="slide-image">
+                            <img src="images/Dr.Mahesh%20Bhagwat%20IPS%20(2).jpeg" alt="Dr. Mahesh Bhagwat Session" class="slide-image">
                             <div class="slide-text">
                                 <div class="dept-name">Opportunities for Engineers in Civil Services</div>
                             </div>
                         </div>
                         <div class="slide">
                             <div class="activity-title">Dr.Mahesh Bhagwat IPS : Insightful Session on Serving the Nation</div>
-                            <img src="images\Dr.Mahesh%20Bhagwat%20IPS%20(3).jpeg" alt="Dr. Mahesh Bhagwat Session" class="slide-image">
+                            <img src="images/Dr.Mahesh%20Bhagwat%20IPS%20(3).jpeg" alt="Dr. Mahesh Bhagwat Session" class="slide-image">
                             <div class="slide-text">
                                 <div class="dept-name">Opportunities for Engineers in Civil Services</div>
                             </div>
                         </div>
                         <div class="slide">
                             <div class="activity-title">Dr.Mahesh Bhagwat IPS : Insightful Session on Serving the Nation</div>
-                            <img src="images\Dr.Mahesh%20Bhagwat%20IPS%20(4).jpeg" alt="Dr. Mahesh Bhagwat Session" class="slide-image">
+                            <img src="images/Dr.Mahesh%20Bhagwat%20IPS%20(4).jpeg" alt="Dr. Mahesh Bhagwat Session" class="slide-image">
                             <div class="slide-text">
                                 <div class="dept-name">Opportunities for Engineers in Civil Services</div>
                             </div>
                         </div>
                         <div class="slide">
                             <div class="activity-title">Dr.Mahesh Bhagwat IPS : Insightful Session on Serving the Nation</div>
-                            <img src="images\Dr.Mahesh%20Bhagwat%20IPS%20(10).jpeg" alt="Dr. Mahesh Bhagwat Session" class="slide-image">
+                            <img src="images/Dr.Mahesh%20Bhagwat%20IPS%20(10).jpeg" alt="Dr. Mahesh Bhagwat Session" class="slide-image">
                             <div class="slide-text">
                                 <div class="dept-name">Opportunities for Engineers in Civil Services</div>
                             </div>
                         </div>
                         <div class="slide">
                             <div class="activity-title">Dr.Mahesh Bhagwat IPS : Insightful Session on Serving the Nation</div>
-                            <img src="images\Dr.Mahesh%20Bhagwat%20IPS%20(11).jpeg" alt="Dr. Mahesh Bhagwat Session" class="slide-image">
+                            <img src="images/Dr.Mahesh%20Bhagwat%20IPS%20(11).jpeg" alt="Dr. Mahesh Bhagwat Session" class="slide-image">
                             <div class="slide-text">
                                 <div class="dept-name">Opportunities for Engineers in Civil Services</div>
                             </div>
                         </div>
                         <div class="slide">
                             <div class="activity-title">Dr.Mahesh Bhagwat IPS : Insightful Session on Serving the Nation</div>
-                            <img src="images\Dr.Mahesh%20Bhagwat%20IPS%20(12).jpeg" alt="Dr. Mahesh Bhagwat Session" class="slide-image">
+                            <img src="images/Dr.Mahesh%20Bhagwat%20IPS%20(12).jpeg" alt="Dr. Mahesh Bhagwat Session" class="slide-image">
                             <div class="slide-text">
                                 <div class="dept-name">Opportunities for Engineers in Civil Services</div>
                             </div>
                         </div>
                         <div class="slide">
                             <div class="activity-title">Dr.Mahesh Bhagwat IPS : Insightful Session on Serving the Nation</div>
-                            <img src="images\Dr.Mahesh%20Bhagwat%20IPS%20(14).jpeg" alt="Dr. Mahesh Bhagwat Session" class="slide-image">
+                            <img src="images/Dr.Mahesh%20Bhagwat%20IPS%20(14).jpeg" alt="Dr. Mahesh Bhagwat Session" class="slide-image">
                             <div class="slide-text">
                                 <div class="dept-name">Opportunities for Engineers in Civil Services</div>
                             </div>
                         </div>
                         <div class="slide">
                             <div class="activity-title">Dr.Mahesh Bhagwat IPS : Insightful Session on Serving the Nation</div>
-                            <img src="images\Dr.Mahesh%20Bhagwat%20IPS%20(16).jpeg" alt="Dr. Mahesh Bhagwat Session" class="slide-image">
+                            <img src="images/Dr.Mahesh%20Bhagwat%20IPS%20(16).jpeg" alt="Dr. Mahesh Bhagwat Session" class="slide-image">
                             <div class="slide-text">
                                 <div class="dept-name">Opportunities for Engineers in Civil Services</div>
                             </div>
                         </div>
                         <div class="slide">
                             <div class="activity-title">Dr.Mahesh Bhagwat IPS : Insightful Session on Serving the Nation</div>
-                            <img src="images\Dr.Mahesh%20Bhagwat%20IPS%20(19).jpeg" alt="Dr. Mahesh Bhagwat Session" class="slide-image">
+                            <img src="images/Dr.Mahesh%20Bhagwat%20IPS%20(19).jpeg" alt="Dr. Mahesh Bhagwat Session" class="slide-image">
                             <div class="slide-text">
                                 <div class="dept-name">Opportunities for Engineers in Civil Services</div>
                             </div>
@@ -2031,6 +2232,80 @@
     <script src="js/main.js"></script>
     
     <script>
+        // Startup welcome page (visitor count sourced from the existing website views widget).
+        (function initStartupSplash() {
+            const overlay = document.getElementById('startupOverlay');
+            const countSlot = document.getElementById('startupCountSlot');
+            const sourceCounter = document.querySelector('.simple-counter');
+
+            if (!overlay || !countSlot || !sourceCounter) {
+                return;
+            }
+
+            document.body.classList.add('startup-lock');
+
+            let resolved = false;
+
+            function setCountContent(nodeOrText) {
+                countSlot.innerHTML = '';
+                if (typeof nodeOrText === 'string') {
+                    countSlot.textContent = nodeOrText;
+                } else {
+                    countSlot.appendChild(nodeOrText);
+                }
+                resolved = true;
+            }
+
+            function tryReadCountFromWidget() {
+                const counterImage = sourceCounter.querySelector('img');
+                if (counterImage && counterImage.src) {
+                    const imageClone = counterImage.cloneNode(true);
+                    imageClone.classList.add('startup-count-image');
+                    imageClone.alt = 'Website visitor count';
+                    setCountContent(imageClone);
+                    return true;
+                }
+
+                const text = sourceCounter.textContent || '';
+                const numberMatch = text.match(/(\d{1,3}(?:,\d{3})+|\d+)/);
+                if (numberMatch) {
+                    setCountContent(numberMatch[1]);
+                    return true;
+                }
+
+                return false;
+            }
+
+            tryReadCountFromWidget();
+
+            const observer = new MutationObserver(() => {
+                if (tryReadCountFromWidget()) {
+                    observer.disconnect();
+                }
+            });
+
+            observer.observe(sourceCounter, {
+                childList: true,
+                subtree: true,
+                characterData: true
+            });
+
+            const holdDuration = 4500;
+
+            window.setTimeout(() => {
+                observer.disconnect();
+                if (!resolved) {
+                    countSlot.textContent = '...';
+                }
+                overlay.classList.add('is-hidden');
+                document.body.classList.remove('startup-lock');
+            }, holdDuration);
+
+            window.setTimeout(() => {
+                overlay.remove();
+            }, holdDuration + 900);
+        })();
+
         // Section navigation active state
         const sectionNavBtns = document.querySelectorAll('.section-nav-btn');
         const sections = {
