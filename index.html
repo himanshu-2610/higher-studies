@@ -1625,6 +1625,200 @@
             }
         }
 
+        /* Highlight poster tab */
+        .highlight-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 9997;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+            background: radial-gradient(circle at 20% 20%, rgba(39, 195, 230, 0.2), transparent 45%),
+                radial-gradient(circle at 80% 80%, rgba(242, 195, 0, 0.2), transparent 45%),
+                rgba(7, 24, 48, 0.82);
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.35s ease, visibility 0.35s ease;
+        }
+
+        .highlight-overlay.is-open {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .highlight-overlay-card {
+            width: min(780px, 94vw);
+            border-radius: 22px;
+            background: #ffffff;
+            border: 1px solid rgba(11, 59, 130, 0.18);
+            box-shadow: 0 28px 60px rgba(11, 59, 130, 0.35);
+            overflow: hidden;
+        }
+
+        .highlight-overlay-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 20px;
+            background: linear-gradient(135deg, rgba(11, 59, 130, 0.12), rgba(39, 195, 230, 0.12));
+        }
+
+        .highlight-overlay-title {
+            margin: 0;
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #0b3b82;
+        }
+
+        .highlight-overlay-close {
+            border: none;
+            background: transparent;
+            color: #0b3b82;
+            font-size: 1.2rem;
+            cursor: pointer;
+        }
+
+        .highlight-overlay-body {
+            padding: 22px;
+            display: grid;
+            gap: 12px;
+        }
+
+        .highlight-overlay-body .highlight-image {
+            max-height: 520px;
+        }
+
+        .highlight-widget {
+            position: fixed;
+            left: 18px;
+            bottom: 18px;
+            z-index: 9998;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 10px;
+            pointer-events: none;
+        }
+
+        .highlight-tab {
+            pointer-events: auto;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 16px;
+            border-radius: 999px;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            background: linear-gradient(135deg, rgba(11, 59, 130, 0.95), rgba(39, 195, 230, 0.95));
+            color: #ffffff;
+            font-weight: 600;
+            font-size: 0.95rem;
+            box-shadow: 0 10px 25px rgba(11, 59, 130, 0.25);
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .highlight-tab i {
+            color: #ffd24d;
+        }
+
+        .highlight-tab:hover {
+            transform: translateY(-2px) scale(1.02);
+            box-shadow: 0 12px 30px rgba(11, 59, 130, 0.35);
+        }
+
+        .highlight-panel {
+            pointer-events: auto;
+            width: min(360px, 92vw);
+            border-radius: 18px;
+            background: #ffffff;
+            border: 1px solid rgba(11, 59, 130, 0.12);
+            box-shadow: 0 18px 40px rgba(11, 59, 130, 0.2);
+            overflow: hidden;
+            transform: translateY(10px);
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+        }
+
+        .highlight-panel.is-open {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .highlight-panel-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 16px;
+            background: linear-gradient(135deg, rgba(11, 59, 130, 0.08), rgba(39, 195, 230, 0.08));
+        }
+
+        .highlight-panel-title {
+            margin: 0;
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: #0b3b82;
+        }
+
+        .highlight-close {
+            border: none;
+            background: transparent;
+            color: #0b3b82;
+            font-size: 1.1rem;
+            cursor: pointer;
+        }
+
+        .highlight-content {
+            padding: 16px;
+            display: grid;
+            gap: 10px;
+        }
+
+        .highlight-eyebrow {
+            margin: 0;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 1.6px;
+            text-transform: uppercase;
+            color: rgba(11, 59, 130, 0.7);
+        }
+
+        .highlight-headline {
+            margin: 0;
+            font-size: 1.1rem;
+            font-weight: 800;
+            color: #0b3b82;
+        }
+
+        .highlight-text {
+            margin: 0;
+            font-size: 0.9rem;
+            color: #425466;
+            line-height: 1.6;
+        }
+
+        .highlight-image {
+            width: 100%;
+            border-radius: 12px;
+            border: 1px solid rgba(11, 59, 130, 0.12);
+            object-fit: contain;
+            height: auto;
+            background: #f8fbff;
+        }
+
+        @media (max-width: 768px) {
+            .highlight-widget {
+                left: 12px;
+                bottom: 12px;
+            }
+
+            .highlight-panel {
+                width: min(320px, 92vw);
+            }
+        }
+
     </style>
 </head>
 <body>
@@ -2228,6 +2422,46 @@
             All rights reserved | <a href="designers.html" target="_blank" style="color:rgba(255,255,255,0.78); text-decoration:none;">Designed by The Department of Computer Science &amp; Engineering (Artificial Intelligence and Machine Learning) PCCOE</a>
         </div>
     </footer>
+
+    <!-- Highlight poster overlay -->
+    <div class="highlight-overlay" id="highlightOverlay" aria-hidden="true">
+        <div class="highlight-overlay-card" role="dialog" aria-modal="true">
+            <div class="highlight-overlay-header">
+                <p class="highlight-overlay-title">Highlight</p>
+                <button class="highlight-overlay-close" id="highlightOverlayClose" type="button" aria-label="Close highlight poster">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="highlight-overlay-body">
+                <p class="highlight-eyebrow">New</p>
+                <h3 class="highlight-headline">Beyond Border</h3>
+                <p class="highlight-text">Building a career through international education</p>
+                <img class="highlight-image" src="images/highlight1.jpeg" alt="Session">
+            </div>
+        </div>
+    </div>
+
+    <!-- Highlight poster widget -->
+    <div class="highlight-widget" aria-live="polite">
+        <div class="highlight-panel" id="highlightPanel" aria-hidden="true">
+            <div class="highlight-panel-header">
+                <p class="highlight-panel-title">Highlight</p>
+                <button class="highlight-close" id="highlightClose" type="button" aria-label="Close highlight">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="highlight-content">
+                <p class="highlight-eyebrow">New</p>
+                <h3 class="highlight-headline">Beyond Border</h3>
+                <p class="highlight-text">Building a career through international education</p>
+                <img class="highlight-image" src="images\highlight1.jpeg" alt="Session">
+            </div>
+        </div>
+        <button class="highlight-tab" id="highlightTab" type="button" aria-expanded="false">
+            <i class="fas fa-bolt"></i>
+            <span>Highlights</span>
+        </button>
+    </div>
     
     <script src="js/main.js"></script>
     
@@ -2299,12 +2533,92 @@
                 }
                 overlay.classList.add('is-hidden');
                 document.body.classList.remove('startup-lock');
+                document.dispatchEvent(new Event('startup:splashHidden'));
             }, holdDuration);
 
             window.setTimeout(() => {
                 overlay.remove();
             }, holdDuration + 900);
         })();
+
+        // Highlight poster behavior
+        const highlightTab = document.getElementById('highlightTab');
+        const highlightPanel = document.getElementById('highlightPanel');
+        const highlightClose = document.getElementById('highlightClose');
+        const highlightOverlay = document.getElementById('highlightOverlay');
+        const highlightOverlayClose = document.getElementById('highlightOverlayClose');
+        let highlightAutoCollapse;
+        let highlightAutoShown = false;
+
+        function openHighlightOverlay() {
+            if (!highlightOverlay) return;
+            highlightOverlay.classList.add('is-open');
+            highlightOverlay.setAttribute('aria-hidden', 'false');
+        }
+
+        function closeHighlightOverlay() {
+            if (!highlightOverlay) return;
+            highlightOverlay.classList.remove('is-open');
+            highlightOverlay.setAttribute('aria-hidden', 'true');
+        }
+
+        function openHighlight(autoCollapse) {
+            if (!highlightPanel || !highlightTab) return;
+            highlightPanel.classList.add('is-open');
+            highlightPanel.setAttribute('aria-hidden', 'false');
+            highlightTab.setAttribute('aria-expanded', 'true');
+
+            if (autoCollapse) {
+                clearTimeout(highlightAutoCollapse);
+                highlightAutoCollapse = window.setTimeout(() => {
+                    closeHighlight();
+                }, 3000);
+            }
+        }
+
+        function closeHighlight() {
+            if (!highlightPanel || !highlightTab) return;
+            highlightPanel.classList.remove('is-open');
+            highlightPanel.setAttribute('aria-hidden', 'true');
+            highlightTab.setAttribute('aria-expanded', 'false');
+        }
+
+        if (highlightTab) {
+            highlightTab.addEventListener('click', () => {
+                if (highlightPanel && highlightPanel.classList.contains('is-open')) {
+                    closeHighlight();
+                } else {
+                    openHighlight(false);
+                }
+            });
+        }
+
+        if (highlightClose) {
+            highlightClose.addEventListener('click', closeHighlight);
+        }
+
+        if (highlightOverlay) {
+            highlightOverlay.addEventListener('click', (event) => {
+                if (event.target === highlightOverlay) {
+                    closeHighlightOverlay();
+                }
+            });
+        }
+
+        if (highlightOverlayClose) {
+            highlightOverlayClose.addEventListener('click', closeHighlightOverlay);
+        }
+
+        document.addEventListener('startup:splashHidden', () => {
+            if (highlightAutoShown) return;
+            highlightAutoShown = true;
+            openHighlightOverlay();
+            clearTimeout(highlightAutoCollapse);
+            highlightAutoCollapse = window.setTimeout(() => {
+                closeHighlightOverlay();
+                closeHighlight();
+            }, 3000);
+        });
 
         // Section navigation active state
         const sectionNavBtns = document.querySelectorAll('.section-nav-btn');
