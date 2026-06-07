@@ -377,6 +377,7 @@ const regularAlumni = [
 { name: 'Tushar Sadanand Alande', department: 'Electronics and Telecommunication Engineering', year: '2025', photo: 'images/default-avatar.jpg', description: 'M.Tech Automotive Electronics, Vellore Institute of Technology Vellore (NIRF 2025 Rank 16)' },
 { name: 'Janhavi Chati', department: 'Electronics and Telecommunication Engineering', year: '2025', photo: 'images/default-avatar.jpg', description: 'MSc Electronics Engineering, University of Southampton, England' },
 { name: 'Parth Jayant More', department: 'Electronics and Telecommunication Engineering', year: '2023', photo: 'images/default-avatar.jpg', description: "MS Internet of Things, Northeastern University" },
+{ name: 'Naina Saxena', department: 'Sub Lieutenant ,Posting not confirmed yet as got commisioned on 28th May 2026.' }
 ];
 
 
