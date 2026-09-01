@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,9 +10,15 @@
     <link rel="stylesheet" href="css/styles.css">
     <style>
         @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
         }
+
         .controls-bar {
             background: linear-gradient(135deg, #ffffff 0%, #f8fbff 100%);
             padding: 20px 30px;
@@ -25,6 +32,7 @@
             justify-content: space-between;
             border: 1px solid rgba(41, 128, 185, 0.1);
         }
+
         .back-btn {
             background: linear-gradient(135deg, #2980b9 0%, #0b3b82 100%);
             color: white;
@@ -41,28 +49,33 @@
             cursor: pointer;
             font-size: 0.95rem;
         }
+
         .back-btn:hover {
             background: linear-gradient(135deg, #0b3b82 0%, #2980b9 100%);
             transform: translateY(-3px) scale(1.02);
             box-shadow: 0 8px 20px rgba(11, 59, 130, 0.3);
             color: white;
         }
+
         .filters-containe {
             display: flex;
             align-items: center;
             gap: 25px;
             flex-wrap: wrap;
         }
+
         .filter-group {
             display: flex;
             align-items: center;
             gap: 10px;
         }
+
         .filter-group label {
             font-weight: 600;
             color: var(--primary-color);
             white-space: nowrap;
         }
+
         .filter-group select {
             padding: 10px 18px;
             border: 2px solid rgba(11, 59, 130, 0.2);
@@ -74,14 +87,17 @@
             min-width: 160px;
             transition: all 0.3s ease;
         }
+
         .filter-group select:hover {
             border-color: var(--secondary-color);
             box-shadow: 0 4px 12px rgba(41, 128, 185, 0.15);
         }
+
         .search-box {
             position: relative;
             min-width: 250px;
         }
+
         .search-box input {
             width: 100%;
             padding: 12px 45px 12px 18px;
@@ -92,11 +108,13 @@
             color: var(--text-color);
             transition: all 0.3s ease;
         }
+
         .search-box input:focus {
             outline: none;
             border-color: var(--secondary-color);
             box-shadow: 0 4px 12px rgba(41, 128, 185, 0.15);
         }
+
         .search-box i {
             position: absolute;
             right: 18px;
@@ -104,6 +122,7 @@
             transform: translateY(-50%);
             color: #2980b9;
         }
+
         .search-box .clear-search {
             position: absolute;
             right: 45px;
@@ -116,6 +135,7 @@
             font-size: 0.9rem;
             display: none;
         }
+
         .search-box .clear-search:hover {
             color: #e74c3c;
         }
@@ -125,24 +145,27 @@
             padding: 80px 30px;
             color: #888;
         }
+
         .coming-soon i {
             font-size: 56px;
             color: #ddd;
             margin-bottom: 20px;
             display: block;
         }
+
         .coming-soon h3 {
             color: var(--primary-color);
             margin-bottom: 12px;
             font-size: 1.4rem;
         }
+
         .coming-soon p {
             font-size: 1.05rem;
             max-width: 400px;
             margin: 0 auto;
             line-height: 1.6;
         }
-        
+
         /* Highlight search results */
         .highlight {
             background-color: #fff9c4;
@@ -151,27 +174,30 @@
             font-weight: 600;
             color: #0b3b82;
         }
-        
+
         .no-results {
             text-align: center;
             padding: 60px 20px;
             color: #666;
         }
+
         .no-results i {
             font-size: 48px;
             color: #ddd;
             margin-bottom: 20px;
             display: block;
         }
+
         .no-results h3 {
             color: var(--primary-color);
             margin-bottom: 10px;
             font-size: 1.3rem;
         }
+
         .no-results p {
             font-size: 1rem;
         }
-        
+
         /* Branch badge styling */
         .branch-badge {
             display: inline-block;
@@ -182,12 +208,36 @@
             margin-right: 8px;
             margin-bottom: 4px;
         }
-        .branch-badge.Civil { background-color: #e3f2fd; color: #1565c0; }
-        .branch-badge.IT { background-color: #f3e5f5; color: #7b1fa2; }
-        .branch-badge.Computer { background-color: #e8f5e8; color: #2e7d32; }
-        .branch-badge.Mechanical { background-color: #fff3e0; color: #ef6c00; }
-        .branch-badge.AIML { background-color: #fce4ec; color: #c2185b; }
-        .branch-badge.Computer (Regional) { background-color: #fce4ec; color: #c2185b; }
+
+        .branch-badge.Civil {
+            background-color: #e3f2fd;
+            color: #1565c0;
+        }
+
+        .branch-badge.IT {
+            background-color: #f3e5f5;
+            color: #7b1fa2;
+        }
+
+        .branch-badge.Computer {
+            background-color: #e8f5e8;
+            color: #2e7d32;
+        }
+
+        .branch-badge.Mechanical {
+            background-color: #fff3e0;
+            color: #ef6c00;
+        }
+
+        .branch-badge.AIML {
+            background-color: #fce4ec;
+            color: #c2185b;
+        }
+
+        .branch-badge.Computer (Regional) {
+            background-color: #fce4ec;
+            color: #c2185b;
+        }
 
         /* Responsive Styles */
         @media screen and (max-width: 768px) {
@@ -300,19 +350,21 @@
         }
     </style>
 </head>
+
 <body>
     <!-- Header -->
     <header class="top-header">
         <div class="header-container">
             <div class="header-center">
                 <div class="logo-group">
-                    <img src="images/PCCOE-Logo.png" alt="PCCOE" >
+                    <img src="images/PCCOE-Logo.png" alt="PCCOE">
                 </div>
                 <div class="header-text">
                     <h4>PIMPRI CHINCHWAD EDUCATIONAL TRUST's</h4>
                     <h1>PIMPRI CHINCHWAD COLLEGE OF ENGINEERING</h1>
                     <p class="subtitle">
-                        NBA Accredited | NAAC Accredited with 'A' Grade | An Autonomous Institute | AICTE Approved | ISO 21001:2018 Certified | Permanently Affiliated to SPPU, Pune
+                        NBA Accredited | NAAC Accredited with 'A' Grade | An Autonomous Institute | AICTE Approved | ISO
+                        21001:2018 Certified | Permanently Affiliated to SPPU, Pune
                     </p>
                 </div>
                 <div class="logo-group">
@@ -327,7 +379,8 @@
         <span class="updates-label">UPDATES</span>
         <div class="marquee-container">
             <div class="marquee-content">
-                📌 Opportunities through GATE Exam. <a href="https://gate2026.iitg.ac.in/opportunities.html" style="color: white; text-decoration: underline;">Click Here</a>
+                📌 Opportunities through GATE Exam. <a href="https://gate2026.iitg.ac.in/opportunities.html"
+                    style="color: white; text-decoration: underline;">Click Here</a>
             </div>
         </div>
     </div>
@@ -432,7 +485,9 @@
     <footer class="footer">
         <div class="footer-bottom">
             © 2025 Higher Education and Competitive Exam Cell (विजिगीषा), PCCOE.<br>
-            All rights reserved | <a href="designers.html" target="_blank" style="color:rgba(255,255,255,0.78); text-decoration:none;">Designed by The Department of Computer Science &amp; Engineering (Artificial Intelligence and Machine Learning) PCCOE</a>
+            All rights reserved | <a href="designers.html" target="_blank"
+                style="color:rgba(255,255,255,0.78); text-decoration:none;">Designed by The Department of Computer
+                Science &amp; Engineering (Artificial Intelligence and Machine Learning) PCCOE</a>
         </div>
     </footer>
 
@@ -444,60 +499,64 @@
                 icon: 'fa-laptop-code',
                 isAppliedScience: false,
                 students: [
-                    { sr: 1, name: 'Ayush Patil', prn: '123B1B215', class: 'TY' },
-                    { sr: 2, name: 'Swayam Laxminarayan Mandhani', prn: '123B1B184', class: 'TY' },
-                    { sr: 3, name: 'Ishani Soundankar', prn: '123B1B044', class: 'TY' },
-                    { sr: 4, name: 'Smera Satish Nimje', prn: '123B1B269', class: 'TY' },
-                    { sr: 5, name: 'Yash Ajay Sonje', prn: '123B1B271', class: 'TY' },
-                    { sr: 6, name: 'Keyura Satish Motegaonkar', prn: '123B5B293', class: 'TY' },
-                    { sr: 7, name: 'Vaibhav Pattanshetti', prn: '123B1B227', class: 'TY' },
-                    { sr: 8, name: 'Trushita Sathe', prn: '124B2B024', class: 'TY' },
-                    { sr: 9, name: 'Shantanu Raju Mali', prn: '123B1B183', class: 'TY' },
-                    { sr: 10, name: 'Yash Mahajan', prn: '123B1B289', class: 'TY' },
-                ]
+                    { sr: 1, name: 'Kareena Jahagirdar', prn: '123B1B048', class: 'B.Tech' },
+                    { sr: 2, name: 'Ishani Soundankar', prn: '123B1B044', class: 'B.Tech' },
+                    { sr: 3, name: 'Yashkumar Rathod', prn: '123B1B245', class: 'B.Tech' },
+                    { sr: 4, name: 'Aakash Jawle', prn: '123B1B046', class: 'B.Tech' },
+                    { sr: 5, name: 'Vedant Patel', prn: '124B1B276', class: 'TY' },
+                    { sr: 6, name: 'Hrushikesh Santosh Jagtap', prn: '124B1B166', class: 'TY' },
+                    { sr: 7, name: 'Aryan Suresh Pawar', prn: '124B1B146', class: 'TY' },
+                    { sr: 8, name: 'Aditi Kale', prn: '124B1B164', class: 'TY' },
+                    { sr: 9, name: 'Omn Malghne', prn: '125B1B032', class: 'SY' },
+                    { sr: 10, name: 'Aashish Biradar', prn: '121B1B066', class: 'SY' },
+                    { sr: 11, name: 'Aditya Chavan', prn: '', class: 'SY' },
+                    { sr: 12, name: 'Suryadev Singh', prn: '', class: 'SY' },
+                    { sr: 13, name: 'Abhinav Ramakrishnan', prn: '125B1B355', class: 'SY' },
+                    { sr: 14, name: 'Krutika Ambekar', prn: '125B1B005', class: 'SY' },
+                    { sr: 15, name: 'Varad Patil', prn: '125B1B302', class: 'SY' },
+                    { sr: 16, name: 'Aditya Bhagat', prn: '', class: 'SY' },
+                    { sr: 17, name: 'Kimaya Suryawanshi', prn: '125B1B013', class: 'SY' },
+                    { sr: 18, name: 'Aryan Chavan', prn: '125B1B038', class: 'SY' },
+                    { sr: 19, name: 'Suryadev Singh', prn: '', class: 'SY' },
+                    { sr: 20, name: 'Khushi Sakharam Borse', prn: '125B1B084', class: 'SY' },
+                ],
             },
             'comp-regional': {
                 name: 'Computer Engineering Regional',
                 icon: 'fa-globe',
                 isAppliedScience: false,
                 students: [
-                    { sr: 1, name: 'Nihar Salvi', prn: '123B1D062', class: 'TY' },
-                    { sr: 2, name: 'More Pallavi Raju', prn: '124B2D005', class: 'TY' },
-                    { sr: 3, name: 'Suhani Thakare', prn: '123B1D066', class: 'TY' },
-                    { sr: 4, name: 'Atharv Zope', prn: '123B1D067', class: 'TY' },
-                    { sr: 5, name: 'Onkar Chand', prn: '123B1D058', class: 'TY' },
-                    { sr: 6, name: 'Pratik Ghavate', prn: '123B1D019', class: 'TY' },
-                    { sr: 7, name: 'Samir Babar', prn: '123B1D007', class: 'TY' }, 
-                    { sr: 8, name: 'Digraskar Kartik Pravin', prn: '124B1D075', class: 'SY' },
-                    { sr: 9, name: 'Kalyani Hage', prn: '124B1D005', class: 'SY' },
-                    { sr: 10, name: 'Prachi Paunikar', prn: '124B1D004', class: 'SY' },            
-                ]
+                    { sr: 1, name: 'Digvijay Gund', prn: '123B1D020', class: 'B.Tech' },
+                    { sr: 2, name: 'Pritesh Pandharinath Bagul', prn: '123B1D038', class: 'B.Tech' },
+                    { sr: 3, name: 'Sarthak Bagde', prn: '123B1D044', class: 'B.Tech' },
+                    { sr: 4, name: 'Shubham Umap', prn: '124B1D084', class: 'TY' },
+                    { sr: 5, name: 'Piyush Jamadade', prn: '124B1D082', class: 'TY' },
+                    { sr: 6, name: 'Prathamesh Paresh Gangele', prn: '124B1D081', class: 'TY' },
+                    { sr: 7, name: 'Pranay Mahendra Pemare', prn: '125B1D020', class: 'SY' },
+                    { sr: 8, name: 'Siddhi Sachin Shinde', prn: '125B1D059', class: 'SY' },
+                ],
             },
             'it': {
                 name: 'Information Technology',
                 icon: 'fa-network-wired',
                 isAppliedScience: false,
-                students: 
-                [
-                    { sr: 1, name: 'Kshitija Ahire', prn: '123B1F107', class: 'TY' },
-                    { sr: 2, name: 'Bhagyesh Mali', prn: '123B1F114', class: 'TY' },
-                    { sr: 3, name: 'Kshitija Ahire', prn: '123B1F107', class: 'TY' },
-                    { sr: 4, name: 'Sharwari Vijay Kathole', prn: '123B1F113', class: 'TY' },
-                    { sr: 5, name: 'Parth Jadhav', prn: '123B1F034', class: 'TY' },
-                    { sr: 6, name: 'Kartik Ware', prn: '123B1F104', class: 'TY' },
-                    { sr: 7, name: 'Kshitija Ahire', prn: '123B1F107', class: 'TY' },
-                    { sr: 8, name: 'Ekta Bandal', prn: '124B1F079', class: 'SY' },
-                    { sr: 9, name: 'Ojas Barhate', prn: '124B1F143', class: 'SY' },
-                    { sr: 10, name: 'Reeya Patidar', prn: '124B1F132', class: 'SY' },
-                    { sr: 11, name: 'Aryan Suryavanshi', prn: '124B1F054', class: 'SY' },
-                ]
+                students: [
+                    { sr: 1, name: 'Abiral Subedi', prn: '124B1F136', class: 'TY' },
+                    { sr: 2, name: 'Shruti Santosh Mane', prn: '124B1F083', class: 'TY' },
+                    { sr: 3, name: 'Balaji Vaijanath Damkond', prn: '125B1F041', class: 'SY' },
+                    { sr: 4, name: 'Aayush Anil Pradhan', prn: '125B1F050', class: 'SY' },
+                    { sr: 5, name: 'Saish Ashok Nimbalkar', prn: '125B1F266', class: 'SY' },
+                    { sr: 6, name: 'Vedika Gundo', prn: '125B1F011', class: 'SY' },
+                    { sr: 7, name: 'Siddharth Atul Kabade', prn: '125B1F134', class: 'SY' },
+                    { sr: 8, name: 'Samruddhi Magar', prn: '125B1F242', class: 'SY' },
+                ],
             },
             'mech': {
                 name: 'Mechanical Engineering',
                 icon: 'fa-cogs',
                 isAppliedScience: false,
                 students:
-                    [   
+                    [
                         { sr: 1, name: 'Harsh Mahesh Mane', prn: '122B1G108', class: 'B.Tech' },
                         { sr: 2, name: 'Poorva Pathak', prn: '123B1G161', class: 'TY' },
                         { sr: 3, name: 'Ninad Ashish Bawkar', prn: '123B1G159', class: 'TY' },
@@ -518,102 +577,98 @@
                 name: 'Electronics and Telecommunication Engineering',
                 icon: 'fa-microchip',
                 isAppliedScience: false,
-                students: 
-                [
-                    { sr: 1, name: 'Ritesh Prashant Ninhal', prn: '122B1E121', class: 'B.Tech'  },
-                    { sr: 2, name: 'Vedant Nandedkar', prn: 'BTETB117', class: 'B.Tech'  },
-                    { sr: 3, name: 'Pranav Kantilal Paithankar', prn: '123B1E080', class: 'TY'  },
-                    { sr: 4, name: 'Prathamesh Prashant Vaichal', prn: '122B1E190', class: 'TY'  },
-                    { sr: 5, name: 'Kaushik Prasad Kakade', prn: '123B1E169', class: 'TY'  },
-                    { sr: 6, name: 'Divyanka Bapu Mane', prn: '123B2E223', class: 'TY'  },
-                    { sr: 7, name: 'Arshad Nakade', prn: '124B1E025', class: 'TY'  },
-                    { sr: 8, name: 'Shubhang Shrikant Gandhi', prn: '123B1E104', class: 'TY'  },
-                    { sr: 9, name: 'Vaman Laxman Rathod', prn: '123B1E092', class: 'TY' },
-                    { sr: 10, name: 'Atharv Bavadekar', prn: '124B1E200', class: 'SY'  },
-                    { sr: 11, name: 'Yogiraj Dnyaneshwar Khedekar', prn: '124B1E109', class: 'SY'  },
-                    { sr: 12, name: 'Vedika Vilas Dalvi', prn: '124B1E071', class: 'SY'  },
-                    { sr: 13, name: 'Siddhesh Vilas Ingle', prn: '124B1E039', class: 'SY'  },
-                    { sr: 14, name: 'Ayush Prasad', prn: '124B1E231', class: 'SY'  },
-                    { sr: 15, name: 'Omkar Kisan Katkade', prn: '124B1E176', class: 'SY'  },
-                    { sr: 16, name: 'Maharshi Nishant Gandhi', prn: '124B1E209', class: 'SY'  },
-                    { sr: 17, name: 'Rohan Santosh Jagtap', prn: '124B1E049', class: 'SY'  },
-                    { sr: 18, name: 'Anushka Ashish Kalantre', prn: '124B1E148', class: 'SY'  },
-                    { sr: 19, name: 'Prasenjit Bahatre', prn: '124B1E180', class: 'SY' },
-                    { sr: 20, name: 'Rajvardhan Sanjay Dale', prn: '124B1E197', class: 'SY' },
-                    { sr: 21, name: 'Bhakti Rameshwar Kalyane', prn: '124B1E158', class: 'SY' },
-                    { sr: 22, name: 'Vinayak Shriram Bhujbal', prn: '124B1E116', class: 'SY' },
-                    { sr: 23, name: 'Palak Gupta', prn: '124B1E038', class: 'SY' },
-
-                ]
+                students:
+                    [
+                        { sr: 1, name: 'Sahil Narkhede', prn: '123B1E076', class: 'B.Tech' },
+                        { sr: 2, name: 'Sakshi Rajesaheb Sarawade', prn: '124B1E097', class: 'B.Tech' },
+                        { sr: 3, name: 'Lipate Ritik Ravindra', prn: '123B1E128', class: 'B.Tech' },
+                        { sr: 4, name: 'Saste Amruta Sachin', prn: '123B1E098', class: 'B.Tech' },
+                        { sr: 5, name: 'Peshwe Ayush Sandeep', prn: '123B1E087', class: 'B.Tech' },
+                        { sr: 6, name: 'Gargi Abhimanyu Patil', prn: '124B1E156', class: 'TY' },
+                        { sr: 7, name: 'Ghorpade Shubham Sunil', prn: '124B1E035', class: 'TY' },
+                        { sr: 8, name: 'Gawande Raosaheb Rohan', prn: '125B2E019', class: 'TY' },
+                        { sr: 9, name: 'Mundaware Atharv Raju', prn: '124B1E179', class: 'TY' },
+                        { sr: 10, name: 'Aaryan Sachin Nerkar', prn: '124B1E047', class: 'TY' },
+                        { sr: 11, name: 'Bade Atharv Ajinath', prn: '125B1E046', class: 'SY' },
+                        { sr: 12, name: 'Swami Janhavi Viresh', prn: '125B1E160', class: 'SY' },
+                        { sr: 13, name: 'Mansvi Dhananjay Abhonkar', prn: '125B1E211', class: 'SY' },
+                        { sr: 14, name: 'Arshad Mubarak Nakade', prn: '124B1E025', class: 'SY' },
+                        { sr: 15, name: 'Bahatre Prasenjit', prn: '124B1E180', class: 'SY' },
+                        { sr: 16, name: 'Mungase Sarthak Jaysing', prn: '125B1E038', class: 'SY' },
+                        { sr: 17, name: 'Mirza Shuja', prn: '125B1E156', class: 'SY' },
+                        { sr: 18, name: 'Belekar Daksh', prn: '125B1E164', class: 'SY' },
+                        { sr: 19, name: 'Shruti Mahendrakar', prn: '125B1E246', class: 'SY' },
+                        { sr: 20, name: 'Kalantre Anushka Ashish', prn: '124B1E148', class: 'SY' },
+                        { sr: 21, name: 'Yugandhar Suryawanshi', prn: '125B1E198', class: 'SY' },
+                    ]
             },
             'civil': {
                 name: 'Civil Engineering',
                 icon: 'fa-building',
                 isAppliedScience: false,
-                students: 
-                [
-                    { sr: 1, name: 'Siddhant Patil', prn: '123B1A036', class: 'TY' },
-                    { sr: 2, name: 'Pratik Nimbhore', prn: '123B1A034', class: 'TY' },
-                    { sr: 3, name: 'Parthesh Sevalkar', prn: '123B1A044', class: 'TY' },
-                    { sr: 4, name: 'Siddhesh Shevkari', prn: '123B1A047', class: 'TY' },
-                    { sr: 5, name: 'Shambhuraj Katkar', prn: '123B1A026', class: 'TY' },
-                    { sr: 6, name: 'Snehal Ghongade', prn: '123B1A018', class: 'TY' },
-                    { sr: 7, name: 'Om Gole', prn: '123B1A021', class: 'TY' },
-                    { sr: 8, name: 'Anushree Nilkhan', prn: '124B2A010', class: 'TY' },
-                    { sr: 9, name: 'Siddhesh Gorle', prn: '124B2A001', class: 'TY' },
-                    { sr: 10, name: 'Varun Gojegaonkar', prn: '124B1A058', class: 'SY' },
-                    { sr: 11, name: 'Raj Patel', prn: '124B1A023', class: 'SY' },
-                    { sr: 12, name: 'Omkar Pachore', prn: '124B1A033', class: 'SY' },
-                    { sr: 13, name: 'Mirza Aqib', prn: '124B1A012', class: 'SY' },
-                    { sr: 14, name: 'Vishwad Sathe', prn: '124B1A014', class: 'SY' },
-                    { sr: 15, name: 'Omkar Gaikwad', prn: '125B1A006', class: 'SY' },
-                ]
+                students:
+                    [
+                        { sr: 1, name: 'Siddhant Patil', prn: '123B1A036', class: 'TY' },
+                        { sr: 2, name: 'Pratik Nimbhore', prn: '123B1A034', class: 'TY' },
+                        { sr: 3, name: 'Parthesh Sevalkar', prn: '123B1A044', class: 'TY' },
+                        { sr: 4, name: 'Siddhesh Shevkari', prn: '123B1A047', class: 'TY' },
+                        { sr: 5, name: 'Shambhuraj Katkar', prn: '123B1A026', class: 'TY' },
+                        { sr: 6, name: 'Snehal Ghongade', prn: '123B1A018', class: 'TY' },
+                        { sr: 7, name: 'Om Gole', prn: '123B1A021', class: 'TY' },
+                        { sr: 8, name: 'Anushree Nilkhan', prn: '124B2A010', class: 'TY' },
+                        { sr: 9, name: 'Siddhesh Gorle', prn: '124B2A001', class: 'TY' },
+                        { sr: 10, name: 'Varun Gojegaonkar', prn: '124B1A058', class: 'SY' },
+                        { sr: 11, name: 'Raj Patel', prn: '124B1A023', class: 'SY' },
+                        { sr: 12, name: 'Omkar Pachore', prn: '124B1A033', class: 'SY' },
+                        { sr: 13, name: 'Mirza Aqib', prn: '124B1A012', class: 'SY' },
+                        { sr: 14, name: 'Vishwad Sathe', prn: '124B1A014', class: 'SY' },
+                        { sr: 15, name: 'Omkar Gaikwad', prn: '125B1A006', class: 'SY' },
+                    ]
 
             },
             'aiml': {
                 name: 'Computer Science and Engineering (AI & ML)',
                 icon: 'fa-brain',
                 isAppliedScience: false,
-                students: 
-                [
-                    { sr: 1, name: 'Himanshu Dhakad', prn: '123B1C012', class: 'TY' },
-                    { sr: 2, name: 'Abhay Patil', prn: '123B1C026', class: 'TY' },
-                    { sr: 3, name: 'Aniket Shinde', prn: '123B1C038', class: 'TY' },
-                    { sr: 4, name: 'Mahesh Muke', prn: '123B1C022', class: 'TY' },
-                    { sr: 5, name: 'Yash Patil', prn: '123B1C030', class: 'TY' },
-                    { sr: 6, name: 'Aditya Pol', prn: '123B1C034', class: 'TY' },
-                    { sr: 7, name: 'Om Deshmukh', prn: '123B1C004', class: 'TY' },
-                    { sr: 8, name: 'Abhay Ingle', prn: '124B2C010', class: 'TY' },
-                    { sr: 9, name: 'Anushka Shinde', prn: '124B1C178', class: 'SY' },
-                    { sr: 10, name: 'Chirag Ferwani', prn: '124B1C001', class: 'SY' },
-                    { sr: 11, name: 'Aarya Dhumal', prn: '124B1C040', class: 'SY' },
-                    { sr: 12, name: 'Tejaswini Burkulr', prn: '124B1C010', class: 'SY' },
-                    { sr: 13, name: 'Shruti Konkatwar', prn: '124B1C033', class: 'SY' },
-                    { sr: 14, name: 'Swara Pratapwar', prn: '124B1C149', class: 'SY' },
-                    { sr: 15, name: 'Samruddhi Divekar', prn: '124B1C146', class: 'SY' },
-                    { sr:16, name: 'Jatin Patil', prn: '124B1C103', class: 'SY' },
-                    { sr:17, name: 'Satyarth Suryawanshi', prn: '124B1C121', class: 'SY' },
-                    { sr:18, name: 'Hari Chaudhari', prn: '124B1C102', class: 'SY' },
-
-                ]
+                students: [
+                    { sr: 1, name: 'Aarva Dhumal', prn: '124B1C040', class: 'TY' },
+                    { sr: 2, name: 'Harshil Biyani', prn: '124B1C072', class: 'TY' },
+                    { sr: 3, name: 'Harsh Lal', prn: '124B1C163', class: 'TY' },
+                    { sr: 4, name: 'Meet Shah', prn: '124B1C057', class: 'TY' },
+                    { sr: 5, name: 'Kshitij Jadhav', prn: '124B1C034', class: 'TY' },
+                    { sr: 6, name: 'Anushka Shinde', prn: '124B1C178', class: 'TY' },
+                    { sr: 7, name: 'Diksha Ithape', prn: '125B1C171', class: 'SY' },
+                    { sr: 8, name: 'Akshay Keshav Salunkhe', prn: '125B1C128', class: 'SY' },
+                    { sr: 9, name: 'Geetish Koul', prn: '125B1C047', class: 'SY' },
+                    { sr: 10, name: 'Shubhang Dom', prn: '125B1C037', class: 'SY' },
+                    { sr: 11, name: 'Atharv Jagdish Khade', prn: '125B1C034', class: 'SY' },
+                    { sr: 12, name: 'Tanmay Bhaskar Awad', prn: '125B1C116', class: 'SY' },
+                    { sr: 13, name: 'Prashant Khairgav', prn: '125B1C108', class: 'SY' },
+                    { sr: 14, name: 'Prakash Bk', prn: '125B1C184', class: 'SY' },
+                    { sr: 15, name: 'Parth Sawdekar', prn: '125B1C050', class: 'SY' },
+                    { sr: 16, name: 'Abheer Dhanani', prn: '125B1C111', class: 'SY' },
+                    { sr: 17, name: 'Harshita Anand', prn: '125B1C146', class: 'SY' },
+                    { sr: 18, name: 'Siya Samir Agrawal', prn: '125B1C103', class: 'SY' },
+                    { sr: 19, name: 'Rohan Khulge', prn: '125B1C099', class: 'SY' },
+                ],
             },
             'applied-science': {
                 name: 'Applied Science & Humanities',
                 icon: 'fa-flask',
                 isAppliedScience: true,
-                students: 
-                [
-                    { sr: 1, name: 'Riya Nitin Jamadade', prn: '125B1G129', class: 'C'},
-                    { sr: 2, name: 'Shraddha Awdhesh Pandey', prn: '125B1G155', class: 'C'},
-                    { sr: 3, name: 'Sana Alam Shaikh', prn: '125B1G133', class: 'C'},
-                    { sr: 4, name: 'Atharva Sagar Kharade', prn: '125B1E012', class: 'D'},
-                    { sr: 5, name: 'Mansvi Dhananjay Abhonkar', prn: '125B1E211', class: 'F'},
-                    { sr: 6, name: 'Abheer Kamlesh Dhanani', prn: '125B1C111', class: 'H'},
-                    { sr: 7, name: 'Ashlesha Vyankatrao Salunke', prn: '125B1A031', class: 'I' },
-                    { sr: 8, name: 'Sneha Vikas Vibhute', prn: '125B1B268', class: 'M'},
-                    { sr: 9, name: 'Rishabh Mahesh Prabhu', prn: '125B1F263', class: 'O'},
-                    { sr: 10, name: 'Balaji Vaijanath Damkondwar', prn: '125B1F041', class: 'O' },
-                ]
+                students:
+                    [
+                        { sr: 1, name: 'Riya Nitin Jamadade', prn: '125B1G129', class: 'C' },
+                        { sr: 2, name: 'Shraddha Awdhesh Pandey', prn: '125B1G155', class: 'C' },
+                        { sr: 3, name: 'Sana Alam Shaikh', prn: '125B1G133', class: 'C' },
+                        { sr: 4, name: 'Atharva Sagar Kharade', prn: '125B1E012', class: 'D' },
+                        { sr: 5, name: 'Mansvi Dhananjay Abhonkar', prn: '125B1E211', class: 'F' },
+                        { sr: 6, name: 'Abheer Kamlesh Dhanani', prn: '125B1C111', class: 'H' },
+                        { sr: 7, name: 'Ashlesha Vyankatrao Salunke', prn: '125B1A031', class: 'I' },
+                        { sr: 8, name: 'Sneha Vikas Vibhute', prn: '125B1B268', class: 'M' },
+                        { sr: 9, name: 'Rishabh Mahesh Prabhu', prn: '125B1F263', class: 'O' },
+                        { sr: 10, name: 'Balaji Vaijanath Damkondwar', prn: '125B1F041', class: 'O' },
+                    ]
             }
         };
 
@@ -628,14 +683,14 @@
 
         function highlightText(text, searchTerm) {
             if (!searchTerm) return text;
-            
+
             const regex = new RegExp(`(${searchTerm.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi');
             return text.replace(regex, '<span class="highlight">$1</span>');
         }
 
         function renderStudents(students, searchTerm = '', showBranch = false) {
             const container = document.getElementById('studentListContainer');
-            
+
             if (students.length === 0) {
                 const dept = departmentData[deptId];
                 if (dept.students.length === 0) {
@@ -655,7 +710,7 @@
                 }
                 return;
             }
-            
+
             container.innerHTML = `
                 <table class="students-table">
                     <thead>
@@ -683,22 +738,22 @@
             // Get all students for the current department
             const dept = departmentData[deptId];
             if (!dept) return;
-            
+
             const departmentStudents = dept.students;
-            
+
             // Extract unique classes and sort them
             const classes = [...new Set(departmentStudents.map(s => s.class.trim()))].sort();
-            
+
             // Get the dropdown
             const classFilter = document.getElementById('classFilter');
-            
+
             // Keep the "All Classes" option
             const allClassesOption = classFilter.querySelector('option[value=""]');
-            
+
             // Clear all options except "All Classes"
             classFilter.innerHTML = '';
             classFilter.appendChild(allClassesOption.cloneNode(true));
-            
+
             // Add class options
             classes.forEach(cls => {
                 const option = document.createElement('option');
@@ -715,30 +770,30 @@
             const classVal = document.getElementById('classFilter').value.trim();
             const searchVal = document.getElementById('searchInput').value.trim().toLowerCase();
             const clearSearchBtn = document.getElementById('clearSearch');
-            
+
             // Show/hide clear button
             clearSearchBtn.style.display = searchVal ? 'block' : 'none';
 
             let filtered = dept.students;
-            
+
             // Apply class filter
             if (classVal) {
                 filtered = filtered.filter(s => s.class.trim() === classVal);
             }
-            
+
             // Apply search filter
             if (searchVal) {
-                filtered = filtered.filter(s => 
-                    s.name.toLowerCase().includes(searchVal) || 
+                filtered = filtered.filter(s =>
+                    s.name.toLowerCase().includes(searchVal) ||
                     s.prn.toLowerCase().includes(searchVal) ||
                     (s.branch && s.branch.toLowerCase().includes(searchVal))
                 );
             }
-            
+
             renderStudents(filtered, searchVal, dept.isAppliedScience);
         }
 
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             if (!deptId || !departmentData[deptId]) {
                 window.location.href = 'student-coordinators.html';
                 return;
@@ -748,19 +803,19 @@
             document.getElementById('deptTitle').textContent = dept.name + ' - Student Coordinators';
             document.title = dept.name + ' - Student Coordinators | PCCOE';
 
-            
+
             // Populate class filter with available options
             populateClassFilter();
-            
+
             // Initialize filters
             filterAndRender();
 
             // Add event listeners
             document.getElementById('classFilter').addEventListener('change', filterAndRender);
             document.getElementById('searchInput').addEventListener('input', filterAndRender);
-            
+
             // Clear search button
-            document.getElementById('clearSearch').addEventListener('click', function() {
+            document.getElementById('clearSearch').addEventListener('click', function () {
                 document.getElementById('searchInput').value = '';
                 filterAndRender();
                 document.getElementById('searchInput').focus();
@@ -774,7 +829,7 @@
             });
 
             // Clear search on Escape key
-            document.addEventListener('keydown', function(e) {
+            document.addEventListener('keydown', function (e) {
                 if (e.key === 'Escape') {
                     const searchInput = document.getElementById('searchInput');
                     if (searchInput.value) {
@@ -786,4 +841,5 @@
         });
     </script>
 </body>
+
 </html>
